@@ -51,6 +51,12 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>axiom-weaver-annotations</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>com.fasterxml.woodstox</groupId>
             <artifactId>woodstox-core</artifactId>
         </dependency>
@@ -117,7 +123,7 @@
                                 <weavablePackage>org.apache.axiom.om.impl.mixin</weavablePackage>
                                 <weavablePackage>org.apache.axiom.soap.impl.mixin</weavablePackage>
                                 <weavablePackage>org.apache.axiom.dom.impl.mixin</weavablePackage>
-                                <!-- weavablePackage>org.apache.axiom.om.impl.llom.mixin</weavablePackage -->
+                                <weavablePackage>org.apache.axiom.om.impl.dom.mixin</weavablePackage>
                             </weavablePackages>
                             <interfaces>
                                 <interface>org.apache.axiom.om.impl.dom.intf.DOOMAttribute</interface>
