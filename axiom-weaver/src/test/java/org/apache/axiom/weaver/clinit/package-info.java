@@ -16,16 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.axiom.weaver.ctor;
-
-import org.apache.axiom.weaver.annotation.Mixin;
-
-@Mixin(Iface.class)
-public class IfaceMixin implements Iface {
-    private int value = -1;
-
-    @Override
-    public final int getValue() {
-        return value;
-    }
-}
+@org.apache.axiom.weaver.annotation.WeavablePackage(mixins={
+        IfaceMixin1.class,
+        IfaceMixin2.class,
+})
+package org.apache.axiom.weaver.clinit;

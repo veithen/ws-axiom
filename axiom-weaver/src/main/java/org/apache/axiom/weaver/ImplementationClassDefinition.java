@@ -62,8 +62,7 @@ final class ImplementationClassDefinition extends ClassDefinition {
         methods = methodMap.values().toArray(new MixinMethod[methodMap.size()]);
     }
 
-    void accept(ClassVisitor cv) {
-        cv.visit(version, access, className, null, superName, ifaceNames);
+    private void generateConstructor(ClassVisitor cv) {
         MethodVisitor mv = cv.visitMethod(
                 Opcodes.ACC_PUBLIC,
                 "<init>", "()V", null, null);
@@ -77,6 +76,38 @@ final class ImplementationClassDefinition extends ClassDefinition {
         mv.visitInsn(Opcodes.RETURN);
         mv.visitMaxs(1, 1);
         mv.visitEnd();
+    }
+
+    private void generateStaticInitializer(ClassVisitor cv) {
+        boolean needed = false;
+        for (Mixin mixin : mixins) {
+            if (mixin.getStaticInitializerMethodName() != null) {
+                needed = true;
+                break;
+            }
+        }
+        if (!needed) {
+            return;
+        }
+        MethodVisitor mv = cv.visitMethod(
+                Opcodes.ACC_PUBLIC | Opcodes.ACC_STATIC,
+                "<clinit>", "()V", null, null);
+        mv.visitCode();
+        for (Mixin mixin : mixins) {
+            String methodName = mixin.getStaticInitializerMethodName();
+            if (methodName != null) {
+                mv.visitMethodInsn(Opcodes.INVOKESTATIC, className, methodName, "()V", false);
+            }
+        }
+        mv.visitInsn(Opcodes.RETURN);
+        mv.visitMaxs(0, 0);
+        mv.visitEnd();
+    }
+
+    void accept(ClassVisitor cv) {
+        cv.visit(version, access, className, null, superName, ifaceNames);
+        generateConstructor(cv);
+        generateStaticInitializer(cv);
         for (Mixin mixin : mixins) {
             mixin.apply(className, cv);
         }

@@ -45,6 +45,7 @@ final class MixinClassVisitor extends ClassVisitor {
     private int weight;
     private final List<String> innerClassNames = new ArrayList<>();
     private MethodNode initMethod;
+    private MethodNode clinitMethod;
 
     MixinClassVisitor(ClassFetcher classFetcher) {
         super(Opcodes.ASM8);
@@ -103,6 +104,9 @@ final class MixinClassVisitor extends ClassVisitor {
             }
             initMethod = new MethodNode(Opcodes.ASM8, Opcodes.ACC_PRIVATE, "init$" + className.replace('/', '_'), descriptor, signature, exceptions);
             return new ConstructorToMethodConverter(initMethod);
+        } else if (name.equals("<clinit>")) {
+            clinitMethod = new MethodNode(Opcodes.ASM8, Opcodes.ACC_PRIVATE | Opcodes.ACC_STATIC, "clinit$" + className.replace('/', '_'), descriptor, signature, exceptions);
+            return clinitMethod;
         } else {
             MethodNode method = new MethodNode(Opcodes.ASM8, access, name, descriptor, signature, exceptions);
             methods.add(new MixinMethod(method));
@@ -124,6 +128,6 @@ final class MixinClassVisitor extends ClassVisitor {
             innerClasses.add(innerClass);
         }
         // TODO: include inner classes in the weight
-        return new Mixin(bytecodeVersion, className, targetInterface, addedInterfaces, fields, initMethod, methods, weight, innerClasses);
+        return new Mixin(bytecodeVersion, className, targetInterface, addedInterfaces, fields, initMethod, clinitMethod, methods, weight, innerClasses);
     }
 }

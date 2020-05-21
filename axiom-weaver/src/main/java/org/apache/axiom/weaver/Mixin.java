@@ -44,17 +44,19 @@ final class Mixin {
     private final Set<Class<?>> addedInterfaces;
     private final List<FieldNode> fields;
     private final MethodNode initMethod;
+    private final MethodNode clinitMethod;
     private final References<MixinMethod> methods = Relations.MIXIN_METHODS.newReferenceHolder(this);
     private final int weight;
     private final List<ClassNode> innerClasses;
 
-    Mixin(int bytecodeVersion, String className, Class<?> targetInterface, Set<Class<?>> addedInterfaces, List<FieldNode> fields, MethodNode initMethod, List<MixinMethod> methods, int weight, List<ClassNode> innerClasses) {
+    Mixin(int bytecodeVersion, String className, Class<?> targetInterface, Set<Class<?>> addedInterfaces, List<FieldNode> fields, MethodNode initMethod, MethodNode clinitMethod, List<MixinMethod> methods, int weight, List<ClassNode> innerClasses) {
         this.bytecodeVersion = bytecodeVersion;
         this.className = className;
         this.targetInterface = targetInterface;
         this.addedInterfaces = addedInterfaces;
         this.fields = fields;
         this.initMethod = initMethod;
+        this.clinitMethod = clinitMethod;
         this.methods.addAll(methods);
         this.weight = weight;
         this.innerClasses = innerClasses;
@@ -117,14 +119,22 @@ final class Mixin {
     }
 
     void apply(String targetClassName, ClassVisitor cv) {
+        cv = new ClassRemapper(cv, createRemapper(targetClassName));
         for (FieldNode field : fields) {
             field.accept(cv);
         }
-        initMethod.accept(new ClassRemapper(cv, createRemapper(targetClassName)));
+        initMethod.accept(cv);
+        if (clinitMethod != null) {
+            clinitMethod.accept(cv);
+        }
     }
 
     String getInitMethodName() {
         return initMethod.name;
+    }
+
+    String getStaticInitializerMethodName() {
+        return clinitMethod == null ? null : clinitMethod.name;
     }
 
     List<ClassDefinition> createInnerClassDefinitions(String targetClassName) {
