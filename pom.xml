@@ -222,6 +222,8 @@
         <module>aspects</module>
         <module>implementations</module>
         <module>components</module>
+        <module>axiom-weaver</module>
+        <module>axiom-weaver-annotations</module>
     </modules>
 
     <scm>
@@ -489,6 +491,21 @@
             <dependency>
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm</artifactId>
+                <version>8.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm-tree</artifactId>
+                <version>8.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm-util</artifactId>
+                <version>8.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm-commons</artifactId>
                 <version>8.0.1</version>
             </dependency>
             <dependency>
