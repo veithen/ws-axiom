@@ -27,6 +27,6 @@ DOOMNSAwareAttributeImpl
 DOOMNSAwareElementImpl
 DOOMNSUnawareAttributeImpl
 DOOMNSUnawareElementImpl
-DOOMSourcedElementImpl
 DOOMProcessingInstructionImpl
+DOOMSourcedElementImpl
 DOOMTextImpl
