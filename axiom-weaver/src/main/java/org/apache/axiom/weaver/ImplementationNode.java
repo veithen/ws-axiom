@@ -19,7 +19,6 @@
 package org.apache.axiom.weaver;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -28,33 +27,37 @@ import java.util.Set;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
+import com.github.veithen.jrel.association.ManyToManyAssociation;
 import com.github.veithen.jrel.association.Reference;
 import com.github.veithen.jrel.association.References;
+import com.github.veithen.jrel.transitive.TransitiveReferences;
+import com.github.veithen.jrel.transitive.TransitiveClosure;
 
 final class ImplementationNode {
+    private static final ManyToManyAssociation<ImplementationNode,ImplementationNode> PARENT = new ManyToManyAssociation<>();
+    private static final TransitiveClosure<ImplementationNode> ANCESTOR = new TransitiveClosure<>(PARENT);
+
     static {
+        PARENT.bind(o -> o.parents, o -> o.children);
+        ANCESTOR.bind(o -> o.ancestors);
         Relations.WEAVER.bind(o -> o.weaver);
-        Relations.PARENT.bind(o -> o.parents, o -> o.children);
     }
 
     private final Reference<Weaver> weaver = Relations.WEAVER.newReferenceHolder(this);
     private final int id;
     private final Class<?> primaryInterface;
-    private final References<ImplementationNode> parents = Relations.PARENT.newReferenceHolder(this);
-    private final References<ImplementationNode> children = Relations.PARENT.getConverse().newReferenceHolder(this);
+    private final References<ImplementationNode> parents = PARENT.newReferenceHolder(this);
+    private final References<ImplementationNode> children = PARENT.getConverse().newReferenceHolder(this);
     private final InterfaceSet ifaces = new InterfaceSet();
     private final Set<Mixin> mixins = new LinkedHashSet<>();
     private final Set<Mixin> transitiveMixins = new LinkedHashSet<>();
-    private Set<ImplementationNode> ancestors = new HashSet<>();
+    private final TransitiveReferences<ImplementationNode> ancestors = ANCESTOR.newReferenceHolder(this);
     private boolean requireImplementation;
 
     ImplementationNode(int id, Set<ImplementationNode> parents, Class<?> iface, Set<Mixin> mixins) {
         this.id = id;
         this.primaryInterface = iface;
         ifaces.add(iface);
-        for (ImplementationNode parent : parents) {
-            ancestors.addAll(parent.ancestors);
-        }
         for (Mixin mixin : mixins) {
             // Mixins that only add interfaces have already been applied at this stage.
             if (mixin.contributesCode()) {
@@ -62,13 +65,9 @@ final class ImplementationNode {
                 transitiveMixins.add(mixin);
             }
         }
-        for (Iterator<ImplementationNode> it = parents.iterator(); it.hasNext(); ) {
-            ImplementationNode parent = it.next();
-            // This condition removes redundant edges from the graph.
-            if (ancestors.add(parent)) {
-                this.parents.add(parent);
-                transitiveMixins.addAll(parent.transitiveMixins);
-            }
+        for (ImplementationNode parent : parents) {
+            this.parents.add(parent);
+            transitiveMixins.addAll(parent.transitiveMixins);
         }
     }
 
@@ -136,18 +135,10 @@ final class ImplementationNode {
         }
     }
 
-    private void ancestorRemoved(ImplementationNode node) {
-        if (ancestors.remove(node)) {
-            for (ImplementationNode child : children) {
-                child.ancestorRemoved(node);
-            }
-        }
-    }
-
     boolean compact() {
+        ANCESTOR.reduce(this);
         if (!requireImplementation && (children.size() <= 1 || mixins.isEmpty())) {
             for (ImplementationNode child : children) {
-                child.ancestorRemoved(this);
                 child.ifaces.addAll(ifaces);
                 child.mixins.addAll(mixins);
                 parentLoop: for (ImplementationNode parent : parents) {

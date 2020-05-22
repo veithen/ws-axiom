@@ -18,7 +18,6 @@
  */
 package org.apache.axiom.weaver;
 
-import com.github.veithen.jrel.association.ManyToManyAssociation;
 import com.github.veithen.jrel.association.ManyToOneAssociation;
 import com.github.veithen.jrel.association.OneToManyAssociation;
 
@@ -26,6 +25,5 @@ final class Relations {
     private Relations() {}
 
     static final ManyToOneAssociation<ImplementationNode,Weaver> WEAVER = new ManyToOneAssociation<>();
-    static final ManyToManyAssociation<ImplementationNode,ImplementationNode> PARENT = new ManyToManyAssociation<>();
     static final OneToManyAssociation<Mixin,MixinMethod> MIXIN_METHODS = new OneToManyAssociation<>();
 }
