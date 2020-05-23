@@ -31,11 +31,12 @@ import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodNode;
 
-import com.github.veithen.jrel.association.References;
+import com.github.veithen.jrel.InternalBinder;
+import com.github.veithen.jrel.association.MutableReferences;
 
 final class Mixin {
     static {
-        Relations.MIXIN_METHODS.bind(o -> o.methods);
+        Relations.MIXIN_METHODS.bind(new InternalBinder<>(o -> o.methods));
     }
 
     private final int bytecodeVersion;
@@ -45,7 +46,7 @@ final class Mixin {
     private final List<FieldNode> fields;
     private final MethodNode initMethod;
     private final MethodNode clinitMethod;
-    private final References<MixinMethod> methods = Relations.MIXIN_METHODS.newReferenceHolder(this);
+    private final MutableReferences<MixinMethod> methods = Relations.MIXIN_METHODS.newReferenceHolder(this);
     private final int weight;
     private final List<ClassNode> innerClasses;
 
@@ -91,7 +92,7 @@ final class Mixin {
         return weight;
     }
 
-    References<MixinMethod> getMethods() {
+    MutableReferences<MixinMethod> getMethods() {
         return methods;
     }
 

@@ -28,19 +28,21 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.github.veithen.jrel.association.References;
+import com.github.veithen.jrel.InternalBinder;
+import com.github.veithen.jrel.association.MutableReferences;
+import com.github.veithen.jrel.collection.LinkedIdentityHashSet;
 
 public final class Weaver {
     private static final Log log = LogFactory.getLog(Weaver.class);
 
     static {
-        Relations.WEAVER.getConverse().bind(o -> o.nodes);
+        Relations.WEAVER.getConverse().bind(new InternalBinder<>(o -> o.nodes));
     }
 
     private final ImplementationClassNameMapper implementationClassNameMapper;
     private final Map<Class<?>, ImplementationNode> nodeByInterface = new HashMap<>();
     private final Map<Class<?>, Set<Mixin>> mixinsByInterface = new HashMap<>();
-    private final References<ImplementationNode> nodes = Relations.WEAVER.getConverse().newReferenceHolder(this);
+    private final MutableReferences<ImplementationNode> nodes = Relations.WEAVER.getConverse().newReferenceHolder(this);
     private int nextId = 1;
 
     public Weaver(ImplementationClassNameMapper implementationClassNameMapper) {
@@ -135,8 +137,21 @@ public final class Weaver {
     }
 
     public ClassDefinition[] generate() {
+        Map<Set<ImplementationNode>,Set<ImplementationNode>> mergableNodes = new HashMap<>();
+        for (ImplementationNode node : nodes) {
+            if (!node.isRequireImplementation()) {
+                mergableNodes.computeIfAbsent(node.getRequiredDescendants(), k -> new LinkedIdentityHashSet<>()).add(node);
+            }
+        }
+        for (Set<ImplementationNode> nodes : mergableNodes.values()) {
+            if (nodes.size() > 1) {
+                System.out.println(nodes);
+            }
+        }
+        
         dump("Initial graph:\n", false);
         compact();
+        
         dump("Graph after compaction:\n", false);
         for (ImplementationNode node : nodes) {
             node.ensureSingleParent();

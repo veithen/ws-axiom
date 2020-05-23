@@ -22,14 +22,15 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.commons.ClassRemapper;
 import org.objectweb.asm.tree.MethodNode;
 
-import com.github.veithen.jrel.association.Reference;
+import com.github.veithen.jrel.InternalBinder;
+import com.github.veithen.jrel.association.MutableReference;
 
 final class MixinMethod {
     static {
-        Relations.MIXIN_METHODS.getConverse().bind(o -> o.mixin);
+        Relations.MIXIN_METHODS.getConverse().bind(new InternalBinder<>(o -> o.mixin));
     }
 
-    private final Reference<Mixin> mixin = Relations.MIXIN_METHODS.getConverse().newReferenceHolder(this);
+    private final MutableReference<Mixin> mixin = Relations.MIXIN_METHODS.getConverse().newReferenceHolder(this);
     private final MethodNode methodNode;
 
     MixinMethod(MethodNode methodNode) {
