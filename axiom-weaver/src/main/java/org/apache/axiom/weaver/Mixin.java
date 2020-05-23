@@ -31,14 +31,11 @@ import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodNode;
 
-import com.github.veithen.jrel.InternalBinder;
+import com.github.veithen.jrel.AbstractDomainObject;
+import com.github.veithen.jrel.Domain;
 import com.github.veithen.jrel.association.MutableReferences;
 
-final class Mixin {
-    static {
-        Relations.MIXIN_METHODS.bind(new InternalBinder<>(o -> o.methods));
-    }
-
+final class Mixin extends AbstractDomainObject {
     private final int bytecodeVersion;
     private final String className;
     private final Class<?> targetInterface;
@@ -46,11 +43,12 @@ final class Mixin {
     private final List<FieldNode> fields;
     private final MethodNode initMethod;
     private final MethodNode clinitMethod;
-    private final MutableReferences<MixinMethod> methods = Relations.MIXIN_METHODS.newReferenceHolder(this);
+    private final MutableReferences<MixinMethod> methods = Relations.MIXIN_METHODS.getReferenceHolder(this);
     private final int weight;
     private final List<ClassNode> innerClasses;
 
-    Mixin(int bytecodeVersion, String className, Class<?> targetInterface, Set<Class<?>> addedInterfaces, List<FieldNode> fields, MethodNode initMethod, MethodNode clinitMethod, List<MixinMethod> methods, int weight, List<ClassNode> innerClasses) {
+    Mixin(Domain domain, int bytecodeVersion, String className, Class<?> targetInterface, Set<Class<?>> addedInterfaces, List<FieldNode> fields, MethodNode initMethod, MethodNode clinitMethod, List<MixinMethod> methods, int weight, List<ClassNode> innerClasses) {
+        super(domain);
         this.bytecodeVersion = bytecodeVersion;
         this.className = className;
         this.targetInterface = targetInterface;

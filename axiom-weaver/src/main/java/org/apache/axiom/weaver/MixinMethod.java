@@ -22,18 +22,16 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.commons.ClassRemapper;
 import org.objectweb.asm.tree.MethodNode;
 
-import com.github.veithen.jrel.InternalBinder;
+import com.github.veithen.jrel.AbstractDomainObject;
+import com.github.veithen.jrel.Domain;
 import com.github.veithen.jrel.association.MutableReference;
 
-final class MixinMethod {
-    static {
-        Relations.MIXIN_METHODS.getConverse().bind(new InternalBinder<>(o -> o.mixin));
-    }
-
-    private final MutableReference<Mixin> mixin = Relations.MIXIN_METHODS.getConverse().newReferenceHolder(this);
+final class MixinMethod extends AbstractDomainObject {
+    private final MutableReference<Mixin> mixin = Relations.MIXIN_METHODS.getConverse().getReferenceHolder(this);
     private final MethodNode methodNode;
 
-    MixinMethod(MethodNode methodNode) {
+    MixinMethod(Domain domain, MethodNode methodNode) {
+        super(domain);
         this.methodNode = methodNode;
     }
 

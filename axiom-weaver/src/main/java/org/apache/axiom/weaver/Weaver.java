@@ -28,24 +28,22 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.github.veithen.jrel.InternalBinder;
+import com.github.veithen.jrel.AbstractDomainObject;
+import com.github.veithen.jrel.Domain;
 import com.github.veithen.jrel.association.MutableReferences;
 import com.github.veithen.jrel.collection.LinkedIdentityHashSet;
 
-public final class Weaver {
+public final class Weaver extends AbstractDomainObject {
     private static final Log log = LogFactory.getLog(Weaver.class);
-
-    static {
-        Relations.WEAVER.getConverse().bind(new InternalBinder<>(o -> o.nodes));
-    }
 
     private final ImplementationClassNameMapper implementationClassNameMapper;
     private final Map<Class<?>, ImplementationNode> nodeByInterface = new HashMap<>();
     private final Map<Class<?>, Set<Mixin>> mixinsByInterface = new HashMap<>();
-    private final MutableReferences<ImplementationNode> nodes = Relations.WEAVER.getConverse().newReferenceHolder(this);
+    private final MutableReferences<ImplementationNode> nodes = Relations.WEAVER.getConverse().getReferenceHolder(this);
     private int nextId = 1;
 
     public Weaver(ImplementationClassNameMapper implementationClassNameMapper) {
+        super(new Domain());
         this.implementationClassNameMapper = implementationClassNameMapper;
     }
 
@@ -54,7 +52,7 @@ public final class Weaver {
         ClassFetcher cf = new ClassFetcher(classLoader);
         cf.fetch(packageName + ".package-info", new PackageInfoVisitor(mixins));
         for (String mixin : mixins) {
-            MixinClassVisitor cv = new MixinClassVisitor(cf);
+            MixinClassVisitor cv = new MixinClassVisitor(getDomain(), cf);
             cf.fetch(mixin, cv);
             addMixin(cv.getMixin());
         }
@@ -89,7 +87,7 @@ public final class Weaver {
                     }
                 }
             }
-            node = new ImplementationNode(nextId++, parents, iface, mixins);
+            node = new ImplementationNode(getDomain(), nextId++, parents, iface, mixins);
             nodeByInterface.put(iface, node);
             nodes.add(node);
         }

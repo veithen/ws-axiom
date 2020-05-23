@@ -27,7 +27,8 @@ import java.util.Set;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
-import com.github.veithen.jrel.InternalBinder;
+import com.github.veithen.jrel.AbstractDomainObject;
+import com.github.veithen.jrel.Domain;
 import com.github.veithen.jrel.References;
 import com.github.veithen.jrel.association.ManyToManyAssociation;
 import com.github.veithen.jrel.association.MutableReference;
@@ -35,29 +36,24 @@ import com.github.veithen.jrel.association.MutableReferences;
 import com.github.veithen.jrel.collection.FilteredSet;
 import com.github.veithen.jrel.transitive.TransitiveClosure;
 
-final class ImplementationNode {
+final class ImplementationNode extends AbstractDomainObject {
     private static final ManyToManyAssociation<ImplementationNode,ImplementationNode> PARENT = new ManyToManyAssociation<>();
     private static final TransitiveClosure<ImplementationNode> ANCESTOR = new TransitiveClosure<>(PARENT);
 
-    static {
-        PARENT.bind(new InternalBinder<>(o -> o.parents), new InternalBinder<>(o -> o.children));
-        ANCESTOR.bind(new InternalBinder<>(o -> o.ancestors), new InternalBinder<>(o -> o.descendants));
-        Relations.WEAVER.bind(new InternalBinder<>(o -> o.weaver));
-    }
-
-    private final MutableReference<Weaver> weaver = Relations.WEAVER.newReferenceHolder(this);
+    private final MutableReference<Weaver> weaver = Relations.WEAVER.getReferenceHolder(this);
     private final int id;
     private final Class<?> primaryInterface;
-    private final MutableReferences<ImplementationNode> parents = PARENT.newReferenceHolder(this);
-    private final MutableReferences<ImplementationNode> children = PARENT.getConverse().newReferenceHolder(this);
+    private final MutableReferences<ImplementationNode> parents = PARENT.getReferenceHolder(this);
+    private final MutableReferences<ImplementationNode> children = PARENT.getConverse().getReferenceHolder(this);
     private final InterfaceSet ifaces = new InterfaceSet();
     private final Set<Mixin> mixins = new LinkedHashSet<>();
     private final Set<Mixin> transitiveMixins = new LinkedHashSet<>();
-    private final References<ImplementationNode> ancestors = ANCESTOR.newReferenceHolder(this);
-    private final References<ImplementationNode> descendants = ANCESTOR.getConverse().newReferenceHolder(this);
+    private final References<ImplementationNode> ancestors = ANCESTOR.getReferenceHolder(this);
+    private final References<ImplementationNode> descendants = ANCESTOR.getConverse().getReferenceHolder(this);
     private boolean requireImplementation;
 
-    ImplementationNode(int id, Set<ImplementationNode> parents, Class<?> iface, Set<Mixin> mixins) {
+    ImplementationNode(Domain domain, int id, Set<ImplementationNode> parents, Class<?> iface, Set<Mixin> mixins) {
+        super(domain);
         this.id = id;
         this.primaryInterface = iface;
         ifaces.add(iface);
