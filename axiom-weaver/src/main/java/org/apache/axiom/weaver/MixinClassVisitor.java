@@ -34,10 +34,7 @@ import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodNode;
 
-import com.github.veithen.jrel.Domain;
-
 final class MixinClassVisitor extends ClassVisitor {
-    private final Domain domain;
     private final ClassFetcher classFetcher;
     private int bytecodeVersion;
     private String className;
@@ -50,9 +47,8 @@ final class MixinClassVisitor extends ClassVisitor {
     private MethodNode initMethod;
     private MethodNode clinitMethod;
 
-    MixinClassVisitor(Domain domain, ClassFetcher classFetcher) {
+    MixinClassVisitor(ClassFetcher classFetcher) {
         super(Opcodes.ASM8);
-        this.domain = domain;
         this.classFetcher = classFetcher;
     }
 
@@ -113,7 +109,7 @@ final class MixinClassVisitor extends ClassVisitor {
             return clinitMethod;
         } else {
             MethodNode method = new MethodNode(Opcodes.ASM8, access, name, descriptor, signature, exceptions);
-            methods.add(new MixinMethod(domain, method));
+            methods.add(new MixinMethod(method));
             return new MethodVisitor(Opcodes.ASM8, method) {
                 @Override
                 public void visitLineNumber(int line, Label start) {
@@ -132,6 +128,6 @@ final class MixinClassVisitor extends ClassVisitor {
             innerClasses.add(innerClass);
         }
         // TODO: include inner classes in the weight
-        return new Mixin(domain, bytecodeVersion, className, targetInterface, addedInterfaces, fields, initMethod, clinitMethod, methods, weight, innerClasses);
+        return new Mixin(bytecodeVersion, className, targetInterface, addedInterfaces, fields, initMethod, clinitMethod, methods, weight, innerClasses);
     }
 }
