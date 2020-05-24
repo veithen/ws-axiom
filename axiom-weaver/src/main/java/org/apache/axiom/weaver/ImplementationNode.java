@@ -31,13 +31,16 @@ import com.github.veithen.jrel.References;
 import com.github.veithen.jrel.association.ManyToManyAssociation;
 import com.github.veithen.jrel.association.MutableReference;
 import com.github.veithen.jrel.association.MutableReferences;
-import com.github.veithen.jrel.collection.FilteredSet;
 import com.github.veithen.jrel.collection.LinkedIdentityHashSet;
+import com.github.veithen.jrel.composition.CompositionRelation;
 import com.github.veithen.jrel.transitive.TransitiveClosure;
 
 final class ImplementationNode {
     private static final ManyToManyAssociation<ImplementationNode,ImplementationNode> PARENT = new ManyToManyAssociation<>();
-    private static final TransitiveClosure<ImplementationNode> ANCESTOR = new TransitiveClosure<>(PARENT);
+    private static final ManyToManyAssociation<ImplementationNode,Mixin> MIXIN = new ManyToManyAssociation<>();
+    private static final TransitiveClosure<ImplementationNode> ANCESTOR = new TransitiveClosure<>(PARENT, false);
+    private static final TransitiveClosure<ImplementationNode> ANCESTOR_OR_SELF = new TransitiveClosure<>(PARENT, true);
+    private static final CompositionRelation<ImplementationNode,ImplementationNode,Mixin> TRANSITIVE_MIXIN = new CompositionRelation<>(ANCESTOR_OR_SELF, MIXIN);
 
     private final MutableReference<Weaver> weaver = Relations.WEAVER.newReferenceHolder(this);
     private final int id;
@@ -45,10 +48,11 @@ final class ImplementationNode {
     private final MutableReferences<ImplementationNode> parents = PARENT.newReferenceHolder(this);
     private final MutableReferences<ImplementationNode> children = PARENT.getConverse().newReferenceHolder(this);
     private final InterfaceSet ifaces = new InterfaceSet();
-    private final Set<Mixin> mixins = new LinkedHashSet<>();
-    private final Set<Mixin> transitiveMixins = new LinkedHashSet<>();
+    private final MutableReferences<Mixin> mixins = MIXIN.newReferenceHolder(this);
     private final References<ImplementationNode> ancestors = ANCESTOR.newReferenceHolder(this);
     private final References<ImplementationNode> descendants = ANCESTOR.getConverse().newReferenceHolder(this);
+    private final References<ImplementationNode> ancestorsOrSelf = ANCESTOR_OR_SELF.newReferenceHolder(this);
+    private final References<Mixin> transitiveMixins = TRANSITIVE_MIXIN.newReferenceHolder(this);
     private boolean requireImplementation;
 
     ImplementationNode(int id, Set<ImplementationNode> parents, Class<?> iface, Set<Mixin> mixins) {
@@ -59,12 +63,10 @@ final class ImplementationNode {
             // Mixins that only add interfaces have already been applied at this stage.
             if (mixin.contributesCode()) {
                 this.mixins.add(mixin);
-                transitiveMixins.add(mixin);
             }
         }
         for (ImplementationNode parent : parents) {
             this.parents.add(parent);
-            transitiveMixins.addAll(parent.transitiveMixins);
         }
     }
 
@@ -166,7 +168,6 @@ final class ImplementationNode {
             if (node != target) {
                 target.ifaces.addAll(node.ifaces);
                 target.mixins.addAll(node.mixins);
-                target.transitiveMixins.addAll(node.transitiveMixins);
                 target.parents.addAll(node.parents);
                 target.children.addAll(node.children);
                 node.parents.clear();
@@ -220,9 +221,9 @@ final class ImplementationNode {
             }
             it.remove();
             ifaces.addAll(parent.ifaces);
-            mixins.addAll(parent.transitiveMixins);
+            mixins.addAll(parent.transitiveMixins.asSet());
         }
-        mixins.removeAll(parentToKeep.transitiveMixins);
+        mixins.removeAll(parentToKeep.transitiveMixins.asSet());
     }
 
     boolean promoteCommonMixins() {
@@ -244,7 +245,6 @@ final class ImplementationNode {
         }
         for (Mixin mixin : commonMixins) {
             mixins.add(mixin);
-            transitiveMixins.add(mixin);
             ifaces.addAll(mixin.getAddedInterfaces());
             for (ImplementationNode child : children) {
                 child.mixins.remove(mixin);
