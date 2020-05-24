@@ -145,6 +145,37 @@ final class ImplementationNode {
         }
     }
 
+    static void merge(Set<ImplementationNode> nodes) {
+        ImplementationNode target = null;
+        // If the set contains a node requiring implementation, use that as a target (so that the
+        // implementation class name is predictable). Otherwise use the first node; this will in
+        // general be the interface the highest up in the hierarchy (because super-interfaces are
+        // added first).
+        for (ImplementationNode node : nodes) {
+            if (target == null) {
+                target = node;
+            }
+            if (node.requireImplementation) {
+                target = node;
+                break;
+            }
+        }
+        for (ImplementationNode node : nodes) {
+            node.parents.removeAll(nodes);
+            node.children.removeAll(nodes);
+            if (node != target) {
+                target.ifaces.addAll(node.ifaces);
+                target.mixins.addAll(node.mixins);
+                target.transitiveMixins.addAll(node.transitiveMixins);
+                target.parents.addAll(node.parents);
+                target.children.addAll(node.children);
+                node.parents.clear();
+                node.children.clear();
+                node.weaver.set(null);
+            }
+        }
+    }
+
     boolean compact() {
         ANCESTOR.reduce(this);
         if (!requireImplementation && (children.size() <= 1 || mixins.isEmpty())) {

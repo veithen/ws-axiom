@@ -132,17 +132,18 @@ public final class Weaver {
     }
 
     public ClassDefinition[] generate() {
+        dump("Initial graph:\n", false);
         Map<Set<ImplementationNode>,Set<ImplementationNode>> mergableNodes = new HashMap<>();
         for (ImplementationNode node : nodes) {
             mergableNodes.computeIfAbsent(node.getRequiredDescendantsOrSelf(), k -> new LinkedIdentityHashSet<>()).add(node);
         }
         for (Set<ImplementationNode> nodes : mergableNodes.values()) {
             if (nodes.size() > 1) {
-                System.out.println(nodes);
+//                ImplementationNode.merge(nodes);
             }
         }
+        dump("Graph after merging nodes:\n", false);
         
-        dump("Initial graph:\n", false);
         compact();
         
         dump("Graph after compaction:\n", false);
