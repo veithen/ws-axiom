@@ -134,9 +134,7 @@ public final class Weaver {
     public ClassDefinition[] generate() {
         Map<Set<ImplementationNode>,Set<ImplementationNode>> mergableNodes = new HashMap<>();
         for (ImplementationNode node : nodes) {
-            if (!node.isRequireImplementation()) {
-                mergableNodes.computeIfAbsent(node.getRequiredDescendants(), k -> new LinkedIdentityHashSet<>()).add(node);
-            }
+            mergableNodes.computeIfAbsent(node.getRequiredDescendantsOrSelf(), k -> new LinkedIdentityHashSet<>()).add(node);
         }
         for (Set<ImplementationNode> nodes : mergableNodes.values()) {
             if (nodes.size() > 1) {

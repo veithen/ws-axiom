@@ -32,6 +32,7 @@ import com.github.veithen.jrel.association.ManyToManyAssociation;
 import com.github.veithen.jrel.association.MutableReference;
 import com.github.veithen.jrel.association.MutableReferences;
 import com.github.veithen.jrel.collection.FilteredSet;
+import com.github.veithen.jrel.collection.LinkedIdentityHashSet;
 import com.github.veithen.jrel.transitive.TransitiveClosure;
 
 final class ImplementationNode {
@@ -71,12 +72,17 @@ final class ImplementationNode {
         requireImplementation = true;
     }
 
-    boolean isRequireImplementation() {
-        return requireImplementation;
-    }
-
-    Set<ImplementationNode> getRequiredDescendants() {
-        return new FilteredSet<ImplementationNode>(descendants.asSet(), ImplementationNode::isRequireImplementation);
+    Set<ImplementationNode> getRequiredDescendantsOrSelf() {
+        Set<ImplementationNode> result = new LinkedIdentityHashSet<>();
+        if (requireImplementation) {
+            result.add(this);
+        }
+        for (ImplementationNode node : descendants.asSet()) {
+            if (node.requireImplementation) {
+                result.add(node);
+            }
+        }
+        return result;
     }
 
     private int getWeight() {
