@@ -24,6 +24,14 @@ import org.apache.axiom.testing.multiton.Multiton;
 import org.xml.sax.ext.LexicalHandler;
 
 public abstract class SAXImplementation extends Multiton {
+    public static final SAXImplementation JRE =
+            new SAXImplementation("xerces", true) {
+                @Override
+                public SAXParserFactory newSAXParserFactory() {
+                    return SAXParserFactory.newDefaultInstance();
+                }
+            };
+
     public static final SAXImplementation XERCES =
             new SAXImplementation("xerces", true) {
                 @Override

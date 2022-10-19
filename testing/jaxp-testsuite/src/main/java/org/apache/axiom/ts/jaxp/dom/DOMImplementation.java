@@ -30,6 +30,14 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public abstract class DOMImplementation extends Multiton {
+    public static final DOMImplementation JRE =
+            new DOMImplementation("jre") {
+                @Override
+                protected DocumentBuilderFactory newDocumentBuilderFactory() {
+                    return DocumentBuilderFactory.newDefaultInstance();
+                }
+            };
+
     public static final DOMImplementation XERCES =
             new DOMImplementation("xerces") {
                 @Override
