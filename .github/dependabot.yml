@@ -19,21 +19,6 @@ updates:
     schedule:
       interval: "daily"
     ignore:
-      - dependency-name: "com.sun.activation:jakarta.activation"
-        versions:
-          - ">= 1.2.2"
-      - dependency-name: "com.sun.xml.messaging.saaj:saaj-impl"
-        versions:
-          - ">= 2.0"
-      - dependency-name: "jakarta.activation:jakarta.activation-api"
-        versions:
-          - ">= 1.2.2"
-      - dependency-name: "jakarta.xml.bind:jakarta.xml.bind-api"
-        versions:
-          - ">= 3.0"
-      - dependency-name: "jakarta.xml.soap:jakarta.xml.soap-api"
-        versions:
-          - ">= 2.0"
       # There is a bug in Saxon 10 related to how xmlns="" declarations are processed.
       - dependency-name: "net.sf.saxon:Saxon-HE"
         versions:
@@ -57,6 +42,41 @@ updates:
         versions:
           # MSOURCES-137
           - "3.3.0"
+      # Ignore all dependencies managed by BOMs. They will be configured
+      # separately below.
+      - dependency-name: "jakarta.activation:jakarta.activation-api"
+      - dependency-name: "jakarta.xml.soap:jakarta.xml.soap-api"
+      - dependency-name: "com.sun.xml.messaging.saaj:saaj-impl"
+      - dependency-name: "jakarta.xml.bind:jakarta.xml.bind-api"
+      - dependency-name: "org.glassfish.jaxb:jaxb-runtime"
+      - dependency-name: "com.sun.xml.bind:jaxb-osgi"
+  - package-ecosystem: "maven"
+    directory: "/jakarta-bom"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "/javax-bom"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "jakarta.activation:jakarta.activation-api"
+        versions:
+          - ">= 2.0"
+      - dependency-name: "jakarta.xml.soap:jakarta.xml.soap-api"
+        versions:
+          - ">= 2.0"
+      - dependency-name: "com.sun.xml.messaging.saaj:saaj-impl"
+        versions:
+          - ">= 2.0"
+      - dependency-name: "jakarta.xml.bind:jakarta.xml.bind-api"
+        versions:
+          - ">= 3.0"
+      - dependency-name: "org.glassfish.jaxb:jaxb-runtime"
+        versions:
+          - ">= 3.0"
+      - dependency-name: "com.sun.xml.bind:jaxb-osgi"
+        versions:
+          - ">= 3.0"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
