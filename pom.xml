@@ -282,8 +282,8 @@
 
         <failIfNoTests>false</failIfNoTests>
         <shade.plugin.version>3.6.0</shade.plugin.version>
-        <spring.version>5.3.39</spring.version>
-        <springws.version>3.1.3</springws.version>
+        <spring.version>6.2.4</spring.version>
+        <springws.version>4.1.0-M1</springws.version>
         <exam.version>4.14.0</exam.version>
         <slf4j.version>1.7.36</slf4j.version>
         <log4j.version>2.24.3</log4j.version>
@@ -563,6 +563,14 @@
             <releases>
                 <enabled>false</enabled>
             </releases>
+        </repository>
+        <!-- TODO: remove -->
+        <repository>
+            <id>spring-milestones</id>
+            <url>https://repo.spring.io/milestone/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
     <pluginRepositories>
@@ -916,6 +924,8 @@
                                  the build stability. -->
                             <allowedRepositories>
                                 <allowedRepository>eclipse_2021_09</allowedRepository>
+                                <!-- TODO -->
+                                <allowedRepository>spring-milestones</allowedRepository>
                             </allowedRepositories>
                             <banPluginRepositories>true</banPluginRepositories>
                             <!-- We still need to allow the Apache snapshot repository -->
