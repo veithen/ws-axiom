@@ -18,15 +18,14 @@
  */
 package org.apache.axiom.ts.om;
 
-import static org.apache.axiom.testing.multiton.Multiton.getInstances;
-
 import java.lang.reflect.Method;
+import java.util.Set;
 
 import javax.xml.namespace.QName;
 
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMNode;
-import org.apache.axiom.testing.multiton.Multiton;
+import org.apache.axiom.testing.multiton.MultitonModule;
 import org.apache.axiom.testutils.suite.MatrixTestSuiteBuilder;
 import org.apache.axiom.ts.dimension.AddAttributeStrategy;
 import org.apache.axiom.ts.dimension.BuilderFactory;
@@ -49,6 +48,11 @@ import org.apache.axiom.ts.xml.StreamType;
 import org.apache.axiom.ts.xml.XMLSample;
 import org.apache.axiom.ts.xml.XOPSample;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Key;
+import com.google.inject.TypeLiteral;
+
 public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
     private static final QName[] qnames = {
         new QName("root"), new QName("urn:test", "root", "p"), new QName("urn:test", "root")
@@ -66,6 +70,39 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
 
     @Override
     protected void addTests() {
+        Injector injector =
+                Guice.createInjector(
+                        new MultitonModule<>(DOMImplementation.class),
+                        new MultitonModule<>(SAXImplementation.class),
+                        new MultitonModule<>(XSLTImplementation.class),
+                        new MultitonModule<>(StreamType.class),
+                        new MultitonModule<>(XMLSample.class),
+                        new MultitonModule<>(XOPSample.class),
+                        new MultitonModule<>(BuilderFactory.class),
+                        new MultitonModule<>(OMContainerExtractor.class),
+                        new MultitonModule<>(SerializationStrategy.class),
+                        new MultitonModule<>(OMContainerFactory.class),
+                        new MultitonModule<>(AddAttributeStrategy.class),
+                        new MultitonModule<>(ExpansionStrategy.class),
+                        new MultitonModule<>(NoNamespaceStrategy.class),
+                        new MultitonModule<>(ElementContext.class));
+        Set<SAXImplementation> saxImplementations =
+                injector.getInstance(Key.get(new TypeLiteral<Set<SAXImplementation>>() {}));
+        Set<XSLTImplementation> xsltImplementations =
+                injector.getInstance(Key.get(new TypeLiteral<Set<XSLTImplementation>>() {}));
+        Set<StreamType> streamTypes =
+                injector.getInstance(Key.get(new TypeLiteral<Set<StreamType>>() {}));
+        Set<XMLSample> xmlSamples =
+                injector.getInstance(Key.get(new TypeLiteral<Set<XMLSample>>() {}));
+        Set<BuilderFactory> builderFactories =
+                injector.getInstance(Key.get(new TypeLiteral<Set<BuilderFactory>>() {}));
+        Set<SerializationStrategy> serializationStrategies =
+                injector.getInstance(Key.get(new TypeLiteral<Set<SerializationStrategy>>() {}));
+        Set<AddAttributeStrategy> addAttributeStrategies =
+                injector.getInstance(Key.get(new TypeLiteral<Set<AddAttributeStrategy>>() {}));
+        Set<ExpansionStrategy> expansionStrategies =
+                injector.getInstance(Key.get(new TypeLiteral<Set<ExpansionStrategy>>() {}));
+
         addTest(new org.apache.axiom.ts.om.attribute.TestDigestWithNamespace(metaFactory));
         addTest(new org.apache.axiom.ts.om.attribute.TestDigestWithoutNamespace(metaFactory));
         addTest(new org.apache.axiom.ts.om.attribute.TestGetAttributeTypeDefault(metaFactory));
@@ -170,15 +207,16 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
                     new org.apache.axiom.ts.om.attribute.TestSetNamespace(
                             metaFactory, "", "p", declare, owner, null, true, null, false));
         }
-        for (StreamType streamType : Multiton.getInstances(StreamType.class)) {
+        for (StreamType streamType : streamTypes) {
             addTest(
                     new org.apache.axiom.ts.om.builder.TestCloseWithStream(
                             metaFactory, streamType));
         }
         addTest(new org.apache.axiom.ts.om.builder.TestCloseWithSystemId(metaFactory));
         addTest(new org.apache.axiom.ts.om.builder.TestCloseWithXMLStreamReader(metaFactory));
-        for (XMLSample file : getInstances(XMLSample.class)) {
-            for (DOMImplementation implementation : getInstances(DOMImplementation.class)) {
+        for (XMLSample file : xmlSamples) {
+            for (DOMImplementation implementation :
+                    injector.getInstance(Key.get(new TypeLiteral<Set<DOMImplementation>>() {}))) {
                 addTest(
                         new org.apache.axiom.ts.om.builder.TestCreateOMBuilderFromDOM(
                                 metaFactory, file, implementation, Boolean.TRUE));
@@ -189,7 +227,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
                         new org.apache.axiom.ts.om.builder.TestCreateOMBuilderFromDOM(
                                 metaFactory, file, implementation, null));
             }
-            for (SAXImplementation implementation : getInstances(SAXImplementation.class)) {
+            for (SAXImplementation implementation : saxImplementations) {
                 if (!file.hasExternalSubset() || implementation.reportsExternalSubsetEntity()) {
                     addTest(
                             new org.apache.axiom.ts.om.builder.TestCreateOMBuilderFromSAXSource(
@@ -218,7 +256,8 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(
                 new org.apache.axiom.ts.om.builder
                         .TestCreateOMBuilderFromDOMWithNSUnawareUnprefixedAttribute(metaFactory));
-        for (XOPSample sample : getInstances(XOPSample.class)) {
+        for (XOPSample sample :
+                injector.getInstance(Key.get(new TypeLiteral<Set<XOPSample>>() {}))) {
             addTest(
                     new org.apache.axiom.ts.om.builder.TestCreateOMBuilderXOP(
                             metaFactory, sample, false));
@@ -243,7 +282,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
                         metaFactory));
         addTest(new org.apache.axiom.ts.om.builder.TestDetachWithDOM(metaFactory, false));
         addTest(new org.apache.axiom.ts.om.builder.TestDetachWithDOM(metaFactory, true));
-        for (StreamType streamType : Multiton.getInstances(StreamType.class)) {
+        for (StreamType streamType : streamTypes) {
             addTest(
                     new org.apache.axiom.ts.om.builder.TestDetachWithStream(
                             metaFactory, streamType, false));
@@ -252,7 +291,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
                             metaFactory, streamType, true));
         }
         addTest(new org.apache.axiom.ts.om.builder.TestDetachWithSAXSource(metaFactory));
-        for (BuilderFactory bf : getInstances(BuilderFactory.class)) {
+        for (BuilderFactory bf : builderFactories) {
             addTest(
                     new org.apache.axiom.ts.om.builder.TestGetDocumentElement(
                             metaFactory, bf, null));
@@ -278,11 +317,13 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(new org.apache.axiom.ts.om.builder.TestRootPartStreaming(metaFactory));
         addTest(new org.apache.axiom.ts.om.builder.TestStandaloneConfiguration(metaFactory));
         addTest(new org.apache.axiom.ts.om.comment.TestSerialize(metaFactory));
-        for (XMLSample file : getInstances(XMLSample.class)) {
-            for (OMContainerExtractor ce : getInstances(OMContainerExtractor.class)) {
+        for (XMLSample file : xmlSamples) {
+            for (OMContainerExtractor ce :
+                    injector.getInstance(
+                            Key.get(new TypeLiteral<Set<OMContainerExtractor>>() {}))) {
                 // TODO: investigate why this causes problems
                 if (!file.getName().equals("character-references.xml")) {
-                    for (BuilderFactory bf : getInstances(BuilderFactory.class)) {
+                    for (BuilderFactory bf : builderFactories) {
                         addTest(
                                 new org.apache.axiom.ts.om.container.TestGetXMLStreamReader(
                                         metaFactory, file, bf, ce, true));
@@ -295,7 +336,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
                 // correctly if
                 // the entire document is serialized (so that the DTD is available)
                 if (!file.hasEntityReferences() || ce == OMContainerExtractor.DOCUMENT) {
-                    for (SerializationStrategy ss : getInstances(SerializationStrategy.class)) {
+                    for (SerializationStrategy ss : serializationStrategies) {
                         if (ss.supportsInternalSubset() || !file.hasInternalSubset()) {
                             addTest(
                                     new org.apache.axiom.ts.om.container.TestSerialize(
@@ -305,7 +346,8 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
                 }
             }
         }
-        for (OMContainerFactory cf : getInstances(OMContainerFactory.class)) {
+        for (OMContainerFactory cf :
+                injector.getInstance(Key.get(new TypeLiteral<Set<OMContainerFactory>>() {}))) {
             addTest(
                     new org.apache.axiom.ts.om.container.TestAddChildWithIncompleteSibling(
                             metaFactory, cf));
@@ -321,7 +363,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
                 new org.apache.axiom.ts.om.document.TestAddChildWithExistingDocumentElement(
                         metaFactory));
         addTest(new org.apache.axiom.ts.om.document.TestBuild(metaFactory));
-        for (XMLSample file : getInstances(XMLSample.class)) {
+        for (XMLSample file : xmlSamples) {
             addTest(new org.apache.axiom.ts.om.document.TestClone(metaFactory, file));
         }
         addTest(
@@ -349,17 +391,17 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(
                 new org.apache.axiom.ts.om.document.TestGetOMDocumentElementWithParser(
                         metaFactory));
-        for (XSLTImplementation xsltImplementation : getInstances(XSLTImplementation.class)) {
+        for (XSLTImplementation xsltImplementation : xsltImplementations) {
             if (xsltImplementation.supportsLexicalHandlerWithStreamSource()) {
-                for (XMLSample file : getInstances(XMLSample.class)) {
+                for (XMLSample file : xmlSamples) {
                     addTest(
                             new org.apache.axiom.ts.om.document.TestGetSAXResult(
                                     metaFactory, xsltImplementation, file));
                 }
             }
         }
-        for (SAXImplementation saxImplementation : getInstances(SAXImplementation.class)) {
-            for (XMLSample file : getInstances(XMLSample.class)) {
+        for (SAXImplementation saxImplementation : saxImplementations) {
+            for (XMLSample file : xmlSamples) {
                 if (!file.hasExternalSubset() || saxImplementation.reportsExternalSubsetEntity()) {
                     addTest(
                             new org.apache.axiom.ts.om.document.TestGetSAXResultSAXParser(
@@ -429,7 +471,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(
                 new org.apache.axiom.ts.om.element.TestAddAttributeWithInvalidNamespace2(
                         metaFactory));
-        for (AddAttributeStrategy strategy : getInstances(AddAttributeStrategy.class)) {
+        for (AddAttributeStrategy strategy : addAttributeStrategies) {
             addTest(
                     new org.apache.axiom.ts.om.element.TestAddAttributeMultiple(
                             metaFactory, strategy));
@@ -452,7 +494,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
                             .TestAddAttributeWithoutExistingNamespaceDeclaration(
                             metaFactory, strategy));
             for (NoNamespaceStrategy noNamespaceStrategy :
-                    getInstances(NoNamespaceStrategy.class)) {
+                    injector.getInstance(Key.get(new TypeLiteral<Set<NoNamespaceStrategy>>() {}))) {
                 addTest(
                         new org.apache.axiom.ts.om.element.TestAddAttributeWithoutNamespace(
                                 metaFactory, strategy, noNamespaceStrategy));
@@ -472,7 +514,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(
                 new org.apache.axiom.ts.om.element.TestChildReDeclaringParentsDefaultNSWithPrefix(
                         metaFactory));
-        for (XMLSample file : getInstances(XMLSample.class)) {
+        for (XMLSample file : xmlSamples) {
             if (!file.hasEntityReferences()) {
                 addTest(new org.apache.axiom.ts.om.element.TestCloneOMElement2(metaFactory, file));
             }
@@ -594,7 +636,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(new org.apache.axiom.ts.om.element.TestGetQNameWithNamespace(metaFactory));
         addTest(new org.apache.axiom.ts.om.element.TestGetQNameWithoutNamespace(metaFactory));
         addTest(new org.apache.axiom.ts.om.element.TestGetSAXResultWithDTD(metaFactory));
-        for (XSLTImplementation xsltImplementation : getInstances(XSLTImplementation.class)) {
+        for (XSLTImplementation xsltImplementation : xsltImplementations) {
             addTest(
                     new org.apache.axiom.ts.om.element.TestGetSAXSourceIdentityTransform(
                             metaFactory, xsltImplementation, true));
@@ -856,14 +898,14 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(
                 new org.apache.axiom.ts.om.element.sr.TestCloseAndContinueBuilding(
                         metaFactory, false));
-        for (BuilderFactory bf : getInstances(BuilderFactory.class)) {
+        for (BuilderFactory bf : builderFactories) {
             addTest(new org.apache.axiom.ts.om.element.sr.TestCommentEvent(metaFactory, bf, true));
             addTest(new org.apache.axiom.ts.om.element.sr.TestCommentEvent(metaFactory, bf, false));
         }
         addTest(new org.apache.axiom.ts.om.element.sr.TestGetBlobFromElement(metaFactory, true));
         addTest(new org.apache.axiom.ts.om.element.sr.TestGetBlobFromElement(metaFactory, false));
         addTest(new org.apache.axiom.ts.om.element.sr.TestGetElementText(metaFactory));
-        for (BuilderFactory bf : getInstances(BuilderFactory.class)) {
+        for (BuilderFactory bf : builderFactories) {
             addTest(
                     new org.apache.axiom.ts.om.element.sr.TestGetElementTextFromParser(
                             metaFactory, bf, true, 0));
@@ -1031,7 +1073,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
                                 metaFactory, variant, qname));
             }
         }
-        for (AddAttributeStrategy strategy : getInstances(AddAttributeStrategy.class)) {
+        for (AddAttributeStrategy strategy : addAttributeStrategies) {
             addTest(
                     new org.apache.axiom.ts.om.sourcedelement.TestAddAttribute(
                             metaFactory, strategy));
@@ -1048,7 +1090,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(new org.apache.axiom.ts.om.sourcedelement.TestCloseOnComplete(metaFactory));
         addTest(new org.apache.axiom.ts.om.sourcedelement.TestComplete(metaFactory));
         addTest(new org.apache.axiom.ts.om.sourcedelement.TestDeclareNamespace(metaFactory));
-        for (ExpansionStrategy es : getInstances(ExpansionStrategy.class)) {
+        for (ExpansionStrategy es : expansionStrategies) {
             addTest(new org.apache.axiom.ts.om.sourcedelement.TestDetach(metaFactory, es));
             addTest(new org.apache.axiom.ts.om.sourcedelement.TestDiscard(metaFactory, es));
         }
@@ -1102,9 +1144,10 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(
                 new org.apache.axiom.ts.om.sourcedelement.TestRemoveChildrenUnexpanded(
                         metaFactory));
-        for (ElementContext ec : getInstances(ElementContext.class)) {
-            for (ExpansionStrategy es : getInstances(ExpansionStrategy.class)) {
-                for (SerializationStrategy ss : getInstances(SerializationStrategy.class)) {
+        for (ElementContext ec :
+                injector.getInstance(Key.get(new TypeLiteral<Set<ElementContext>>() {}))) {
+            for (ExpansionStrategy es : expansionStrategies) {
+                for (SerializationStrategy ss : serializationStrategies) {
                     for (int count = 1; count <= 2; count++) {
                         addTest(
                                 new org.apache.axiom.ts.om.sourcedelement.TestSerialize(
@@ -1143,7 +1186,7 @@ public class OMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(
                 new org.apache.axiom.ts.om.sourcedelement
                         .TestSerializeModifiedOMSEWithNonDestructiveDataSource(metaFactory));
-        for (SerializationStrategy ss : getInstances(SerializationStrategy.class)) {
+        for (SerializationStrategy ss : serializationStrategies) {
             addTest(
                     new org.apache.axiom.ts.om.sourcedelement
                             .TestSerializeOMDataSourceWritingToOutputStream(

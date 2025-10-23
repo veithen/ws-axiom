@@ -20,12 +20,18 @@ package org.apache.axiom.truth.xml;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.axiom.testing.multiton.Instances;
 import org.apache.axiom.testing.multiton.Multiton;
+import org.apache.axiom.testing.multiton.MultitonModule;
 import org.apache.axiom.ts.jaxp.dom.DOMImplementation;
 import org.apache.axiom.ts.xml.XMLSample;
 import org.xml.sax.InputSource;
+
+import com.google.inject.Guice;
+import com.google.inject.Key;
+import com.google.inject.TypeLiteral;
 
 public abstract class XMLObjectFactory extends Multiton {
     public static final XMLObjectFactory DEFAULT =
@@ -51,7 +57,9 @@ public abstract class XMLObjectFactory extends Multiton {
     @Instances
     private static XMLObjectFactory[] instances() {
         List<XMLObjectFactory> instances = new ArrayList<>();
-        for (final DOMImplementation impl : getInstances(DOMImplementation.class)) {
+        for (final DOMImplementation impl :
+                Guice.createInjector(new MultitonModule<>(DOMImplementation.class))
+                        .getInstance(Key.get(new TypeLiteral<Set<DOMImplementation>>() {}))) {
             instances.add(
                     new XMLObjectFactory(impl.getName() + "-dom") {
                         @Override

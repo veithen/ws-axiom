@@ -18,13 +18,21 @@
  */
 package org.apache.axiom.ts.jaxp.stax;
 
-import org.apache.axiom.testing.multiton.Multiton;
+import java.util.Set;
+
+import org.apache.axiom.testing.multiton.MultitonModule;
 import org.junit.Test;
+
+import com.google.inject.Guice;
+import com.google.inject.Key;
+import com.google.inject.TypeLiteral;
 
 public class StAXImplementationTest {
     @Test
     public void testInstances() {
-        for (StAXImplementation implementation : Multiton.getInstances(StAXImplementation.class)) {
+        for (StAXImplementation implementation :
+                Guice.createInjector(new MultitonModule<>(StAXImplementation.class))
+                        .getInstance(Key.get(new TypeLiteral<Set<StAXImplementation>>() {}))) {
             implementation.newXMLInputFactory();
             implementation.newXMLOutputFactory();
         }

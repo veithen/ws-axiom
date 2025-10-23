@@ -33,11 +33,11 @@ import java.util.ServiceLoader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
 
+import org.apache.axiom.testing.multiton.Adaptable;
 import org.apache.axiom.testing.multiton.Instances;
-import org.apache.axiom.testing.multiton.Multiton;
 import org.apache.commons.io.IOUtils;
 
-public abstract class StAXImplementation extends Multiton {
+public abstract class StAXImplementation extends Adaptable {
     public static final StAXImplementation JRE =
             new StAXImplementation("JRE") {
                 @Override

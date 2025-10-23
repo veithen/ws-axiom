@@ -20,12 +20,14 @@ package org.apache.axiom.ts.dimension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMMetaFactorySPI;
 import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.axiom.testing.multiton.Instances;
 import org.apache.axiom.testing.multiton.Multiton;
+import org.apache.axiom.testing.multiton.MultitonModule;
 import org.apache.axiom.testutils.stax.XMLStreamReaderComparator;
 import org.apache.axiom.testutils.suite.Dimension;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
@@ -33,6 +35,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 import org.apache.axiom.ts.jaxp.dom.DOMImplementation;
 import org.apache.axiom.ts.jaxp.sax.SAXImplementation;
 import org.xml.sax.InputSource;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Key;
+import com.google.inject.TypeLiteral;
 
 /** Defines a strategy to create an {@link OMXMLParserWrapper} from a given test file. */
 public abstract class BuilderFactory extends Multiton implements Dimension {
@@ -69,10 +76,16 @@ public abstract class BuilderFactory extends Multiton implements Dimension {
     @Instances
     private static BuilderFactory[] instances() {
         List<BuilderFactory> instances = new ArrayList<>();
-        for (DOMImplementation implementation : getInstances(DOMImplementation.class)) {
+        Injector injector =
+                Guice.createInjector(
+                        new MultitonModule<>(DOMImplementation.class),
+                        new MultitonModule<>(SAXImplementation.class));
+        for (DOMImplementation implementation :
+                injector.getInstance(Key.get(new TypeLiteral<Set<DOMImplementation>>() {}))) {
             instances.add(new DOMBuilderFactory(implementation));
         }
-        for (SAXImplementation implementation : getInstances(SAXImplementation.class)) {
+        for (SAXImplementation implementation :
+                injector.getInstance(Key.get(new TypeLiteral<Set<SAXImplementation>>() {}))) {
             instances.add(new SAXBuilderFactory(implementation));
         }
         return instances.toArray(new BuilderFactory[instances.size()]);

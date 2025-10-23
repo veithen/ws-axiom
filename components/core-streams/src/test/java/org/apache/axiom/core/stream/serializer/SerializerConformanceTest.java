@@ -19,21 +19,26 @@
 package org.apache.axiom.core.stream.serializer;
 
 import static com.google.common.truth.Truth.assertAbout;
-import static org.apache.axiom.testing.multiton.Multiton.getInstances;
 import static org.apache.axiom.truth.xml.XMLTruth.xml;
 
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.axiom.core.stream.XmlReader;
 import org.apache.axiom.core.stream.dom.input.DOMInput;
+import org.apache.axiom.testing.multiton.MultitonModule;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.testutils.suite.MatrixTestSuiteBuilder;
 import org.apache.axiom.ts.xml.XMLSample;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
+
+import com.google.inject.Guice;
+import com.google.inject.Key;
+import com.google.inject.TypeLiteral;
 
 import junit.framework.TestSuite;
 
@@ -69,7 +74,9 @@ public class SerializerConformanceTest extends MatrixTestCase {
         return new MatrixTestSuiteBuilder() {
             @Override
             protected void addTests() {
-                for (XMLSample sample : getInstances(XMLSample.class)) {
+                for (XMLSample sample :
+                        Guice.createInjector(new MultitonModule<>(XMLSample.class))
+                                .getInstance(Key.get(new TypeLiteral<Set<XMLSample>>() {}))) {
                     addTest(new SerializerConformanceTest(sample));
                 }
             }
