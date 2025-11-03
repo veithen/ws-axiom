@@ -19,21 +19,27 @@
 package org.apache.axiom.core.stream.stax.pull.output;
 
 import static com.google.common.truth.Truth.assertAbout;
-import static org.apache.axiom.testing.multiton.Multiton.getInstances;
 import static org.apache.axiom.truth.xml.XMLTruth.xml;
 
 import java.io.StringWriter;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.stax.StAXSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.apache.axiom.core.stream.dom.input.DOMInput;
+import org.apache.axiom.testing.multiton.MultitonModule;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.testutils.suite.MatrixTestSuiteBuilder;
 import org.apache.axiom.ts.jaxp.xslt.XSLTImplementation;
 import org.apache.axiom.ts.xml.XMLSample;
 import org.w3c.dom.Document;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Key;
+import com.google.inject.TypeLiteral;
 
 import junit.framework.TestSuite;
 
@@ -70,10 +76,17 @@ public class StAXPivotTransformerTest extends MatrixTestCase {
         return new MatrixTestSuiteBuilder() {
             @Override
             protected void addTests() {
+                Injector injector =
+                        Guice.createInjector(
+                                new MultitonModule<>(XSLTImplementation.class),
+                                new MultitonModule<>(XMLSample.class));
                 for (XSLTImplementation xsltImplementation :
-                        getInstances(XSLTImplementation.class)) {
+                        injector.getInstance(
+                                Key.get(new TypeLiteral<Set<XSLTImplementation>>() {}))) {
                     if (xsltImplementation.supportsStAXSource()) {
-                        for (XMLSample sample : getInstances(XMLSample.class)) {
+                        for (XMLSample sample :
+                                injector.getInstance(
+                                        Key.get(new TypeLiteral<Set<XMLSample>>() {}))) {
                             if (!sample.hasDTD()) {
                                 addTest(new StAXPivotTransformerTest(xsltImplementation, sample));
                             }

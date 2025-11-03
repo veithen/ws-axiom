@@ -20,10 +20,10 @@ package org.apache.axiom.ts.jaxp.sax;
 
 import javax.xml.parsers.SAXParserFactory;
 
-import org.apache.axiom.testing.multiton.Multiton;
+import org.apache.axiom.testing.multiton.Adaptable;
 import org.xml.sax.ext.LexicalHandler;
 
-public abstract class SAXImplementation extends Multiton {
+public abstract class SAXImplementation extends Adaptable {
     public static final SAXImplementation XERCES =
             new SAXImplementation("xerces", true) {
                 @Override

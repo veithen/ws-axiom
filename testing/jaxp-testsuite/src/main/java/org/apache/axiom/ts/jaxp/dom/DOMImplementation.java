@@ -24,12 +24,12 @@ import java.io.InputStream;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.axiom.testing.multiton.Multiton;
+import org.apache.axiom.testing.multiton.Adaptable;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-public abstract class DOMImplementation extends Multiton {
+public abstract class DOMImplementation extends Adaptable {
     public static final DOMImplementation XERCES =
             new DOMImplementation("xerces") {
                 @Override

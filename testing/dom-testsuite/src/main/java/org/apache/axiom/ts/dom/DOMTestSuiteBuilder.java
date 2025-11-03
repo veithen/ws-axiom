@@ -20,14 +20,21 @@ package org.apache.axiom.ts.dom;
 
 import static org.apache.axiom.testing.multiton.Multiton.getInstances;
 
+import java.util.Set;
+
 import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.axiom.testing.multiton.MultitonModule;
 import org.apache.axiom.testutils.suite.MatrixTestSuiteBuilder;
 import org.apache.axiom.ts.jaxp.dom.DOMImplementation;
 import org.apache.axiom.ts.jaxp.xslt.XSLTImplementation;
 import org.apache.axiom.ts.xml.XMLSample;
+
+import com.google.inject.Guice;
+import com.google.inject.Key;
+import com.google.inject.TypeLiteral;
 
 public final class DOMTestSuiteBuilder extends MatrixTestSuiteBuilder {
     private static final QName[] validAttrQNames =
@@ -150,7 +157,9 @@ public final class DOMTestSuiteBuilder extends MatrixTestSuiteBuilder {
         addTest(new org.apache.axiom.ts.dom.element.TestGetPrefixWithDefaultNamespace(dbf));
         addTest(new org.apache.axiom.ts.dom.element.TestGetTextContent(dbf));
         for (XMLSample file : getInstances(XMLSample.class)) {
-            for (DOMImplementation from : getInstances(DOMImplementation.class)) {
+            for (DOMImplementation from :
+                    Guice.createInjector(new MultitonModule<>(DOMImplementation.class))
+                            .getInstance(Key.get(new TypeLiteral<Set<DOMImplementation>>() {}))) {
                 addTest(new org.apache.axiom.ts.dom.element.TestImportNode(dbf, file, from));
             }
         }

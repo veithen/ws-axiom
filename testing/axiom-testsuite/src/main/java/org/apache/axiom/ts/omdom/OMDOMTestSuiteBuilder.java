@@ -18,11 +18,17 @@
  */
 package org.apache.axiom.ts.omdom;
 
-import static org.apache.axiom.testing.multiton.Multiton.getInstances;
+import java.util.Set;
 
 import org.apache.axiom.om.dom.DOMMetaFactory;
+import org.apache.axiom.testing.multiton.MultitonModule;
 import org.apache.axiom.testutils.suite.MatrixTestSuiteBuilder;
 import org.apache.axiom.ts.xml.XMLSample;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Key;
+import com.google.inject.TypeLiteral;
 
 /**
  * Builds a test suite for Axiom implementations that also implement DOM. Note that this test suite
@@ -38,6 +44,8 @@ public class OMDOMTestSuiteBuilder extends MatrixTestSuiteBuilder {
 
     @Override
     protected void addTests() {
+        Injector injector =
+                Guice.createInjector(new MultitonModule<>(XMLSample.class));
         addTest(new org.apache.axiom.ts.omdom.attr.TestGetNamespaceNormalized(metaFactory));
         addTest(new org.apache.axiom.ts.omdom.attr.TestSetValueOnNamespaceDeclaration(metaFactory));
         addTest(new org.apache.axiom.ts.omdom.document.TestAppendChildForbidden(metaFactory, true));
@@ -49,7 +57,7 @@ public class OMDOMTestSuiteBuilder extends MatrixTestSuiteBuilder {
                         metaFactory));
         addTest(new org.apache.axiom.ts.omdom.document.TestGetOMFactory1(metaFactory));
         addTest(new org.apache.axiom.ts.omdom.document.TestGetOMFactory2(metaFactory));
-        for (XMLSample sample : getInstances(XMLSample.class)) {
+        for (XMLSample sample : injector.getInstance(Key.get(new TypeLiteral<Set<XMLSample>>() {}))) {
             addTest(new org.apache.axiom.ts.omdom.document.TestImportNode(metaFactory, sample));
         }
         addTest(
