@@ -28,19 +28,19 @@ public class CharacterDataAccumulator {
             content = data;
         } else {
             StringBuilder buffer;
-            if (content instanceof StringBuilder) {
-                buffer = (StringBuilder) content;
+            if (content instanceof StringBuilder sb) {
+                buffer = sb;
             } else {
-                if (content instanceof CharacterData) {
+                if (content instanceof CharacterData cd) {
                     buffer = new StringBuilder();
-                    ((CharacterData) content).appendTo(buffer);
+                    cd.appendTo(buffer);
                 } else {
                     buffer = new StringBuilder(content.toString());
                 }
                 content = buffer;
             }
-            if (data instanceof CharacterData) {
-                ((CharacterData) data).appendTo(buffer);
+            if (data instanceof CharacterData cd) {
+                cd.appendTo(buffer);
             } else {
                 buffer.append(data);
             }

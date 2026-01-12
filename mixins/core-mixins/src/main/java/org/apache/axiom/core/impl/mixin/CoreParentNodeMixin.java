@@ -319,8 +319,8 @@ public abstract class CoreParentNodeMixin implements CoreParentNode {
             boolean updateState;
             if (getState() == INCOMPLETE) {
                 CoreChildNode lastChild = coreGetLastKnownChild();
-                if (lastChild instanceof CoreParentNode) {
-                    ((CoreParentNode) lastChild).coreBuild();
+                if (lastChild instanceof CoreParentNode coreParentNode) {
+                    coreParentNode.coreBuild();
                 }
                 context.discard();
                 updateState = true;

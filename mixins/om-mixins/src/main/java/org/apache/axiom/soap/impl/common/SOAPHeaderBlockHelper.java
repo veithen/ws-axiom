@@ -34,10 +34,9 @@ public final class SOAPHeaderBlockHelper {
     public static String getAttributeValue(AxiomElement block, String key, QName qname) {
         // First, try getting the information from the property.
         // Fallback to getting the information from the attribute.
-        if (block instanceof OMSourcedElement && !block.isExpanded()) {
-            OMDataSource ds = ((OMSourcedElement) block).getDataSource();
-            if (ds instanceof OMDataSourceExt) {
-                OMDataSourceExt dsExt = (OMDataSourceExt) ds;
+        if (block instanceof OMSourcedElement sourcedElement && !block.isExpanded()) {
+            OMDataSource ds = sourcedElement.getDataSource();
+            if (ds instanceof OMDataSourceExt dsExt) {
                 if (dsExt.hasProperty(key)) {
                     return (String) dsExt.getProperty(key);
                 }

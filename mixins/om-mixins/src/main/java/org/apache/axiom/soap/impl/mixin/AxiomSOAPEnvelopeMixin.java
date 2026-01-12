@@ -39,7 +39,7 @@ public abstract class AxiomSOAPEnvelopeMixin implements AxiomSOAPEnvelope {
     public final SOAPHeader getHeader() {
         // The soap header is the first element in the envelope.
         OMElement e = getFirstElement();
-        return e instanceof SOAPHeader ? (SOAPHeader) e : null;
+        return e instanceof SOAPHeader soapHeader ? soapHeader : null;
     }
 
     @Override
@@ -51,8 +51,8 @@ public abstract class AxiomSOAPEnvelopeMixin implements AxiomSOAPEnvelope {
     @Override
     public final SOAPBody getBody() {
         OMElement element = getFirstElement();
-        if (element instanceof SOAPBody) {
-            return (SOAPBody) element;
+        if (element instanceof SOAPBody soapBody) {
+            return soapBody;
         } else if (element instanceof SOAPHeader) {
             OMNode node = element.getNextOMSibling();
             while (node != null && !(node instanceof OMElement)) {

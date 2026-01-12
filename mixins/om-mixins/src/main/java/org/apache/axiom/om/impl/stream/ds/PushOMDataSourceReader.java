@@ -54,12 +54,12 @@ final class PushOMDataSourceReader implements XmlReader {
         XmlHandler handler = this.handler;
         OMOutputFormat format = null;
         XmlHandler current = handler;
-        while (current instanceof XmlHandlerWrapper) {
-            if (current instanceof XmlDeclarationRewriterHandler) {
-                format = ((XmlDeclarationRewriterHandler) current).getFormat();
+        while (current instanceof XmlHandlerWrapper xmlHandlerWrapper) {
+            if (current instanceof XmlDeclarationRewriterHandler xmlDeclarationRewriterHandler) {
+                format = xmlDeclarationRewriterHandler.getFormat();
                 break;
             }
-            current = ((XmlHandlerWrapper) current).getParent();
+            current = xmlHandlerWrapper.getParent();
         }
         if (format == null) {
             // This is for the OMSourcedElement expansion case
@@ -73,8 +73,8 @@ final class PushOMDataSourceReader implements XmlReader {
                             handler, null, AxiomXMLStreamWriterExtensionFactory.INSTANCE);
             // Seed the namespace context with the namespace context from the parent
             OMContainer parent = root.getParent();
-            if (parent instanceof OMElement) {
-                for (Iterator<OMNamespace> it = ((OMElement) parent).getNamespacesInScope();
+            if (parent instanceof OMElement omElement) {
+                for (Iterator<OMNamespace> it = omElement.getNamespacesInScope();
                         it.hasNext(); ) {
                     OMNamespace ns = it.next();
                     writer.setPrefix(ns.getPrefix(), ns.getNamespaceURI());
@@ -86,8 +86,8 @@ final class PushOMDataSourceReader implements XmlReader {
             handler.completed();
         } catch (XMLStreamException ex) {
             Throwable cause = ex.getCause();
-            if (cause instanceof StreamException) {
-                throw (StreamException) cause;
+            if (cause instanceof StreamException streamException) {
+                throw streamException;
             } else {
                 throw new StreamException(ex);
             }

@@ -415,16 +415,15 @@ public abstract class AxiomSourcedElementMixin implements AxiomSourcedElement {
         // If already expanded or this is not an OMDataSourceExt, then
         // create a copy of the OM Tree
         OMDataSource ds = o.getDataSource();
-        if (!(options instanceof OMCloneOptions)
-                || !((OMCloneOptions) options).isCopyOMDataSources()
+        if (!(options instanceof OMCloneOptions omCloneOptions)
+                || !omCloneOptions.isCopyOMDataSources()
                 || ds == null
                 || o.isExpanded()
-                || !(ds instanceof OMDataSourceExt)) {
+                || !(ds instanceof OMDataSourceExt sourceDS)) {
             return;
         }
 
         // If copying is destructive, then copy the OM tree
-        OMDataSourceExt sourceDS = (OMDataSourceExt) ds;
         if (sourceDS.isDestructiveRead() || sourceDS.isDestructiveWrite()) {
             return;
         }

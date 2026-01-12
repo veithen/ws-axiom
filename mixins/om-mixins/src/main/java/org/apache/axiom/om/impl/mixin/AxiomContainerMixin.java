@@ -312,8 +312,8 @@ public abstract class AxiomContainerMixin implements AxiomContainer {
             serialize(handler, namespaceContextProvider, format, cache);
         } catch (StreamException ex) {
             Throwable cause = ex.getCause();
-            if (cause instanceof IOException) {
-                throw (IOException) cause;
+            if (cause instanceof IOException ioException) {
+                throw ioException;
             } else {
                 throw new OMException(ex);
             }
@@ -383,10 +383,10 @@ public abstract class AxiomContainerMixin implements AxiomContainer {
             rootPartOutputStream.close();
             for (String contentID : encoder.getContentIDs()) {
                 Blob blob = encoder.getBlob(contentID);
-                if (cache || !(blob instanceof PartBlob)) {
+                if (cache || !(blob instanceof PartBlob partBlob)) {
                     multipartWriter.writePart(blob, contentID);
                 } else {
-                    multipartWriter.writePart((PartBlob) blob, contentID, false);
+                    multipartWriter.writePart(partBlob, contentID, false);
                 }
             }
             multipartWriter.complete();

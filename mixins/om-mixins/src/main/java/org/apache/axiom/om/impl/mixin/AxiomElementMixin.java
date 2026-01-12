@@ -187,7 +187,7 @@ public abstract class AxiomElementMixin implements AxiomElement {
             if (child == null) {
                 return new StringReader("");
             } else if (child.getNextOMSibling() == null) {
-                return new StringReader(child instanceof OMText ? ((OMText) child).getText() : "");
+                return new StringReader(child instanceof OMText omText ? omText.getText() : "");
             }
         }
         // In all other cases, extract the data from the XMLStreamReader
@@ -501,8 +501,8 @@ public abstract class AxiomElementMixin implements AxiomElement {
             // For the OMDocumentImpl there won't be any explicit namespace
             // declarations, so going up the parent chain till the document
             // element should be enough.
-            if (parent instanceof OMElement) {
-                namespace = ((OMElement) parent).findNamespace(uri, prefix);
+            if (parent instanceof OMElement omElement) {
+                namespace = omElement.findNamespace(uri, prefix);
                 // If the prefix has been redeclared, then ignore the binding found on the ancestors
                 if (namespace != null
                         && findDeclaredNamespace(null, namespace.getPrefix()) != null) {
@@ -567,9 +567,9 @@ public abstract class AxiomElementMixin implements AxiomElement {
             attr = attr.coreGetNextAttribute();
         }
         OMContainer parent = getParent();
-        if (parent instanceof OMElement) {
+        if (parent instanceof OMElement omElement) {
             // try with the parent
-            return ((OMElement) parent).findNamespaceURI(prefix);
+            return omElement.findNamespaceURI(prefix);
         } else {
             return null;
         }
@@ -636,7 +636,7 @@ public abstract class AxiomElementMixin implements AxiomElement {
     @Override
     public final CoreElement getContextElement() {
         CoreParentNode parent = coreGetParent();
-        return parent instanceof CoreElement ? (CoreElement) parent : null;
+        return parent instanceof CoreElement coreElement ? coreElement : null;
     }
 
     @Override

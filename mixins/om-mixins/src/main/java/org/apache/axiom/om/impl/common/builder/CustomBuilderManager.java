@@ -79,9 +79,8 @@ final class CustomBuilderManager implements BuilderListener {
     private DeferredAction getAction(CoreNode node, int depth, int firstCustomBuilder) {
         lastCandidateElement = null;
         lastCandidateDepth = -1;
-        if (node instanceof AxiomElement
+        if (node instanceof AxiomElement element
                 && (node instanceof AxiomSOAPHeaderBlock || !(node instanceof AxiomSOAPElement))) {
-            AxiomElement element = (AxiomElement) node;
             if (registrations != null) {
                 for (int i = firstCustomBuilder; i < registrations.size(); i++) {
                     CustomBuilderRegistration registration = registrations.get(i);

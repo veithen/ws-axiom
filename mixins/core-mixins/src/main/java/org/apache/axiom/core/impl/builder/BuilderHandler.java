@@ -75,8 +75,8 @@ final class BuilderHandler implements XmlHandler {
     }
 
     void nodeAdded(CoreNode node) {
-        if (node instanceof CoreDocument) {
-            document = (CoreDocument) node;
+        if (node instanceof CoreDocument coreDocument) {
+            document = coreDocument;
         }
         if (listeners != null) {
             for (int i = 0, size = listeners.size(); i < size; i++) {

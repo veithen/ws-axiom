@@ -70,8 +70,7 @@ public final class NamespaceContextPreservationFilterHandler extends XmlHandlerW
                 while (true) {
                     CoreAttribute attr = current.coreGetFirstAttribute();
                     while (attr != null) {
-                        if (attr instanceof CoreNamespaceDeclaration) {
-                            CoreNamespaceDeclaration decl = (CoreNamespaceDeclaration) attr;
+                        if (attr instanceof CoreNamespaceDeclaration decl) {
                             String prefix = decl.coreGetDeclaredPrefix();
                             if (prefixesAlreadyBound.add(prefix)) {
                                 super.processNamespaceDeclaration(
@@ -81,10 +80,10 @@ public final class NamespaceContextPreservationFilterHandler extends XmlHandlerW
                         attr = attr.coreGetNextAttribute();
                     }
                     CoreParentNode parent = current.coreGetParent();
-                    if (!(parent instanceof CoreElement)) {
+                    if (!(parent instanceof CoreElement coreElement)) {
                         break;
                     }
-                    current = (CoreElement) parent;
+                    current = coreElement;
                 }
                 prefixesAlreadyBound = null;
                 done = true;

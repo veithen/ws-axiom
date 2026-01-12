@@ -82,11 +82,11 @@ public final class XOPEncodingFilterHandler extends AbstractXOPEncodingFilterHan
         Object blobObject = blobObjects.get(contentID);
         if (blobObject == null) {
             return null;
-        } else if (blobObject instanceof Blob) {
-            return (Blob) blobObject;
-        } else {
+        } else if (blobObject instanceof Blob blob) {
+            return blob;
+        } else if (blobObject instanceof BlobProvider blobProvider) {
             try {
-                return ((BlobProvider) blobObject).getBlob();
+                return blobProvider.getBlob();
             } catch (IOException ex) {
                 throw new OMException(ex);
             }
@@ -95,20 +95,19 @@ public final class XOPEncodingFilterHandler extends AbstractXOPEncodingFilterHan
 
     @Override
     protected String processCharacterData(Object data) throws StreamException {
-        if (data instanceof TextContent) {
-            TextContent textContent = (TextContent) data;
+        if (data instanceof TextContent textContent) {
             if (textContent.isBinary()) {
                 Object blobObject = textContent.getBlobObject();
                 boolean optimize;
                 try {
-                    if (blobObject instanceof BlobProvider) {
+                    if (blobObject instanceof BlobProvider blobProvider) {
                         optimize =
                                 optimizationPolicy.isOptimized(
-                                        (BlobProvider) blobObject, textContent.isOptimize());
-                    } else {
+                                        blobProvider, textContent.isOptimize());
+                    } else if (blobObject instanceof Blob blob) {
                         optimize =
                                 optimizationPolicy.isOptimized(
-                                        (Blob) blobObject, textContent.isOptimize());
+                                        blob, textContent.isOptimize());
                     }
                 } catch (IOException ex) {
                     throw new StreamException(ex);

@@ -43,8 +43,8 @@ final class CharacterDataReaderImpl implements CharacterDataReader {
         switch (reader.getEventType()) {
             case XMLStreamReader.CHARACTERS -> {
                 Object data = reader.getCharacterData();
-                if (data instanceof CharacterData) {
-                    ((CharacterData) data)
+                if (data instanceof CharacterData characterData) {
+                    characterData
                             .writeTo(
                                     new CharacterDataSink() {
                                         @Override

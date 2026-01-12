@@ -34,7 +34,7 @@ public abstract class AxiomChildNodeMixin implements AxiomChildNode {
     @Override
     public final OMContainer getParent() {
         CoreParentNode parent = coreGetParent();
-        return parent instanceof OMContainer ? (OMContainer) parent : null;
+        return parent instanceof OMContainer omContainer ? omContainer : null;
     }
 
     @Override
