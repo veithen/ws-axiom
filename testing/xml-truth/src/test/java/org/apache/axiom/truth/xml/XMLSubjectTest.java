@@ -20,6 +20,7 @@ package org.apache.axiom.truth.xml;
 
 import static com.google.common.truth.Truth.assertAbout;
 import static org.apache.axiom.truth.xml.XMLTruth.xml;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.Test;
 
@@ -32,12 +33,15 @@ public class XMLSubjectTest {
                 .hasSameContentAs("<a xmlns:p='#1'><b/></a>");
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testIgnoringRedundantNamespaceDeclarations2() {
-        assertAbout(xml())
-                .that("<a xmlns:p='#1'><b xmlns:p='#2'/></a>")
-                .ignoringRedundantNamespaceDeclarations()
-                .hasSameContentAs("<a xmlns:p='#1'><b/></a>");
+        assertThatThrownBy(
+                        () ->
+                                assertAbout(xml())
+                                        .that("<a xmlns:p='#1'><b xmlns:p='#2'/></a>")
+                                        .ignoringRedundantNamespaceDeclarations()
+                                        .hasSameContentAs("<a xmlns:p='#1'><b/></a>"))
+                .isInstanceOf(AssertionError.class);
     }
 
     @Test

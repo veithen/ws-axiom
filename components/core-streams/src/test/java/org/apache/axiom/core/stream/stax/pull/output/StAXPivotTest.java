@@ -57,19 +57,21 @@ public class StAXPivotTest {
         pivot.require(XMLStreamConstants.END_DOCUMENT, null, null);
     }
 
-    @Test(expected = XMLStreamException.class)
+    @Test
     public void testEventTypeMismatch() throws Exception {
         StAXPivot pivot = createStAXPivot(Action.DEFAULT_START_DOCUMENT);
-        pivot.require(XMLStreamConstants.CHARACTERS, null, null);
+        assertThatThrownBy(() -> pivot.require(XMLStreamConstants.CHARACTERS, null, null))
+                .isInstanceOf(XMLStreamException.class);
     }
 
-    @Test(expected = XMLStreamException.class)
+    @Test
     public void testLocalNameOnStartDocument() throws Exception {
         StAXPivot pivot = createStAXPivot(Action.DEFAULT_START_DOCUMENT);
-        pivot.require(XMLStreamConstants.START_DOCUMENT, null, "test");
+        assertThatThrownBy(() -> pivot.require(XMLStreamConstants.START_DOCUMENT, null, "test"))
+                .isInstanceOf(XMLStreamException.class);
     }
 
-    @Test(expected = XMLStreamException.class)
+    @Test
     public void testLocalNameMismatchOnStartElement() throws Exception {
         StAXPivot pivot =
                 createStAXPivot(
@@ -77,16 +79,20 @@ public class StAXPivotTest {
                         h -> h.startElement("urn:test", "test", "p"),
                         XmlHandler::attributesCompleted);
         pivot.next();
-        pivot.require(XMLStreamConstants.START_ELEMENT, "urn:test", "wrong_name");
+        assertThatThrownBy(
+                        () -> pivot.require(XMLStreamConstants.START_ELEMENT, "urn:test", "wrong_name"))
+                .isInstanceOf(XMLStreamException.class);
     }
 
-    @Test(expected = XMLStreamException.class)
+    @Test
     public void testNamespaceURIOnStartDocument() throws Exception {
         StAXPivot pivot = createStAXPivot(Action.DEFAULT_START_DOCUMENT);
-        pivot.require(XMLStreamConstants.START_DOCUMENT, "http://example.org", null);
+        assertThatThrownBy(
+                        () -> pivot.require(XMLStreamConstants.START_DOCUMENT, "http://example.org", null))
+                .isInstanceOf(XMLStreamException.class);
     }
 
-    @Test(expected = XMLStreamException.class)
+    @Test
     public void testNamespaceURIMismatchOnStartElement() throws Exception {
         StAXPivot pivot =
                 createStAXPivot(
@@ -94,7 +100,9 @@ public class StAXPivotTest {
                         h -> h.startElement("urn:test", "test", "p"),
                         XmlHandler::attributesCompleted);
         pivot.next();
-        pivot.require(XMLStreamConstants.START_ELEMENT, "urn:wrong_uri", "test");
+        assertThatThrownBy(
+                        () -> pivot.require(XMLStreamConstants.START_ELEMENT, "urn:wrong_uri", "test"))
+                .isInstanceOf(XMLStreamException.class);
     }
 
     @Test

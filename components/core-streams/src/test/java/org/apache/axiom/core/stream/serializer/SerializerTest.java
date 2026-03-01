@@ -19,6 +19,7 @@
 package org.apache.axiom.core.stream.serializer;
 
 import static com.google.common.truth.Truth.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.io.ByteArrayOutputStream;
 import java.io.StringWriter;
@@ -112,75 +113,107 @@ public class SerializerTest {
                 .isEqualTo("<x y=\"&#x233b4; - &#x20628;\"/>");
     }
 
-    @Test(expected = StreamException.class)
+    @Test
     public void testUnmappableCharacterInComment() throws Exception {
-        Serializer handler = new Serializer(NullOutputStream.INSTANCE, "iso-8859-1");
-        handler.startFragment();
-        handler.startComment();
-        handler.processCharacterData("\u20AC", false);
-        handler.endComment();
-        handler.completed();
+        assertThatThrownBy(
+                        () -> {
+                            Serializer handler =
+                                    new Serializer(NullOutputStream.INSTANCE, "iso-8859-1");
+                            handler.startFragment();
+                            handler.startComment();
+                            handler.processCharacterData("\u20AC", false);
+                            handler.endComment();
+                            handler.completed();
+                        })
+                .isInstanceOf(StreamException.class);
     }
 
-    @Test(expected = StreamException.class)
+    @Test
     public void testUnmappableCharacterInCDATASection() throws Exception {
-        Serializer handler = new Serializer(NullOutputStream.INSTANCE, "ascii");
-        handler.startFragment();
-        handler.startCDATASection();
-        handler.processCharacterData("c'est la fête!", false);
-        handler.endCDATASection();
-        handler.completed();
+        assertThatThrownBy(
+                        () -> {
+                            Serializer handler =
+                                    new Serializer(NullOutputStream.INSTANCE, "ascii");
+                            handler.startFragment();
+                            handler.startCDATASection();
+                            handler.processCharacterData("c'est la fête!", false);
+                            handler.endCDATASection();
+                            handler.completed();
+                        })
+                .isInstanceOf(StreamException.class);
     }
 
-    @Test(expected = StreamException.class)
+    @Test
     public void testUnmappableCharacterInProcessingInstruction() throws Exception {
-        Serializer handler = new Serializer(NullOutputStream.INSTANCE, "ascii");
-        handler.startFragment();
-        handler.startProcessingInstruction("test");
-        handler.processCharacterData("c'est la fête!", false);
-        handler.endProcessingInstruction();
-        handler.completed();
+        assertThatThrownBy(
+                        () -> {
+                            Serializer handler =
+                                    new Serializer(NullOutputStream.INSTANCE, "ascii");
+                            handler.startFragment();
+                            handler.startProcessingInstruction("test");
+                            handler.processCharacterData("c'est la fête!", false);
+                            handler.endProcessingInstruction();
+                            handler.completed();
+                        })
+                .isInstanceOf(StreamException.class);
     }
 
-    @Test(expected = StreamException.class)
+    @Test
     public void testUnmappableCharacterInName() throws Exception {
-        Serializer handler = new Serializer(NullOutputStream.INSTANCE, "iso-8859-15");
-        handler.startFragment();
-        handler.startElement("", "\u0370", "");
-        handler.attributesCompleted();
-        handler.endElement();
-        handler.completed();
+        assertThatThrownBy(
+                        () -> {
+                            Serializer handler =
+                                    new Serializer(NullOutputStream.INSTANCE, "iso-8859-15");
+                            handler.startFragment();
+                            handler.startElement("", "\u0370", "");
+                            handler.attributesCompleted();
+                            handler.endElement();
+                            handler.completed();
+                        })
+                .isInstanceOf(StreamException.class);
     }
 
-    @Test(expected = IllegalCharacterSequenceException.class)
+    @Test
     public void testIllegalCharacterSequenceInComment() throws Exception {
-        Serializer handler = new Serializer(NullWriter.INSTANCE);
-        handler.startFragment();
-        handler.startComment();
-        handler.processCharacterData("abc--def", false);
-        handler.endComment();
-        handler.completed();
+        assertThatThrownBy(
+                        () -> {
+                            Serializer handler = new Serializer(NullWriter.INSTANCE);
+                            handler.startFragment();
+                            handler.startComment();
+                            handler.processCharacterData("abc--def", false);
+                            handler.endComment();
+                            handler.completed();
+                        })
+                .isInstanceOf(IllegalCharacterSequenceException.class);
     }
 
-    @Test(expected = IllegalCharacterSequenceException.class)
+    @Test
     public void testIllegalCharacterSequenceInProcessingInstruction() throws Exception {
-        Serializer handler = new Serializer(NullWriter.INSTANCE);
-        handler.startFragment();
-        handler.startProcessingInstruction("test");
-        handler.processCharacterData("aaa???>bbb", false);
-        handler.endProcessingInstruction();
-        handler.completed();
+        assertThatThrownBy(
+                        () -> {
+                            Serializer handler = new Serializer(NullWriter.INSTANCE);
+                            handler.startFragment();
+                            handler.startProcessingInstruction("test");
+                            handler.processCharacterData("aaa???>bbb", false);
+                            handler.endProcessingInstruction();
+                            handler.completed();
+                        })
+                .isInstanceOf(IllegalCharacterSequenceException.class);
     }
 
-    @Test(expected = IllegalCharacterSequenceException.class)
+    @Test
     public void testIllegalCharacterSequenceInCDATASection() throws Exception {
-        Serializer handler = new Serializer(NullWriter.INSTANCE);
-        handler.startFragment();
-        handler.startCDATASection();
-        handler.processCharacterData("xxx]]]", false);
-        handler.processCharacterData(">yyy", false);
-        handler.endCDATASection();
-        handler.completed();
+        assertThatThrownBy(
+                        () -> {
+                            Serializer handler = new Serializer(NullWriter.INSTANCE);
+                            handler.startFragment();
+                            handler.startCDATASection();
+                            handler.processCharacterData("xxx]]]", false);
+                            handler.processCharacterData(">yyy", false);
+                            handler.endCDATASection();
+                            handler.completed();
+                        })
+                .isInstanceOf(IllegalCharacterSequenceException.class);
     }
 
     @Test
