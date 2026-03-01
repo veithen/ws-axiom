@@ -25,18 +25,12 @@ import org.junit.Test;
 public class NamespaceRepairingFilterTest {
     @Test
     public void testNamespaceDeclarationConflictingWithElementName() throws StreamException {
-        assertThatThrownBy(
-                        () -> {
-                            XmlHandler handler =
-                                    new NamespaceRepairingFilter(null, false)
-                                            .createFilterHandler(NullXmlHandler.INSTANCE);
-                            handler.startFragment();
-                            handler.startElement("urn:ns1", "test", "p");
-                            handler.processNamespaceDeclaration("p", "urn:ns2");
-                            handler.attributesCompleted();
-                            handler.endElement();
-                            handler.completed();
-                        })
+        XmlHandler handler =
+                new NamespaceRepairingFilter(null, false)
+                        .createFilterHandler(NullXmlHandler.INSTANCE);
+        handler.startFragment();
+        handler.startElement("urn:ns1", "test", "p");
+        assertThatThrownBy(() -> handler.processNamespaceDeclaration("p", "urn:ns2"))
                 .isInstanceOf(ConflictingNamespaceDeclarationException.class);
     }
 }
