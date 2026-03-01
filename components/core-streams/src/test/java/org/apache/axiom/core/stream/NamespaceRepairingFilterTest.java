@@ -18,19 +18,19 @@
  */
 package org.apache.axiom.core.stream;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import org.junit.Test;
 
 public class NamespaceRepairingFilterTest {
-    @Test(expected = ConflictingNamespaceDeclarationException.class)
+    @Test
     public void testNamespaceDeclarationConflictingWithElementName() throws StreamException {
         XmlHandler handler =
                 new NamespaceRepairingFilter(null, false)
                         .createFilterHandler(NullXmlHandler.INSTANCE);
         handler.startFragment();
         handler.startElement("urn:ns1", "test", "p");
-        handler.processNamespaceDeclaration("p", "urn:ns2");
-        handler.attributesCompleted();
-        handler.endElement();
-        handler.completed();
+        assertThatThrownBy(() -> handler.processNamespaceDeclaration("p", "urn:ns2"))
+                .isInstanceOf(ConflictingNamespaceDeclarationException.class);
     }
 }
