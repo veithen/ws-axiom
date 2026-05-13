@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.ts.om.element;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Iterator;
 
 import javax.xml.namespace.QName;
@@ -53,11 +55,10 @@ public class TestAddChild2 extends AxiomTestCase {
         int count = 0;
         while (it.hasNext()) {
             OMElement child = it.next();
-            assertEquals("Child local name mismatch", childLocalName, child.getLocalName());
-            assertEquals(
-                    "Child namespace mismatch", namespace, child.getNamespace().getNamespaceURI());
+            assertThat(child.getLocalName()).as("Child local name mismatch").isEqualTo(childLocalName);
+            assertThat(child.getNamespace().getNamespaceURI()).as("Child namespace mismatch").isEqualTo(namespace);
             count++;
         }
-        assertEquals("In correct number of children", 1, count);
+        assertThat(count).as("In correct number of children").isEqualTo(1);
     }
 }

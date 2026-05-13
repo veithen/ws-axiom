@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.ts.om.sourcedelement;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.StringWriter;
 
 import org.apache.axiom.om.OMElement;
@@ -56,9 +58,9 @@ public class TestName4Unqualified extends AxiomTestCase {
 
         // Test getting the namespace, localpart and prefix.  This should used not result in
         // expansion
-        assertTrue(element.getLocalName().equals("DUMMYNAME"));
-        assertTrue(element.getNamespace().getNamespaceURI().equals("http://DUMMYNS"));
-        assertTrue(element.getNamespace().getPrefix().equals(""));
+        assertThat(element.getLocalName().equals("DUMMYNAME")).isTrue();
+        assertThat(element.getNamespace().getNamespaceURI().equals("http://DUMMYNS")).isTrue();
+        assertThat(element.getNamespace().getPrefix().equals("")).isTrue();
 
         // Serialize and consume.  This should not cause expansion and currently won't update
         // the name of the element.
@@ -66,14 +68,14 @@ public class TestName4Unqualified extends AxiomTestCase {
         root.serializeAndConsume(writer);
         String result = writer.toString();
 
-        assertTrue(element.getLocalName().equals("DUMMYNAME"));
-        assertTrue(element.getNamespace().getNamespaceURI().equals("http://DUMMYNS"));
-        assertTrue(element.getNamespace().getPrefix().equals(""));
+        assertThat(element.getLocalName().equals("DUMMYNAME")).isTrue();
+        assertThat(element.getNamespace().getNamespaceURI().equals("http://DUMMYNS")).isTrue();
+        assertThat(element.getNamespace().getPrefix().equals("")).isTrue();
         // Make sure that the serialized string does not contain the DUMMY values
-        assertTrue(result.indexOf("DUMMY") < 0);
+        assertThat(result.indexOf("DUMMY") < 0).isTrue();
         // Make sure that the serialized string does not contain the default prefix declaration
-        assertTrue(result.indexOf("xmlns=") < 0);
+        assertThat(result.indexOf("xmlns=") < 0).isTrue();
 
-        assertTrue("Serialized text error" + result, result.indexOf("1930110111") > 0);
+        assertThat(result.indexOf("1930110111") > 0).as("Serialized text error" + result).isTrue();
     }
 }

@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.ts.soap11.builder;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.StringReader;
 import java.util.Iterator;
 
@@ -103,36 +105,17 @@ public class TestBuilder extends AxiomTestCase {
         //            soap11Envelope.internalSerializeAndConsume(writer);
         //          writer.flush();
 
-        assertTrue(
-                "SOAP 1.1 :- envelope local name mismatch",
-                soap11Envelope.getLocalName().equals(SOAPConstants.SOAPENVELOPE_LOCAL_NAME));
-        assertTrue(
-                "SOAP 1.1 :- envelope namespace uri mismatch",
-                soap11Envelope
-                        .getNamespace()
-                        .getNamespaceURI()
-                        .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI));
+        assertThat(soap11Envelope.getLocalName().equals(SOAPConstants.SOAPENVELOPE_LOCAL_NAME)).as("SOAP 1.1 :- envelope local name mismatch").isTrue();
+        assertThat(soap11Envelope .getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).as("SOAP 1.1 :- envelope namespace uri mismatch").isTrue();
 
         SOAPHeader header = soap11Envelope.getHeader();
-        assertTrue(
-                "SOAP 1.1 :- Header local name mismatch",
-                header.getLocalName().equals(SOAPConstants.HEADER_LOCAL_NAME));
-        assertTrue(
-                "SOAP 1.1 :- Header namespace uri mismatch",
-                header.getNamespace()
-                        .getNamespaceURI()
-                        .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI));
+        assertThat(header.getLocalName().equals(SOAPConstants.HEADER_LOCAL_NAME)).as("SOAP 1.1 :- Header local name mismatch").isTrue();
+        assertThat(header.getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).as("SOAP 1.1 :- Header namespace uri mismatch").isTrue();
 
         SOAPHeaderBlock headerBlock = (SOAPHeaderBlock) header.getFirstElement();
-        assertTrue(
-                "SOAP 1.1 :- Header block name mismatch",
-                headerBlock.getLocalName().equals("echoOk"));
-        assertTrue(
-                "SOAP 1.1 :- Header block name space uri mismatch",
-                headerBlock.getNamespace().getNamespaceURI().equals("http://example.org/ts-tests"));
-        assertTrue(
-                "SOAP 1.1 :- Headaer block text mismatch",
-                headerBlock.getText().trim().equals("foo"));
+        assertThat(headerBlock.getLocalName().equals("echoOk")).as("SOAP 1.1 :- Header block name mismatch").isTrue();
+        assertThat(headerBlock.getNamespace().getNamespaceURI().equals("http://example.org/ts-tests")).as("SOAP 1.1 :- Header block name space uri mismatch").isTrue();
+        assertThat(headerBlock.getText().trim().equals("foo")).as("SOAP 1.1 :- Headaer block text mismatch").isTrue();
 
         // Attribute iteration is not in any guaranteed order.
         // Use QNames to get the OMAttributes.
@@ -146,157 +129,80 @@ public class TestBuilder extends AxiomTestCase {
         OMAttribute actorAttribute = headerBlock.getAttribute(actorQName);
         OMAttribute mustUnderstandAttribute = headerBlock.getAttribute(mustUnderstandQName);
 
-        assertTrue(
-                "SOAP 1.1 :- Mustunderstand attribute not found", mustUnderstandAttribute != null);
-        assertTrue(
-                "SOAP 1.1 :- Mustunderstand value mismatch",
-                mustUnderstandAttribute
-                        .getAttributeValue()
-                        .equals(SOAPConstants.ATTR_MUSTUNDERSTAND_1));
-        assertTrue(
-                "SOAP 1.1 :- Mustunderstand attribute namespace uri mismatch",
-                mustUnderstandAttribute
-                        .getNamespace()
-                        .getNamespaceURI()
-                        .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI));
+        assertThat(mustUnderstandAttribute != null).as("SOAP 1.1 :- Mustunderstand attribute not found").isTrue();
+        assertThat(mustUnderstandAttribute .getAttributeValue() .equals(SOAPConstants.ATTR_MUSTUNDERSTAND_1)).as("SOAP 1.1 :- Mustunderstand value mismatch").isTrue();
+        assertThat(mustUnderstandAttribute .getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).as("SOAP 1.1 :- Mustunderstand attribute namespace uri mismatch").isTrue();
 
-        assertTrue("SOAP 1.1 :- Actor attribute name not found", actorAttribute != null);
-        assertTrue(
-                "SOAP 1.1 :- Actor value mismatch",
-                actorAttribute
-                        .getAttributeValue()
-                        .trim()
-                        .equals(
-                                "http://schemas.xmlsoap.org/soap/"
-                                        + SOAP11Constants.ATTR_ACTOR
-                                        + "/"
-                                        + "next"));
-        assertTrue(
-                "SOAP 1.1 :- Actor attribute namespace uri mismatch",
-                actorAttribute
-                        .getNamespace()
-                        .getNamespaceURI()
-                        .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI));
+        assertThat(actorAttribute != null).as("SOAP 1.1 :- Actor attribute name not found").isTrue();
+        assertThat(actorAttribute .getAttributeValue() .trim() .equals( "http://schemas.xmlsoap.org/soap/" + SOAP11Constants.ATTR_ACTOR + "/" + "next")).as("SOAP 1.1 :- Actor value mismatch").isTrue();
+        assertThat(actorAttribute .getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).as("SOAP 1.1 :- Actor attribute namespace uri mismatch").isTrue();
 
         SOAPBody body = soap11Envelope.getBody();
-        assertTrue(
-                "SOAP 1.1 :- Body local name mismatch",
-                body.getLocalName().equals(SOAPConstants.BODY_LOCAL_NAME));
-        assertTrue(
-                "SOAP 1.1 :- Body namespace uri mismatch",
-                body.getNamespace()
-                        .getNamespaceURI()
-                        .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI));
+        assertThat(body.getLocalName().equals(SOAPConstants.BODY_LOCAL_NAME)).as("SOAP 1.1 :- Body local name mismatch").isTrue();
+        assertThat(body.getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).as("SOAP 1.1 :- Body namespace uri mismatch").isTrue();
 
         SOAPFault fault = body.getFault();
-        assertTrue(
-                "SOAP 1.1 :- Fault namespace uri mismatch",
-                fault.getNamespace()
-                        .getNamespaceURI()
-                        .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI));
+        assertThat(fault.getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).as("SOAP 1.1 :- Fault namespace uri mismatch").isTrue();
 
         Iterator<OMNode> iteratorInFault = fault.getChildren();
 
         iteratorInFault.next();
         SOAPFaultCode code = (SOAPFaultCode) iteratorInFault.next();
-        assertEquals(
-                "SOAP Fault code local name mismatch",
-                code.getLocalName(),
-                (SOAP11Constants.SOAP_FAULT_CODE_LOCAL_NAME));
+        assertThat((SOAP11Constants.SOAP_FAULT_CODE_LOCAL_NAME)).as("SOAP Fault code local name mismatch").isEqualTo(code.getLocalName());
 
-        assertEquals("SOAP 1.1 :- Fault code value mismatch", code.getText().trim(), "env:Sender");
+        assertThat("env:Sender").as("SOAP 1.1 :- Fault code value mismatch").isEqualTo(code.getText().trim());
 
         iteratorInFault.next();
         SOAPFaultReason reason = (SOAPFaultReason) iteratorInFault.next();
-        assertTrue(
-                "SOAP 1.1 :- Fault string local name mismatch",
-                reason.getLocalName().equals(SOAP11Constants.SOAP_FAULT_STRING_LOCAL_NAME));
-        assertTrue(
-                "SOAP 1.1 :- Fault string value mismatch",
-                reason.getText().trim().equals("Sender Timeout"));
+        assertThat(reason.getLocalName().equals(SOAP11Constants.SOAP_FAULT_STRING_LOCAL_NAME)).as("SOAP 1.1 :- Fault string local name mismatch").isTrue();
+        assertThat(reason.getText().trim().equals("Sender Timeout")).as("SOAP 1.1 :- Fault string value mismatch").isTrue();
 
         iteratorInFault.next();
         SOAPFaultRole role = (SOAPFaultRole) iteratorInFault.next();
-        assertTrue(
-                "SOAP 1.1 :- Fault actor local name mismatch",
-                role.getLocalName().equals(SOAP11Constants.SOAP_FAULT_ACTOR_LOCAL_NAME));
-        assertTrue(
-                "SOAP 1.1 :- Actor value mismatch",
-                role.getText()
-                        .trim()
-                        .equals("http://schemas.xmlsoap.org/soap/envelope/actor/ultimateReceiver"));
+        assertThat(role.getLocalName().equals(SOAP11Constants.SOAP_FAULT_ACTOR_LOCAL_NAME)).as("SOAP 1.1 :- Fault actor local name mismatch").isTrue();
+        assertThat(role.getText() .trim() .equals("http://schemas.xmlsoap.org/soap/envelope/actor/ultimateReceiver")).as("SOAP 1.1 :- Actor value mismatch").isTrue();
 
         iteratorInFault.next();
         SOAPFaultDetail detail = (SOAPFaultDetail) iteratorInFault.next();
-        assertTrue(
-                "SOAP 1.1 :- Fault detail local name mismatch",
-                detail.getLocalName().equals(SOAP11Constants.SOAP_FAULT_DETAIL_LOCAL_NAME));
-        assertTrue(
-                "SOAP 1.2 :- Text in detail mismatch",
-                detail.getText().trim().equals("Details of error"));
+        assertThat(detail.getLocalName().equals(SOAP11Constants.SOAP_FAULT_DETAIL_LOCAL_NAME)).as("SOAP 1.1 :- Fault detail local name mismatch").isTrue();
+        assertThat(detail.getText().trim().equals("Details of error")).as("SOAP 1.2 :- Text in detail mismatch").isTrue();
 
         Iterator<OMNode> iteratorInDetail = detail.getChildren();
 
         iteratorInDetail.next();
         OMElement element1 = (OMElement) iteratorInDetail.next();
-        assertTrue(
-                "SOAP 1.1 :- MaxTime element mismatch", element1.getLocalName().equals("MaxTime"));
-        assertTrue(
-                "SOAP 1.1 :- MaxTime element namespace mismatch",
-                element1.getNamespace().getNamespaceURI().equals("http:www.sample.org"));
-        assertTrue(
-                "SOAP 1.1 :- Text value in MaxTime element mismatch",
-                element1.getText().trim().equals("P5M"));
+        assertThat(element1.getLocalName().equals("MaxTime")).as("SOAP 1.1 :- MaxTime element mismatch").isTrue();
+        assertThat(element1.getNamespace().getNamespaceURI().equals("http:www.sample.org")).as("SOAP 1.1 :- MaxTime element namespace mismatch").isTrue();
+        assertThat(element1.getText().trim().equals("P5M")).as("SOAP 1.1 :- Text value in MaxTime element mismatch").isTrue();
 
         Iterator<OMAttribute> attributeIterator = element1.getAllAttributes();
         OMAttribute attributeInMaxTime = attributeIterator.next();
-        assertTrue(
-                "SOAP 1.1 :- Attribute local name mismatch",
-                attributeInMaxTime.getLocalName().equals("detail"));
-        assertTrue(
-                "SOAP 1.1 :- Attribute namespace mismatch",
-                attributeInMaxTime.getNamespace().getNamespaceURI().equals("http:www.sample.org"));
-        assertTrue(
-                "SOAP 1.1 :- Attribute value mismatch",
-                attributeInMaxTime.getAttributeValue().equals("This is only a test"));
+        assertThat(attributeInMaxTime.getLocalName().equals("detail")).as("SOAP 1.1 :- Attribute local name mismatch").isTrue();
+        assertThat(attributeInMaxTime.getNamespace().getNamespaceURI().equals("http:www.sample.org")).as("SOAP 1.1 :- Attribute namespace mismatch").isTrue();
+        assertThat(attributeInMaxTime.getAttributeValue().equals("This is only a test")).as("SOAP 1.1 :- Attribute value mismatch").isTrue();
 
         iteratorInDetail.next();
         OMElement element2 = (OMElement) iteratorInDetail.next();
-        assertTrue(
-                "SOAP 1.1 :- AveTime element mismatch", element2.getLocalName().equals("AveTime"));
-        assertTrue(
-                "SOAP 1.1 :- AveTime element namespace mismatch",
-                element2.getNamespace().getNamespaceURI().equals("http:www.sample.org"));
+        assertThat(element2.getLocalName().equals("AveTime")).as("SOAP 1.1 :- AveTime element mismatch").isTrue();
+        assertThat(element2.getNamespace().getNamespaceURI().equals("http:www.sample.org")).as("SOAP 1.1 :- AveTime element namespace mismatch").isTrue();
 
         Iterator<OMNode> iteratorInAveTimeElement = element2.getChildren();
 
         iteratorInAveTimeElement.next();
         OMElement element21 = (OMElement) iteratorInAveTimeElement.next();
-        assertTrue("SOAP 1.1 :- Time element mismatch", element21.getLocalName().equals("Time"));
-        assertTrue(
-                "SOAP 1.1 :- Time element namespace mismatch",
-                element21.getNamespace().getNamespaceURI().equals("http:www.sample.org"));
-        assertTrue(
-                "SOAP 1.1 :- Text value in Time element mismatch",
-                element21.getText().trim().equals("P3M"));
+        assertThat(element21.getLocalName().equals("Time")).as("SOAP 1.1 :- Time element mismatch").isTrue();
+        assertThat(element21.getNamespace().getNamespaceURI().equals("http:www.sample.org")).as("SOAP 1.1 :- Time element namespace mismatch").isTrue();
+        assertThat(element21.getText().trim().equals("P3M")).as("SOAP 1.1 :- Text value in Time element mismatch").isTrue();
 
         iteratorInFault.next();
         OMElement testElement = (OMElement) iteratorInFault.next();
-        assertTrue("SOAP 1.1 :- Test element mismatch", testElement.getLocalName().equals("Test"));
-        assertTrue(
-                "SOAP 1.1 :- Test element namespace mismatch",
-                testElement.getNamespace().getNamespaceURI().equals("http:www.Test.org"));
+        assertThat(testElement.getLocalName().equals("Test")).as("SOAP 1.1 :- Test element mismatch").isTrue();
+        assertThat(testElement.getNamespace().getNamespaceURI().equals("http:www.Test.org")).as("SOAP 1.1 :- Test element namespace mismatch").isTrue();
 
         OMElement childOfTestElement = testElement.getFirstElement();
-        assertTrue(
-                "SOAP 1.1 :- Test element child local name mismatch",
-                childOfTestElement.getLocalName().equals("TestElement"));
-        assertTrue(
-                "SOAP 1.1 :- Test element child namespace mismatch",
-                childOfTestElement.getNamespace().getNamespaceURI().equals("http:www.Test.org"));
-        assertTrue(
-                "SOAP 1.1 :- Test element child value mismatch",
-                childOfTestElement.getText().trim().equals("This is only a test"));
+        assertThat(childOfTestElement.getLocalName().equals("TestElement")).as("SOAP 1.1 :- Test element child local name mismatch").isTrue();
+        assertThat(childOfTestElement.getNamespace().getNamespaceURI().equals("http:www.Test.org")).as("SOAP 1.1 :- Test element child namespace mismatch").isTrue();
+        assertThat(childOfTestElement.getText().trim().equals("This is only a test")).as("SOAP 1.1 :- Test element child value mismatch").isTrue();
 
         soap11Builder.close();
     }

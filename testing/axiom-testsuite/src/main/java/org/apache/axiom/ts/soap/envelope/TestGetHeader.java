@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.ts.soap.envelope;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.apache.axiom.soap.SOAPConstants;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
@@ -36,13 +38,7 @@ public class TestGetHeader extends TestCase {
     protected void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultEnvelope();
         SOAPHeader header = envelope.getHeader();
-        assertEquals(
-                "Header Test : - Header local name mismatch",
-                SOAPConstants.HEADER_LOCAL_NAME,
-                header.getLocalName());
-        assertEquals(
-                "Header Test : - Header namespace mismatch",
-                spec.getEnvelopeNamespaceURI(),
-                header.getNamespace().getNamespaceURI());
+        assertThat(header.getLocalName()).as("Header Test : - Header local name mismatch").isEqualTo(SOAPConstants.HEADER_LOCAL_NAME);
+        assertThat(header.getNamespace().getNamespaceURI()).as("Header Test : - Header namespace mismatch").isEqualTo(spec.getEnvelopeNamespaceURI());
     }
 }

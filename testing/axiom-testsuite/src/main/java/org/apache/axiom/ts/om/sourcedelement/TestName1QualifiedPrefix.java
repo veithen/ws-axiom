@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.ts.om.sourcedelement;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.StringWriter;
 
 import org.apache.axiom.om.OMElement;
@@ -54,11 +56,8 @@ public class TestName1QualifiedPrefix extends AxiomTestCase {
         root.addChild(element);
 
         // Test getting the local name and namespace URI. This should used not result in expansion
-        assertTrue(element.getLocalName().equals("library"));
-        assertTrue(
-                element.getNamespace()
-                        .getNamespaceURI()
-                        .equals("http://www.sosnoski.com/uwjws/library"));
+        assertThat(element.getLocalName().equals("library")).isTrue();
+        assertThat(element.getNamespace() .getNamespaceURI() .equals("http://www.sosnoski.com/uwjws/library")).isTrue();
 
         // Serialize and cache.  This should cause expansion and update the name to match the
         // testDocument string
@@ -66,31 +65,25 @@ public class TestName1QualifiedPrefix extends AxiomTestCase {
         root.serialize(writer);
         String result = writer.toString();
 
-        assertTrue(element.getLocalName().equals("library"));
-        assertTrue(
-                element.getNamespace()
-                        .getNamespaceURI()
-                        .equals("http://www.sosnoski.com/uwjws/library"));
-        assertTrue(element.getNamespace().getPrefix().equals("pre"));
-        assertTrue(element.getDefaultNamespace() == null);
+        assertThat(element.getLocalName().equals("library")).isTrue();
+        assertThat(element.getNamespace() .getNamespaceURI() .equals("http://www.sosnoski.com/uwjws/library")).isTrue();
+        assertThat(element.getNamespace().getPrefix().equals("pre")).isTrue();
+        assertThat(element.getDefaultNamespace() == null).isTrue();
         // Make sure that the serialized string does not contain default prefix declaration
-        assertTrue(result.indexOf("xmlns=") < 0);
-        assertTrue("Serialized text error" + result, result.indexOf("1930110111") > 0);
+        assertThat(result.indexOf("xmlns=") < 0).isTrue();
+        assertThat(result.indexOf("1930110111") > 0).as("Serialized text error" + result).isTrue();
 
         // Serialize again
         writer = new StringWriter();
         root.serialize(writer);
         result = writer.toString();
 
-        assertTrue(element.getLocalName().equals("library"));
-        assertTrue(
-                element.getNamespace()
-                        .getNamespaceURI()
-                        .equals("http://www.sosnoski.com/uwjws/library"));
-        assertTrue(element.getNamespace().getPrefix().equals("pre"));
+        assertThat(element.getLocalName().equals("library")).isTrue();
+        assertThat(element.getNamespace() .getNamespaceURI() .equals("http://www.sosnoski.com/uwjws/library")).isTrue();
+        assertThat(element.getNamespace().getPrefix().equals("pre")).isTrue();
         // Make sure that the serialized string does not contain default prefix declaration
-        assertTrue(result.indexOf("xmlns=") < 0);
-        assertTrue(element.getDefaultNamespace() == null);
-        assertTrue("Serialized text error" + result, result.indexOf("1930110111") > 0);
+        assertThat(result.indexOf("xmlns=") < 0).isTrue();
+        assertThat(element.getDefaultNamespace() == null).isTrue();
+        assertThat(result.indexOf("1930110111") > 0).as("Serialized text error" + result).isTrue();
     }
 }

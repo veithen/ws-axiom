@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.ts.om.sourcedelement;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Iterator;
 
 import javax.xml.namespace.QName;
@@ -43,32 +45,20 @@ public class TestExpand extends AxiomTestCase {
                 TestDocument.DOCUMENT1.createOMSourcedElement(
                         metaFactory.getOMFactory(), false, true);
         element.getAllDeclaredNamespaces();
-        assertEquals(
-                "Expanded namespace count error",
-                1,
-                countItems(element.getAllDeclaredNamespaces()));
-        assertEquals("Expanded attribute count error", 1, countItems(element.getAllAttributes()));
-        assertEquals(
-                "Expanded attribute value error",
-                "1",
-                element.getAttributeValue(new QName("books")));
+        assertThat(countItems(element.getAllDeclaredNamespaces())).as("Expanded namespace count error").isEqualTo(1);
+        assertThat(countItems(element.getAllAttributes())).as("Expanded attribute count error").isEqualTo(1);
+        assertThat(element.getAttributeValue(new QName("books"))).as("Expanded attribute value error").isEqualTo("1");
         OMElement child = element.getFirstElement();
-        assertEquals("Child element name", "type", child.getLocalName());
-        assertEquals(
-                "Child element namespace",
-                "http://www.sosnoski.com/uwjws/library",
-                child.getNamespace().getNamespaceURI());
+        assertThat(child.getLocalName()).as("Child element name").isEqualTo("type");
+        assertThat(child.getNamespace().getNamespaceURI()).as("Child element namespace").isEqualTo("http://www.sosnoski.com/uwjws/library");
         OMNode next = child.getNextOMSibling();
-        assertTrue("Expected child element", next instanceof OMElement);
+        assertThat(next).as("Expected child element").isInstanceOf(OMElement.class);
         next = next.getNextOMSibling();
-        assertTrue("Expected child element", next instanceof OMElement);
+        assertThat(next).as("Expected child element").isInstanceOf(OMElement.class);
         child = (OMElement) next;
-        assertEquals("Child element name", "book", child.getLocalName());
-        assertEquals(
-                "Child element namespace",
-                "http://www.sosnoski.com/uwjws/library",
-                child.getNamespace().getNamespaceURI());
-        assertEquals("Attribute value error", "xml", child.getAttributeValue(new QName("type")));
+        assertThat(child.getLocalName()).as("Child element name").isEqualTo("book");
+        assertThat(child.getNamespace().getNamespaceURI()).as("Child element namespace").isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(child.getAttributeValue(new QName("type"))).as("Attribute value error").isEqualTo("xml");
     }
 
     private int countItems(Iterator iter) {

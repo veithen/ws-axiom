@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.ts.om.sourcedelement;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.StringWriter;
 
 import org.apache.axiom.om.OMElement;
@@ -56,9 +58,9 @@ public class TestName3Unqualified extends AxiomTestCase {
 
         // Test getting the namespace, localpart and prefix.  This should used not result in
         // expansion
-        assertTrue(element.getLocalName().equals("DUMMYNAME"));
-        assertTrue(element.getNamespace().getNamespaceURI().equals("http://DUMMYNS"));
-        assertTrue(element.getNamespace().getPrefix().equals("DUMMYPREFIX"));
+        assertThat(element.getLocalName().equals("DUMMYNAME")).isTrue();
+        assertThat(element.getNamespace().getNamespaceURI().equals("http://DUMMYNS")).isTrue();
+        assertThat(element.getNamespace().getPrefix().equals("DUMMYPREFIX")).isTrue();
 
         // Serialize and cache.  This should cause expansion and update the name to match the
         // testDocument string
@@ -75,28 +77,25 @@ public class TestName3Unqualified extends AxiomTestCase {
 
         String result = writer.toString();
 
-        assertTrue(element.getLocalName().equals("library"));
-        assertTrue(element.getNamespace().getNamespaceURI().equals(""));
-        assertTrue(element.getNamespace().getPrefix().equals(""));
+        assertThat(element.getLocalName().equals("library")).isTrue();
+        assertThat(element.getNamespace().getNamespaceURI().equals("")).isTrue();
+        assertThat(element.getNamespace().getPrefix().equals("")).isTrue();
         // Make sure that the serialized string does not contain the DUMMY values
-        assertTrue(result.indexOf("DUMMY") < 0);
+        assertThat(result.indexOf("DUMMY") < 0).isTrue();
 
-        assertTrue("Serialized text error" + result, result.indexOf("1930110111") > 0);
+        assertThat(result.indexOf("1930110111") > 0).as("Serialized text error" + result).isTrue();
 
         // Serialize again
         writer = new StringWriter();
         root.serialize(writer);
         result = writer.toString();
 
-        assertTrue(element.getLocalName().equals("library"));
-        assertTrue(
-                element.getNamespace()
-                        .getNamespaceURI()
-                        .equals("http://www.sosnoski.com/uwjws/library"));
-        assertTrue(element.getNamespace().getPrefix().equals(""));
+        assertThat(element.getLocalName().equals("library")).isTrue();
+        assertThat(element.getNamespace() .getNamespaceURI() .equals("http://www.sosnoski.com/uwjws/library")).isTrue();
+        assertThat(element.getNamespace().getPrefix().equals("")).isTrue();
         // Make sure that the serialized string does not contain the DUMMY values
-        assertTrue(result.indexOf("DUMMY") < 0);
+        assertThat(result.indexOf("DUMMY") < 0).isTrue();
 
-        assertTrue("Serialized text error" + result, result.indexOf("1930110111") > 0);
+        assertThat(result.indexOf("1930110111") > 0).as("Serialized text error" + result).isTrue();
     }
 }
