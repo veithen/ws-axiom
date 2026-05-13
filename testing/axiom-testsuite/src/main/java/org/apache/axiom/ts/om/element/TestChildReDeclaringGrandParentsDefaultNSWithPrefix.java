@@ -58,6 +58,6 @@ public class TestChildReDeclaringGrandParentsDefaultNSWithPrefix extends AxiomTe
                         entElem);
         binSecElem.setText("secret value");
         String xml = elem.toString();
-        assertThat(xml.indexOf("<wst:Binarysecret") != -1).as("Binarysecret element should have \'wst\' ns prefix").isTrue();
+        assertThat(xml.indexOf("<wst:Binarysecret") != -1).isTrue();
     }
 }

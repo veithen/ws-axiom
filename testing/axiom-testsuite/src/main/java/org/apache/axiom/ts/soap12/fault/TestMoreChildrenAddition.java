@@ -42,9 +42,9 @@ public class TestMoreChildrenAddition extends TestCase {
         SOAPFaultCode code = soapEnvelope.getBody().getFault().getCode();
         envelope.getBody().getFault().setCode(code);
 
-        assertThat(code.getParent() == envelope.getBody().getFault()).as("Parent Value of Code has not been set to new fault").isTrue();
-        assertThat(code.getParent() != soapEnvelope.getBody().getFault()).as("Parent Value of Code is still pointing to old fault").isTrue();
-        assertThat(soapEnvelope.getBody().getFault().getCode()).as("Old fault must not have a fault code").isNull();
-        assertThat(envelope.getBody().getFault().getCode().getValue().getText()).as("The SOAP Code value must be " + errorCodeString).isEqualTo(errorCodeString);
+        assertThat(code.getParent() == envelope.getBody().getFault()).isTrue();
+        assertThat(code.getParent() != soapEnvelope.getBody().getFault()).isTrue();
+        assertThat(soapEnvelope.getBody().getFault().getCode()).isNull();
+        assertThat(envelope.getBody().getFault().getCode().getValue().getText()).isEqualTo(errorCodeString);
     }
 }

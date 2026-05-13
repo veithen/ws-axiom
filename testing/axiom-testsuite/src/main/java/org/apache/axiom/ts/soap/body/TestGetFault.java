@@ -35,8 +35,8 @@ public class TestGetFault extends TestCase {
     protected void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.createSOAPEnvelope();
         SOAPBody body = soapFactory.createSOAPBody(envelope);
-        assertThat(body.getFault()).as("Body Test:- After creating a soap body it has a fault").isNull();
+        assertThat(body.getFault()).isNull();
         body.addFault(new Exception("This an exception for testing"));
-        assertThat(body.getFault()).as("Body Test:- After calling addFault method, getFault method returns null").isNotNull();
+        assertThat(body.getFault()).isNotNull();
     }
 }

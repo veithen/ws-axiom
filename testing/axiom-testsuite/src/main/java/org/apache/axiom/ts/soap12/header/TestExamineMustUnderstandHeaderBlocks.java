@@ -55,9 +55,9 @@ public class TestExamineMustUnderstandHeaderBlocks extends TestCase {
                         "http://www.w3.org/2003/05/soap-envelope/role/ultimateReceiver");
         assertThat(iterator.hasNext()).isTrue();
         SOAPHeaderBlock headerBlock = (SOAPHeaderBlock) iterator.next();
-        assertThat(headerBlock == null).as("SOAP Header Test : - examineMustUnderstandHeaderBlocks method returns empty iterator").isFalse();
-        assertThat(headerBlock.getLocalName().equals("echoOk2")).as("SOAP Header Test : - HeaderBlock local name mismatch").isTrue();
-        assertThat(headerBlock .getRole() .equals("http://www.w3.org/2003/05/soap-envelope/role/ultimateReceiver")).as("SOAP Header Test : - HeaderBlock role value mismatch").isTrue();
-        assertThat(iterator.hasNext()).as("SOAP Header Test : - examineMustUnderstandHeaderBlocks method returns an iterator with more than one object").isFalse();
+        assertThat(headerBlock == null).isFalse();
+        assertThat(headerBlock.getLocalName().equals("echoOk2")).isTrue();
+        assertThat(headerBlock .getRole() .equals("http://www.w3.org/2003/05/soap-envelope/role/ultimateReceiver")).isTrue();
+        assertThat(iterator.hasNext()).isFalse();
     }
 }

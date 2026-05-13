@@ -43,11 +43,11 @@ public class TestGetAllDetailEntriesWithParser extends SampleBasedSOAPTestCase {
         SOAPFaultDetail soapFaultDetail = envelope.getBody().getFault().getDetail();
         Iterator<OMElement> iterator = soapFaultDetail.getAllDetailEntries();
         OMElement detailEntry1 = iterator.next();
-        assertThat(detailEntry1).as("SOAP Fault Detail Test With Parser : - getAllDetailEntries method returns an itrator without detail entries").isNotNull();
-        assertThat(detailEntry1.getLocalName()).as("SOAP Fault Detail Test With Parser : - detailEntry1 localname mismatch").isEqualTo("ErrorCode");
+        assertThat(detailEntry1).isNotNull();
+        assertThat(detailEntry1.getLocalName()).isEqualTo("ErrorCode");
         OMElement detailEntry2 = iterator.next();
-        assertThat(detailEntry2).as("SOAP Fault Detail Test With Parser : - getAllDetailEntries method returns an itrator with only one detail entries").isNotNull();
-        assertThat(detailEntry2.getLocalName()).as("SOAP Fault Detail Test With Parser : - detailEntry2 localname mismatch").isEqualTo("Message");
-        assertThat(iterator.hasNext()).as("SOAP Fault Detail Test With Parser : - getAllDetailEntries method returns an itrator with more than two detail entries").isFalse();
+        assertThat(detailEntry2).isNotNull();
+        assertThat(detailEntry2.getLocalName()).isEqualTo("Message");
+        assertThat(iterator.hasNext()).isFalse();
     }
 }

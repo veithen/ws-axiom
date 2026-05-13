@@ -42,7 +42,7 @@ public class TestSetText extends AxiomTestCase {
         element.setText(text);
 
         // Check that OMElement#getText() returns a matching value
-        assertThat(element.getText()).as("Text value mismatch").isEqualTo(text);
+        assertThat(element.getText()).isEqualTo(text);
 
         // Check that OMElement#setText() has created the expected nodes
         OMNode child = element.getFirstOMChild();

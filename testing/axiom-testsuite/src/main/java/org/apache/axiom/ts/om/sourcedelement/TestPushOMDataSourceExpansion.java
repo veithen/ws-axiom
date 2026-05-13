@@ -89,6 +89,6 @@ public class TestPushOMDataSourceExpansion extends AxiomTestCase {
             parent.addChild(element);
         }
         scenario.validate(element, true);
-        assertThat(ds.isExpanded()).as("Invalid test case: validation didn't expand the OMSourcedElement").isTrue();
+        assertThat(ds.isExpanded()).isTrue();
     }
 }

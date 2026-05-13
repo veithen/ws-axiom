@@ -46,6 +46,6 @@ public class TestGetAttributeValueWithXmlPrefix2 extends AxiomTestCase {
         OMElement elem =
                 AXIOMUtil.stringToOM(
                         metaFactory.getOMFactory(), "<Policy xml:base=\"uri:thisBase\"></Policy>");
-        assertThat(elem.getAttributeValue(new QName(XMLConstants.XML_NS_URI, "base"))).as("Attribute value mismatch").isEqualTo("uri:thisBase");
+        assertThat(elem.getAttributeValue(new QName(XMLConstants.XML_NS_URI, "base"))).isEqualTo("uri:thisBase");
     }
 }

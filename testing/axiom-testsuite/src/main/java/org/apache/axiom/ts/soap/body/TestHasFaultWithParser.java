@@ -37,6 +37,6 @@ public class TestHasFaultWithParser extends SampleBasedSOAPTestCase {
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPBody body = envelope.getBody();
-        assertThat(body.hasFault()).as("Body Test With parser :- hasFault method returns false").isTrue();
+        assertThat(body.hasFault()).isTrue();
     }
 }

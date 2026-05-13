@@ -64,7 +64,7 @@ public class TestGetChildrenRemove4 extends AxiomTestCase {
             assertThat(iter.next()).isNotNull();
             secondChildrenCount++;
         }
-        assertThat(secondChildrenCount).as("children count must reduce from 1").isEqualTo(firstChildrenCount - 1);
+        assertThat(secondChildrenCount).isEqualTo(firstChildrenCount - 1);
 
         elt.close(false);
     }

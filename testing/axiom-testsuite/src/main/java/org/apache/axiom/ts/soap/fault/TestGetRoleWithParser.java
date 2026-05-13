@@ -37,7 +37,7 @@ public class TestGetRoleWithParser extends SampleBasedSOAPTestCase {
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPFault soapFaultWithParser = envelope.getBody().getFault();
-        assertThat(soapFaultWithParser.getRole()).as("Fault Test with parser: - getRole method returns null").isNotNull();
-        assertThat(soapFaultWithParser.getRole().getQName()).as("Fault Test with parser: - Fault role local name mismatch").isEqualTo(spec.getFaultRoleQName());
+        assertThat(soapFaultWithParser.getRole()).isNotNull();
+        assertThat(soapFaultWithParser.getRole().getQName()).isEqualTo(spec.getFaultRoleQName());
     }
 }

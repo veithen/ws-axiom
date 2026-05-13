@@ -45,20 +45,20 @@ public class TestExpand extends AxiomTestCase {
                 TestDocument.DOCUMENT1.createOMSourcedElement(
                         metaFactory.getOMFactory(), false, true);
         element.getAllDeclaredNamespaces();
-        assertThat(countItems(element.getAllDeclaredNamespaces())).as("Expanded namespace count error").isEqualTo(1);
-        assertThat(countItems(element.getAllAttributes())).as("Expanded attribute count error").isEqualTo(1);
-        assertThat(element.getAttributeValue(new QName("books"))).as("Expanded attribute value error").isEqualTo("1");
+        assertThat(countItems(element.getAllDeclaredNamespaces())).isEqualTo(1);
+        assertThat(countItems(element.getAllAttributes())).isEqualTo(1);
+        assertThat(element.getAttributeValue(new QName("books"))).isEqualTo("1");
         OMElement child = element.getFirstElement();
-        assertThat(child.getLocalName()).as("Child element name").isEqualTo("type");
-        assertThat(child.getNamespace().getNamespaceURI()).as("Child element namespace").isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(child.getLocalName()).isEqualTo("type");
+        assertThat(child.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
         OMNode next = child.getNextOMSibling();
-        assertThat(next).as("Expected child element").isInstanceOf(OMElement.class);
+        assertThat(next).isInstanceOf(OMElement.class);
         next = next.getNextOMSibling();
-        assertThat(next).as("Expected child element").isInstanceOf(OMElement.class);
+        assertThat(next).isInstanceOf(OMElement.class);
         child = (OMElement) next;
-        assertThat(child.getLocalName()).as("Child element name").isEqualTo("book");
-        assertThat(child.getNamespace().getNamespaceURI()).as("Child element namespace").isEqualTo("http://www.sosnoski.com/uwjws/library");
-        assertThat(child.getAttributeValue(new QName("type"))).as("Attribute value error").isEqualTo("xml");
+        assertThat(child.getLocalName()).isEqualTo("book");
+        assertThat(child.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(child.getAttributeValue(new QName("type"))).isEqualTo("xml");
     }
 
     private int countItems(Iterator iter) {

@@ -36,7 +36,7 @@ public class TestGetValueWithParser extends SampleBasedSOAPTestCase {
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPFaultSubCode subCode = envelope.getBody().getFault().getCode().getSubCode();
-        assertThat(subCode.getValue()).as("SOAP 1.2 SOAPFaultSubCode Test In FaultCode With Parser : - getValue method returns null").isNotNull();
-        assertThat(subCode.getValue().getText()).as("SOAP 1.2 SOAPFaultSubCode Test In FaultCode With Parser : - Value text mismatch").isEqualTo("m:MessageTimeout_In_First_Subcode");
+        assertThat(subCode.getValue()).isNotNull();
+        assertThat(subCode.getValue().getText()).isEqualTo("m:MessageTimeout_In_First_Subcode");
     }
 }

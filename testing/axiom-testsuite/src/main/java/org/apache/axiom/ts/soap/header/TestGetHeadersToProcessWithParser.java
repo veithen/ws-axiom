@@ -47,7 +47,7 @@ public class TestGetHeadersToProcessWithParser extends SampleBasedSOAPTestCase {
         RolePlayer rp = new MyRolePlayer(true, roles);
 
         Iterator<SOAPHeaderBlock> headers = soapHeader.getHeadersToProcess(rp);
-        assertThat(headers.hasNext()).as("No headers!").isTrue();
+        assertThat(headers.hasNext()).isTrue();
 
         int numHeaders = 0;
         while (headers.hasNext()) {
@@ -55,7 +55,7 @@ public class TestGetHeadersToProcessWithParser extends SampleBasedSOAPTestCase {
             numHeaders++;
         }
 
-        assertThat(numHeaders).as("Didn't get right number of headers (with custom role)").isEqualTo(6);
+        assertThat(numHeaders).isEqualTo(6);
 
         rp = new MyRolePlayer(true);
 
@@ -68,7 +68,7 @@ public class TestGetHeadersToProcessWithParser extends SampleBasedSOAPTestCase {
             numHeaders++;
         }
 
-        assertThat(numHeaders).as("Didn't get right number of headers (no custom role)").isEqualTo(5);
+        assertThat(numHeaders).isEqualTo(5);
 
         // Intermediary test
         rp = new MyRolePlayer(false);
@@ -82,6 +82,6 @@ public class TestGetHeadersToProcessWithParser extends SampleBasedSOAPTestCase {
             numHeaders++;
         }
 
-        assertThat(numHeaders).as("Didn't get right number of headers (no custom role)").isEqualTo(2);
+        assertThat(numHeaders).isEqualTo(2);
     }
 }

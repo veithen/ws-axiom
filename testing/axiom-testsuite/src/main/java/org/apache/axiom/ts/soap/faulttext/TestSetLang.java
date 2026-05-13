@@ -36,10 +36,10 @@ public class TestSetLang extends TestCase {
     protected void runTest() throws Throwable {
         SOAPFaultText faultText = soapFactory.createSOAPFaultText();
         faultText.setLang("en");
-        assertThat(faultText.getLang()).as("SOAP Fault Text Test : - After calling setLang method, Lang attribute value mismatch").isEqualTo("en");
+        assertThat(faultText.getLang()).isEqualTo("en");
         OMAttribute langAttribute = faultText.getAllAttributes().next();
-        assertThat(langAttribute.getLocalName()).as("SOAP Fault Text Test : - After calling setLang method, Lang attribute local name mismaatch").isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_LOCAL_NAME);
-        assertThat(langAttribute.getNamespace().getPrefix()).as("SOAP Fault Text Test : - After calling setLang method, Lang attribute namespace prefix mismatch").isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_PREFIX);
-        assertThat(langAttribute.getNamespace().getNamespaceURI()).as("SOAP Fault Text Test : - After calling setLang method, Lang attribute namespace uri mismatch").isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_URI);
+        assertThat(langAttribute.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_LOCAL_NAME);
+        assertThat(langAttribute.getNamespace().getPrefix()).isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_PREFIX);
+        assertThat(langAttribute.getNamespace().getNamespaceURI()).isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_URI);
     }
 }

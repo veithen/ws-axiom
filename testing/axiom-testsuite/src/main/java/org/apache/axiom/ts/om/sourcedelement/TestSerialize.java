@@ -131,13 +131,13 @@ public class TestSerialize extends AxiomTestCase {
             if (expansionStrategy.isExpandedAfterSerialization(
                     push, destructive, serializationStrategy)) {
                 assertThat(element.isExpanded()).isTrue();
-                assertThat(element.isComplete()).as("OMSourcedElement completion status").isEqualTo(!consuming);
+                assertThat(element.isComplete()).isEqualTo(!consuming);
             } else {
                 assertThat(element.isExpanded()).isFalse();
             }
             if (parent != null && !serializeParent) {
                 // Operations on the OMSourcedElement should have no impact on the parent
-                assertThat(parent.isComplete()).as("Parent completion status").isEqualTo(parentComplete);
+                assertThat(parent.isComplete()).isEqualTo(parentComplete);
             }
         }
         if (ds instanceof PullOMDataSource pullOmDataSource) {

@@ -44,6 +44,6 @@ public class TestGetText extends AxiomTestCase {
         OMElement element = factory.createOMElement("test", null);
         String text = "The quick brown fox jumps over the lazy dog";
         factory.createOMText(element, text);
-        assertThat(element.getText()).as("Text value mismatch").isEqualTo(text);
+        assertThat(element.getText()).isEqualTo(text);
     }
 }

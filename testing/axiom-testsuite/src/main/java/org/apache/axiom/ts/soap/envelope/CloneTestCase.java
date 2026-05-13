@@ -73,7 +73,7 @@ public abstract class CloneTestCase extends TestCase {
         if (source instanceof OMElement element) {
 
             if (element instanceof OMSourcedElement sourcedElement) {
-                assertThat(target).as("Source = " + element.getClass().getName() + "Target = " + target.getClass().getName()).isInstanceOf(OMSourcedElement.class);
+                assertThat(target).isInstanceOf(OMSourcedElement.class);
                 assertThat(((OMSourcedElement) target).isExpanded()).isEqualTo(sourcedElement.isExpanded());
                 if (sourcedElement.isExpanded()) {
                     Iterator<OMNode> i = element.getChildren();
@@ -83,7 +83,7 @@ public abstract class CloneTestCase extends TestCase {
                         OMNode targetChild = j.next();
                         identityCheck(sourceChild, targetChild, depth + "  ");
                     }
-                    assertThat(j.hasNext()).as("Source and Target have different number of children").isEqualTo(i.hasNext());
+                    assertThat(j.hasNext()).isEqualTo(i.hasNext());
                 }
             } else {
                 assertThat(target.getClass()).isEqualTo(element.getClass());
@@ -94,7 +94,7 @@ public abstract class CloneTestCase extends TestCase {
                     OMNode targetChild = j.next();
                     identityCheck(sourceChild, targetChild, depth + "  ");
                 }
-                assertThat(j.hasNext()).as("Source and Target have different number of children").isEqualTo(i.hasNext());
+                assertThat(j.hasNext()).isEqualTo(i.hasNext());
             }
         } else {
             assertThat(target.getClass()).isEqualTo(source.getClass());

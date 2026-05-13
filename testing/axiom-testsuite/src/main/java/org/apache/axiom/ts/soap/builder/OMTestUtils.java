@@ -29,7 +29,7 @@ import org.apache.axiom.om.OMNode;
 
 public class OMTestUtils {
     public static void walkThrough(OMElement element) {
-        assertThat(element.isComplete()).as("Expected " + element.getQName() + " to be incomplete").isFalse();
+        assertThat(element.isComplete()).isFalse();
         for (Iterator<OMAttribute> it = element.getAllAttributes(); it.hasNext(); ) {
             assertThat(it.next()).isNotNull();
         }

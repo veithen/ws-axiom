@@ -69,7 +69,7 @@ public class TestName1DefaultPrefix extends AxiomTestCase {
         assertThat(element.getNamespace() .getNamespaceURI() .equals("http://www.sosnoski.com/uwjws/library")).isTrue();
         assertThat(element.getNamespace().getPrefix().equals("")).isTrue();
         assertThat(element.getDefaultNamespace() != null).isTrue();
-        assertThat(result.indexOf("1930110111") > 0).as("Serialized text error" + result).isTrue();
+        assertThat(result.indexOf("1930110111") > 0).isTrue();
 
         // Serialize again
         writer = new StringWriter();
@@ -80,6 +80,6 @@ public class TestName1DefaultPrefix extends AxiomTestCase {
         assertThat(element.getNamespace() .getNamespaceURI() .equals("http://www.sosnoski.com/uwjws/library")).isTrue();
         assertThat(element.getNamespace().getPrefix().equals("")).isTrue();
         assertThat(element.getDefaultNamespace() != null).isTrue();
-        assertThat(result.indexOf("1930110111") > 0).as("Serialized text error" + result).isTrue();
+        assertThat(result.indexOf("1930110111") > 0).isTrue();
     }
 }

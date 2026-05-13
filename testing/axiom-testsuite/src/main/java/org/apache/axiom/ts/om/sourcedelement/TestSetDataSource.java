@@ -59,9 +59,9 @@ public class TestSetDataSource extends AxiomTestCase {
                         factory.createOMNamespace("urn://test", "tns"));
         parent.addChild(omse);
         OMNode firstChild = parent.getFirstOMChild();
-        assertThat(firstChild).as("Expected OMSourcedElement child").isInstanceOf(OMSourcedElement.class);
+        assertThat(firstChild).isInstanceOf(OMSourcedElement.class);
         OMSourcedElement child = (OMSourcedElement) firstChild;
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded. This is unexpected").isTrue();
+        assertThat(!child.isExpanded()).isTrue();
         assertThat(child.getDataSource()).isSameAs(nonDestructiveOMDataSource1);
 
         // Write out the body
@@ -69,8 +69,8 @@ public class TestSetDataSource extends AxiomTestCase {
         parent.serialize(sw);
         String output = sw.toString();
         //        System.out.println(output);
-        assertThat(output.indexOf(payload1) > 0).as("The payload was not present in the output").isTrue();
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded. This is unexpected").isTrue();
+        assertThat(output.indexOf(payload1) > 0).isTrue();
+        assertThat(!child.isExpanded()).isTrue();
 
         // Replace with payload2.
         // Important note, it is legal to replace the OMDataSource, but
@@ -82,8 +82,8 @@ public class TestSetDataSource extends AxiomTestCase {
         parent.serialize(sw);
         output = sw.toString();
         //        System.out.println(output);
-        assertThat(output.indexOf(payload2) > 0).as("The payload was not present in the output").isTrue();
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded. This is unexpected").isTrue();
+        assertThat(output.indexOf(payload2) > 0).isTrue();
+        assertThat(!child.isExpanded()).isTrue();
 
         // Now Replace with payload1 from an destructiveOMDataSource1
         child.setDataSource(destructiveOMDataSource1);
@@ -91,7 +91,7 @@ public class TestSetDataSource extends AxiomTestCase {
         parent.serialize(sw);
         output = sw.toString();
         //        System.out.println(output);
-        assertThat(output.indexOf(payload1) > 0).as("The payload was not present in the output").isTrue();
+        assertThat(output.indexOf(payload1) > 0).isTrue();
 
         // Now Replace with payload2 from an destructiveOMDataSource2.
         // Note at this point, the child's tree is expanded.
@@ -100,6 +100,6 @@ public class TestSetDataSource extends AxiomTestCase {
         parent.serialize(sw);
         output = sw.toString();
         //        System.out.println(output);
-        assertThat(output.indexOf(payload2) > 0).as("The payload was not present in the output").isTrue();
+        assertThat(output.indexOf(payload2) > 0).isTrue();
     }
 }

@@ -48,6 +48,6 @@ public class TestGetAttributeWithXmlPrefix2 extends AxiomTestCase {
                 AXIOMUtil.stringToOM(
                         metaFactory.getOMFactory(), "<Policy xml:base=\"uri:thisBase\"></Policy>");
         OMAttribute attr = elem.getAttribute(new QName(XMLConstants.XML_NS_URI, "base"));
-        assertThat(attr.getNamespace().getNamespaceURI()).as("Attribute namespace mismatch").isEqualTo(XMLConstants.XML_NS_URI);
+        assertThat(attr.getNamespace().getNamespaceURI()).isEqualTo(XMLConstants.XML_NS_URI);
     }
 }

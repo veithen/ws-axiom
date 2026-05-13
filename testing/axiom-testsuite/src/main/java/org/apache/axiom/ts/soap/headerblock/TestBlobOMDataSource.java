@@ -57,14 +57,14 @@ public class TestBlobOMDataSource extends TestCase {
         OMSourcedElement omse = soapFactory.createSOAPHeaderBlock(localName, ns, ds);
         soapHeader.addChild(omse);
         OMNode firstChild = soapHeader.getFirstOMChild();
-        assertThat(firstChild).as("Expected OMSourcedElement child").isInstanceOf(SOAPHeaderBlock.class);
+        assertThat(firstChild).isInstanceOf(SOAPHeaderBlock.class);
         SOAPHeaderBlock child = (SOAPHeaderBlock) firstChild;
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded. This is unexpected").isTrue();
+        assertThat(!child.isExpanded()).isTrue();
         assertThat(child.getDataSource()).isSameAs(ds);
 
         // Make sure that getting the MustUnderstand property does not cause expansion.
         assertThat(!child.getMustUnderstand()).isTrue();
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded. This is unexpected").isTrue();
+        assertThat(!child.isExpanded()).isTrue();
         assertThat(child.getDataSource()).isSameAs(ds);
 
         // A BlobOMDataSource does not consume the backing object when read.
@@ -72,13 +72,13 @@ public class TestBlobOMDataSource extends TestCase {
         // cause expansion of the OMSourcedElement.
         XMLStreamReader reader = child.getXMLStreamReader();
         reader.next();
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded. This is unexpected").isTrue();
+        assertThat(!child.isExpanded()).isTrue();
 
         // Likewise, a BlobOMDataSource does not consume the backing object when
         // written.  Thus serializing the OMSourcedElement should not cause the expansion
         // of the OMSourcedElement.
-        assertThat(soapHeader.toString().indexOf(payload) > 0).as("The payload was not present in the output").isTrue();
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded. This is unexpected").isTrue();
+        assertThat(soapHeader.toString().indexOf(payload) > 0).isTrue();
+        assertThat(!child.isExpanded()).isTrue();
 
         assertThat(child.getDataSource()).isSameAs(ds);
     }

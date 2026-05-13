@@ -69,6 +69,6 @@ public class TestGetXMLStreamReaderWithNamespaceURIInterning extends AxiomTestCa
     }
 
     private static void assertInterned(String s) {
-        assertThat(s).as("String not interned").isSameAs(s.intern());
+        assertThat(s).isSameAs(s.intern());
     }
 }

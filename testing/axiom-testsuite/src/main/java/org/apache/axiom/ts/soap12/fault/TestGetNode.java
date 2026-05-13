@@ -34,9 +34,9 @@ public class TestGetNode extends TestCase {
     @Override
     protected void runTest() throws Throwable {
         SOAPFault soapFault = soapFactory.createSOAPFault();
-        assertThat(soapFault.getNode()).as("SOAP 1.2 Fault Test:- After creating a SOAP12Fault, it has a node").isNull();
+        assertThat(soapFault.getNode()).isNull();
         soapFault.setNode(soapFactory.createSOAPFaultNode(soapFault));
-        assertThat(soapFault.getNode()).as("SOAP 1.2 Fault Test:- After calling setNode method, Fault has no node").isNotNull();
-        assertThat(soapFault.getNode().getLocalName()).as("SOAP 1.2 Fault Test:- Fault node local name mismatch").isEqualTo(SOAP12Constants.SOAP_FAULT_NODE_LOCAL_NAME);
+        assertThat(soapFault.getNode()).isNotNull();
+        assertThat(soapFault.getNode().getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_NODE_LOCAL_NAME);
     }
 }

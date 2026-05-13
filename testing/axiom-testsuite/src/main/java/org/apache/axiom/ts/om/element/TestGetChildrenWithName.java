@@ -53,10 +53,10 @@ public class TestGetChildrenWithName extends AxiomTestCase {
         while (iter.hasNext()) {
             counter++;
             Object o = iter.next();
-            assertThat(o).as("Must return not null objects!").isNotNull();
-            assertThat(((OMNode) o).getType() == OMNode.ELEMENT_NODE).as("All these should be elements!").isTrue();
+            assertThat(o).isNotNull();
+            assertThat(((OMNode) o).getType() == OMNode.ELEMENT_NODE).isTrue();
         }
-        assertThat(counter).as("This element should contain only one element with the given QName ").isEqualTo(1);
+        assertThat(counter).isEqualTo(1);
         elt.close(false);
     }
 }

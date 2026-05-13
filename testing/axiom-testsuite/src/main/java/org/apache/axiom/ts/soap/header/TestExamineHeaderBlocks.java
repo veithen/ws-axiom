@@ -48,9 +48,9 @@ public class TestExamineHeaderBlocks extends TestCase {
         Iterator<SOAPHeaderBlock> iterator = soapHeader.examineHeaderBlocks(roleNextURI);
         assertThat(iterator.hasNext()).isTrue();
         SOAPHeaderBlock headerBlockWithRole = iterator.next();
-        assertThat(headerBlockWithRole.getLocalName()).as("SOAP Header Test : - headerBlockWithRole local name mismatch").isEqualTo("echoOk2");
-        assertThat(headerBlockWithRole.getRole()).as("SOAP Header Test : - headerBlockWithRole role value mismatch").isEqualTo(roleNextURI);
+        assertThat(headerBlockWithRole.getLocalName()).isEqualTo("echoOk2");
+        assertThat(headerBlockWithRole.getRole()).isEqualTo(roleNextURI);
 
-        assertThat(iterator.hasNext()).as("SOAP Header Test : - header has one headerBlock with role, but examineHeaderBlocks(String role) method returns an iterator with more than one object").isFalse();
+        assertThat(iterator.hasNext()).isFalse();
     }
 }

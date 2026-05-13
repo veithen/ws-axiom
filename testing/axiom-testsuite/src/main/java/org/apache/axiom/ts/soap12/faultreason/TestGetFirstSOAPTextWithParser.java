@@ -37,6 +37,6 @@ public class TestGetFirstSOAPTextWithParser extends SampleBasedSOAPTestCase {
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPFaultReason faultReason = envelope.getBody().getFault().getReason();
-        assertThat(faultReason.getFirstSOAPText() == null).as("SOAP 1.2 FaultReason Test With Parser : - getFirstSOAPText method returns null").isFalse();
+        assertThat(faultReason.getFirstSOAPText() == null).isFalse();
     }
 }

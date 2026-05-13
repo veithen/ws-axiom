@@ -40,6 +40,6 @@ public class TestGetRoleWithParser extends SampleBasedSOAPTestCase {
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         Iterator<SOAPHeaderBlock> iterator = envelope.getHeader().examineAllHeaderBlocks();
         iterator.next();
-        assertThat(iterator.next().getRole().equals(spec.getNextRoleURI())).as("SOAP HeaderBlock Test With Parser : - getRole method returns incorrect role value").isTrue();
+        assertThat(iterator.next().getRole().equals(spec.getNextRoleURI())).isTrue();
     }
 }

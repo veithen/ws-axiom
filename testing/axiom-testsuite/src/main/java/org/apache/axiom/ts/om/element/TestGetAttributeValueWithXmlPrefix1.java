@@ -49,6 +49,6 @@ public class TestGetAttributeValueWithXmlPrefix1 extends AxiomTestCase {
                         "<wsp:Policy xml:base=\"uri:thisBase\" "
                                 + "xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\">"
                                 + "</wsp:Policy>");
-        assertThat(elem.getAttributeValue(new QName(XMLConstants.XML_NS_URI, "base"))).as("Attribute value mismatch").isEqualTo("uri:thisBase");
+        assertThat(elem.getAttributeValue(new QName(XMLConstants.XML_NS_URI, "base"))).isEqualTo("uri:thisBase");
     }
 }

@@ -37,7 +37,7 @@ public class TestGetSubCodeWithParser extends SampleBasedSOAPTestCase {
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPFaultSubCode subCode = envelope.getBody().getFault().getCode().getSubCode();
-        assertThat(subCode.getSubCode()).as("SOAP 1.2 SOAPFaultSubCode Test In FaultCode With Parser : - getSubCode method returns null").isNotNull();
-        assertThat(subCode.getSubCode().getLocalName()).as("SOAP 1.2 SOAPFaultSubCode Test In FaultCode With Parser : - SubCode local name mismatch").isEqualTo(SOAP12Constants.SOAP_FAULT_SUB_CODE_LOCAL_NAME);
+        assertThat(subCode.getSubCode()).isNotNull();
+        assertThat(subCode.getSubCode().getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_SUB_CODE_LOCAL_NAME);
     }
 }

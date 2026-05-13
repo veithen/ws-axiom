@@ -43,7 +43,7 @@ public class TestCreateOMText extends AxiomTestCase {
         OMElement omElement = factory.createOMElement("chinthaka", namespace);
         String text = "sampleText";
         OMText omText = factory.createOMText(omElement, text);
-        assertThat(omText.isComplete()).as("Programatically created OMText should have done = true ").isTrue();
-        assertThat(text.equals(omText.getText())).as("Programatically created OMText should have correct text value ").isTrue();
+        assertThat(omText.isComplete()).isTrue();
+        assertThat(text.equals(omText.getText())).isTrue();
     }
 }

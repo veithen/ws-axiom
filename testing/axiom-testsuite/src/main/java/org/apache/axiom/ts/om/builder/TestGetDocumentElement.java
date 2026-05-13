@@ -66,8 +66,8 @@ public class TestGetDocumentElement extends AxiomTestCase {
         } else {
             element = builder.getDocumentElement(discardDocument.booleanValue());
         }
-        assertThat(element).as("Document element can not be null").isNotNull();
-        assertThat(element.getLocalName()).as("Name of the document element is wrong").isEqualTo("root");
+        assertThat(element).isNotNull();
+        assertThat(element.getLocalName()).isEqualTo("root");
         if (Boolean.TRUE.equals(discardDocument)) {
             if (builderFactory.isDeferredParsing()) {
                 assertThat(element.isComplete()).isFalse();

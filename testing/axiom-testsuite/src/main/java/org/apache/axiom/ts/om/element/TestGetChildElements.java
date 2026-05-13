@@ -50,10 +50,10 @@ public class TestGetChildElements extends AxiomTestCase {
         while (iter.hasNext()) {
             counter++;
             OMElement o = iter.next();
-            assertThat(o).as("Must return not null objects!").isNotNull();
-            assertThat(o.getType() == OMNode.ELEMENT_NODE).as("All these should be elements!").isTrue();
+            assertThat(o).isNotNull();
+            assertThat(o.getType() == OMNode.ELEMENT_NODE).isTrue();
         }
-        assertThat(counter).as("This element should contain only two elements ").isEqualTo(2);
+        assertThat(counter).isEqualTo(2);
         elt.close(false);
     }
 }

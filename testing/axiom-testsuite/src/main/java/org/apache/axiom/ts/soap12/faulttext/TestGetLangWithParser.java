@@ -39,10 +39,10 @@ public class TestGetLangWithParser extends SampleBasedSOAPTestCase {
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPFaultText faultText = envelope.getBody().getFault().getReason().getFirstSOAPText();
-        assertThat(faultText.getLang().equals("en")).as("SOAP 1.2 Fault Text Test With Parser : - getLang method returns incorrect string").isTrue();
+        assertThat(faultText.getLang().equals("en")).isTrue();
         OMAttribute langAttribute = faultText.getAllAttributes().next();
-        assertThat(langAttribute .getLocalName() .equals(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_LOCAL_NAME)).as("SOAP 1.2 Fault Text Test With Parser : - Lang attribute local name mismaatch").isTrue();
-        assertThat(langAttribute .getNamespace() .getPrefix() .equals(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_PREFIX)).as("SOAP 1.2 Fault Text Test With Parser : - Lang attribute namespace prefix mismatch").isTrue();
-        assertThat(langAttribute .getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_URI)).as("SOAP 1.2 Fault Text Test With Parser : - Lang attribute namespace uri mismatch").isTrue();
+        assertThat(langAttribute .getLocalName() .equals(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_LOCAL_NAME)).isTrue();
+        assertThat(langAttribute .getNamespace() .getPrefix() .equals(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_PREFIX)).isTrue();
+        assertThat(langAttribute .getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_URI)).isTrue();
     }
 }

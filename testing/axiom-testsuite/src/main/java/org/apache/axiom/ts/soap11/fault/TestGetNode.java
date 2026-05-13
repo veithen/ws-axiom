@@ -37,6 +37,6 @@ public class TestGetNode extends TestCase {
     @Override
     protected void runTest() throws Throwable {
         SOAPFault soapFault = soapFactory.createSOAPFault();
-        assertThat(soapFault.getNode()).as("SOAP 1.1 Fault Test:- After creating a SOAP11Fault, it has a node").isNull();
+        assertThat(soapFault.getNode()).isNull();
     }
 }

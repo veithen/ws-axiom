@@ -48,8 +48,8 @@ public class TestGetQNameWithNamespace extends AxiomTestCase {
         OMNamespace ns = fac.createOMNamespace(uri, "p");
         OMAttribute attr = fac.createOMAttribute(localName, ns, "value");
         QName qname = attr.getQName();
-        assertThat(qname.getNamespaceURI()).as("Wrong namespace").isEqualTo(uri);
-        assertThat(qname.getLocalPart()).as("Wrong localPart").isEqualTo(localName);
-        assertThat(qname.getPrefix()).as("Wrong prefix").isEqualTo("p");
+        assertThat(qname.getNamespaceURI()).isEqualTo(uri);
+        assertThat(qname.getLocalPart()).isEqualTo(localName);
+        assertThat(qname.getPrefix()).isEqualTo("p");
     }
 }

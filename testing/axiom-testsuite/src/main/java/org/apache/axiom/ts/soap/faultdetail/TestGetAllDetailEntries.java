@@ -45,13 +45,13 @@ public class TestGetAllDetailEntries extends TestCase {
         SOAPFaultDetail soapFaultDetail = soapFactory.createSOAPFaultDetail(fault);
         OMNamespace omNamespace = soapFactory.createOMNamespace("http://www.test.org", "test");
         Iterator<OMElement> iterator = soapFaultDetail.getAllDetailEntries();
-        assertThat(iterator.hasNext()).as("SOAP Fault Detail Test : - After creating SOAP11FaultDetail element, it has DetailEntries").isFalse();
+        assertThat(iterator.hasNext()).isFalse();
         soapFaultDetail.addDetailEntry(soapFactory.createOMElement("DetailEntry", omNamespace));
         iterator = soapFaultDetail.getAllDetailEntries();
         OMElement detailEntry = iterator.next();
-        assertThat(detailEntry).as("SOAP Fault Detail Test : - After calling addDetailEntry method, getAllDetailEntries method returns empty iterator").isNotNull();
-        assertThat(detailEntry.getLocalName()).as("SOAP Fault Detail Test : - detailEntry local name mismatch").isEqualTo("DetailEntry");
-        assertThat(detailEntry.getNamespace().getNamespaceURI()).as("SOAP Fault Detail Test : - detailEntry namespace uri mismatch").isEqualTo("http://www.test.org");
-        assertThat(iterator.hasNext()).as("SOAP Fault Detail Test : - After calling addDetailEntry method once, getAllDetailEntries method returns an iterator with two objects").isFalse();
+        assertThat(detailEntry).isNotNull();
+        assertThat(detailEntry.getLocalName()).isEqualTo("DetailEntry");
+        assertThat(detailEntry.getNamespace().getNamespaceURI()).isEqualTo("http://www.test.org");
+        assertThat(iterator.hasNext()).isFalse();
     }
 }

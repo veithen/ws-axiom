@@ -56,9 +56,9 @@ public class TestBlobOMDataSource extends AxiomTestCase {
         OMSourcedElement omse = factory.createOMElement(ds, localName, ns);
         parent.addChild(omse);
         OMNode firstChild = parent.getFirstOMChild();
-        assertThat(firstChild).as("Expected OMSourcedElement child").isInstanceOf(OMSourcedElement.class);
+        assertThat(firstChild).isInstanceOf(OMSourcedElement.class);
         OMSourcedElement child = (OMSourcedElement) firstChild;
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded. This is unexpected").isTrue();
+        assertThat(!child.isExpanded()).isTrue();
         assertThat(child.getDataSource()).isSameAs(ds);
 
         // A BlobOMDataSource does not consume the backing object when read.
@@ -66,20 +66,20 @@ public class TestBlobOMDataSource extends AxiomTestCase {
         // cause expansion of the OMSourcedElement.
         XMLStreamReader reader = child.getXMLStreamReader();
         reader.next();
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded. This is unexpected").isTrue();
+        assertThat(!child.isExpanded()).isTrue();
 
         // Likewise, a BlobOMDataSource does not consume the backing object when
         // written.  Thus serializing the OMSourcedElement should not cause the expansion
         // of the OMSourcedElement.
-        assertThat(parent.toString().indexOf(payload) > 0).as("The payload was not present in the output").isTrue();
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded. This is unexpected").isTrue();
+        assertThat(parent.toString().indexOf(payload) > 0).isTrue();
+        assertThat(!child.isExpanded()).isTrue();
 
         // If a consumer calls build or buildWithAttachments on the tree, the
         // tree should not be expanded.
         parent.build();
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded after build(). This is unexpected").isTrue();
+        assertThat(!child.isExpanded()).isTrue();
         parent.buildWithAttachments();
-        assertThat(!child.isExpanded()).as("OMSourcedElement is expanded after buildWithAttachments(). This is unexpected").isTrue();
+        assertThat(!child.isExpanded()).isTrue();
 
         // Test getting the raw bytes from the BlobOMDataSource.
         assertThat(child.getDataSource()).isSameAs(ds);

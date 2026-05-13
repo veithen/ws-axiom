@@ -51,6 +51,6 @@ public class TestGetAttributeWithXmlPrefix1 extends AxiomTestCase {
                                 + "xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\">"
                                 + "</wsp:Policy>");
         OMAttribute attr = elem.getAttribute(new QName(XMLConstants.XML_NS_URI, "base"));
-        assertThat(attr.getNamespace().getNamespaceURI()).as("Attribute namespace mismatch").isEqualTo(XMLConstants.XML_NS_URI);
+        assertThat(attr.getNamespace().getNamespaceURI()).isEqualTo(XMLConstants.XML_NS_URI);
     }
 }

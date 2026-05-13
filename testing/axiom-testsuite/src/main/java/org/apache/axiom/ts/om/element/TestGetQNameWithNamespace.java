@@ -45,8 +45,8 @@ public class TestGetQNameWithNamespace extends AxiomTestCase {
         OMElement elem = factory.createOMElement(localName, namespace, prefix);
         QName qname = elem.getQName();
 
-        assertThat(qname.getLocalPart()).as("Localname mismatch").isEqualTo(localName);
-        assertThat(qname.getNamespaceURI()).as("Namespace mismatch").isEqualTo(namespace);
-        assertThat(qname.getPrefix()).as("namespace prefix mismatch").isEqualTo(prefix);
+        assertThat(qname.getLocalPart()).isEqualTo(localName);
+        assertThat(qname.getNamespaceURI()).isEqualTo(namespace);
+        assertThat(qname.getPrefix()).isEqualTo(prefix);
     }
 }

@@ -42,6 +42,6 @@ public class TestAddSOAPText extends TestCase {
             // Cool, continue.
             gotFault = true;
         }
-        assertThat(gotFault).as("Didn't get expected Exception for addSOAPText()!").isTrue();
+        assertThat(gotFault).isTrue();
     }
 }

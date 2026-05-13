@@ -75,6 +75,6 @@ public class TestName2DefaultPrefix extends AxiomTestCase {
         // Make sure that the serialized string does not contain DUMMYPREFIX
         assertThat(result.indexOf("DUMMYPREFIX") < 0).isTrue();
 
-        assertThat(result.indexOf("1930110111") > 0).as("Serialized text error" + result).isTrue();
+        assertThat(result.indexOf("1930110111") > 0).isTrue();
     }
 }

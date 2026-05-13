@@ -37,14 +37,14 @@ public class TestGetDefaultFaultEnvelope extends TestCase {
     protected void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultFaultEnvelope();
 
-        assertThat(envelope.getBody().getFault()).as("Default FaultEnvelope must have a SOAPFault in it").isNotNull();
-        assertThat(envelope.getBody().getFault().getCode()).as("Default FaultEnvelope must have a SOAPFaultCode in it").isNotNull();
+        assertThat(envelope.getBody().getFault()).isNotNull();
+        assertThat(envelope.getBody().getFault().getCode()).isNotNull();
         if (spec == SOAPSpec.SOAP12) {
-            assertThat(envelope.getBody().getFault().getCode().getValue()).as("Default FaultEnvelope must have a SOAPFaultCodeValue in it").isNotNull();
+            assertThat(envelope.getBody().getFault().getCode().getValue()).isNotNull();
         }
-        assertThat(envelope.getBody().getFault().getReason()).as("Default FaultEnvelope must have a SOAPFaultReason in it").isNotNull();
+        assertThat(envelope.getBody().getFault().getReason()).isNotNull();
         if (spec == SOAPSpec.SOAP12) {
-            assertThat(envelope.getBody().getFault().getReason().getFirstSOAPText()).as("Default FaultEnvelope must have a SOAPFaultText in it").isNotNull();
+            assertThat(envelope.getBody().getFault().getReason().getFirstSOAPText()).isNotNull();
         }
     }
 }

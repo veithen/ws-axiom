@@ -55,7 +55,7 @@ public class TestSetTextQName extends AxiomTestCase {
                 foundNamespace = true;
             }
         }
-        assertThat(foundNamespace).as("Namespace of the text is not defined in the parent element").isTrue();
+        assertThat(foundNamespace).isTrue();
 
         assertThat(element.toString().contains("ns:test")).isTrue();
         assertThat(element.getText()).isEqualTo("ns:test");

@@ -60,7 +60,7 @@ public class TestGetNamespacesInScope extends AxiomTestCase {
                 fail("Unexpected prefix: " + ns.getPrefix());
             }
         }
-        assertThat(count).as("Number of namespaces in scope").isEqualTo(2);
+        assertThat(count).isEqualTo(2);
         assertThat(ns1seen).isTrue();
         assertThat(ns2seen).isTrue();
     }

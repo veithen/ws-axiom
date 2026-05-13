@@ -39,7 +39,7 @@ public class TestGetMustUnderstandWithParser extends SampleBasedSOAPTestCase {
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         Iterator<SOAPHeaderBlock> iterator = envelope.getHeader().examineAllHeaderBlocks();
-        assertThat(iterator.next().getMustUnderstand()).as("SOAP HeaderBlock Test With Parser : - getMustUnderstand method returns incorrect value").isTrue();
-        assertThat(iterator.next().getMustUnderstand()).as("SOAP HeaderBlock Test With Parser : - getMustUnderstand method returns incorrect value").isFalse();
+        assertThat(iterator.next().getMustUnderstand()).isTrue();
+        assertThat(iterator.next().getMustUnderstand()).isFalse();
     }
 }

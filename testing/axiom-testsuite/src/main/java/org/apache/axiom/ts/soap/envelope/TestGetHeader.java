@@ -38,7 +38,7 @@ public class TestGetHeader extends TestCase {
     protected void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultEnvelope();
         SOAPHeader header = envelope.getHeader();
-        assertThat(header.getLocalName()).as("Header Test : - Header local name mismatch").isEqualTo(SOAPConstants.HEADER_LOCAL_NAME);
-        assertThat(header.getNamespace().getNamespaceURI()).as("Header Test : - Header namespace mismatch").isEqualTo(spec.getEnvelopeNamespaceURI());
+        assertThat(header.getLocalName()).isEqualTo(SOAPConstants.HEADER_LOCAL_NAME);
+        assertThat(header.getNamespace().getNamespaceURI()).isEqualTo(spec.getEnvelopeNamespaceURI());
     }
 }

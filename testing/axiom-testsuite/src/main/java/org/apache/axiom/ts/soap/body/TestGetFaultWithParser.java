@@ -38,7 +38,7 @@ public class TestGetFaultWithParser extends SampleBasedSOAPTestCase {
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPBody body = envelope.getBody();
-        assertThat(body.getFault()).as("Body Test With parser :- getFault method returns null").isNotNull();
-        assertThat(body.getFault().getLocalName()).as("Body Test With parser : - SOAP fault name mismatch").isEqualTo(SOAPConstants.SOAPFAULT_LOCAL_NAME);
+        assertThat(body.getFault()).isNotNull();
+        assertThat(body.getFault().getLocalName()).isEqualTo(SOAPConstants.SOAPFAULT_LOCAL_NAME);
     }
 }

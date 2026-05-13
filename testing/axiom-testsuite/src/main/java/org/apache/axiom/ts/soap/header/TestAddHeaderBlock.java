@@ -46,16 +46,16 @@ public class TestAddHeaderBlock extends TestCase {
         Iterator<OMNode> iterator = soapHeader.getChildren();
         assertThat(iterator.next()).isSameAs(headerBlock1);
         assertThat(headerBlock1.getParent()).isSameAs(soapHeader);
-        assertThat(headerBlock1).as("SOAP Header Test : - After calling addHeaderBlock method twice, getChildren method returns empty iterator").isNotNull();
-        assertThat(headerBlock1.getLocalName()).as("SOAP Header Test : - HeaderBlock1 local name mismatch").isEqualTo("echoOk1");
-        assertThat(headerBlock1.getNamespace().getNamespaceURI()).as("SOAP Header Test : - HeaderBlock1 namespace uri mismatch").isEqualTo("http://www.example.org");
+        assertThat(headerBlock1).isNotNull();
+        assertThat(headerBlock1.getLocalName()).isEqualTo("echoOk1");
+        assertThat(headerBlock1.getNamespace().getNamespaceURI()).isEqualTo("http://www.example.org");
 
         assertThat(iterator.next()).isSameAs(headerBlock2);
         assertThat(headerBlock2.getParent()).isSameAs(soapHeader);
-        assertThat(headerBlock2).as("SOAP Header Test : - After calling addHeaderBlock method twice, getChildren method returns an iterator with only one object").isNotNull();
-        assertThat(headerBlock2.getLocalName()).as("SOAP Header Test : - HeaderBlock2 local name mismatch").isEqualTo("echoOk2");
-        assertThat(headerBlock2.getNamespace().getNamespaceURI()).as("SOAP Header Test : - HeaderBlock2 namespace uri mismatch").isEqualTo("http://www.example.org");
+        assertThat(headerBlock2).isNotNull();
+        assertThat(headerBlock2.getLocalName()).isEqualTo("echoOk2");
+        assertThat(headerBlock2.getNamespace().getNamespaceURI()).isEqualTo("http://www.example.org");
 
-        assertThat(iterator.hasNext()).as("SOAP Header Test : - After calling addHeaderBlock method twice, getChildren method returns an iterator with more than two elements").isFalse();
+        assertThat(iterator.hasNext()).isFalse();
     }
 }

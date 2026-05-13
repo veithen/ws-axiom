@@ -72,6 +72,6 @@ public class TestName2Unqualified extends AxiomTestCase {
         // Make sure that the serialized string does not contain default prefix declaration
         assertThat(result.indexOf("xmlns=") < 0).isTrue();
 
-        assertThat(result.indexOf("1930110111") > 0).as("Serialized text error" + result).isTrue();
+        assertThat(result.indexOf("1930110111") > 0).isTrue();
     }
 }

@@ -37,6 +37,6 @@ public class TestBodyHeaderOrder extends TestCase {
         SOAPEnvelope env = soapFactory.createSOAPEnvelope();
         soapFactory.createSOAPBody(env);
         soapFactory.createSOAPHeader(env);
-        assertThat(env.getFirstElement()).as("Header isn't the first child!").isInstanceOf(SOAPHeader.class);
+        assertThat(env.getFirstElement()).isInstanceOf(SOAPHeader.class);
     }
 }

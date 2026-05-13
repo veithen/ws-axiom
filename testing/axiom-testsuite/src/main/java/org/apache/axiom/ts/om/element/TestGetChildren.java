@@ -49,9 +49,9 @@ public class TestGetChildren extends AxiomTestCase {
         int counter = 0;
         while (iter.hasNext()) {
             counter++;
-            assertThat(iter.next()).as("Must return not null objects!").isNotNull();
+            assertThat(iter.next()).isNotNull();
         }
-        assertThat(counter).as("This element should contain only five children including the text ").isEqualTo(5);
+        assertThat(counter).isEqualTo(5);
         elt.close(false);
     }
 }

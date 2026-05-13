@@ -36,6 +36,6 @@ public class TestAddFault1 extends TestCase {
         SOAPEnvelope envelope = soapFactory.createSOAPEnvelope();
         SOAPBody body = soapFactory.createSOAPBody(envelope);
         body.addFault(new Exception("This an exception for testing"));
-        assertThat(body.hasFault()).as("Body Test:- After calling addFault method, SOAP body has no fault").isTrue();
+        assertThat(body.hasFault()).isTrue();
     }
 }
