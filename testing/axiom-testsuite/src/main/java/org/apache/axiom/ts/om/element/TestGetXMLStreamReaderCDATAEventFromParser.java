@@ -72,7 +72,8 @@ public class TestGetXMLStreamReaderCDATAEventFromParser extends AxiomTestCase {
         if (reader.toString().indexOf("wstx") != -1) {
             assertThat(event).isEqualTo(XMLStreamReader.CDATA);
             assertThat(reader2.getText()).isEqualTo("hello world"); // AXIOM-146
-            assertThat(reader2.getTextCharacters()).isEqualTo("hello world".toCharArray()); // AXIOM-144
+            assertThat(reader2.getTextCharacters())
+                    .isEqualTo("hello world".toCharArray()); // AXIOM-144
             assertThat(reader2.next()).isEqualTo(XMLStreamReader.END_ELEMENT);
         }
     }

@@ -40,6 +40,7 @@ public class TestFactoryIsSingleton extends TestCase {
     @Override
     protected void runTest() throws Throwable {
         FactorySelector factorySelector = spec.getAdapter(FactorySelector.class);
-        assertThat(factorySelector.getFactory(metaFactory)).isSameAs(factorySelector.getFactory(metaFactory));
+        assertThat(factorySelector.getFactory(metaFactory))
+                .isSameAs(factorySelector.getFactory(metaFactory));
     }
 }

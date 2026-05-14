@@ -35,6 +35,7 @@ public class TestGetRoleValueWithParser extends SampleBasedSOAPTestCase {
 
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
-        assertThat(envelope.getBody().getFault().getRole().getRoleValue()).isEqualTo("http://www.example.org/gateway/cache");
+        assertThat(envelope.getBody().getFault().getRole().getRoleValue())
+                .isEqualTo("http://www.example.org/gateway/cache");
     }
 }

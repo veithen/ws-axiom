@@ -50,14 +50,16 @@ public class TestExpand extends AxiomTestCase {
         assertThat(element.getAttributeValue(new QName("books"))).isEqualTo("1");
         OMElement child = element.getFirstElement();
         assertThat(child.getLocalName()).isEqualTo("type");
-        assertThat(child.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(child.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.sosnoski.com/uwjws/library");
         OMNode next = child.getNextOMSibling();
         assertThat(next).isInstanceOf(OMElement.class);
         next = next.getNextOMSibling();
         assertThat(next).isInstanceOf(OMElement.class);
         child = (OMElement) next;
         assertThat(child.getLocalName()).isEqualTo("book");
-        assertThat(child.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(child.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.sosnoski.com/uwjws/library");
         assertThat(child.getAttributeValue(new QName("type"))).isEqualTo("xml");
     }
 

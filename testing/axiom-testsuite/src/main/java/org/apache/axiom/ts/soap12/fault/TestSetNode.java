@@ -39,7 +39,8 @@ public class TestSetNode extends TestCase {
         SOAPFault soapFault = soapFactory.createSOAPFault();
         soapFault.setNode(soapFactory.createSOAPFaultNode(soapFault));
         assertThat(soapFault.getNode()).isNotNull();
-        assertThat(soapFault.getNode().getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_NODE_LOCAL_NAME);
+        assertThat(soapFault.getNode().getLocalName())
+                .isEqualTo(SOAP12Constants.SOAP_FAULT_NODE_LOCAL_NAME);
         assertThatThrownBy(() -> soapFault.setNode(altSoapFactory.createSOAPFaultNode()))
                 .isInstanceOf(UnsupportedOperationException.class);
     }

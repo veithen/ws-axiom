@@ -39,6 +39,7 @@ public class TestGetHeaderWithParser extends SampleBasedSOAPTestCase {
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPHeader header = envelope.getHeader();
         assertThat(header.getLocalName()).isEqualTo(SOAPConstants.HEADER_LOCAL_NAME);
-        assertThat(header.getNamespace().getNamespaceURI()).isEqualTo(spec.getEnvelopeNamespaceURI());
+        assertThat(header.getNamespace().getNamespaceURI())
+                .isEqualTo(spec.getEnvelopeNamespaceURI());
     }
 }

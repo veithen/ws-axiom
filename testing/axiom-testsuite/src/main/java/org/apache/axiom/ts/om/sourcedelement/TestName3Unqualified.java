@@ -91,7 +91,8 @@ public class TestName3Unqualified extends AxiomTestCase {
         result = writer.toString();
 
         assertThat(element.getLocalName()).isEqualTo("library");
-        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(element.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.sosnoski.com/uwjws/library");
         assertThat(element.getNamespace().getPrefix()).isEqualTo("");
         // Make sure that the serialized string does not contain the DUMMY values
         assertThat(result).doesNotContain("DUMMY");

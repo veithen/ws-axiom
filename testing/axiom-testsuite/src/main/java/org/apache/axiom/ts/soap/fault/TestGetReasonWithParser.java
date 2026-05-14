@@ -38,6 +38,7 @@ public class TestGetReasonWithParser extends SampleBasedSOAPTestCase {
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPFault soapFaultWithParser = envelope.getBody().getFault();
         assertThat(soapFaultWithParser.getReason()).isNotNull();
-        assertThat(soapFaultWithParser.getReason().getQName()).isEqualTo(spec.getFaultReasonQName());
+        assertThat(soapFaultWithParser.getReason().getQName())
+                .isEqualTo(spec.getFaultReasonQName());
     }
 }

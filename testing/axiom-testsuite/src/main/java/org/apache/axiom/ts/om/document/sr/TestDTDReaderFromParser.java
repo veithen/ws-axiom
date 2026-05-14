@@ -71,7 +71,8 @@ public class TestDTDReaderFromParser extends AxiomTestCase {
             // Just loop
         }
         assertThat(dtdReader.getRootName()).isEqualTo("web-app");
-        assertThat(dtdReader.getPublicId()).isEqualTo("-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN");
+        assertThat(dtdReader.getPublicId())
+                .isEqualTo("-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN");
         assertThat(dtdReader.getSystemId()).isEqualTo("http://java.sun.com/dtd/web-app_2_3.dtd");
     }
 }

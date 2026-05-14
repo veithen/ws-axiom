@@ -57,7 +57,8 @@ public class TestName1DefaultPrefix extends AxiomTestCase {
 
         // Test getting the local name and namespace URI. This should used not result in expansion
         assertThat(element.getLocalName()).isEqualTo("library");
-        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(element.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.sosnoski.com/uwjws/library");
 
         // Serialize and cache.  This should cause expansion.  The prefix should be updated to match
         // the testDocument string
@@ -66,7 +67,8 @@ public class TestName1DefaultPrefix extends AxiomTestCase {
         String result = writer.toString();
 
         assertThat(element.getLocalName()).isEqualTo("library");
-        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(element.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.sosnoski.com/uwjws/library");
         assertThat(element.getNamespace().getPrefix()).isEqualTo("");
         assertThat(element.getDefaultNamespace()).isNotNull();
         assertThat(result).contains("1930110111");
@@ -77,7 +79,8 @@ public class TestName1DefaultPrefix extends AxiomTestCase {
         result = writer.toString();
 
         assertThat(element.getLocalName()).isEqualTo("library");
-        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(element.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.sosnoski.com/uwjws/library");
         assertThat(element.getNamespace().getPrefix()).isEqualTo("");
         assertThat(element.getDefaultNamespace()).isNotNull();
         assertThat(result).contains("1930110111");

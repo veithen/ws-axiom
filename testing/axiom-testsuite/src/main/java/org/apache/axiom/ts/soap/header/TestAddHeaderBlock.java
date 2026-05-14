@@ -48,13 +48,15 @@ public class TestAddHeaderBlock extends TestCase {
         assertThat(headerBlock1.getParent()).isSameAs(soapHeader);
         assertThat(headerBlock1).isNotNull();
         assertThat(headerBlock1.getLocalName()).isEqualTo("echoOk1");
-        assertThat(headerBlock1.getNamespace().getNamespaceURI()).isEqualTo("http://www.example.org");
+        assertThat(headerBlock1.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.example.org");
 
         assertThat(iterator.next()).isSameAs(headerBlock2);
         assertThat(headerBlock2.getParent()).isSameAs(soapHeader);
         assertThat(headerBlock2).isNotNull();
         assertThat(headerBlock2.getLocalName()).isEqualTo("echoOk2");
-        assertThat(headerBlock2.getNamespace().getNamespaceURI()).isEqualTo("http://www.example.org");
+        assertThat(headerBlock2.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.example.org");
 
         assertThat(iterator.hasNext()).isFalse();
     }

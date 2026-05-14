@@ -51,6 +51,7 @@ public class TestGetBooleanAttribute extends BooleanAttributeTestCase {
                 header.addHeaderBlock(new QName("http://example.org", "test", "h"));
         headerBlock.addAttribute(
                 attribute.getName(spec), literal.getLexicalRepresentation(), header.getNamespace());
-        assertThat(attribute.getAdapter(BooleanAttributeAccessor.class).getValue(headerBlock)).isEqualTo(literal.getValue());
+        assertThat(attribute.getAdapter(BooleanAttributeAccessor.class).getValue(headerBlock))
+                .isEqualTo(literal.getValue());
     }
 }

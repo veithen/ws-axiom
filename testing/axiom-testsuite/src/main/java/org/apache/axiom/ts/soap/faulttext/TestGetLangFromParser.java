@@ -35,6 +35,7 @@ public class TestGetLangFromParser extends SampleBasedSOAPTestCase {
 
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
-        assertThat(envelope.getBody().getFault().getReason().getFirstSOAPText().getLang()).isEqualTo("en");
+        assertThat(envelope.getBody().getFault().getReason().getFirstSOAPText().getLang())
+                .isEqualTo("en");
     }
 }

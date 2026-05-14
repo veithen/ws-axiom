@@ -35,6 +35,7 @@ public class TestCloneOMElement extends OMDOMTestCase {
         OMFactory factory = metaFactory.getOMFactory();
         OMElement element = factory.createOMElement("test", null);
         OMElement clone = element.cloneOMElement();
-        assertThat(((Element) clone).getOwnerDocument()).isNotSameAs(((Element) element).getOwnerDocument());
+        assertThat(((Element) clone).getOwnerDocument())
+                .isNotSameAs(((Element) element).getOwnerDocument());
     }
 }

@@ -46,6 +46,7 @@ public class TestGetHeaderBlocksWithNSURI extends TestCase {
         ArrayList<SOAPHeaderBlock> arrayList =
                 soapHeader.getHeaderBlocksWithNSURI("http://www.test1.org");
         assertThat(arrayList).hasSize(1);
-        assertThat(arrayList.get(0).getNamespace().getNamespaceURI()).isEqualTo("http://www.test1.org");
+        assertThat(arrayList.get(0).getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.test1.org");
     }
 }

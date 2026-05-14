@@ -41,8 +41,11 @@ public class TestGetLangWithParser extends SampleBasedSOAPTestCase {
         SOAPFaultText faultText = envelope.getBody().getFault().getReason().getFirstSOAPText();
         assertThat(faultText.getLang()).isEqualTo("en");
         OMAttribute langAttribute = faultText.getAllAttributes().next();
-        assertThat(langAttribute .getLocalName() ).isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_LOCAL_NAME);
-        assertThat(langAttribute .getNamespace() .getPrefix() ).isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_PREFIX);
-        assertThat(langAttribute .getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_URI);
+        assertThat(langAttribute.getLocalName())
+                .isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_LOCAL_NAME);
+        assertThat(langAttribute.getNamespace().getPrefix())
+                .isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_PREFIX);
+        assertThat(langAttribute.getNamespace().getNamespaceURI())
+                .isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LANG_ATTR_NS_URI);
     }
 }

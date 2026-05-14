@@ -59,7 +59,12 @@ public class TestCommentEvent extends AxiomTestCase {
         assertThat(reader.next()).isEqualTo(XMLStreamReader.START_ELEMENT);
         assertThat(reader.next()).isEqualTo(XMLStreamReader.COMMENT);
         assertThat(reader.getText()).isEqualTo("comment text");
-        assertThat(new String( reader.getTextCharacters(), reader.getTextStart(), reader.getTextLength())).isEqualTo("comment text");
+        assertThat(
+                        new String(
+                                reader.getTextCharacters(),
+                                reader.getTextStart(),
+                                reader.getTextLength()))
+                .isEqualTo("comment text");
         StringBuffer text = new StringBuffer();
         char[] buf = new char[5];
         for (int sourceStart = 0; ; sourceStart += buf.length) {

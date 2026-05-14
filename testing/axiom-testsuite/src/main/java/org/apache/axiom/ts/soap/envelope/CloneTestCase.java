@@ -74,7 +74,8 @@ public abstract class CloneTestCase extends TestCase {
 
             if (element instanceof OMSourcedElement sourcedElement) {
                 assertThat(target).isInstanceOf(OMSourcedElement.class);
-                assertThat(((OMSourcedElement) target).isExpanded()).isEqualTo(sourcedElement.isExpanded());
+                assertThat(((OMSourcedElement) target).isExpanded())
+                        .isEqualTo(sourcedElement.isExpanded());
                 if (sourcedElement.isExpanded()) {
                     Iterator<OMNode> i = element.getChildren();
                     Iterator<OMNode> j = ((OMElement) target).getChildren();

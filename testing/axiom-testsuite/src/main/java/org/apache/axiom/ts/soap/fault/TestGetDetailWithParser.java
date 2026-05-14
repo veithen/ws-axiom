@@ -38,6 +38,7 @@ public class TestGetDetailWithParser extends SampleBasedSOAPTestCase {
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPFault soapFaultWithParser = envelope.getBody().getFault();
         assertThat(soapFaultWithParser.getDetail()).isNotNull();
-        assertThat(soapFaultWithParser.getDetail().getQName()).isEqualTo(spec.getFaultDetailQName());
+        assertThat(soapFaultWithParser.getDetail().getQName())
+                .isEqualTo(spec.getFaultDetailQName());
     }
 }

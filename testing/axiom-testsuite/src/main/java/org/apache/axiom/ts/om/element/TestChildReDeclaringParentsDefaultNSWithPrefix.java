@@ -67,9 +67,10 @@ public class TestChildReDeclaringParentsDefaultNSWithPrefix extends AxiomTestCas
         String assertText3 =
                 "<wst:Entropy xmlns:wst=\"http://schemas.xmlsoap.org/ws/2005/02/trust\"></wst:Entropy>";
 
-        assertThat(xml).satisfiesAnyOf(
-                s -> assertThat(s).contains(assertText1),
-                s -> assertThat(s).contains(assertText2),
-                s -> assertThat(s).contains(assertText3));
+        assertThat(xml)
+                .satisfiesAnyOf(
+                        s -> assertThat(s).contains(assertText1),
+                        s -> assertThat(s).contains(assertText2),
+                        s -> assertThat(s).contains(assertText3));
     }
 }

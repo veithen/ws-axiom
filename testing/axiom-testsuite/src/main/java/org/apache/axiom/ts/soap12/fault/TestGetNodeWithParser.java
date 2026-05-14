@@ -38,6 +38,7 @@ public class TestGetNodeWithParser extends SampleBasedSOAPTestCase {
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPFault soapFaultWithParser = envelope.getBody().getFault();
         assertThat(soapFaultWithParser.getNode()).isNotNull();
-        assertThat(soapFaultWithParser.getNode().getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_NODE_LOCAL_NAME);
+        assertThat(soapFaultWithParser.getNode().getLocalName())
+                .isEqualTo(SOAP12Constants.SOAP_FAULT_NODE_LOCAL_NAME);
     }
 }

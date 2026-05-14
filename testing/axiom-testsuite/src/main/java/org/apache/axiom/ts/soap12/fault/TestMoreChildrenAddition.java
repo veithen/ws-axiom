@@ -45,6 +45,7 @@ public class TestMoreChildrenAddition extends TestCase {
         assertThat(code.getParent()).isSameAs(envelope.getBody().getFault());
         assertThat(code.getParent()).isNotSameAs(soapEnvelope.getBody().getFault());
         assertThat(soapEnvelope.getBody().getFault().getCode()).isNull();
-        assertThat(envelope.getBody().getFault().getCode().getValue().getText()).isEqualTo(errorCodeString);
+        assertThat(envelope.getBody().getFault().getCode().getValue().getText())
+                .isEqualTo(errorCodeString);
     }
 }

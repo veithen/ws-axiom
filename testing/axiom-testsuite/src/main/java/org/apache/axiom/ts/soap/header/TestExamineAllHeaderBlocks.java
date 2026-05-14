@@ -47,13 +47,15 @@ public class TestExamineAllHeaderBlocks extends TestCase {
         SOAPHeaderBlock headerBlock1 = iterator.next();
         assertThat(headerBlock1).isNotNull();
         assertThat(headerBlock1.getLocalName()).isEqualTo("echoOk1");
-        assertThat(headerBlock1.getNamespace().getNamespaceURI()).isEqualTo("http://www.example.org");
+        assertThat(headerBlock1.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.example.org");
 
         assertThat(iterator.hasNext()).isTrue();
         SOAPHeaderBlock headerBlock2 = iterator.next();
         assertThat(headerBlock2).isNotNull();
         assertThat(headerBlock2.getLocalName()).isEqualTo("echoOk2");
-        assertThat(headerBlock2.getNamespace().getNamespaceURI()).isEqualTo("http://www.example.org");
+        assertThat(headerBlock2.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.example.org");
 
         assertThat(iterator.hasNext()).isFalse();
     }

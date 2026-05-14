@@ -83,9 +83,10 @@ public class TestName1Unqualified extends AxiomTestCase {
         assertThat(element.getNamespace()).isNull();
         // Make sure that the serialized string does not contain default prefix declaration
         assertThat(result).doesNotContain("xmlns=");
-        assertThat(element.getDefaultNamespace()).satisfiesAnyOf(
-                ns -> assertThat(ns).isNull(),
-                ns -> assertThat(ns.getNamespaceURI()).isEmpty());
+        assertThat(element.getDefaultNamespace())
+                .satisfiesAnyOf(
+                        ns -> assertThat(ns).isNull(),
+                        ns -> assertThat(ns.getNamespaceURI()).isEmpty());
         assertThat(result).contains("1930110111");
     }
 }

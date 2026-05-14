@@ -39,6 +39,7 @@ public class TestGetSubCodeNestedWithParser extends SampleBasedSOAPTestCase {
         SOAPFaultSubCode subCode =
                 envelope.getBody().getFault().getCode().getSubCode().getSubCode();
         assertThat(subCode.getSubCode()).isNotNull();
-        assertThat(subCode.getSubCode().getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_SUB_CODE_LOCAL_NAME);
+        assertThat(subCode.getSubCode().getLocalName())
+                .isEqualTo(SOAP12Constants.SOAP_FAULT_SUB_CODE_LOCAL_NAME);
     }
 }

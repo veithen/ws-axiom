@@ -57,7 +57,8 @@ public class TestExamineMustUnderstandHeaderBlocks extends TestCase {
         SOAPHeaderBlock headerBlock = (SOAPHeaderBlock) iterator.next();
         assertThat(headerBlock).isNotNull();
         assertThat(headerBlock.getLocalName()).isEqualTo("echoOk2");
-        assertThat(headerBlock .getRole() ).isEqualTo("http://www.w3.org/2003/05/soap-envelope/role/ultimateReceiver");
+        assertThat(headerBlock.getRole())
+                .isEqualTo("http://www.w3.org/2003/05/soap-envelope/role/ultimateReceiver");
         assertThat(iterator.hasNext()).isFalse();
     }
 }

@@ -48,8 +48,10 @@ public class TestCreateSOAPFaultSubCode extends TestCase {
         SOAPFault fault = envelope.getBody().getFault();
         SOAPFaultCode code = fault.getCode();
         SOAPFaultSubCode subCode = soapFactory.createSOAPFaultSubCode(code);
-        assertThat(subCode.getNamespaceURI()).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
-        assertThat(subCode.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_SUB_CODE_LOCAL_NAME);
+        assertThat(subCode.getNamespaceURI())
+                .isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(subCode.getLocalName())
+                .isEqualTo(SOAP12Constants.SOAP_FAULT_SUB_CODE_LOCAL_NAME);
         assertThat(subCode.getParent()).isSameAs(code);
         Iterator<OMNode> it = code.getChildren();
         assertThat(it.hasNext()).isTrue();

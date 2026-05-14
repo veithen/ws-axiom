@@ -45,7 +45,8 @@ public class TestHasNameWithNamespace extends AxiomTestCase {
         OMElement element = factory.createOMElement(localName, namespace, prefix);
         assertThat(element.hasName(new QName(namespace, localName, prefix))).isTrue();
         assertThat(element.hasName(new QName(namespace, localName, "otherPrefix"))).isTrue();
-        assertThat(element.hasName(new QName("http://some.other.org/", localName, prefix))).isFalse();
+        assertThat(element.hasName(new QName("http://some.other.org/", localName, prefix)))
+                .isFalse();
         assertThat(element.hasName(new QName(namespace, "otherName", prefix))).isFalse();
     }
 }

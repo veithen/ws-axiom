@@ -39,6 +39,7 @@ public class TestGetHeader extends TestCase {
         SOAPEnvelope envelope = soapFactory.getDefaultEnvelope();
         SOAPHeader header = envelope.getHeader();
         assertThat(header.getLocalName()).isEqualTo(SOAPConstants.HEADER_LOCAL_NAME);
-        assertThat(header.getNamespace().getNamespaceURI()).isEqualTo(spec.getEnvelopeNamespaceURI());
+        assertThat(header.getNamespace().getNamespaceURI())
+                .isEqualTo(spec.getEnvelopeNamespaceURI());
     }
 }

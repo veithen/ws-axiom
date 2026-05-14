@@ -106,15 +106,18 @@ public class TestBuilder extends AxiomTestCase {
         //          writer.flush();
 
         assertThat(soap11Envelope.getLocalName()).isEqualTo(SOAPConstants.SOAPENVELOPE_LOCAL_NAME);
-        assertThat(soap11Envelope .getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(soap11Envelope.getNamespace().getNamespaceURI())
+                .isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPHeader header = soap11Envelope.getHeader();
         assertThat(header.getLocalName()).isEqualTo(SOAPConstants.HEADER_LOCAL_NAME);
-        assertThat(header.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(header.getNamespace().getNamespaceURI())
+                .isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPHeaderBlock headerBlock = (SOAPHeaderBlock) header.getFirstElement();
         assertThat(headerBlock.getLocalName()).isEqualTo("echoOk");
-        assertThat(headerBlock.getNamespace().getNamespaceURI()).isEqualTo("http://example.org/ts-tests");
+        assertThat(headerBlock.getNamespace().getNamespaceURI())
+                .isEqualTo("http://example.org/ts-tests");
         assertThat(headerBlock.getText().trim()).isEqualTo("foo");
 
         // Attribute iteration is not in any guaranteed order.
@@ -130,19 +133,29 @@ public class TestBuilder extends AxiomTestCase {
         OMAttribute mustUnderstandAttribute = headerBlock.getAttribute(mustUnderstandQName);
 
         assertThat(mustUnderstandAttribute).isNotNull();
-        assertThat(mustUnderstandAttribute .getAttributeValue() ).isEqualTo(SOAPConstants.ATTR_MUSTUNDERSTAND_1);
-        assertThat(mustUnderstandAttribute .getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(mustUnderstandAttribute.getAttributeValue())
+                .isEqualTo(SOAPConstants.ATTR_MUSTUNDERSTAND_1);
+        assertThat(mustUnderstandAttribute.getNamespace().getNamespaceURI())
+                .isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         assertThat(actorAttribute).isNotNull();
-        assertThat(actorAttribute .getAttributeValue() .trim() ).isEqualTo( "http://schemas.xmlsoap.org/soap/" + SOAP11Constants.ATTR_ACTOR + "/" + "next");
-        assertThat(actorAttribute .getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(actorAttribute.getAttributeValue().trim())
+                .isEqualTo(
+                        "http://schemas.xmlsoap.org/soap/"
+                                + SOAP11Constants.ATTR_ACTOR
+                                + "/"
+                                + "next");
+        assertThat(actorAttribute.getNamespace().getNamespaceURI())
+                .isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPBody body = soap11Envelope.getBody();
         assertThat(body.getLocalName()).isEqualTo(SOAPConstants.BODY_LOCAL_NAME);
-        assertThat(body.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(body.getNamespace().getNamespaceURI())
+                .isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPFault fault = body.getFault();
-        assertThat(fault.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(fault.getNamespace().getNamespaceURI())
+                .isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         Iterator<OMNode> iteratorInFault = fault.getChildren();
 
@@ -160,7 +173,8 @@ public class TestBuilder extends AxiomTestCase {
         iteratorInFault.next();
         SOAPFaultRole role = (SOAPFaultRole) iteratorInFault.next();
         assertThat(role.getLocalName()).isEqualTo(SOAP11Constants.SOAP_FAULT_ACTOR_LOCAL_NAME);
-        assertThat(role.getText() .trim() ).isEqualTo("http://schemas.xmlsoap.org/soap/envelope/actor/ultimateReceiver");
+        assertThat(role.getText().trim())
+                .isEqualTo("http://schemas.xmlsoap.org/soap/envelope/actor/ultimateReceiver");
 
         iteratorInFault.next();
         SOAPFaultDetail detail = (SOAPFaultDetail) iteratorInFault.next();
@@ -178,7 +192,8 @@ public class TestBuilder extends AxiomTestCase {
         Iterator<OMAttribute> attributeIterator = element1.getAllAttributes();
         OMAttribute attributeInMaxTime = attributeIterator.next();
         assertThat(attributeInMaxTime.getLocalName()).isEqualTo("detail");
-        assertThat(attributeInMaxTime.getNamespace().getNamespaceURI()).isEqualTo("http:www.sample.org");
+        assertThat(attributeInMaxTime.getNamespace().getNamespaceURI())
+                .isEqualTo("http:www.sample.org");
         assertThat(attributeInMaxTime.getAttributeValue()).isEqualTo("This is only a test");
 
         iteratorInDetail.next();
@@ -201,7 +216,8 @@ public class TestBuilder extends AxiomTestCase {
 
         OMElement childOfTestElement = testElement.getFirstElement();
         assertThat(childOfTestElement.getLocalName()).isEqualTo("TestElement");
-        assertThat(childOfTestElement.getNamespace().getNamespaceURI()).isEqualTo("http:www.Test.org");
+        assertThat(childOfTestElement.getNamespace().getNamespaceURI())
+                .isEqualTo("http:www.Test.org");
         assertThat(childOfTestElement.getText().trim()).isEqualTo("This is only a test");
 
         soap11Builder.close();

@@ -59,7 +59,8 @@ public class TestName2QualifiedPrefix extends AxiomTestCase {
         // Test getting the namespace, localpart and prefix.  This should used not result in
         // expansion
         assertThat(element.getLocalName()).isEqualTo("library");
-        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(element.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.sosnoski.com/uwjws/library");
         assertThat(element.getNamespace().getPrefix()).isEqualTo("");
 
         // Serialize and consume.  This should not cause expansion and currently won't update
@@ -69,7 +70,8 @@ public class TestName2QualifiedPrefix extends AxiomTestCase {
         String result = writer.toString();
 
         assertThat(element.getLocalName()).isEqualTo("library");
-        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(element.getNamespace().getNamespaceURI())
+                .isEqualTo("http://www.sosnoski.com/uwjws/library");
         assertThat(element.getNamespace().getPrefix()).isEqualTo("");
         // Make sure that the serialized string does not contain default prefix declaration
         assertThat(result).doesNotContain("xmlns=");

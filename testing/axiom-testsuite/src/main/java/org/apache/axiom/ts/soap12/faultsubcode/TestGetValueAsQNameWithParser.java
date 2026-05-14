@@ -43,6 +43,7 @@ public class TestGetValueAsQNameWithParser extends SampleBasedSOAPTestCase {
     @Override
     protected void runTest(SOAPEnvelope envelope) throws Throwable {
         SOAPFaultSubCode subCode = envelope.getBody().getFault().getCode().getSubCode();
-        assertThat(subCode.getValueAsQName()).isEqualTo(new QName("http:www.sample.org", "MessageTimeout_In_First_Subcode"));
+        assertThat(subCode.getValueAsQName())
+                .isEqualTo(new QName("http:www.sample.org", "MessageTimeout_In_First_Subcode"));
     }
 }

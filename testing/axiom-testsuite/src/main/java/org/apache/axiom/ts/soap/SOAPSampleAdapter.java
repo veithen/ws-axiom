@@ -53,7 +53,8 @@ public final class SOAPSampleAdapter {
     public SOAPEnvelope getSOAPEnvelope(OMMetaFactory metaFactory) {
         SOAPEnvelope envelope = getBuilder(metaFactory).getSOAPEnvelope();
         // TODO: this is not the right place to assert this
-        assertThat(((SOAPFactory) envelope.getOMFactory()).getSoapVersionURI()).isSameAs(sample.getSOAPSpec().getEnvelopeNamespaceURI());
+        assertThat(((SOAPFactory) envelope.getOMFactory()).getSoapVersionURI())
+                .isSameAs(sample.getSOAPSpec().getEnvelopeNamespaceURI());
         return envelope;
     }
 }
