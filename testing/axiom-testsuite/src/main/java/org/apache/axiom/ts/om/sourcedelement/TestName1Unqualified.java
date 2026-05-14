@@ -85,8 +85,8 @@ public class TestName1Unqualified extends AxiomTestCase {
         assertThat(result).doesNotContain("xmlns=");
         assertThat(element.getDefaultNamespace())
                 .satisfiesAnyOf(
-                        ns -> assertThat(ns).isNull(),
-                        ns -> assertThat(ns.getNamespaceURI()).isEmpty());
+                        defaultNs -> assertThat(defaultNs).isNull(),
+                        defaultNs -> assertThat(defaultNs.getNamespaceURI()).isEmpty());
         assertThat(result).contains("1930110111");
     }
 }
