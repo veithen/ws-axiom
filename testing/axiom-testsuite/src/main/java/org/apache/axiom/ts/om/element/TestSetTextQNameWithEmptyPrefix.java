@@ -53,7 +53,7 @@ public class TestSetTextQNameWithEmptyPrefix extends AxiomTestCase {
         OMNamespace ns = it.next();
         assertThat(ns.getNamespaceURI()).isEqualTo("urn:test");
         String prefix = ns.getPrefix();
-        assertThat(prefix.length() > 0).isTrue();
+        assertThat(prefix).isNotEmpty();
         assertThat(element.getText()).isEqualTo(prefix + ":test");
         assertThat(it.hasNext()).isFalse();
     }

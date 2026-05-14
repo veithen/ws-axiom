@@ -83,10 +83,10 @@ public class TestSerialize extends AxiomTestCase {
         if (base64) {
             // Do a quick check to see if the data is base64 and is
             // writing base64 compliant code.
-            assertThat(out.indexOf("base64") != -1).isTrue();
-            assertThat(out.indexOf("GBgcGBQgHBwcJCQgKDBQNDAsL") != -1).isTrue();
+            assertThat(out).contains("base64");
+            assertThat(out).contains("GBgcGBQgHBwcJCQgKDBQNDAsL");
         } else {
-            assertThat(out.indexOf("base64") == -1).isTrue();
+            assertThat(out).doesNotContain("base64");
         }
     }
 }

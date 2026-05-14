@@ -59,9 +59,9 @@ public class TestName2DefaultPrefix extends AxiomTestCase {
 
         // Test getting the namespace, localpart and prefix.  This should used not result in
         // expansion
-        assertThat(element.getLocalName().equals("library")).isTrue();
-        assertThat(element.getNamespace() .getNamespaceURI() .equals("http://www.sosnoski.com/uwjws/library")).isTrue();
-        assertThat(element.getNamespace().getPrefix().equals("DUMMYPREFIX")).isTrue();
+        assertThat(element.getLocalName()).isEqualTo("library");
+        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(element.getNamespace().getPrefix()).isEqualTo("DUMMYPREFIX");
 
         // Serialize and consume.  This should not cause expansion and currently won't update
         // the name of the element.
@@ -69,12 +69,12 @@ public class TestName2DefaultPrefix extends AxiomTestCase {
         root.serializeAndConsume(writer);
         String result = writer.toString();
 
-        assertThat(element.getLocalName().equals("library")).isTrue();
-        assertThat(element.getNamespace() .getNamespaceURI() .equals("http://www.sosnoski.com/uwjws/library")).isTrue();
-        assertThat(element.getNamespace().getPrefix().equals("DUMMYPREFIX")).isTrue();
+        assertThat(element.getLocalName()).isEqualTo("library");
+        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(element.getNamespace().getPrefix()).isEqualTo("DUMMYPREFIX");
         // Make sure that the serialized string does not contain DUMMYPREFIX
-        assertThat(result.indexOf("DUMMYPREFIX") < 0).isTrue();
+        assertThat(result).doesNotContain("DUMMYPREFIX");
 
-        assertThat(result.indexOf("1930110111") > 0).isTrue();
+        assertThat(result).contains("1930110111");
     }
 }

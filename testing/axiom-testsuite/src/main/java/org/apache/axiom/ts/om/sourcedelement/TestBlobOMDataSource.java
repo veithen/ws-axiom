@@ -58,7 +58,7 @@ public class TestBlobOMDataSource extends AxiomTestCase {
         OMNode firstChild = parent.getFirstOMChild();
         assertThat(firstChild).isInstanceOf(OMSourcedElement.class);
         OMSourcedElement child = (OMSourcedElement) firstChild;
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(child.isExpanded()).isFalse();
         assertThat(child.getDataSource()).isSameAs(ds);
 
         // A BlobOMDataSource does not consume the backing object when read.
@@ -66,20 +66,20 @@ public class TestBlobOMDataSource extends AxiomTestCase {
         // cause expansion of the OMSourcedElement.
         XMLStreamReader reader = child.getXMLStreamReader();
         reader.next();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(child.isExpanded()).isFalse();
 
         // Likewise, a BlobOMDataSource does not consume the backing object when
         // written.  Thus serializing the OMSourcedElement should not cause the expansion
         // of the OMSourcedElement.
-        assertThat(parent.toString().indexOf(payload) > 0).isTrue();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(parent.toString()).contains(payload);
+        assertThat(child.isExpanded()).isFalse();
 
         // If a consumer calls build or buildWithAttachments on the tree, the
         // tree should not be expanded.
         parent.build();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(child.isExpanded()).isFalse();
         parent.buildWithAttachments();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(child.isExpanded()).isFalse();
 
         // Test getting the raw bytes from the BlobOMDataSource.
         assertThat(child.getDataSource()).isSameAs(ds);

@@ -36,6 +36,6 @@ public class TestAddSOAPText extends TestCase {
         SOAPFault fault = soapFactory.createSOAPFault();
         SOAPFaultReason faultReason = soapFactory.createSOAPFaultReason(fault);
         faultReason.addSOAPText(soapFactory.createSOAPFaultText(faultReason));
-        assertThat(faultReason.getFirstSOAPText() == null).isFalse();
+        assertThat(faultReason.getFirstSOAPText()).isNotNull();
     }
 }

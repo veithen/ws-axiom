@@ -20,8 +20,6 @@ package org.apache.axiom.ts.om.element;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Arrays;
-
 import javax.xml.stream.XMLStreamReader;
 
 import org.apache.axiom.om.OMElement;
@@ -58,7 +56,7 @@ public class TestGetXMLStreamReaderCDATAEventFromElement extends AxiomTestCase {
 
         assertThat(event).isEqualTo(XMLStreamReader.CDATA);
         assertThat(reader2.getText()).isEqualTo("hello world"); // AXIOM-146
-        assertThat(Arrays.equals( "hello world".toCharArray(), reader2.getTextCharacters())).isTrue(); // AXIOM-144
+        assertThat(reader2.getTextCharacters()).isEqualTo("hello world".toCharArray()); // AXIOM-144
         assertThat(reader2.next()).isEqualTo(XMLStreamReader.END_ELEMENT);
     }
 }

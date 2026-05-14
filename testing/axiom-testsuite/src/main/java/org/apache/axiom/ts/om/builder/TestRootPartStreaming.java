@@ -86,6 +86,6 @@ public class TestRootPartStreaming extends AxiomTestCase {
 
         // We expect that after requesting the document element, only a small part (corresponding to
         // the size of the parser buffer) should have been read:
-        assertThat(count1 < count2 / 2).isTrue();
+        assertThat(count1).isLessThan(count2 / 2);
     }
 }

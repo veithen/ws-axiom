@@ -44,6 +44,6 @@ public class TestCreateOMText extends AxiomTestCase {
         String text = "sampleText";
         OMText omText = factory.createOMText(omElement, text);
         assertThat(omText.isComplete()).isTrue();
-        assertThat(text.equals(omText.getText())).isTrue();
+        assertThat(omText.getText()).isEqualTo(text);
     }
 }

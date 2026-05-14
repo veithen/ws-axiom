@@ -58,9 +58,9 @@ public class TestName3QualifiedPrefix extends AxiomTestCase {
 
         // Test getting the namespace, localpart and prefix.  This should used not result in
         // expansion
-        assertThat(element.getLocalName().equals("DUMMYNAME")).isTrue();
-        assertThat(element.getNamespace().getNamespaceURI().equals("http://DUMMYNS")).isTrue();
-        assertThat(element.getNamespace().getPrefix().equals("DUMMYPREFIX")).isTrue();
+        assertThat(element.getLocalName()).isEqualTo("DUMMYNAME");
+        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://DUMMYNS");
+        assertThat(element.getNamespace().getPrefix()).isEqualTo("DUMMYPREFIX");
 
         // Serialize and cache.  This should cause expansion and update the name to match the
         // testDocument string
@@ -77,25 +77,25 @@ public class TestName3QualifiedPrefix extends AxiomTestCase {
 
         String result = writer.toString();
 
-        assertThat(element.getLocalName().equals("library")).isTrue();
-        assertThat(element.getNamespace() .getNamespaceURI() .equals("http://www.sosnoski.com/uwjws/library")).isTrue();
-        assertThat(element.getNamespace().getPrefix().equals("")).isTrue();
+        assertThat(element.getLocalName()).isEqualTo("library");
+        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(element.getNamespace().getPrefix()).isEqualTo("");
         // Make sure that the serialized string does not contain the DUMMY values
-        assertThat(result.indexOf("DUMMY") < 0).isTrue();
+        assertThat(result).doesNotContain("DUMMY");
 
-        assertThat(result.indexOf("1930110111") > 0).isTrue();
+        assertThat(result).contains("1930110111");
 
         // Serialize again
         writer = new StringWriter();
         root.serialize(writer);
         result = writer.toString();
 
-        assertThat(element.getLocalName().equals("library")).isTrue();
-        assertThat(element.getNamespace() .getNamespaceURI() .equals("http://www.sosnoski.com/uwjws/library")).isTrue();
-        assertThat(element.getNamespace().getPrefix().equals("")).isTrue();
+        assertThat(element.getLocalName()).isEqualTo("library");
+        assertThat(element.getNamespace().getNamespaceURI()).isEqualTo("http://www.sosnoski.com/uwjws/library");
+        assertThat(element.getNamespace().getPrefix()).isEqualTo("");
         // Make sure that the serialized string does not contain the DUMMY values
-        assertThat(result.indexOf("DUMMY") < 0).isTrue();
+        assertThat(result).doesNotContain("DUMMY");
 
-        assertThat(result.indexOf("1930110111") > 0).isTrue();
+        assertThat(result).contains("1930110111");
     }
 }

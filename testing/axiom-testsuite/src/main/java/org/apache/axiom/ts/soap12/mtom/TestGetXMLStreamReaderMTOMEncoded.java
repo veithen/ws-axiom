@@ -83,16 +83,16 @@ public class TestGetXMLStreamReaderMTOMEncoded extends AxiomTestCase {
                 }
             }
         }
-        assertThat(blob != null).isTrue();
+        assertThat(blob).isNotNull();
 
         // Make sure next event is an an XOP_Include END element
         xmlStreamReader.next();
         assertThat(xmlStreamReader.isEndElement()).isTrue();
-        assertThat(XOP_INCLUDE.equals(xmlStreamReader.getName())).isTrue();
+        assertThat(XOP_INCLUDE).isEqualTo(xmlStreamReader.getName());
 
         // Make sure the next event is the end tag of name
         xmlStreamReader.next();
         assertThat(xmlStreamReader.isEndElement()).isTrue();
-        assertThat("name".equals(xmlStreamReader.getLocalName())).isTrue();
+        assertThat("name").isEqualTo(xmlStreamReader.getLocalName());
     }
 }

@@ -107,17 +107,17 @@ public class TestBuilder extends AxiomTestCase {
                         metaFactory, new StringReader(soap12Message));
         SOAPEnvelope soap12Envelope = (SOAPEnvelope) soap12Builder.getDocumentElement();
 
-        assertThat(soap12Envelope.getLocalName().equals(SOAPConstants.SOAPENVELOPE_LOCAL_NAME)).isTrue();
-        assertThat(soap12Envelope .getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(soap12Envelope.getLocalName()).isEqualTo(SOAPConstants.SOAPENVELOPE_LOCAL_NAME);
+        assertThat(soap12Envelope .getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPHeader header = soap12Envelope.getHeader();
-        assertThat(header.getLocalName().equals(SOAPConstants.HEADER_LOCAL_NAME)).isTrue();
-        assertThat(header.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(header.getLocalName()).isEqualTo(SOAPConstants.HEADER_LOCAL_NAME);
+        assertThat(header.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPHeaderBlock headerBlock = (SOAPHeaderBlock) header.getFirstElement();
-        assertThat(headerBlock.getLocalName().equals("echoOk")).isTrue();
-        assertThat(headerBlock.getNamespace().getNamespaceURI().equals("http://example.org/ts-tests")).isTrue();
-        assertThat("foo").isEqualTo(headerBlock.getText().trim());
+        assertThat(headerBlock.getLocalName()).isEqualTo("echoOk");
+        assertThat(headerBlock.getNamespace().getNamespaceURI()).isEqualTo("http://example.org/ts-tests");
+        assertThat(headerBlock.getText().trim()).isEqualTo("foo");
 
         // Attribute iteration is not in any guaranteed order.
         // Use QNames to get the OMAttributes.
@@ -131,126 +131,126 @@ public class TestBuilder extends AxiomTestCase {
         OMAttribute roleAttribute = headerBlock.getAttribute(roleQName);
         OMAttribute mustUnderstandAttribute = headerBlock.getAttribute(mustUnderstandQName);
 
-        assertThat(roleAttribute != null).isTrue();
+        assertThat(roleAttribute).isNotNull();
 
-        assertThat(roleAttribute .getAttributeValue() .trim() .equals( SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI + "/" + SOAP12Constants.SOAP_ROLE + "/" + "ultimateReceiver")).isTrue();
+        assertThat(roleAttribute .getAttributeValue() .trim() ).isEqualTo( SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI + "/" + SOAP12Constants.SOAP_ROLE + "/" + "ultimateReceiver");
 
-        assertThat(mustUnderstandAttribute != null).isTrue();
+        assertThat(mustUnderstandAttribute).isNotNull();
 
-        assertThat(mustUnderstandAttribute .getAttributeValue() .equals(SOAPConstants.ATTR_MUSTUNDERSTAND_TRUE)).isTrue();
+        assertThat(mustUnderstandAttribute .getAttributeValue() ).isEqualTo(SOAPConstants.ATTR_MUSTUNDERSTAND_TRUE);
 
         SOAPBody body = soap12Envelope.getBody();
-        assertThat(body.getLocalName().equals(SOAPConstants.BODY_LOCAL_NAME)).isTrue();
-        assertThat(body.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(body.getLocalName()).isEqualTo(SOAPConstants.BODY_LOCAL_NAME);
+        assertThat(body.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPFault fault = body.getFault();
-        assertThat(fault.getLocalName().equals(SOAPConstants.SOAPFAULT_LOCAL_NAME)).isTrue();
-        assertThat(fault.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(fault.getLocalName()).isEqualTo(SOAPConstants.SOAPFAULT_LOCAL_NAME);
+        assertThat(fault.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         Iterator<OMNode> iteratorInFault = fault.getChildren();
 
         iteratorInFault.next();
         SOAPFaultCode code = (SOAPFaultCode) iteratorInFault.next();
-        assertThat(code.getLocalName().equals(SOAP12Constants.SOAP_FAULT_CODE_LOCAL_NAME)).isTrue();
-        assertThat(code.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(code.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_CODE_LOCAL_NAME);
+        assertThat(code.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         Iterator<OMNode> iteratorInCode = code.getChildren();
 
         iteratorInCode.next();
         SOAPFaultValue value1 = (SOAPFaultValue) iteratorInCode.next();
-        assertThat(value1.getLocalName().equals(SOAP12Constants.SOAP_FAULT_VALUE_LOCAL_NAME)).isTrue();
-        assertThat(value1.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
-        assertThat(value1.getText().equals("env:Sender")).isTrue();
+        assertThat(value1.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_VALUE_LOCAL_NAME);
+        assertThat(value1.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(value1.getText()).isEqualTo("env:Sender");
 
         QName valueQName = value1.getTextAsQName();
-        assertThat(valueQName.getLocalPart().equals("Sender")).isTrue();
+        assertThat(valueQName.getLocalPart()).isEqualTo("Sender");
 
-        assertThat(valueQName.getNamespaceURI().equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(valueQName.getNamespaceURI()).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         iteratorInCode.next();
         SOAPFaultSubCode subCode1 = (SOAPFaultSubCode) iteratorInCode.next();
-        assertThat(subCode1.getLocalName().equals(SOAP12Constants.SOAP_FAULT_SUB_CODE_LOCAL_NAME)).isTrue();
-        assertThat(subCode1.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(subCode1.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_SUB_CODE_LOCAL_NAME);
+        assertThat(subCode1.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         Iterator<OMNode> iteratorInSubCode1 = subCode1.getChildren();
 
         iteratorInSubCode1.next();
         SOAPFaultValue value2 = (SOAPFaultValue) iteratorInSubCode1.next();
-        assertThat(value2.getLocalName().equals(SOAP12Constants.SOAP_FAULT_VALUE_LOCAL_NAME)).isTrue();
-        assertThat(value2.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
-        assertThat(value2.getText().equals("m:MessageTimeout")).isTrue();
+        assertThat(value2.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_VALUE_LOCAL_NAME);
+        assertThat(value2.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(value2.getText()).isEqualTo("m:MessageTimeout");
 
         iteratorInSubCode1.next();
         SOAPFaultSubCode subCode2 = (SOAPFaultSubCode) iteratorInSubCode1.next();
-        assertThat(subCode2.getLocalName().equals(SOAP12Constants.SOAP_FAULT_SUB_CODE_LOCAL_NAME)).isTrue();
-        assertThat(subCode2.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(subCode2.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_SUB_CODE_LOCAL_NAME);
+        assertThat(subCode2.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         Iterator<OMNode> iteratorInSubCode2 = subCode2.getChildren();
 
         iteratorInSubCode2.next();
         SOAPFaultValue value3 = (SOAPFaultValue) iteratorInSubCode2.next();
-        assertThat(value3.getLocalName().equals(SOAP12Constants.SOAP_FAULT_VALUE_LOCAL_NAME)).isTrue();
-        assertThat(value3.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
-        assertThat(value3.getText().equals("m:MessageTimeout")).isTrue();
+        assertThat(value3.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_VALUE_LOCAL_NAME);
+        assertThat(value3.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(value3.getText()).isEqualTo("m:MessageTimeout");
 
         iteratorInFault.next();
         SOAPFaultReason reason = (SOAPFaultReason) iteratorInFault.next();
-        assertThat(reason.getLocalName().equals(SOAP12Constants.SOAP_FAULT_REASON_LOCAL_NAME)).isTrue();
-        assertThat(reason.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(reason.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_REASON_LOCAL_NAME);
+        assertThat(reason.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         Iterator<OMNode> iteratorInReason = reason.getChildren();
 
         iteratorInReason.next();
         SOAPFaultText text = (SOAPFaultText) iteratorInReason.next();
-        assertThat(text.getLocalName().equals(SOAP12Constants.SOAP_FAULT_TEXT_LOCAL_NAME)).isTrue();
-        assertThat(text.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
-        assertThat(text.getText().equals("Sender Timeout")).isTrue();
+        assertThat(text.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_TEXT_LOCAL_NAME);
+        assertThat(text.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(text.getText()).isEqualTo("Sender Timeout");
 
         iteratorInFault.next();
         SOAPFaultNode node = (SOAPFaultNode) iteratorInFault.next();
-        assertThat(node.getLocalName().equals(SOAP12Constants.SOAP_FAULT_NODE_LOCAL_NAME)).isTrue();
-        assertThat(node.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
-        assertThat(node.getText() .trim() .equals("http://www.w3.org/2003/05/soap-envelope/role/ultimateReceiver")).isTrue();
+        assertThat(node.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_NODE_LOCAL_NAME);
+        assertThat(node.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(node.getText() .trim() ).isEqualTo("http://www.w3.org/2003/05/soap-envelope/role/ultimateReceiver");
 
         iteratorInFault.next();
         SOAPFaultRole role = (SOAPFaultRole) iteratorInFault.next();
-        assertThat(role.getLocalName().equals(SOAP12Constants.SOAP_FAULT_ROLE_LOCAL_NAME)).isTrue();
-        assertThat(role.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
-        assertThat(role.getText().trim().equals("ultimateReceiver")).isTrue();
+        assertThat(role.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_ROLE_LOCAL_NAME);
+        assertThat(role.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+        assertThat(role.getText().trim()).isEqualTo("ultimateReceiver");
 
         iteratorInFault.next();
         SOAPFaultDetail detail = (SOAPFaultDetail) iteratorInFault.next();
-        assertThat(detail.getLocalName().equals(SOAP12Constants.SOAP_FAULT_DETAIL_LOCAL_NAME)).isTrue();
-        assertThat(detail.getNamespace() .getNamespaceURI() .equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(detail.getLocalName()).isEqualTo(SOAP12Constants.SOAP_FAULT_DETAIL_LOCAL_NAME);
+        assertThat(detail.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
-        assertThat(detail.getText().trim().equals("Details of error")).isTrue();
+        assertThat(detail.getText().trim()).isEqualTo("Details of error");
 
         Iterator<OMNode> iteratorInDetail = detail.getChildren();
 
         iteratorInDetail.next();
         OMElement element1 = (OMElement) iteratorInDetail.next();
-        assertThat(element1.getLocalName().equals("MaxTime")).isTrue();
-        assertThat(element1.getNamespace().getNamespaceURI().equals("http:www.sample.org")).isTrue();
-        assertThat(element1.getText().trim().equals("P5M")).isTrue();
+        assertThat(element1.getLocalName()).isEqualTo("MaxTime");
+        assertThat(element1.getNamespace().getNamespaceURI()).isEqualTo("http:www.sample.org");
+        assertThat(element1.getText().trim()).isEqualTo("P5M");
 
         Iterator<OMAttribute> attributeIterator = element1.getAllAttributes();
         OMAttribute attributeInMaxTime = attributeIterator.next();
-        assertThat(attributeInMaxTime.getLocalName().equals("detail")).isTrue();
-        assertThat(attributeInMaxTime.getNamespace().getNamespaceURI().equals("http:www.sample.org")).isTrue();
-        assertThat(attributeInMaxTime.getAttributeValue().trim().equals("This is only a test")).isTrue();
+        assertThat(attributeInMaxTime.getLocalName()).isEqualTo("detail");
+        assertThat(attributeInMaxTime.getNamespace().getNamespaceURI()).isEqualTo("http:www.sample.org");
+        assertThat(attributeInMaxTime.getAttributeValue().trim()).isEqualTo("This is only a test");
 
         iteratorInDetail.next();
         OMElement element2 = (OMElement) iteratorInDetail.next();
-        assertThat(element2.getLocalName().equals("AveTime")).isTrue();
-        assertThat(element2.getNamespace().getNamespaceURI().equals("http:www.sample.org")).isTrue();
+        assertThat(element2.getLocalName()).isEqualTo("AveTime");
+        assertThat(element2.getNamespace().getNamespaceURI()).isEqualTo("http:www.sample.org");
 
         Iterator<OMNode> iteratorInAveTimeElement = element2.getChildren();
 
         iteratorInAveTimeElement.next();
         OMElement element21 = (OMElement) iteratorInAveTimeElement.next();
-        assertThat(element21.getLocalName().equals("Time")).isTrue();
-        assertThat(element21.getNamespace().getNamespaceURI().equals("http:www.sample.org")).isTrue();
-        assertThat(element21.getText().trim().equals("P3M")).isTrue();
+        assertThat(element21.getLocalName()).isEqualTo("Time");
+        assertThat(element21.getNamespace().getNamespaceURI()).isEqualTo("http:www.sample.org");
+        assertThat(element21.getText().trim()).isEqualTo("P3M");
 
         soap12Builder.close();
     }

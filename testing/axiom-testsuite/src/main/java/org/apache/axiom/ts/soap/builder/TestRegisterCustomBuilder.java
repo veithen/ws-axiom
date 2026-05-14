@@ -68,7 +68,7 @@ public class TestRegisterCustomBuilder extends TestCase {
                         new BlobOMDataSourceCustomBuilder(MemoryBlob.FACTORY, "utf-8"));
         SOAPHeader header = builder.getSOAPEnvelope().getHeader();
         ArrayList al = header.getHeaderBlocksWithNSURI("http://www.w3.org/2005/08/addressing");
-        assertThat(4).isEqualTo(al.size());
+        assertThat(al.size()).isEqualTo(4);
         for (int i = 0; i < al.size(); i++) {
             SOAPHeaderBlock shb = (SOAPHeaderBlock) al.get(i);
             if ("To".equals(shb.getLocalName())) {

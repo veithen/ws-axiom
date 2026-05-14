@@ -54,7 +54,7 @@ public class TestGetChildrenWithName extends AxiomTestCase {
             counter++;
             Object o = iter.next();
             assertThat(o).isNotNull();
-            assertThat(((OMNode) o).getType() == OMNode.ELEMENT_NODE).isTrue();
+            assertThat(((OMNode) o).getType()).isEqualTo(OMNode.ELEMENT_NODE);
         }
         assertThat(counter).isEqualTo(1);
         elt.close(false);

@@ -46,7 +46,7 @@ public class TestBuild extends AxiomTestCase {
         doc.build();
         assertThat(doc.isComplete()).isTrue();
         long countAfterBuild = in.getCount();
-        assertThat(countAfterBuild > countBeforeBuild).isTrue();
+        assertThat(countAfterBuild).isGreaterThan(countBeforeBuild);
         OMNode node = doc.getFirstOMChild();
         while (node != null) {
             node = node.getNextOMSibling();

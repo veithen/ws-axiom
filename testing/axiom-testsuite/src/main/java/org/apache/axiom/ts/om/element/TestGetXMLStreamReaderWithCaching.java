@@ -70,7 +70,7 @@ public class TestGetXMLStreamReaderWithCaching extends AxiomTestCase {
             count++;
         }
 
-        assertThat(2).isEqualTo(count);
+        assertThat(count).isEqualTo(2);
 
         documentElement.close(false);
     }

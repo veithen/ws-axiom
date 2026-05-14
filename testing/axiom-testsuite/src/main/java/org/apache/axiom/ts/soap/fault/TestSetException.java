@@ -49,8 +49,8 @@ public class TestSetException extends TestCase {
         assertThat(entry.getLocalName()).isEqualTo(SOAPConstants.SOAP_FAULT_DETAIL_EXCEPTION_ENTRY);
         assertThat(entry.getNamespace()).isNull();
         String text = entry.getText();
-        assertThat(text.startsWith(Exception.class.getName() + ": Test exception message")).isTrue();
-        assertThat(text.contains("at " + TestSetException.class.getName())).isTrue();
+        assertThat(text).startsWith(Exception.class.getName() + ": Test exception message");
+        assertThat(text).contains("at " + TestSetException.class.getName());
         assertThat(it.hasNext()).isFalse();
     }
 }

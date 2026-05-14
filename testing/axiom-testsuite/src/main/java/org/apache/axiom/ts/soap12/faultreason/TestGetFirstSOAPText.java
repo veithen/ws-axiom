@@ -35,8 +35,8 @@ public class TestGetFirstSOAPText extends TestCase {
     protected void runTest() throws Throwable {
         SOAPFault fault = soapFactory.createSOAPFault();
         SOAPFaultReason faultReason = soapFactory.createSOAPFaultReason(fault);
-        assertThat(faultReason.getFirstSOAPText() == null).isTrue();
+        assertThat(faultReason.getFirstSOAPText()).isNull();
         faultReason.addSOAPText(soapFactory.createSOAPFaultText(faultReason));
-        assertThat(faultReason.getFirstSOAPText() == null).isFalse();
+        assertThat(faultReason.getFirstSOAPText()).isNotNull();
     }
 }

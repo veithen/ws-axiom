@@ -45,6 +45,6 @@ public class TestAxiom95 extends AxiomTestCase {
 
         //        System.out.println("serializedXML = " + serializedXML);
 
-        assertThat(serializedXML.indexOf("xmlns=\"\"") == -1).isTrue();
+        assertThat(serializedXML).doesNotContain("xmlns=\"\"");
     }
 }

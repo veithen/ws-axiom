@@ -59,12 +59,12 @@ public class TestBlobOMDataSource extends TestCase {
         OMNode firstChild = soapHeader.getFirstOMChild();
         assertThat(firstChild).isInstanceOf(SOAPHeaderBlock.class);
         SOAPHeaderBlock child = (SOAPHeaderBlock) firstChild;
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(child.isExpanded()).isFalse();
         assertThat(child.getDataSource()).isSameAs(ds);
 
         // Make sure that getting the MustUnderstand property does not cause expansion.
-        assertThat(!child.getMustUnderstand()).isTrue();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(child.getMustUnderstand()).isFalse();
+        assertThat(child.isExpanded()).isFalse();
         assertThat(child.getDataSource()).isSameAs(ds);
 
         // A BlobOMDataSource does not consume the backing object when read.
@@ -72,13 +72,13 @@ public class TestBlobOMDataSource extends TestCase {
         // cause expansion of the OMSourcedElement.
         XMLStreamReader reader = child.getXMLStreamReader();
         reader.next();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(child.isExpanded()).isFalse();
 
         // Likewise, a BlobOMDataSource does not consume the backing object when
         // written.  Thus serializing the OMSourcedElement should not cause the expansion
         // of the OMSourcedElement.
-        assertThat(soapHeader.toString().indexOf(payload) > 0).isTrue();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(soapHeader.toString()).contains(payload);
+        assertThat(child.isExpanded()).isFalse();
 
         assertThat(child.getDataSource()).isSameAs(ds);
     }

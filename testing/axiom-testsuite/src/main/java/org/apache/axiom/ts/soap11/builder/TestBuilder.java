@@ -105,17 +105,17 @@ public class TestBuilder extends AxiomTestCase {
         //            soap11Envelope.internalSerializeAndConsume(writer);
         //          writer.flush();
 
-        assertThat(soap11Envelope.getLocalName().equals(SOAPConstants.SOAPENVELOPE_LOCAL_NAME)).isTrue();
-        assertThat(soap11Envelope .getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(soap11Envelope.getLocalName()).isEqualTo(SOAPConstants.SOAPENVELOPE_LOCAL_NAME);
+        assertThat(soap11Envelope .getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPHeader header = soap11Envelope.getHeader();
-        assertThat(header.getLocalName().equals(SOAPConstants.HEADER_LOCAL_NAME)).isTrue();
-        assertThat(header.getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(header.getLocalName()).isEqualTo(SOAPConstants.HEADER_LOCAL_NAME);
+        assertThat(header.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPHeaderBlock headerBlock = (SOAPHeaderBlock) header.getFirstElement();
-        assertThat(headerBlock.getLocalName().equals("echoOk")).isTrue();
-        assertThat(headerBlock.getNamespace().getNamespaceURI().equals("http://example.org/ts-tests")).isTrue();
-        assertThat(headerBlock.getText().trim().equals("foo")).isTrue();
+        assertThat(headerBlock.getLocalName()).isEqualTo("echoOk");
+        assertThat(headerBlock.getNamespace().getNamespaceURI()).isEqualTo("http://example.org/ts-tests");
+        assertThat(headerBlock.getText().trim()).isEqualTo("foo");
 
         // Attribute iteration is not in any guaranteed order.
         // Use QNames to get the OMAttributes.
@@ -129,80 +129,80 @@ public class TestBuilder extends AxiomTestCase {
         OMAttribute actorAttribute = headerBlock.getAttribute(actorQName);
         OMAttribute mustUnderstandAttribute = headerBlock.getAttribute(mustUnderstandQName);
 
-        assertThat(mustUnderstandAttribute != null).isTrue();
-        assertThat(mustUnderstandAttribute .getAttributeValue() .equals(SOAPConstants.ATTR_MUSTUNDERSTAND_1)).isTrue();
-        assertThat(mustUnderstandAttribute .getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(mustUnderstandAttribute).isNotNull();
+        assertThat(mustUnderstandAttribute .getAttributeValue() ).isEqualTo(SOAPConstants.ATTR_MUSTUNDERSTAND_1);
+        assertThat(mustUnderstandAttribute .getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
-        assertThat(actorAttribute != null).isTrue();
-        assertThat(actorAttribute .getAttributeValue() .trim() .equals( "http://schemas.xmlsoap.org/soap/" + SOAP11Constants.ATTR_ACTOR + "/" + "next")).isTrue();
-        assertThat(actorAttribute .getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(actorAttribute).isNotNull();
+        assertThat(actorAttribute .getAttributeValue() .trim() ).isEqualTo( "http://schemas.xmlsoap.org/soap/" + SOAP11Constants.ATTR_ACTOR + "/" + "next");
+        assertThat(actorAttribute .getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPBody body = soap11Envelope.getBody();
-        assertThat(body.getLocalName().equals(SOAPConstants.BODY_LOCAL_NAME)).isTrue();
-        assertThat(body.getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(body.getLocalName()).isEqualTo(SOAPConstants.BODY_LOCAL_NAME);
+        assertThat(body.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         SOAPFault fault = body.getFault();
-        assertThat(fault.getNamespace() .getNamespaceURI() .equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)).isTrue();
+        assertThat(fault.getNamespace() .getNamespaceURI() ).isEqualTo(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 
         Iterator<OMNode> iteratorInFault = fault.getChildren();
 
         iteratorInFault.next();
         SOAPFaultCode code = (SOAPFaultCode) iteratorInFault.next();
-        assertThat((SOAP11Constants.SOAP_FAULT_CODE_LOCAL_NAME)).isEqualTo(code.getLocalName());
+        assertThat(code.getLocalName()).isEqualTo(SOAP11Constants.SOAP_FAULT_CODE_LOCAL_NAME);
 
-        assertThat("env:Sender").isEqualTo(code.getText().trim());
+        assertThat(code.getText().trim()).isEqualTo("env:Sender");
 
         iteratorInFault.next();
         SOAPFaultReason reason = (SOAPFaultReason) iteratorInFault.next();
-        assertThat(reason.getLocalName().equals(SOAP11Constants.SOAP_FAULT_STRING_LOCAL_NAME)).isTrue();
-        assertThat(reason.getText().trim().equals("Sender Timeout")).isTrue();
+        assertThat(reason.getLocalName()).isEqualTo(SOAP11Constants.SOAP_FAULT_STRING_LOCAL_NAME);
+        assertThat(reason.getText().trim()).isEqualTo("Sender Timeout");
 
         iteratorInFault.next();
         SOAPFaultRole role = (SOAPFaultRole) iteratorInFault.next();
-        assertThat(role.getLocalName().equals(SOAP11Constants.SOAP_FAULT_ACTOR_LOCAL_NAME)).isTrue();
-        assertThat(role.getText() .trim() .equals("http://schemas.xmlsoap.org/soap/envelope/actor/ultimateReceiver")).isTrue();
+        assertThat(role.getLocalName()).isEqualTo(SOAP11Constants.SOAP_FAULT_ACTOR_LOCAL_NAME);
+        assertThat(role.getText() .trim() ).isEqualTo("http://schemas.xmlsoap.org/soap/envelope/actor/ultimateReceiver");
 
         iteratorInFault.next();
         SOAPFaultDetail detail = (SOAPFaultDetail) iteratorInFault.next();
-        assertThat(detail.getLocalName().equals(SOAP11Constants.SOAP_FAULT_DETAIL_LOCAL_NAME)).isTrue();
-        assertThat(detail.getText().trim().equals("Details of error")).isTrue();
+        assertThat(detail.getLocalName()).isEqualTo(SOAP11Constants.SOAP_FAULT_DETAIL_LOCAL_NAME);
+        assertThat(detail.getText().trim()).isEqualTo("Details of error");
 
         Iterator<OMNode> iteratorInDetail = detail.getChildren();
 
         iteratorInDetail.next();
         OMElement element1 = (OMElement) iteratorInDetail.next();
-        assertThat(element1.getLocalName().equals("MaxTime")).isTrue();
-        assertThat(element1.getNamespace().getNamespaceURI().equals("http:www.sample.org")).isTrue();
-        assertThat(element1.getText().trim().equals("P5M")).isTrue();
+        assertThat(element1.getLocalName()).isEqualTo("MaxTime");
+        assertThat(element1.getNamespace().getNamespaceURI()).isEqualTo("http:www.sample.org");
+        assertThat(element1.getText().trim()).isEqualTo("P5M");
 
         Iterator<OMAttribute> attributeIterator = element1.getAllAttributes();
         OMAttribute attributeInMaxTime = attributeIterator.next();
-        assertThat(attributeInMaxTime.getLocalName().equals("detail")).isTrue();
-        assertThat(attributeInMaxTime.getNamespace().getNamespaceURI().equals("http:www.sample.org")).isTrue();
-        assertThat(attributeInMaxTime.getAttributeValue().equals("This is only a test")).isTrue();
+        assertThat(attributeInMaxTime.getLocalName()).isEqualTo("detail");
+        assertThat(attributeInMaxTime.getNamespace().getNamespaceURI()).isEqualTo("http:www.sample.org");
+        assertThat(attributeInMaxTime.getAttributeValue()).isEqualTo("This is only a test");
 
         iteratorInDetail.next();
         OMElement element2 = (OMElement) iteratorInDetail.next();
-        assertThat(element2.getLocalName().equals("AveTime")).isTrue();
-        assertThat(element2.getNamespace().getNamespaceURI().equals("http:www.sample.org")).isTrue();
+        assertThat(element2.getLocalName()).isEqualTo("AveTime");
+        assertThat(element2.getNamespace().getNamespaceURI()).isEqualTo("http:www.sample.org");
 
         Iterator<OMNode> iteratorInAveTimeElement = element2.getChildren();
 
         iteratorInAveTimeElement.next();
         OMElement element21 = (OMElement) iteratorInAveTimeElement.next();
-        assertThat(element21.getLocalName().equals("Time")).isTrue();
-        assertThat(element21.getNamespace().getNamespaceURI().equals("http:www.sample.org")).isTrue();
-        assertThat(element21.getText().trim().equals("P3M")).isTrue();
+        assertThat(element21.getLocalName()).isEqualTo("Time");
+        assertThat(element21.getNamespace().getNamespaceURI()).isEqualTo("http:www.sample.org");
+        assertThat(element21.getText().trim()).isEqualTo("P3M");
 
         iteratorInFault.next();
         OMElement testElement = (OMElement) iteratorInFault.next();
-        assertThat(testElement.getLocalName().equals("Test")).isTrue();
-        assertThat(testElement.getNamespace().getNamespaceURI().equals("http:www.Test.org")).isTrue();
+        assertThat(testElement.getLocalName()).isEqualTo("Test");
+        assertThat(testElement.getNamespace().getNamespaceURI()).isEqualTo("http:www.Test.org");
 
         OMElement childOfTestElement = testElement.getFirstElement();
-        assertThat(childOfTestElement.getLocalName().equals("TestElement")).isTrue();
-        assertThat(childOfTestElement.getNamespace().getNamespaceURI().equals("http:www.Test.org")).isTrue();
-        assertThat(childOfTestElement.getText().trim().equals("This is only a test")).isTrue();
+        assertThat(childOfTestElement.getLocalName()).isEqualTo("TestElement");
+        assertThat(childOfTestElement.getNamespace().getNamespaceURI()).isEqualTo("http:www.Test.org");
+        assertThat(childOfTestElement.getText().trim()).isEqualTo("This is only a test");
 
         soap11Builder.close();
     }

@@ -88,7 +88,7 @@ public class TestGetSOAPBodyFirstElementLocalNameAndNSWithParser extends TestCas
         }
         String readerPrefix = reader.getPrefix();
         if (qname.getPrefix().length() == 0) {
-            assertThat(readerPrefix == null || readerPrefix.isEmpty()).isTrue();
+            assertThat(readerPrefix).isNullOrEmpty();
         } else {
             assertThat(readerPrefix).isEqualTo(qname.getPrefix());
         }

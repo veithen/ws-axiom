@@ -49,7 +49,7 @@ public class TestSerialization extends TestCase {
         StringWriter out = new StringWriter();
         soapFaultDetail.serialize(out);
         String msg = out.toString();
-        assertThat(msg.indexOf("DetailEntry1") != -1).isTrue();
-        assertThat(msg.indexOf("DetailEntry2") != -1).isTrue();
+        assertThat(msg).contains("DetailEntry1");
+        assertThat(msg).contains("DetailEntry2");
     }
 }

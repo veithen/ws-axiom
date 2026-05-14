@@ -57,7 +57,7 @@ public class TestStringOMDataSource extends AxiomTestCase {
         OMNode firstChild = parent.getFirstOMChild();
         assertThat(firstChild).isInstanceOf(OMSourcedElement.class);
         OMSourcedElement child = (OMSourcedElement) firstChild;
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(child.isExpanded()).isFalse();
         assertThat(child.getDataSource()).isInstanceOf(StringOMDataSource.class);
 
         // A StringOMDataSource does not consume the backing object when read.
@@ -65,7 +65,7 @@ public class TestStringOMDataSource extends AxiomTestCase {
         // cause expansion of the OMSourcedElement.
         XMLStreamReader reader = child.getXMLStreamReader();
         reader.next();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(child.isExpanded()).isFalse();
 
         // Likewise, a StringOMDataSource does not consume the backing object when
         // written.  Thus serializing the OMSourcedElement should not cause the expansion
@@ -73,8 +73,8 @@ public class TestStringOMDataSource extends AxiomTestCase {
         StringWriter out = new StringWriter();
         parent.serialize(out);
         //        System.out.println(output);
-        assertThat(out.toString().indexOf(payload1) > 0).isTrue();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(out.toString()).contains(payload1);
+        assertThat(child.isExpanded()).isFalse();
 
         // Test getting the raw content from the StringOMDataSource.
         StringOMDataSource ds = (StringOMDataSource) child.getDataSource();
@@ -82,6 +82,6 @@ public class TestStringOMDataSource extends AxiomTestCase {
 
         // Validate close
         ds.close();
-        assertThat(ds.getObject() == null).isTrue();
+        assertThat(ds.getObject()).isNull();
     }
 }

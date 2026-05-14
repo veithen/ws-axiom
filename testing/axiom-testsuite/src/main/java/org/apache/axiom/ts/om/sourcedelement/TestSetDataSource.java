@@ -61,7 +61,7 @@ public class TestSetDataSource extends AxiomTestCase {
         OMNode firstChild = parent.getFirstOMChild();
         assertThat(firstChild).isInstanceOf(OMSourcedElement.class);
         OMSourcedElement child = (OMSourcedElement) firstChild;
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(child.isExpanded()).isFalse();
         assertThat(child.getDataSource()).isSameAs(nonDestructiveOMDataSource1);
 
         // Write out the body
@@ -69,8 +69,8 @@ public class TestSetDataSource extends AxiomTestCase {
         parent.serialize(sw);
         String output = sw.toString();
         //        System.out.println(output);
-        assertThat(output.indexOf(payload1) > 0).isTrue();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(output).contains(payload1);
+        assertThat(child.isExpanded()).isFalse();
 
         // Replace with payload2.
         // Important note, it is legal to replace the OMDataSource, but
@@ -82,8 +82,8 @@ public class TestSetDataSource extends AxiomTestCase {
         parent.serialize(sw);
         output = sw.toString();
         //        System.out.println(output);
-        assertThat(output.indexOf(payload2) > 0).isTrue();
-        assertThat(!child.isExpanded()).isTrue();
+        assertThat(output).contains(payload2);
+        assertThat(child.isExpanded()).isFalse();
 
         // Now Replace with payload1 from an destructiveOMDataSource1
         child.setDataSource(destructiveOMDataSource1);
@@ -91,7 +91,7 @@ public class TestSetDataSource extends AxiomTestCase {
         parent.serialize(sw);
         output = sw.toString();
         //        System.out.println(output);
-        assertThat(output.indexOf(payload1) > 0).isTrue();
+        assertThat(output).contains(payload1);
 
         // Now Replace with payload2 from an destructiveOMDataSource2.
         // Note at this point, the child's tree is expanded.
@@ -100,6 +100,6 @@ public class TestSetDataSource extends AxiomTestCase {
         parent.serialize(sw);
         output = sw.toString();
         //        System.out.println(output);
-        assertThat(output.indexOf(payload2) > 0).isTrue();
+        assertThat(output).contains(payload2);
     }
 }

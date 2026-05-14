@@ -53,6 +53,6 @@ public class TestGetChildrenWithName3 extends AxiomTestCase {
                 documentElement.getChildrenWithName(
                         new QName("http://test.ws.org", "Employee", "test"));
         OMElement employee = childrenIter.next(); // should walk past OMText
-        assertThat("Apache Developer").isEqualTo(employee.getText());
+        assertThat(employee.getText()).isEqualTo("Apache Developer");
     }
 }

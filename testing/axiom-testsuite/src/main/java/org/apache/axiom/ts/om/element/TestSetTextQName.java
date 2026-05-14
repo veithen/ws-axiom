@@ -57,7 +57,7 @@ public class TestSetTextQName extends AxiomTestCase {
         }
         assertThat(foundNamespace).isTrue();
 
-        assertThat(element.toString().contains("ns:test")).isTrue();
+        assertThat(element.toString()).contains("ns:test");
         assertThat(element.getText()).isEqualTo("ns:test");
         assertThat(element.getTextAsQName()).isEqualTo(qname);
     }

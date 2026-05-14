@@ -51,12 +51,12 @@ public class TestSerializeModifiedOMSEWithNonDestructiveDataSource extends Axiom
 
         StringWriter sw = new StringWriter();
         element.serialize(sw);
-        assertThat(sw.toString().indexOf("TEST") != -1).isTrue();
+        assertThat(sw.toString()).contains("TEST");
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         element.serialize(baos);
-        assertThat(new String(baos.toByteArray(), StandardCharsets.UTF_8).indexOf("TEST") != -1).isTrue();
+        assertThat(new String(baos.toByteArray(), StandardCharsets.UTF_8)).contains("TEST");
 
-        assertThat(element.toString().indexOf("TEST") != -1).isTrue();
+        assertThat(element.toString()).contains("TEST");
     }
 }

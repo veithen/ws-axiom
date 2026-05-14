@@ -68,7 +68,7 @@ public class TestGetTextWithCDATA extends TestCase {
         SOAPEnvelope se = (SOAPEnvelope) element;
         SOAPFault fault = se.getBody().getFault();
         SOAPFaultReason reason = fault.getReason();
-        assertThat(reason.getText() .equals( "handleMessage throws SOAPFaultException for ThrowsSOAPFaultToClientHandlersTest")).isTrue();
+        assertThat(reason.getText()).isEqualTo("handleMessage throws SOAPFaultException for ThrowsSOAPFaultToClientHandlersTest");
         soap11Parser.close();
     }
 }

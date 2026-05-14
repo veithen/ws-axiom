@@ -36,13 +36,13 @@ public class TestWSCommons202 extends TestCase {
         SOAPFaultDetail soapFaultDetail = soapFactory.createSOAPFaultDetail();
         soapFaultDetail.setText("a");
 
-        assertThat(soapFaultDetail.getText().trim().equals("a")).isTrue();
-        assertThat(soapFaultDetail.toString().indexOf("aa") == -1).isTrue();
+        assertThat(soapFaultDetail.getText().trim()).isEqualTo("a");
+        assertThat(soapFaultDetail.toString()).doesNotContain("aa");
 
         OMElement omElement = soapFactory.createOMElement("DummyElement", null);
         soapFaultDetail.addChild(omElement);
         omElement.setText("Some text is here");
 
-        assertThat(soapFaultDetail.toString().indexOf("Some text is here") != -1).isTrue();
+        assertThat(soapFaultDetail.toString()).contains("Some text is here");
     }
 }

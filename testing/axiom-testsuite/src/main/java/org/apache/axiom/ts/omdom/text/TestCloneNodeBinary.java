@@ -33,7 +33,7 @@ public class TestCloneNodeBinary extends OMDOMTestCase {
         Blob blob = new RandomBlob(666L, 1000);
         Text text = (Text) factory.createOMText(blob, false);
         String base64 = text.getData();
-        assertThat(base64.length() > 0).isTrue();
+        assertThat(base64).isNotEmpty();
         assertThat(((Text) text.cloneNode(true)).getData()).isEqualTo(base64);
     }
 }

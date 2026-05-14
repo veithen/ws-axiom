@@ -127,7 +127,7 @@ public abstract class SetNamespaceTestCase extends AxiomTestCase {
         if (params.expectedPrefix() == null) {
             expectedPrefix = node.getPrefix();
             assertThat(expectedPrefix).isNotNull();
-            assertThat(expectedPrefix.length() == 0).isFalse();
+            assertThat(expectedPrefix).isNotEmpty();
         } else {
             expectedPrefix = params.expectedPrefix();
             if (expectedPrefix.length() == 0) {

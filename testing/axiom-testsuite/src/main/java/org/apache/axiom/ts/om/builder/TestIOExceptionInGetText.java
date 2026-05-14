@@ -75,7 +75,7 @@ public class TestIOExceptionInGetText extends AxiomTestCase {
 
         assertThatThrownBy(element::getNextOMSibling);
 
-        assertThat(invocationCounter.getInvocationCount() > 0).isTrue();
+        assertThat(invocationCounter.getInvocationCount()).isGreaterThan(0);
         invocationCounter.reset();
 
         assertThatThrownBy(element::getNextOMSibling);

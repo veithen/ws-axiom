@@ -47,6 +47,6 @@ public class TestCreateOMAttributeGeneratedPrefix extends AxiomTestCase {
         OMNamespace ns = attr.getNamespace();
         assertThat(ns.getNamespaceURI()).isEqualTo("urn:ns");
         assertThat(ns.getPrefix()).isNotNull();
-        assertThat(ns.getPrefix().length() > 0).isTrue();
+        assertThat(ns.getPrefix()).isNotEmpty();
     }
 }

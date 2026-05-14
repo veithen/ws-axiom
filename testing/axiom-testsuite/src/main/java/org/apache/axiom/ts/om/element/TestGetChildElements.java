@@ -51,7 +51,7 @@ public class TestGetChildElements extends AxiomTestCase {
             counter++;
             OMElement o = iter.next();
             assertThat(o).isNotNull();
-            assertThat(o.getType() == OMNode.ELEMENT_NODE).isTrue();
+            assertThat(o.getType()).isEqualTo(OMNode.ELEMENT_NODE);
         }
         assertThat(counter).isEqualTo(2);
         elt.close(false);
