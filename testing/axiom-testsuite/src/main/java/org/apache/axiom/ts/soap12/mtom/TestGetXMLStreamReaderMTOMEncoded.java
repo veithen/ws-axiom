@@ -88,11 +88,11 @@ public class TestGetXMLStreamReaderMTOMEncoded extends AxiomTestCase {
         // Make sure next event is an an XOP_Include END element
         xmlStreamReader.next();
         assertThat(xmlStreamReader.isEndElement()).isTrue();
-        assertThat(XOP_INCLUDE).isEqualTo(xmlStreamReader.getName());
+        assertThat(xmlStreamReader.getName()).isEqualTo(XOP_INCLUDE);
 
         // Make sure the next event is the end tag of name
         xmlStreamReader.next();
         assertThat(xmlStreamReader.isEndElement()).isTrue();
-        assertThat("name").isEqualTo(xmlStreamReader.getLocalName());
+        assertThat(xmlStreamReader.getLocalName()).isEqualTo("name");
     }
 }
