@@ -11,18 +11,18 @@
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
  * met:
- * 
+ *
  *   * Redistributions of source code must retain the above copyright
  *     notice, this list of conditions and the following disclaimer.
- * 
+ *
  *   * Redistributions in binary form must reproduce the above copyright
  *     notice, this list of conditions and the following disclaimer in the
  *     documentation and/or other materials provided with the distribution.
- * 
+ *
  *   * Neither the name of the Jaxen Project nor the names of its
- *     contributors may be used to endorse or promote products derived 
+ *     contributors may be used to endorse or promote products derived
  *     from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
  * IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
  * TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
@@ -45,145 +45,105 @@
  * $Id$
  */
 
-
 package org.jaxen.test;
-
-import junit.framework.TestCase;
-
-import org.jaxen.*;
-import org.jaxen.dom.DOMXPath;
-import org.jaxen.function.StringFunction;
-import org.jaxen.saxpath.helpers.XPathReaderFactory;
-import org.jaxen.pattern.Pattern;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import junit.framework.TestCase;
+import org.jaxen.*;
+import org.jaxen.dom.DOMXPath;
+import org.jaxen.function.StringFunction;
+import org.jaxen.pattern.Pattern;
+import org.jaxen.saxpath.helpers.XPathReaderFactory;
 
-public abstract class XPathTestBase extends TestCase
-{
-    protected static String VAR_URI   = "http://jaxen.org/test-harness/var";
+public abstract class XPathTestBase extends TestCase {
+    protected static String VAR_URI = "http://jaxen.org/test-harness/var";
     protected static String TESTS_XML = "xml/test/tests.xml";
 
     protected static boolean verbose = false;
     protected static boolean debug = false;
     private ContextSupport contextSupport;
 
-    protected XPathTestBase(String name)
-    {
+    protected XPathTestBase(String name) {
         super(name);
     }
 
-    protected void setUp() throws Exception
-    {
+    protected void setUp() throws Exception {
         this.contextSupport = null;
-        System.setProperty(XPathReaderFactory.DRIVER_PROPERTY,
-                "");
+        System.setProperty(XPathReaderFactory.DRIVER_PROPERTY, "");
         log("-----------------------------");
     }
 
-    public void log(String text)
-    {
-        log(verbose,
-                text);
+    public void log(String text) {
+        log(verbose, text);
     }
 
-    private void log(boolean actualVerbose,
-                    String text)
-    {
+    private void log(boolean actualVerbose, String text) {
         if (actualVerbose) System.out.println(text);
     }
 
-    private void assertCountXPath(int expectedSize, Object context, String xpathStr) throws JaxenException
-    {
+    private void assertCountXPath(int expectedSize, Object context, String xpathStr) throws JaxenException {
         assertCountXPath2(expectedSize, context, xpathStr);
     }
 
-    private Object assertCountXPath2(int expectedSize, Object context, String xpathStr) throws JaxenException
-    {
-        log(debug,
-                "  Select :: " + xpathStr);
+    private Object assertCountXPath2(int expectedSize, Object context, String xpathStr) throws JaxenException {
+        log(debug, "  Select :: " + xpathStr);
         DOMXPath xpath = new DOMXPath(xpathStr);
         List results = xpath.selectNodes(getContext(context));
-        log(debug,
-                "    Expected Size :: " + expectedSize);
-        log(debug,
-                "    Result Size   :: " + results.size());
-        if (expectedSize != results.size())
-        {
-            log(debug,
-                    "      ## FAILED");
-            log(debug,
-                    "      ## xpath: " + xpath + " = " + xpath.debug());
+        log(debug, "    Expected Size :: " + expectedSize);
+        log(debug, "    Result Size   :: " + results.size());
+        if (expectedSize != results.size()) {
+            log(debug, "      ## FAILED");
+            log(debug, "      ## xpath: " + xpath + " = " + xpath.debug());
             Iterator resultIter = results.iterator();
-            while (resultIter.hasNext())
-            {
-                log(debug,
-                        "      --> " + resultIter.next());
+            while (resultIter.hasNext()) {
+                log(debug, "      --> " + resultIter.next());
             }
         }
-        assertEquals(xpathStr,
-                expectedSize,
-                results.size());
+        assertEquals(xpathStr, expectedSize, results.size());
         assertExprGetTextIdempotent(xpath);
-        if (expectedSize > 0)
-        {
+        if (expectedSize > 0) {
             return results.get(0);
         }
         return null;
     }
 
-    private void assertInvalidXPath(Object context, String xpathStr)
-    {
-        try
-        {
-            log(debug,
-                    "  Select :: " + xpathStr);
+    private void assertInvalidXPath(Object context, String xpathStr) {
+        try {
+            log(debug, "  Select :: " + xpathStr);
             DOMXPath xpath = new DOMXPath(xpathStr);
             List results = xpath.selectNodes(getContext(context));
-            log(debug,
-                    "    Result Size   :: " + results.size());
+            log(debug, "    Result Size   :: " + results.size());
             fail("An exception was expected.");
-        }
-        catch (JaxenException e)
-        {
+        } catch (JaxenException e) {
             log(debug, "    Caught expected exception " + e.getMessage());
         }
     }
 
-    private void assertValueOfXPath(String expected, Object context, String xpathStr) throws JaxenException
-    {
-            DOMXPath xpath = new DOMXPath(xpathStr);
-            Object node = xpath.evaluate(getContext(context));
-            String result = StringFunction.evaluate(node,
-                    getNavigator());
-            log(debug,
-                    "  Select :: " + xpathStr);
-            log(debug,
-                    "    Expected :: " + expected);
-            log(debug,
-                    "    Result   :: " + result);
-            if (!expected.equals(result))
-            {
-                log(debug,
-                        "      ## FAILED");
-                log(debug,
-                        "      ## xpath: " + xpath + " = " + xpath.debug());
-            }
-            assertEquals(xpathStr,
-                    expected,
-                    result);
-            assertExprGetTextIdempotent(xpath);
+    private void assertValueOfXPath(String expected, Object context, String xpathStr) throws JaxenException {
+        DOMXPath xpath = new DOMXPath(xpathStr);
+        Object node = xpath.evaluate(getContext(context));
+        String result = StringFunction.evaluate(node, getNavigator());
+        log(debug, "  Select :: " + xpathStr);
+        log(debug, "    Expected :: " + expected);
+        log(debug, "    Result   :: " + result);
+        if (!expected.equals(result)) {
+            log(debug, "      ## FAILED");
+            log(debug, "      ## xpath: " + xpath + " = " + xpath.debug());
         }
-
-    private void assertExprGetTextIdempotent(BaseXPath xpath) throws JaxenException
-    {
-    	assertEquals(0, ExprComparator.EXPR_COMPARATOR.compare(xpath.getRootExpr(), 
-          new BaseXPath(xpath.getRootExpr().getText(), null).getRootExpr()));
+        assertEquals(xpathStr, expected, result);
+        assertExprGetTextIdempotent(xpath);
     }
-    
-    private Context getContext(Object contextNode)
-    {
+
+    private void assertExprGetTextIdempotent(BaseXPath xpath) throws JaxenException {
+        assertEquals(
+                0,
+                ExprComparator.EXPR_COMPARATOR.compare(
+                        xpath.getRootExpr(), new BaseXPath(xpath.getRootExpr().getText(), null).getRootExpr()));
+    }
+
+    private Context getContext(Object contextNode) {
         Context context = new Context(getContextSupport());
         List list = new ArrayList(1);
         list.add(contextNode);
@@ -191,11 +151,10 @@ public abstract class XPathTestBase extends TestCase
         return context;
     }
 
-    private ContextSupport getContextSupport()
-    {
-        if (this.contextSupport == null)
-        {
-            this.contextSupport = new ContextSupport(new SimpleNamespaceContext(),
+    private ContextSupport getContextSupport() {
+        if (this.contextSupport == null) {
+            this.contextSupport = new ContextSupport(
+                    new SimpleNamespaceContext(),
                     XPathFunctionContext.getInstance(),
                     new SimpleVariableContext(),
                     getNavigator());
@@ -204,32 +163,29 @@ public abstract class XPathTestBase extends TestCase
     }
 
     protected abstract Navigator getNavigator();
+
     protected abstract Object getDocument(String url) throws Exception;
 
-    public void testGetNodeType() throws FunctionCallException, UnsupportedAxisException
-    {
+    public void testGetNodeType() throws FunctionCallException, UnsupportedAxisException {
         Navigator nav = getNavigator();
         Object document = nav.getDocument("xml/testNamespaces.xml");
         int count = 0;
         Iterator descendantOrSelfAxisIterator = nav.getDescendantOrSelfAxisIterator(document);
-        while (descendantOrSelfAxisIterator.hasNext())
-        {
+        while (descendantOrSelfAxisIterator.hasNext()) {
             Object node = descendantOrSelfAxisIterator.next();
             Iterator namespaceAxisIterator = nav.getNamespaceAxisIterator(node);
-            while (namespaceAxisIterator.hasNext())
-            {
+            while (namespaceAxisIterator.hasNext()) {
                 count++;
-                assertEquals("Node type mismatch", Pattern.NAMESPACE_NODE, nav.getNodeType(namespaceAxisIterator.next()));
+                assertEquals(
+                        "Node type mismatch", Pattern.NAMESPACE_NODE, nav.getNodeType(namespaceAxisIterator.next()));
             }
         }
         assertEquals(25, count);
     }
 
-
     /* test for jaxen-24
-    */
-    public void testJaxen24() throws JaxenException
-    {
+     */
+    public void testJaxen24() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/jaxen24.xml";
         log("Document [" + url + "]");
@@ -238,8 +194,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "preceding::*[1]");
             assertValueOfXPath("span", context, "local-name(preceding::*[1])");
@@ -247,9 +202,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* jaxen-58
-    */
-    public void testJaxen58() throws JaxenException
-    {
+     */
+    public void testJaxen58() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/jaxen24.xml";
         log("Document [" + url + "]");
@@ -258,8 +212,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(0, context, "//preceding::x");
             assertCountXPath(0, context, "//following::x");
@@ -269,9 +222,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test for jaxen-3
-    */
-    public void testJaxen3() throws JaxenException
-    {
+     */
+    public void testJaxen3() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
         log("Document [" + url + "]");
@@ -280,15 +232,13 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("abd", context, "string()");
         }
     }
 
-    public void testStringFunction1() throws JaxenException
-    {
+    public void testStringFunction1() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
         log("Document [" + url + "]");
@@ -297,15 +247,13 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("abd", context, "string()");
         }
     }
 
-    public void testStringFunction2() throws JaxenException
-    {
+    public void testStringFunction2() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
         log("Document [" + url + "]");
@@ -314,15 +262,13 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("a", context, "string()");
         }
     }
 
-    public void testStringFunction3() throws JaxenException
-    {
+    public void testStringFunction3() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
         log("Document [" + url + "]");
@@ -331,17 +277,15 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("d", context, "string()");
         }
     }
 
     /* test for jaxen-3
-    */
-    public void testJaxen3dupe() throws JaxenException
-    {
+     */
+    public void testJaxen3dupe() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/jaxen3.xml";
         log("Document [" + url + "]");
@@ -350,17 +294,15 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "/Configuration/hostname/attrlist/hostname[. = 'CE-A'] ");
         }
     }
 
     /* parser test cases all of which should fail
-    */
-    public void testForParserErrors() throws JaxenException
-    {
+     */
+    public void testForParserErrors() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/numbers.xml";
         log("Document [" + url + "]");
@@ -369,27 +311,26 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             /* repeated xpaths, jaxen-35
-            */
+             */
             assertInvalidXPath(context, "/numbers numbers");
             /* invalid xpath, jaxen-34
-            */
+             */
             assertInvalidXPath(context, "/a/b[c > d]efg");
             /* invalid xpath, jaxen-27
-            */
+             */
             assertInvalidXPath(context, "/inv/child::");
             /* invalid xpath, jaxen-26
-            */
+             */
             assertInvalidXPath(context, "/invoice/@test[abcd");
             assertInvalidXPath(context, "/invoice/@test[abcd > x");
             /* unterminated string
-            */
+             */
             assertInvalidXPath(context, "string-length('a");
             /* various edge cases where code threw no exception
-            */
+             */
             assertInvalidXPath(context, "/descendant::()");
             assertInvalidXPath(context, "(1 + 1");
             // no ! operator
@@ -398,9 +339,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test cases for the use of underscores in names
-    */
-    public void testUnderscoresInNames() throws JaxenException
-    {
+     */
+    public void testUnderscoresInNames() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/underscore.xml";
         log("Document [" + url + "]");
@@ -409,8 +349,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "/root/@a");
             assertCountXPath(1, context, "/root/@_a");
@@ -424,9 +363,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test cases for the use of = with node-sets
-    */
-    public void testNodesetEqualsString() throws JaxenException
-    {
+     */
+    public void testNodesetEqualsString() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -435,16 +373,14 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("true", context, "/web-app/servlet/servlet-name = 'file'");
             assertValueOfXPath("true", context, "/web-app/servlet/servlet-name = 'snoop'");
         }
     }
 
-    public void testNodesetEqualsNumber() throws JaxenException
-    {
+    public void testNodesetEqualsNumber() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/numbers.xml";
         log("Document [" + url + "]");
@@ -453,8 +389,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("true", context, "/numbers/set/nr = '-3'");
             assertValueOfXPath("true", context, "/numbers/set/nr = -3");
@@ -466,9 +401,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test basic math...
-    */
-    public void testIntegerArithmetic() throws JaxenException
-    {
+     */
+    public void testIntegerArithmetic() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/numbers.xml";
         log("Document [" + url + "]");
@@ -477,47 +411,45 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("true", context, "(8 * 2 + 1) = 17");
             assertValueOfXPath("true", context, "(1 + 8 * 2) = 17");
             assertValueOfXPath("true", context, "(7 - 3 + 1) = 5");
             assertValueOfXPath("true", context, "(8 - 4 + 5 - 6) = 3");
             /* left-assoc tests, comments show WRONG evaluation
-            */
+             */
             /* 3 - 2 - 1 != 2
-            */
+             */
             assertValueOfXPath("0", context, "3 - 2 - 1");
             /* 8 div 4 div 2 != 4
-            */
+             */
             assertValueOfXPath("1", context, "8 div 4 div 2");
             /* 3 mod 5 mod 7 != 1
-            */
+             */
             assertValueOfXPath("3", context, "3 mod 7 mod 5");
             /* 1=(2=2) is true
-            */
+             */
             assertValueOfXPath("false", context, "1 = 2 = 2");
             /*  2!=(3!=1) => 2!=1 => true, (2!=3)!=1 => 1!=1 => false
-            */
+             */
             assertValueOfXPath("false", context, "2 != 3 != 1");
             /* 3 > (2 > 1) is true
-            */
+             */
             assertValueOfXPath("false", context, "3 > 2 > 1");
             /* 3 >= (2 >= 2) is true
-            */
+             */
             assertValueOfXPath("false", context, "3 >= 2 >= 2");
             /* 1 < (2 < 3) is false
-            */
+             */
             assertValueOfXPath("true", context, "1 < 2 < 3");
             /* 0 <= (2 <= 3) is true
-            */
+             */
             assertValueOfXPath("true", context, "2 <= 2 <= 3");
         }
     }
-    
-    public void testFloatingPointArithmetic() throws JaxenException
-    {
+
+    public void testFloatingPointArithmetic() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/numbers.xml";
         log("Document [" + url + "]");
@@ -526,8 +458,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("true", context, "(8.5 * 2.0 + 1) = 18");
             assertValueOfXPath("true", context, "(1.00 + 8.5 * 2) = 18.0");
@@ -546,9 +477,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test cases for preceding axis with different node types
-    */
-    public void testPrecedingSiblingAxis() throws JaxenException
-    {
+     */
+    public void testPrecedingSiblingAxis() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/pi2.xml";
         log("Document [" + url + "]");
@@ -557,8 +487,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "//processing-instruction()");
             assertCountXPath(1, context, "preceding-sibling::*");
@@ -571,8 +500,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testVariableLookup() throws JaxenException
-    {
+    public void testVariableLookup() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/id.xml";
         log("Document [" + url + "]");
@@ -585,8 +513,7 @@ public abstract class XPathTestBase extends TestCase
         varContext.setVariableValue(null, "foo", "foo");
         getContextSupport().setVariableContext(varContext);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("foobar", context, "$foobar");
             assertCountXPath(1, context, "/foo[@id=$foobar]");
@@ -596,8 +523,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testAttributeParent() throws JaxenException
-    {
+    public void testAttributeParent() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/id.xml";
         log("Document [" + url + "]");
@@ -606,19 +532,17 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             /* attributes have a parent: their element
-            */
+             */
             assertCountXPath(1, context, "/foo/@id/parent::foo");
         }
     }
 
     /* attributes can also be used as context nodes
-    */
-    public void testAttributeAsContext() throws JaxenException
-    {
+     */
+    public void testAttributeAsContext() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/id.xml";
         log("Document [" + url + "]");
@@ -627,15 +551,13 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "parent::foo");
         }
     }
 
-    public void testid53992() throws JaxenException
-    {
+    public void testid53992() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/pi.xml";
         log("Document [" + url + "]");
@@ -644,20 +566,18 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(3, context, "//processing-instruction()");
             assertCountXPath(2, context, "//processing-instruction('cheese')");
-                Object result = assertCountXPath2(1, context, "//processing-instruction('toast')");
-                assertValueOfXPath("is tasty", result, "string()");
-            }
-            }
+            Object result = assertCountXPath2(1, context, "//processing-instruction('toast')");
+            assertValueOfXPath("is tasty", result, "string()");
+        }
+    }
 
     /* test evaluate() extension function
-    */
-    public void testid54032() throws JaxenException
-    {
+     */
+    public void testid54032() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/evaluate.xml";
         log("Document [" + url + "]");
@@ -666,8 +586,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(3, context, "evaluate('//jumps/*')");
             assertCountXPath(1, context, "evaluate('//jumps/object/dog')");
@@ -678,8 +597,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testid54082() throws JaxenException
-    {
+    public void testid54082() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/numbers.xml";
         log("Document [" + url + "]");
@@ -688,8 +606,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "*[-3 = .]");
             assertValueOfXPath("true", context, "54 < *");
@@ -710,12 +627,11 @@ public abstract class XPathTestBase extends TestCase
       <valueOf select="55 &gt;= nr/@value">true</valueOf>
       <valueOf select="1000000 &gt; nr/@value">true</valueOf>
     </context>
-    
+
     */
-    /* test sibling axes 
-    */
-    public void testid54145() throws JaxenException
-    {
+    /* test sibling axes
+     */
+    public void testid54145() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/axis.xml";
         log("Document [" + url + "]");
@@ -724,15 +640,13 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(0, context, "preceding-sibling::*");
         }
     }
 
-    public void testid54156() throws JaxenException
-    {
+    public void testid54156() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/axis.xml";
         log("Document [" + url + "]");
@@ -741,15 +655,13 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(2, context, "preceding::*");
         }
     }
 
-    public void testid54168() throws JaxenException
-    {
+    public void testid54168() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/axis.xml";
         log("Document [" + url + "]");
@@ -758,15 +670,13 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(2, context, "preceding-sibling::*");
         }
     }
 
-    public void testid54180() throws JaxenException
-    {
+    public void testid54180() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/axis.xml";
         log("Document [" + url + "]");
@@ -775,16 +685,14 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("a.2", context, "name(/root/a/a.3/preceding-sibling::*[1])");
             assertValueOfXPath("a.1", context, "name(/root/a/a.3/preceding-sibling::*[2])");
         }
     }
 
-    public void testid54197() throws JaxenException
-    {
+    public void testid54197() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/axis.xml";
         log("Document [" + url + "]");
@@ -793,16 +701,14 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("a.4", context, "name(/root/a/a.3/following-sibling::*[1])");
             assertValueOfXPath("a.5", context, "name(/root/a/a.3/following-sibling::*[2])");
         }
     }
 
-    public void testid54219() throws JaxenException
-    {
+    public void testid54219() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -811,8 +717,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("snoop", context, "/web-app/servlet[1]/servlet-name");
             assertValueOfXPath("snoop", context, "/web-app/servlet[1]/servlet-name/text()");
@@ -821,8 +726,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testid54249() throws JaxenException
-    {
+    public void testid54249() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -831,16 +735,14 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("snoop", context, "servlet-name");
             assertValueOfXPath("snoop", context, "servlet-name/text()");
         }
     }
 
-    public void testid54266() throws JaxenException
-    {
+    public void testid54266() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -849,15 +751,13 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(3, context, "preceding::*");
         }
     }
 
-    public void testid54278() throws JaxenException
-    {
+    public void testid54278() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -866,17 +766,15 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(13, context, "following::*");
         }
     }
 
     /* test name
-    */
-    public void testid54298() throws JaxenException
-    {
+     */
+    public void testid54298() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -885,27 +783,26 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
-                Object result = assertCountXPath2(1, context, "*");
-                assertValueOfXPath("web-app", result, "name()");
+            Object result = assertCountXPath2(1, context, "*");
+            assertValueOfXPath("web-app", result, "name()");
             /* NOTE that the child::node() tests only work if the
               XML document does not comments or PIs
 
             */
             result = assertCountXPath2(1, context, "./*");
-                assertValueOfXPath("web-app", result, "name()");
+            assertValueOfXPath("web-app", result, "name()");
             result = assertCountXPath2(1, context, "child::*");
-                assertValueOfXPath("web-app", result, "name()");
+            assertValueOfXPath("web-app", result, "name()");
             result = assertCountXPath2(1, context, "/*");
-                assertValueOfXPath("web-app", result, "name()");
+            assertValueOfXPath("web-app", result, "name()");
             result = assertCountXPath2(1, context, "/child::node()");
-                assertValueOfXPath("web-app", result, "name(.)");
+            assertValueOfXPath("web-app", result, "name(.)");
             result = assertCountXPath2(1, context, "child::node()");
-                assertValueOfXPath("web-app", result, "name(.)");
+            assertValueOfXPath("web-app", result, "name(.)");
             /* empty names
-            */
+             */
             assertValueOfXPath("", context, "name()");
             assertValueOfXPath("", context, "name(.)");
             assertValueOfXPath("", context, "name(parent::*)");
@@ -913,7 +810,7 @@ public abstract class XPathTestBase extends TestCase
             assertValueOfXPath("", context, "name(/.)");
             assertValueOfXPath("", context, "name(/self::node())");
             /* name of root elemet
-            */
+             */
             assertValueOfXPath("web-app", context, "name(node())");
             assertValueOfXPath("web-app", context, "name(/node())");
             assertValueOfXPath("web-app", context, "name(/*)");
@@ -926,8 +823,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testid54467() throws JaxenException
-    {
+    public void testid54467() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -936,16 +832,15 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             /* empty names
-            */
+             */
             assertValueOfXPath("", context, "name(..)");
             assertValueOfXPath("", context, "name(parent::node())");
             assertValueOfXPath("", context, "name(parent::*)");
             /* name of root elemet
-            */
+             */
             assertValueOfXPath("web-app", context, "name()");
             assertValueOfXPath("web-app", context, "name(.)");
             assertValueOfXPath("web-app", context, "name(../*)");
@@ -954,9 +849,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test predicates
-    */
-    public void testid54522() throws JaxenException
-    {
+     */
+    public void testid54522() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/nitf.xml";
         log("Document [" + url + "]");
@@ -965,15 +859,13 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "doc-id[@regsrc='FAKE' and @id-string='YYY']");
         }
     }
 
-    public void testid54534() throws JaxenException
-    {
+    public void testid54534() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/nitf.xml";
         log("Document [" + url + "]");
@@ -982,8 +874,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "meta[@name='fake-cycle']");
             assertCountXPath(1, context, "meta[@content='FAKE']");
@@ -993,8 +884,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testid54570() throws JaxenException
-    {
+    public void testid54570() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/nitf.xml";
         log("Document [" + url + "]");
@@ -1003,8 +893,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "/nitf/head/meta[@name='fake-cycle']");
             assertCountXPath(1, context, "/nitf/head/meta[@content='FAKE']");
@@ -1014,8 +903,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testid54614() throws JaxenException
-    {
+    public void testid54614() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/moreover.xml";
         log("Document [" + url + "]");
@@ -1024,8 +912,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "/child::node()");
             assertCountXPath(1, context, "/*");
@@ -1035,37 +922,36 @@ public abstract class XPathTestBase extends TestCase
             assertCountXPath(20, context, "//article");
             assertCountXPath(20, context, "/*/*[@code]");
             assertCountXPath(1, context, "/moreovernews/article[@code='13563275']");
-                DOMXPath xpath = new DOMXPath("/moreovernews/article[@code='13563275']");
-                List results = xpath.selectNodes(getContext(context));
-                Object result = results.get(0);
-                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            DOMXPath xpath = new DOMXPath("/moreovernews/article[@code='13563275']");
+            List results = xpath.selectNodes(getContext(context));
+            Object result = results.get(0);
+            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
             xpath = new DOMXPath("/*/article[@code='13563275']");
             results = xpath.selectNodes(getContext(context));
             result = results.get(0);
-                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
             xpath = new DOMXPath("//article[@code='13563275']");
             results = xpath.selectNodes(getContext(context));
             result = results.get(0);
-                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
             xpath = new DOMXPath("//*[@code='13563275']");
             results = xpath.selectNodes(getContext(context));
             result = results.get(0);
-                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
             xpath = new DOMXPath("/child::node()/child::node()[@code='13563275']");
             results = xpath.selectNodes(getContext(context));
             result = results.get(0);
-                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
             xpath = new DOMXPath("/*/*[@code='13563275']");
             results = xpath.selectNodes(getContext(context));
             result = results.get(0);
-                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
-            }
-            }
+            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+        }
+    }
 
     /* test other node types
-    */
-    public void testNodeTypes() throws JaxenException
-    {
+     */
+    public void testNodeTypes() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/contents.xml";
         log("Document [" + url + "]");
@@ -1074,8 +960,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(3, context, "processing-instruction()");
             assertCountXPath(3, context, "/processing-instruction()");
@@ -1088,9 +973,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test positioning
-    */
-    public void testPositioning() throws JaxenException
-    {
+     */
+    public void testPositioning() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/fibo.xml";
         log("Document [" + url + "]");
@@ -1099,8 +983,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(9, context, "/*/fibonacci[position() < 10]");
             assertValueOfXPath("196417", context, "sum(//fibonacci)");
@@ -1112,11 +995,10 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test number functions
-    */
-    /* test Axes 
-    */
-    public void testid54853() throws JaxenException
-    {
+     */
+    /* test Axes
+     */
+    public void testid54853() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -1125,8 +1007,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(19, context, "descendant-or-self::*");
             assertCountXPath(19, context, "descendant::*");
@@ -1143,8 +1024,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testid54932() throws JaxenException
-    {
+    public void testid54932() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -1153,8 +1033,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(2, context, "/descendant::servlet");
             assertCountXPath(2, context, "/descendant-or-self::servlet");
@@ -1163,8 +1042,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testCountFunction() throws JaxenException
-    {
+    public void testCountFunction() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/much_ado.xml";
         log("Document [" + url + "]");
@@ -1173,8 +1051,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(5, context, "/descendant::ACT");
             assertCountXPath(5, context, "descendant::ACT");
@@ -1187,8 +1064,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testCountFunctionMore() throws JaxenException
-    {
+    public void testCountFunctionMore() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/much_ado.xml";
         log("Document [" + url + "]");
@@ -1197,8 +1073,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(5, context, "/descendant::ACT");
             assertCountXPath(5, context, "../../descendant::ACT");
@@ -1214,8 +1089,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testCorrectPredicateApplication() throws JaxenException
-    {
+    public void testCorrectPredicateApplication() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/much_ado.xml";
         log("Document [" + url + "]");
@@ -1224,19 +1098,17 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             /* Test correct predicate application
-            */
+             */
             assertValueOfXPath("5", context, "count(/PLAY/ACT/SCENE[1])");
         }
     }
 
     /* test axis node ordering
-    */
-    public void testAxisNodeOrdering() throws JaxenException
-    {
+     */
+    public void testAxisNodeOrdering() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -1245,11 +1117,10 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             /* Reported as Jira issue JAXEN-24
-            */
+             */
             assertCountXPath(1, context, "//servlet-mapping/preceding::*[1][name()='description']");
             assertCountXPath(1, context, "/web-app/servlet//description/following::*[1][name()='servlet-mapping']");
             assertCountXPath(1, context, "/web-app/servlet//description/following::*[2][name()='servlet-name']");
@@ -1257,9 +1128,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test document function
-    */
-    public void testDocumentFunction1() throws JaxenException
-    {
+     */
+    public void testDocumentFunction1() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/text.xml";
         log("Document [" + url + "]");
@@ -1268,22 +1138,20 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
-                Object result = assertCountXPath2(1, context, "document('xml/web.xml')");
-                assertValueOfXPath("snoop", result, "/web-app/servlet[1]/servlet-name");
-                assertValueOfXPath("snoop", result, "/web-app/servlet[1]/servlet-name/text()");
+            Object result = assertCountXPath2(1, context, "document('xml/web.xml')");
+            assertValueOfXPath("snoop", result, "/web-app/servlet[1]/servlet-name");
+            assertValueOfXPath("snoop", result, "/web-app/servlet[1]/servlet-name/text()");
             assertValueOfXPath("snoop", context, "document('xml/web.xml')/web-app/servlet[1]/servlet-name");
         }
     }
 
     /* Test to check if the context changes when an extension function is used.
     First test is an example, second is the actual test.
-    
+
     */
-    public void testDocumentFunctionContextExample() throws JaxenException
-    {
+    public void testDocumentFunctionContextExample() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/text.xml";
         log("Document [" + url + "]");
@@ -1292,16 +1160,15 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("3foo3", context, "concat(./@id,'foo',@id)");
-            assertValueOfXPath("3snoop3", context, "concat(./@id,document('xml/web.xml')/web-app/servlet[1]/servlet-name,./@id)");
+            assertValueOfXPath(
+                    "3snoop3", context, "concat(./@id,document('xml/web.xml')/web-app/servlet[1]/servlet-name,./@id)");
         }
     }
 
-    public void testDocumentFunctionActual() throws JaxenException
-    {
+    public void testDocumentFunctionActual() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/message.xml";
         log("Document [" + url + "]");
@@ -1310,18 +1177,20 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
-            assertValueOfXPath("Pruefgebiete", context, "/message/body/data/items/item[name/text()='parentinfo']/value");
-            assertValueOfXPath("Pruefgebiete", context, "document('xml/message.xml')/message/body/data/items/item[name/text()='parentinfo']/value");
+            assertValueOfXPath(
+                    "Pruefgebiete", context, "/message/body/data/items/item[name/text()='parentinfo']/value");
+            assertValueOfXPath(
+                    "Pruefgebiete",
+                    context,
+                    "document('xml/message.xml')/message/body/data/items/item[name/text()='parentinfo']/value");
         }
     }
 
     /* test behaviour of AbsoluteLocationPath
-    */
-    public void testAbsoluteLocationPaths() throws JaxenException
-    {
+     */
+    public void testAbsoluteLocationPaths() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
         log("Document [" + url + "]");
@@ -1330,8 +1199,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("ab", context, "concat( ., /root/b )");
             assertValueOfXPath("ba", context, "concat( ../b, . )");
@@ -1341,9 +1209,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test the translate() function
-    */
-    public void testTranslateFunction() throws JaxenException
-    {
+     */
+    public void testTranslateFunction() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
         log("Document [" + url + "]");
@@ -1352,8 +1219,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("", context, "translate( '', '', '' )");
             assertValueOfXPath("abcd", context, "translate( 'abcd', '', '' )");
@@ -1368,8 +1234,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testSubstringFunction() throws JaxenException
-    {
+    public void testSubstringFunction() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
         log("Document [" + url + "]");
@@ -1378,8 +1243,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("234", context, "substring('12345', 1.5, 2.6)");
             assertValueOfXPath("12", context, "substring('12345', 0, 3)");
@@ -1393,9 +1257,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* Some tests for the normalize-space() function
-    */
-    public void testNormalizeSpaceFunction() throws JaxenException
-    {
+     */
+    public void testNormalizeSpaceFunction() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
         log("Document [" + url + "]");
@@ -1404,25 +1267,23 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("abc", context, "normalize-space('    abc    ')");
             assertValueOfXPath("a b c", context, "normalize-space(' a  b  c  ')");
             assertValueOfXPath("a b c", context, "normalize-space(' a \n b \n  c')");
             /* Next test case addresses issue JAXEN-22
-            */
+             */
             assertValueOfXPath("", context, "normalize-space(' ')");
             /* Next test case addresses issue JAXEN-29
-            */
+             */
             assertValueOfXPath("", context, "normalize-space('')");
         }
     }
 
     /* test cases for String extension functions
-    */
-    public void testStringExtensionFunctions() throws JaxenException
-    {
+     */
+    public void testStringExtensionFunctions() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
         log("Document [" + url + "]");
@@ -1431,8 +1292,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("SNOOPSERVLET", context, "upper-case( servlet-class )");
             assertValueOfXPath("snoopservlet", context, "lower-case( servlet-class )");
@@ -1445,9 +1305,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test cases for the lang() function
-    */
-    public void testLangFunction() throws JaxenException
-    {
+     */
+    public void testLangFunction() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/lang.xml";
         log("Document [" + url + "]");
@@ -1456,8 +1315,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(0, context, "/e1/e2[lang('hr')]");
             assertCountXPath(1, context, "/e1/e2/e3[lang('en')]");
@@ -1471,9 +1329,8 @@ public abstract class XPathTestBase extends TestCase
     }
 
     /* test namespace
-    */
-    public void testNamespacesAgain() throws JaxenException
-    {
+     */
+    public void testNamespacesAgain() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/namespaces.xml";
         log("Document [" + url + "]");
@@ -1488,8 +1345,7 @@ public abstract class XPathTestBase extends TestCase
         nsContext.addNamespace("foo", "http://fooNamespace/");
         getContextSupport().setNamespaceContext(nsContext);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "/*");
             assertCountXPath(1, context, "/foo:a");
@@ -1497,16 +1353,21 @@ public abstract class XPathTestBase extends TestCase
             assertCountXPath(1, context, "/voo:a/b/c");
             assertCountXPath(1, context, "/voo:a/bar:f");
             assertCountXPath(1, context, "/*[namespace-uri()='http://fooNamespace/' and local-name()='a']");
-            assertCountXPath(1, context, "/*[local-name()='a' and namespace-uri()='http://fooNamespace/']/*[local-name()='x' and namespace-uri()='http://fooNamespace/']");
-            assertCountXPath(1, context, "/*[local-name()='a' and namespace-uri()='http://fooNamespace/']/*[local-name()='x' and namespace-uri()='http://fooNamespace/']/*[local-name()='y' and namespace-uri()='http://fooNamespace/']");
+            assertCountXPath(
+                    1,
+                    context,
+                    "/*[local-name()='a' and namespace-uri()='http://fooNamespace/']/*[local-name()='x' and namespace-uri()='http://fooNamespace/']");
+            assertCountXPath(
+                    1,
+                    context,
+                    "/*[local-name()='a' and namespace-uri()='http://fooNamespace/']/*[local-name()='x' and namespace-uri()='http://fooNamespace/']/*[local-name()='y' and namespace-uri()='http://fooNamespace/']");
         }
     }
 
     /* the prefix here and in the document have no relation; it's their
-    namespace-uri binding that counts 
+    namespace-uri binding that counts
     */
-    public void testPrefixDoesntMatter() throws JaxenException
-    {
+    public void testPrefixDoesntMatter() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/namespaces.xml";
         log("Document [" + url + "]");
@@ -1518,16 +1379,14 @@ public abstract class XPathTestBase extends TestCase
         nsContext.addNamespace("foo", "http://somethingElse/");
         getContextSupport().setNamespaceContext(nsContext);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(0, context, "/foo:a/b/c");
         }
     }
 
     /* Jaxen-67, affects Jelly and Maven */
-    public void testCDATASectionsAreIncludedInTextNodes() throws JaxenException
-    {
+    public void testCDATASectionsAreIncludedInTextNodes() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/cdata.xml";
         log("Document [" + url + "]");
@@ -1535,7 +1394,7 @@ public abstract class XPathTestBase extends TestCase
         XPath contextPath = new BaseXPath("/p/text()", nav);
         log("Initial Context :: " + contextPath);
         List list = contextPath.selectNodes(document);
-        // Depending on the object model, there can be anywhere from 
+        // Depending on the object model, there can be anywhere from
         // 1 to 3 nodes returned here.
         StringBuffer buffer = new StringBuffer(10);
         Iterator iterator = list.iterator();
@@ -1545,8 +1404,7 @@ public abstract class XPathTestBase extends TestCase
         assertEquals("awhateverb", buffer.toString());
     }
 
-    public void testNamespaces() throws JaxenException
-    {
+    public void testNamespaces() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/namespaces.xml";
         log("Document [" + url + "]");
@@ -1560,19 +1418,20 @@ public abstract class XPathTestBase extends TestCase
         nsContext.addNamespace("foo", "http://fooNamespace/");
         getContextSupport().setNamespaceContext(nsContext);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertValueOfXPath("Hello", context, "/foo:a/b/c");
             assertValueOfXPath("Hey", context, "/foo:a/foo:d/foo:e");
             assertValueOfXPath("Hey3", context, "/foo:a/alias:x/alias:y");
             assertValueOfXPath("Hey3", context, "/foo:a/foo:x/foo:y");
-            assertValueOfXPath("Hey3", context, "/*[local-name()='a' and namespace-uri()='http://fooNamespace/']/*[local-name()='x' and namespace-uri()='http://fooNamespace/']/*[local-name()='y' and namespace-uri()='http://fooNamespace/']");
+            assertValueOfXPath(
+                    "Hey3",
+                    context,
+                    "/*[local-name()='a' and namespace-uri()='http://fooNamespace/']/*[local-name()='x' and namespace-uri()='http://fooNamespace/']/*[local-name()='y' and namespace-uri()='http://fooNamespace/']");
         }
     }
 
-    public void testNoNamespace() throws JaxenException
-    {
+    public void testNoNamespace() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/defaultNamespace.xml";
         log("Document [" + url + "]");
@@ -1581,11 +1440,10 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             /* NOTE: /a/b/c selects elements in no namespace only!
-            */
+             */
             assertCountXPath(0, context, "/a/b/c");
             /*
                 The following test uses an unbound prefix 'x' and should throw an exception.
@@ -1597,8 +1455,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testNamespaceResolution() throws JaxenException
-    {
+    public void testNamespaceResolution() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/defaultNamespace.xml";
         log("Document [" + url + "]");
@@ -1610,15 +1467,13 @@ public abstract class XPathTestBase extends TestCase
         nsContext.addNamespace("dummy", "http://dummyNamespace/");
         getContextSupport().setNamespaceContext(nsContext);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "/dummy:a/dummy:b/dummy:c");
         }
     }
 
-    public void testTextNodes() throws JaxenException
-    {
+    public void testTextNodes() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/text.xml";
         log("Document [" + url + "]");
@@ -1627,16 +1482,14 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(3, context, "/foo/bar/text()");
             assertValueOfXPath("baz", context, "normalize-space(/foo/bar/text())");
         }
     }
 
-    public void testNamespaceNodeCounts1() throws JaxenException
-    {
+    public void testNamespaceNodeCounts1() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/testNamespaces.xml";
         log("Document [" + url + "]");
@@ -1645,25 +1498,23 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             /* the root is not an element, so no namespaces
-            */
+             */
             assertCountXPath(0, context, "namespace::*");
             assertCountXPath(0, context, "/namespace::*");
             /* must count the default xml: prefix as well
-            */
+             */
             assertCountXPath(3, context, "/Template/Application1/namespace::*");
             assertCountXPath(3, context, "/Template/Application2/namespace::*");
             /* every element has separate copies
-            */
+             */
             assertCountXPath(25, context, "//namespace::*");
         }
     }
 
-    public void testNamespaceNodeCounts() throws JaxenException
-    {
+    public void testNamespaceNodeCounts() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/testNamespaces.xml";
         log("Document [" + url + "]");
@@ -1672,11 +1523,10 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             /* must count the default xml: prefix as well
-            */
+             */
             assertCountXPath(3, context, "namespace::*");
             assertCountXPath(0, context, "/namespace::*");
             assertCountXPath(3, context, "/Template/Application1/namespace::*");
@@ -1690,8 +1540,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testNamespaceNodesHaveParent() throws JaxenException
-    {
+    public void testNamespaceNodesHaveParent() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/testNamespaces.xml";
         log("Document [" + url + "]");
@@ -1700,19 +1549,17 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             /* namespace nodes have their element as their parent
-            */
+             */
             assertCountXPath(1, context, "/Template/namespace::xml/parent::Template");
         }
     }
 
     /* namespace nodes can also be used as context nodes
-    */
-    public void testNamespaceNodeAsContext() throws JaxenException
-    {
+     */
+    public void testNamespaceNodeAsContext() throws JaxenException {
         Navigator nav = getNavigator();
         String url = "xml/testNamespaces.xml";
         log("Document [" + url + "]");
@@ -1721,8 +1568,7 @@ public abstract class XPathTestBase extends TestCase
         log("Initial Context :: " + contextpath);
         List list = contextpath.selectNodes(document);
         Iterator iter = list.iterator();
-        while (iter.hasNext())
-        {
+        while (iter.hasNext()) {
             Object context = iter.next();
             assertCountXPath(1, context, "parent::Template");
         }
