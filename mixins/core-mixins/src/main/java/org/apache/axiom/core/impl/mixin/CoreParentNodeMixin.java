@@ -367,7 +367,7 @@ public abstract class CoreParentNodeMixin implements CoreParentNode {
                             }
                         // Fall through
                         case SKIP:
-                            // Just continue
+                        // Just continue
                     }
                 } else {
                     if (child instanceof CoreCharacterDataNode || child instanceof CoreCDATASection) {

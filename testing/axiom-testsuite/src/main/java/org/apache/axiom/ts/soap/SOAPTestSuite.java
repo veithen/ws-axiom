@@ -416,9 +416,11 @@ public class SOAPTestSuite {
                                         injector.getInstance(Key.get(SOAPElementType.class, Names.named("type")))
                                                 .getChildTypes()),
                                 Binding.singleton(Key.get(SOAPElementType.class, Names.named("childType"))),
-                                LabelBinding.simpleString("childType", v -> v.getAdapter(SOAPElementTypeAdapter.class)
-                                        .getType()
-                                        .getSimpleName()),
+                                LabelBinding.simpleString(
+                                        "childType",
+                                        v -> v.getAdapter(SOAPElementTypeAdapter.class)
+                                                .getType()
+                                                .getSimpleName()),
                                 new ParentNode(
                                         new MatrixTest(
                                                 org.apache.axiom.ts.soap.factory.TestCreateSOAPElementWithNullParent
@@ -444,9 +446,11 @@ public class SOAPTestSuite {
                             .collect(ImmutableList.toImmutableList());
                 },
                 Binding.singleton(Key.get(SOAPElementType.class, Names.named("type"))),
-                LabelBinding.simpleString("type", v -> v.getAdapter(SOAPElementTypeAdapter.class)
-                        .getType()
-                        .getSimpleName()),
+                LabelBinding.simpleString(
+                        "type",
+                        v -> v.getAdapter(SOAPElementTypeAdapter.class)
+                                .getType()
+                                .getSimpleName()),
                 new FanOutNode<>(
                         injector -> {
                             SOAPSpec spec = injector.getInstance(SOAPSpec.class);
@@ -457,9 +461,11 @@ public class SOAPTestSuite {
                                     .collect(ImmutableList.toImmutableList());
                         },
                         Binding.singleton(Key.get(SOAPElementType.class, Names.named("childType"))),
-                        LabelBinding.simpleString("childType", v -> v.getAdapter(SOAPElementTypeAdapter.class)
-                                .getType()
-                                .getSimpleName()),
+                        LabelBinding.simpleString(
+                                "childType",
+                                v -> v.getAdapter(SOAPElementTypeAdapter.class)
+                                        .getType()
+                                        .getSimpleName()),
                         new ParentNode(
                                 new ConditionalNode(
                                         injector -> injector.getInstance(Key.get(
@@ -479,10 +485,8 @@ public class SOAPTestSuite {
                                                 new ConditionalNode(
                                                         injector -> {
                                                             SOAPSpec spec = injector.getInstance(SOAPSpec.class);
-                                                            SOAPElementType childType = injector.getInstance(
-                                                                    Key.get(
-                                                                            SOAPElementType.class,
-                                                                            Names.named("childType")));
+                                                            SOAPElementType childType = injector.getInstance(Key.get(
+                                                                    SOAPElementType.class, Names.named("childType")));
                                                             return childType.getQName(spec.getAltSpec()) != null;
                                                         },
                                                         new MatrixTest(

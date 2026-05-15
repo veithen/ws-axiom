@@ -57,6 +57,7 @@
                             <include>src/test/java/org/apache/**/*.java</include>
                         </includes>
                         <palantirJavaFormat>
+                            <version>2.90.0</version>
                             <formatJavadoc>false</formatJavadoc>
                         </palantirJavaFormat>
                     </java>

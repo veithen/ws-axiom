@@ -1219,6 +1219,7 @@
                 <configuration>
                     <java>
                         <palantirJavaFormat>
+                            <version>2.90.0</version>
                             <!-- Defer Javadoc comment reformatting to a later step -->
                             <formatJavadoc>false</formatJavadoc>
                         </palantirJavaFormat>
