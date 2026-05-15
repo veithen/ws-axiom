@@ -48,11 +48,21 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>com.spotify.fmt</groupId>
-                <artifactId>fmt-maven-plugin</artifactId>
-                <configuration>
-                    <filesPathPattern>.*/org/apache/.*</filesPathPattern>
-                </configuration>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/jaxen/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -69,7 +79,7 @@
                             <excludes>
                                 <!-- Source code, resources and license files from Jaxen (see LEGAL-74 & WSCOMMONS-545) -->
                                 <exclude>src/main/resources/xml/**</exclude>
-                                <exclude>src/main/java/org/jaxen/test/**</exclude>
+                                <exclude>src/jaxen/java/org/jaxen/test/**</exclude>
                                 <exclude>src/main/resources/META-INF/LICENSE-JAXEN</exclude>
                             </excludes>
                         </configuration>
