@@ -24,13 +24,10 @@ import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestAXIOMXPath extends AxiomTestCase {
-    @Inject
-    private OMMetaFactory metaFactory;
-
     private final AXIOMXPathTestCase test;
 
     @Inject
-    public TestAXIOMXPath(@Named("methodName") String methodName) {
+    public TestAXIOMXPath(@Named("methodName") String methodName, OMMetaFactory metaFactory) {
         test = new AXIOMXPathTestCase(methodName, metaFactory);
     }
 
