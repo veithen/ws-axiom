@@ -25,9 +25,6 @@ import java.nio.charset.StandardCharsets;
 import org.apache.axiom.om.OMDocument;
 
 public class TestSerializeXML11 extends XMLDeclarationSerializationTestCase {
-    public TestSerializeXML11() {
-        super();
-    }
 
     @Override
     protected void runTest(OMDocument document) throws Throwable {

@@ -38,10 +38,6 @@ public class TestGetChildElementsConcurrentModification extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetChildElementsConcurrentModification() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

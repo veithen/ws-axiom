@@ -48,7 +48,6 @@ public class TestGetDocumentElement extends AxiomTestCase {
     @Inject
     public TestGetDocumentElement(
             BuilderFactory builderFactory, @Named("discardDocument") @Nullable Boolean discardDocument) {
-        super();
         this.builderFactory = builderFactory;
         this.discardDocument = discardDocument;
     }

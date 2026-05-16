@@ -35,10 +35,6 @@ public class TestBuildWithAttachments extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestBuildWithAttachments() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         MTOMSample sample = MTOMSample.SAMPLE1;

@@ -42,7 +42,6 @@ public class TestAddChildWithSameParent extends AxiomTestCase {
 
     @Inject
     public TestAddChildWithSameParent(@Named("build") boolean build) {
-        super();
         this.build = build;
     }
 

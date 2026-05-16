@@ -40,7 +40,6 @@ public class TestDetachWithStream extends AxiomTestCase {
 
     @Inject
     public TestDetachWithStream(StreamType streamType, @Named("useStreamSource") boolean useStreamSource) {
-        super();
         this.streamType = streamType;
         this.useStreamSource = useStreamSource;
     }

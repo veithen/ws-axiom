@@ -41,7 +41,6 @@ public class TestGetNamespaceContext extends AxiomTestCase {
 
     @Inject
     public TestGetNamespaceContext(@Named("detached") boolean detached) {
-        super();
         this.detached = detached;
     }
 

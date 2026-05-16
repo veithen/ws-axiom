@@ -40,10 +40,6 @@ public class TestGetReaderException extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetReaderException() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

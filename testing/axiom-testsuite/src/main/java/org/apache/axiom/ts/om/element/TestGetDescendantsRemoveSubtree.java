@@ -38,10 +38,6 @@ public class TestGetDescendantsRemoveSubtree extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetDescendantsRemoveSubtree() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement root = OMXMLBuilderFactory.createOMBuilder(

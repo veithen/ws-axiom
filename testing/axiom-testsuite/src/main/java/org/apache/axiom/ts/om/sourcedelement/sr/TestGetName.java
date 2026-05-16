@@ -40,10 +40,6 @@ public class TestGetName extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetName() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

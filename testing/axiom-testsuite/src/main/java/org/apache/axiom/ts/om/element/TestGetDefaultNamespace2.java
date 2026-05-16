@@ -41,10 +41,6 @@ public class TestGetDefaultNamespace2 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetDefaultNamespace2() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

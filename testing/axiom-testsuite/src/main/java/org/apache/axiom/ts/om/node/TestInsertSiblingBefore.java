@@ -33,10 +33,6 @@ public class TestInsertSiblingBefore extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestInsertSiblingBefore() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory fac = metaFactory.getOMFactory();

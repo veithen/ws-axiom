@@ -47,7 +47,6 @@ public class TestSetOptimize extends AxiomTestCase {
 
     @Inject
     public TestSetOptimize(@Named("optimize") boolean optimize) {
-        super();
         this.optimize = optimize;
     }
 

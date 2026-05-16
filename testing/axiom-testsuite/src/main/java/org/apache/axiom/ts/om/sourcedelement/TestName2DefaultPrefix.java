@@ -38,10 +38,6 @@ public class TestName2DefaultPrefix extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestName2DefaultPrefix() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory f = metaFactory.getOMFactory();

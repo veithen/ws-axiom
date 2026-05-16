@@ -40,7 +40,6 @@ public class TestCommentEvent extends AxiomTestCase {
 
     @Inject
     public TestCommentEvent(BuilderFactory builderFactory, @Named("cache") boolean cache) {
-        super();
         this.builderFactory = builderFactory;
         this.cache = cache;
     }

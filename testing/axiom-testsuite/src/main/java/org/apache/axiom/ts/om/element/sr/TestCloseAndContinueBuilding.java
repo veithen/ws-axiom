@@ -47,7 +47,6 @@ public class TestCloseAndContinueBuilding extends AxiomTestCase {
 
     @Inject
     public TestCloseAndContinueBuilding(@Named("cache") boolean cache) {
-        super();
         this.cache = cache;
     }
 

@@ -32,10 +32,6 @@ public class TestDetachWithSAXSource extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestDetachWithSAXSource() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         DummyXMLReader xmlReader = new DummyXMLReader();

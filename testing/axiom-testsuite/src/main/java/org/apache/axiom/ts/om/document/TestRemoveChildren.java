@@ -45,7 +45,6 @@ public class TestRemoveChildren extends AxiomTestCase {
     @Inject
     public TestRemoveChildren(
             @Named("complete") boolean complete, @Named("accessDocumentElement") boolean accessDocumentElement) {
-        super();
         this.complete = complete;
         this.accessDocumentElement = accessDocumentElement;
     }

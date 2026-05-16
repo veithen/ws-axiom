@@ -35,10 +35,6 @@ public class TestFindNamespaceByNamespaceURIMasked extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestFindNamespaceByNamespaceURIMasked() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement root = AXIOMUtil.stringToOM(

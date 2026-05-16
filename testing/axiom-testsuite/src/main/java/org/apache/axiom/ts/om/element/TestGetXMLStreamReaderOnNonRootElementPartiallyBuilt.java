@@ -45,7 +45,6 @@ public class TestGetXMLStreamReaderOnNonRootElementPartiallyBuilt extends AxiomT
     @Inject
     public TestGetXMLStreamReaderOnNonRootElementPartiallyBuilt(
             @Named("cache") boolean cache, @Named("build") int build) {
-        super();
         this.cache = cache;
         this.build = build;
     }

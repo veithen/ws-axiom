@@ -35,10 +35,6 @@ public class TestGetTextWithCDATASectionChild extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetTextWithCDATASectionChild() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

@@ -31,10 +31,6 @@ public class TestWriteTextToWithNonTextNodes extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestWriteTextToWithNonTextNodes() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(metaFactory.getOMFactory(), "<a>A<b>B</b>C</a>");

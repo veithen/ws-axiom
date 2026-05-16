@@ -37,10 +37,6 @@ public class TestDTDReader extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestDTDReader() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

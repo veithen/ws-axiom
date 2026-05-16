@@ -26,9 +26,6 @@ import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMOutputFormat;
 
 public class TestSerializeWithIgnoreXMLDeclaration extends XMLDeclarationSerializationTestCase {
-    public TestSerializeWithIgnoreXMLDeclaration() {
-        super();
-    }
 
     @Override
     protected void runTest(OMDocument document) throws Throwable {

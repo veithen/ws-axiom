@@ -37,7 +37,6 @@ public class TestCloseWithStream extends AxiomTestCase {
 
     @Inject
     public TestCloseWithStream(StreamType streamType) {
-        super();
         this.streamType = streamType;
     }
 

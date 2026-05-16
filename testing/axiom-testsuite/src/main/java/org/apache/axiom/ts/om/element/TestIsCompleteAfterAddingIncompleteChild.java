@@ -37,10 +37,6 @@ public class TestIsCompleteAfterAddingIncompleteChild extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestIsCompleteAfterAddingIncompleteChild() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

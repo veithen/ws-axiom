@@ -34,10 +34,6 @@ public class TestGetChildrenRemove2 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetChildrenRemove2() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement elt = OMXMLBuilderFactory.createOMBuilder(

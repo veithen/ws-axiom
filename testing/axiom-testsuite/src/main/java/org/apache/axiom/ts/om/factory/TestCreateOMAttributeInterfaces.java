@@ -44,10 +44,6 @@ public class TestCreateOMAttributeInterfaces extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMAttributeInterfaces() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

@@ -38,10 +38,6 @@ public class TestName1QualifiedPrefix extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestName1QualifiedPrefix() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory f = metaFactory.getOMFactory();

@@ -41,7 +41,6 @@ public class TestCloneBinary extends AxiomTestCase {
 
     @Inject
     public TestCloneBinary(@Named("fetch") boolean fetch) {
-        super();
         this.fetch = fetch;
     }
 

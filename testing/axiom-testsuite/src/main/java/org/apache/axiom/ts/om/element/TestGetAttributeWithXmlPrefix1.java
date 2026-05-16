@@ -38,10 +38,6 @@ public class TestGetAttributeWithXmlPrefix1 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetAttributeWithXmlPrefix1() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement elem = AXIOMUtil.stringToOM(

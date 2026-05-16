@@ -47,7 +47,6 @@ public class TestGetBlobFromElement extends AxiomTestCase {
 
     @Inject
     public TestGetBlobFromElement(@Named("cache") boolean cache) {
-        super();
         this.cache = cache;
     }
 

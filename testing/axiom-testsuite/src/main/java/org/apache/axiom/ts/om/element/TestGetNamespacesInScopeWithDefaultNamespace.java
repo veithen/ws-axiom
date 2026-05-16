@@ -32,10 +32,6 @@ public class TestGetNamespacesInScopeWithDefaultNamespace extends AxiomTestCase 
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetNamespacesInScopeWithDefaultNamespace() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(metaFactory.getOMFactory(), "<a xmlns='urn:test'><b/></a>");

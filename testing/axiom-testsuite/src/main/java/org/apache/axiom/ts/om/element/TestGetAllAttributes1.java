@@ -32,10 +32,6 @@ public class TestGetAllAttributes1 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetAllAttributes1() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = metaFactory.getOMFactory().createOMElement("test", null);

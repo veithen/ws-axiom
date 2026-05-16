@@ -45,10 +45,6 @@ public class TestIOExceptionInGetText extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestIOExceptionInGetText() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         // Construct a stream that will throw an exception in the middle of a text node.

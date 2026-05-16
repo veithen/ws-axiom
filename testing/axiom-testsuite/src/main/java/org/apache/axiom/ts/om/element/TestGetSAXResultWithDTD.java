@@ -40,10 +40,6 @@ public class TestGetSAXResultWithDTD extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetSAXResultWithDTD() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement root = metaFactory.getOMFactory().createOMElement("root", null);

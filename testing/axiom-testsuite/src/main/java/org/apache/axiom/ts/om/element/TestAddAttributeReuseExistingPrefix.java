@@ -37,10 +37,6 @@ public class TestAddAttributeReuseExistingPrefix extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestAddAttributeReuseExistingPrefix() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

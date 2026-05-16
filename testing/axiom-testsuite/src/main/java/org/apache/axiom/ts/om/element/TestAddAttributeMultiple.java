@@ -41,7 +41,6 @@ public class TestAddAttributeMultiple extends AxiomTestCase {
 
     @Inject
     public TestAddAttributeMultiple(AddAttributeStrategy strategy) {
-        super();
         this.strategy = strategy;
     }
 

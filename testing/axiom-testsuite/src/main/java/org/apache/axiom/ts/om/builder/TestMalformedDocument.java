@@ -33,10 +33,6 @@ public class TestMalformedDocument extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestMalformedDocument() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMDocument document = OMXMLBuilderFactory.createOMBuilder(

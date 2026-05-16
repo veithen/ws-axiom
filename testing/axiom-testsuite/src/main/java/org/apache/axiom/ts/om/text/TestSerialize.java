@@ -39,7 +39,6 @@ public class TestSerialize extends AxiomTestCase {
 
     @Inject
     public TestSerialize(@Named("type") int type) {
-        super();
         this.type = type;
     }
 

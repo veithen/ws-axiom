@@ -42,7 +42,6 @@ public class TestAddAttributeWithExistingNamespaceDeclarationOnSameElement exten
 
     @Inject
     public TestAddAttributeWithExistingNamespaceDeclarationOnSameElement(AddAttributeStrategy strategy) {
-        super();
         this.strategy = strategy;
     }
 

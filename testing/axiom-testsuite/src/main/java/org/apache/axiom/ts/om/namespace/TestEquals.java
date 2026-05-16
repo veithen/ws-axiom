@@ -34,10 +34,6 @@ public class TestEquals extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestEquals() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

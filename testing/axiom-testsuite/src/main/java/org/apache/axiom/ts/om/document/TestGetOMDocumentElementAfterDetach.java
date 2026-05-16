@@ -37,10 +37,6 @@ public class TestGetOMDocumentElementAfterDetach extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetOMDocumentElementAfterDetach() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

@@ -39,10 +39,6 @@ public class TestGetXMLStreamReaderWithPreserveNamespaceContext2 extends AxiomTe
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetXMLStreamReaderWithPreserveNamespaceContext2() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement root = OMXMLBuilderFactory.createOMBuilder(

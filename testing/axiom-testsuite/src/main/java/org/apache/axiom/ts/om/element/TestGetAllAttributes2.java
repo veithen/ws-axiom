@@ -36,10 +36,6 @@ public class TestGetAllAttributes2 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetAllAttributes2() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(metaFactory.getOMFactory(), "<e xmlns:p='urn:test' p:attr='test'/>");

@@ -33,10 +33,6 @@ public class TestSerialize extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSerialize() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMComment comment = metaFactory.getOMFactory().createOMComment(null, "test");

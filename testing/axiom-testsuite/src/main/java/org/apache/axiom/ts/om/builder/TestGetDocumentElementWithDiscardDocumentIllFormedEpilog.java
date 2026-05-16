@@ -39,10 +39,6 @@ public class TestGetDocumentElementWithDiscardDocumentIllFormedEpilog extends Ax
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetDocumentElementWithDiscardDocumentIllFormedEpilog() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

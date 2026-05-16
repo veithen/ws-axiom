@@ -29,10 +29,6 @@ public class TestCreateOMCommentWithoutParent extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMCommentWithoutParent() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMComment comment = metaFactory.getOMFactory().createOMComment(null, "my comment");

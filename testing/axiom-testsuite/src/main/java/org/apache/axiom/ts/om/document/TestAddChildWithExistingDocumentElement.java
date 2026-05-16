@@ -39,10 +39,6 @@ public class TestAddChildWithExistingDocumentElement extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestAddChildWithExistingDocumentElement() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

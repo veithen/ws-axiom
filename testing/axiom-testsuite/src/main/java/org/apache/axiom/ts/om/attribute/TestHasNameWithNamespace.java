@@ -36,10 +36,6 @@ public class TestHasNameWithNamespace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestHasNameWithNamespace() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         String localName = "attr";

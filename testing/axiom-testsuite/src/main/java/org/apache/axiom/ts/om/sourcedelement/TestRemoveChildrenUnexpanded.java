@@ -39,10 +39,6 @@ public class TestRemoveChildrenUnexpanded extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestRemoveChildrenUnexpanded() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

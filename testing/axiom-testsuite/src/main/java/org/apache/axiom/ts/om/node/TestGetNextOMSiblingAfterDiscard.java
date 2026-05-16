@@ -34,10 +34,6 @@ public class TestGetNextOMSiblingAfterDiscard extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetNextOMSiblingAfterDiscard() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

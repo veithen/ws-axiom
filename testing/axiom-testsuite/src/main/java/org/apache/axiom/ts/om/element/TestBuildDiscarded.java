@@ -38,10 +38,6 @@ public class TestBuildDiscarded extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestBuildDiscarded() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

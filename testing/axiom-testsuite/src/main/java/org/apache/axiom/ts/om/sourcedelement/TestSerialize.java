@@ -79,7 +79,6 @@ public class TestSerialize extends AxiomTestCase {
             SerializationStrategy serializationStrategy,
             @Named("serializeParent") boolean serializeParent,
             @Named("count") int count) {
-        super();
         this.push = push;
         this.destructive = destructive;
         this.elementContext = elementContext;

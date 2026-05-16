@@ -41,7 +41,6 @@ public class TestRemoveChildren extends AxiomTestCase {
 
     @Inject
     public TestRemoveChildren(@Named("complete") boolean complete) {
-        super();
         this.complete = complete;
     }
 

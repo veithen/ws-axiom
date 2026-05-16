@@ -30,10 +30,6 @@ public abstract class XMLDeclarationSerializationTestCase extends AxiomTestCase 
     @Inject
     private OMMetaFactory metaFactory;
 
-    public XMLDeclarationSerializationTestCase() {
-        super();
-    }
-
     @Override
     protected final void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

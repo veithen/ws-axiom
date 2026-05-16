@@ -31,10 +31,6 @@ public class TestFindNamespaceURIWithPrefixUndeclaring extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestFindNamespaceURIWithPrefixUndeclaring() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

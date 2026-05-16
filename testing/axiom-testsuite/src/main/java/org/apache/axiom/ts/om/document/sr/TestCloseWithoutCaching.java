@@ -44,10 +44,6 @@ public class TestCloseWithoutCaching extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCloseWithoutCaching() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

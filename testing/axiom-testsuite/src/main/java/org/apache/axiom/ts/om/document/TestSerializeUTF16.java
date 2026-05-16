@@ -26,9 +26,6 @@ import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMOutputFormat;
 
 public class TestSerializeUTF16 extends XMLDeclarationSerializationTestCase {
-    public TestSerializeUTF16() {
-        super();
-    }
 
     @Override
     protected void runTest(OMDocument document) throws Throwable {

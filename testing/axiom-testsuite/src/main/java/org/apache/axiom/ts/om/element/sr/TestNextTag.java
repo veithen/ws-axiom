@@ -31,10 +31,6 @@ public class TestNextTag extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestNextTag() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element =

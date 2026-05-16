@@ -31,10 +31,6 @@ public class TestFindNamespaceCaseSensitivity extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestFindNamespaceCaseSensitivity() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         String NSURI = "http://testns";

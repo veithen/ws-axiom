@@ -42,7 +42,6 @@ public class TestGetSAXSourceIdentityTransform extends AxiomTestCase {
 
     @Inject
     public TestGetSAXSourceIdentityTransform(XSLTImplementation xsltImplementation, @Named("cache") boolean cache) {
-        super();
         this.xsltImplementation = xsltImplementation;
         this.cache = cache;
     }

@@ -40,7 +40,6 @@ public class TestCreateOMBuilderXOP extends AxiomTestCase {
 
     @Inject
     public TestCreateOMBuilderXOP(XOPSample sample, @Named("build") boolean build) {
-        super();
         this.sample = sample;
         this.build = build;
     }

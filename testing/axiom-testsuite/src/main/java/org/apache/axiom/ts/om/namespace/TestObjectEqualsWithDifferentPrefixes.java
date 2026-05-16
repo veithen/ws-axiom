@@ -34,10 +34,6 @@ public class TestObjectEqualsWithDifferentPrefixes extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestObjectEqualsWithDifferentPrefixes() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

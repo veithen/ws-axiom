@@ -42,7 +42,6 @@ public class TestAddAttributeWithoutExistingNamespaceDeclaration extends AxiomTe
 
     @Inject
     public TestAddAttributeWithoutExistingNamespaceDeclaration(AddAttributeStrategy strategy) {
-        super();
         this.strategy = strategy;
     }
 

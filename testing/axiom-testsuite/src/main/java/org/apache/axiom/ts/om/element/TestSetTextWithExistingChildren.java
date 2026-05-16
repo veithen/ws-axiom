@@ -36,10 +36,6 @@ public class TestSetTextWithExistingChildren extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSetTextWithExistingChildren() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

@@ -40,10 +40,6 @@ public class TestGetFirstOMChildAfterConsume extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetFirstOMChildAfterConsume() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

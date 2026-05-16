@@ -91,7 +91,6 @@ public class TestSerializeOMDataSourceWritingToOutputStream extends AxiomTestCas
     @Inject
     public TestSerializeOMDataSourceWritingToOutputStream(
             SerializationStrategy serializationStrategy, @Named("serializeParent") boolean serializeParent) {
-        super();
         this.serializationStrategy = serializationStrategy;
         this.serializeParent = serializeParent;
     }

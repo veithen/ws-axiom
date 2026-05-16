@@ -37,10 +37,6 @@ public class TestGetAttributeValue extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetAttributeValue() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

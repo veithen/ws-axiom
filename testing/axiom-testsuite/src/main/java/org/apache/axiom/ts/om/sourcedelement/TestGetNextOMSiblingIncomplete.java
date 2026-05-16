@@ -37,10 +37,6 @@ public class TestGetNextOMSiblingIncomplete extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetNextOMSiblingIncomplete() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

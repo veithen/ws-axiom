@@ -30,10 +30,6 @@ public class TestCreateOMDocument extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMDocument() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMDocument document = metaFactory.getOMFactory().createOMDocument();

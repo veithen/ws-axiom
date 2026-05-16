@@ -29,10 +29,6 @@ public class TestCreateOMDocTypeWithoutParent extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMDocTypeWithoutParent() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMDocType dtd =

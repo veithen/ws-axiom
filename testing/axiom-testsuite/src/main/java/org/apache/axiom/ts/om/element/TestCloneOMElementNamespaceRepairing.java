@@ -36,10 +36,6 @@ public class TestCloneOMElementNamespaceRepairing extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCloneOMElementNamespaceRepairing() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

@@ -37,10 +37,6 @@ public class TestGetXMLStreamReaderWithoutCachingPartiallyBuilt extends AxiomTes
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetXMLStreamReaderWithoutCachingPartiallyBuilt() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         // Note: the problem described in AXIOM-393 specifically occurred with descendants

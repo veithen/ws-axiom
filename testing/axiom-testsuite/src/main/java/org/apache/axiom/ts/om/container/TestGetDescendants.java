@@ -42,7 +42,6 @@ public class TestGetDescendants extends AxiomTestCase {
 
     @Inject
     public TestGetDescendants(OMContainerFactory containerFactory, @Named("includeSelf") boolean includeSelf) {
-        super();
         this.containerFactory = containerFactory;
         this.includeSelf = includeSelf;
     }

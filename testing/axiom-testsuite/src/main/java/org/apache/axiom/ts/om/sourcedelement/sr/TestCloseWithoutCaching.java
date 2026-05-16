@@ -44,7 +44,6 @@ public class TestCloseWithoutCaching extends AxiomTestCase {
 
     @Inject
     public TestCloseWithoutCaching(@Named("events") int events) {
-        super();
         this.events = events;
     }
 

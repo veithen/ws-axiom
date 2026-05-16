@@ -45,7 +45,6 @@ public class TestGetXMLStreamReaderOnNonRootElement extends AxiomTestCase {
 
     @Inject
     public TestGetXMLStreamReaderOnNonRootElement(@Named("cache") boolean cache) {
-        super();
         this.cache = cache;
     }
 

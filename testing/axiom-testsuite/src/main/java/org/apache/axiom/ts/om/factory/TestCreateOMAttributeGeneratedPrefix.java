@@ -35,10 +35,6 @@ public class TestCreateOMAttributeGeneratedPrefix extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMAttributeGeneratedPrefix() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

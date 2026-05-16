@@ -40,10 +40,6 @@ public class TestWriteTextTo extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestWriteTextTo() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

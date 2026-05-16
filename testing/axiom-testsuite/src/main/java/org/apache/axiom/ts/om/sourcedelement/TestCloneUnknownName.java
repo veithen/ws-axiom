@@ -43,10 +43,6 @@ public class TestCloneUnknownName extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCloneUnknownName() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

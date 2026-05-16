@@ -37,7 +37,6 @@ public class TestDetachFirstChild extends AxiomTestCase {
 
     @Inject
     public TestDetachFirstChild(@Named("build") boolean build) {
-        super();
         this.build = build;
     }
 

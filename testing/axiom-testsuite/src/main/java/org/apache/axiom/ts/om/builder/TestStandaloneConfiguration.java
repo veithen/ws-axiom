@@ -41,10 +41,6 @@ public class TestStandaloneConfiguration extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestStandaloneConfiguration() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         InputStream is = TestStandaloneConfiguration.class.getResourceAsStream("web_w_dtd2.xml");

@@ -34,10 +34,6 @@ public class TestGetChildElements extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetChildElements() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement elt = OMXMLBuilderFactory.createOMBuilder(

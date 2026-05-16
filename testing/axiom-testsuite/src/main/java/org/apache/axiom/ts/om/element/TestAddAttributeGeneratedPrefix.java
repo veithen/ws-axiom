@@ -43,7 +43,6 @@ public class TestAddAttributeGeneratedPrefix extends AxiomTestCase {
 
     @Inject
     public TestAddAttributeGeneratedPrefix(@Named("defaultNamespaceInScope") boolean defaultNamespaceInScope) {
-        super();
         this.defaultNamespaceInScope = defaultNamespaceInScope;
     }
 

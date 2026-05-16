@@ -37,10 +37,6 @@ public class TestSetDataSource extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSetDataSource() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         String payload1 = "<tns:myPayload xmlns:tns=\"urn://test\">Payload One</tns:myPayload>";

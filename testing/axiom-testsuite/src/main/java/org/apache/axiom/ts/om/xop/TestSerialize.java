@@ -44,7 +44,6 @@ public class TestSerialize extends AxiomTestCase {
 
     @Inject
     public TestSerialize(@Named("base64") boolean base64) {
-        super();
         this.base64 = base64;
     }
 

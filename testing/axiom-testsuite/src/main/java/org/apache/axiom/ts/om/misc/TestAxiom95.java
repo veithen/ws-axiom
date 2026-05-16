@@ -31,10 +31,6 @@ public class TestAxiom95 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestAxiom95() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(

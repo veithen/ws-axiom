@@ -45,7 +45,6 @@ public class TestAddAttributeWithoutNamespace extends AxiomTestCase {
     @Inject
     public TestAddAttributeWithoutNamespace(
             AddAttributeStrategy addAttributeStrategy, NoNamespaceStrategy noNamespaceStrategy) {
-        super();
         this.addAttributeStrategy = addAttributeStrategy;
         this.noNamespaceStrategy = noNamespaceStrategy;
     }

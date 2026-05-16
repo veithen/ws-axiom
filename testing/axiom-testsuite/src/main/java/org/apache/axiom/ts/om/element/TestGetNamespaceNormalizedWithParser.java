@@ -38,10 +38,6 @@ public class TestGetNamespaceNormalizedWithParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetNamespaceNormalizedWithParser() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = OMXMLBuilderFactory.createOMBuilder(

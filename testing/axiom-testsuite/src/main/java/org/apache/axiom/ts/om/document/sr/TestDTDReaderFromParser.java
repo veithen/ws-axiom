@@ -44,7 +44,6 @@ public class TestDTDReaderFromParser extends AxiomTestCase {
 
     @Inject
     public TestDTDReaderFromParser(@Named("build") boolean build, @Named("cache") boolean cache) {
-        super();
         this.build = build;
         this.cache = cache;
     }

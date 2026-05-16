@@ -36,10 +36,6 @@ public class TestSetTextQNameWithoutNamespace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSetTextQNameWithoutNamespace() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

@@ -37,10 +37,6 @@ public class TestSetTextQName extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSetTextQName() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

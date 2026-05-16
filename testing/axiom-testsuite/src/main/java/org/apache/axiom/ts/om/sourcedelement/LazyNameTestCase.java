@@ -32,7 +32,6 @@ public abstract class LazyNameTestCase extends AxiomTestCase {
     protected final QName qname;
 
     public LazyNameTestCase(OMSourcedElementVariant variant, QName qname) {
-        super();
         this.variant = variant;
         this.qname = qname;
     }

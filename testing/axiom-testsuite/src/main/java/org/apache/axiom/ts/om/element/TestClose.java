@@ -33,10 +33,6 @@ public class TestClose extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestClose() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement rootElement =

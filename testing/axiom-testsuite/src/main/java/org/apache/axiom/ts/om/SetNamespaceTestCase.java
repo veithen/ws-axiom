@@ -82,7 +82,6 @@ public abstract class SetNamespaceTestCase extends AxiomTestCase {
      * @param params the test parameters
      */
     public SetNamespaceTestCase(Params params) {
-        super();
         this.params = params;
     }
 

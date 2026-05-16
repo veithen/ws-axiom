@@ -37,10 +37,6 @@ public class TestGetOMDocumentElementWithParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetOMDocumentElementWithParser() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

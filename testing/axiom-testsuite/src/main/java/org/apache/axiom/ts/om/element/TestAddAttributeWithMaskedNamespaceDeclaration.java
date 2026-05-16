@@ -56,7 +56,6 @@ public class TestAddAttributeWithMaskedNamespaceDeclaration extends AxiomTestCas
 
     @Inject
     public TestAddAttributeWithMaskedNamespaceDeclaration(AddAttributeStrategy strategy) {
-        super();
         this.strategy = strategy;
     }
 

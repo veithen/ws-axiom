@@ -47,10 +47,6 @@ public class TestBuilder extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestBuilder() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         String soap11Message = "<?xml version='1.0' ?>"

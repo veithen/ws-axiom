@@ -54,7 +54,6 @@ public class TestGetElementTextFromParser extends AxiomTestCase {
     @Inject
     public TestGetElementTextFromParser(
             BuilderFactory builderFactory, @Named("cache") boolean cache, @Named("build") int build) {
-        super();
         this.builderFactory = builderFactory;
         this.cache = cache;
         this.build = build;

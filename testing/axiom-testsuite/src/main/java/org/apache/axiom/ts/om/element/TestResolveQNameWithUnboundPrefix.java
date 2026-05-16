@@ -34,10 +34,6 @@ public class TestResolveQNameWithUnboundPrefix extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestResolveQNameWithUnboundPrefix() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element =

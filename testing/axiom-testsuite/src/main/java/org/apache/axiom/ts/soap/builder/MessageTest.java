@@ -33,7 +33,6 @@ public class MessageTest extends AxiomTestCase {
 
     @Inject
     public MessageTest(SOAPSample message) {
-        super();
         this.message = message;
     }
 

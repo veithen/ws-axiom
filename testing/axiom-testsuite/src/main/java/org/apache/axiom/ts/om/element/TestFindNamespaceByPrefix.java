@@ -31,10 +31,6 @@ public class TestFindNamespaceByPrefix extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestFindNamespaceByPrefix() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement root = AXIOMUtil.stringToOM(metaFactory.getOMFactory(), "<a:root xmlns:a='urn:a'><child/></a:root>");

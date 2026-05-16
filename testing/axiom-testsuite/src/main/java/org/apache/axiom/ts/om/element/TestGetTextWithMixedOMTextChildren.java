@@ -35,10 +35,6 @@ public class TestGetTextWithMixedOMTextChildren extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetTextWithMixedOMTextChildren() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

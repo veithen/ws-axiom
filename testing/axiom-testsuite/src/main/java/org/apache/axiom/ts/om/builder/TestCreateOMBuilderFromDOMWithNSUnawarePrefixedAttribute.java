@@ -32,10 +32,6 @@ public class TestCreateOMBuilderFromDOMWithNSUnawarePrefixedAttribute extends Ax
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMBuilderFromDOMWithNSUnawarePrefixedAttribute() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         Element domElement = DOMImplementation.XERCES.newDocument().createElementNS(null, "test");

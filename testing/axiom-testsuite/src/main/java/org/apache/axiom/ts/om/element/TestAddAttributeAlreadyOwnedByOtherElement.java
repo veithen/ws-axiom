@@ -36,10 +36,6 @@ public class TestAddAttributeAlreadyOwnedByOtherElement extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestAddAttributeAlreadyOwnedByOtherElement() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

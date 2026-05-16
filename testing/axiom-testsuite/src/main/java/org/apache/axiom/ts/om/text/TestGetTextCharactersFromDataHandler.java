@@ -38,10 +38,6 @@ public class TestGetTextCharactersFromDataHandler extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetTextCharactersFromDataHandler() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         Blob blob = new TextBlob("test content", StandardCharsets.UTF_8);

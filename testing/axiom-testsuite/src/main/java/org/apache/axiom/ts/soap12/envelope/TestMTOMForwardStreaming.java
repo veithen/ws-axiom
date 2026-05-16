@@ -52,7 +52,6 @@ public class TestMTOMForwardStreaming extends AxiomTestCase {
 
     @Inject
     public TestMTOMForwardStreaming(@Named("buildSOAPPart") boolean buildSOAPPart) {
-        super();
         this.buildSOAPPart = buildSOAPPart;
     }
 

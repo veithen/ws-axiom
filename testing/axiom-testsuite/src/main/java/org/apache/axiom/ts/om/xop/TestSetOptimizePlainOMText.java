@@ -42,10 +42,6 @@ public class TestSetOptimizePlainOMText extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSetOptimizePlainOMText() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

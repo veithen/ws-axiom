@@ -69,7 +69,6 @@ public class TestGetSAXSourceIdentityTransformOnFragment extends AxiomTestCase {
     @Inject
     public TestGetSAXSourceIdentityTransformOnFragment(
             XSLTImplementation xsltImplementation, @Named("cache") boolean cache) {
-        super();
         this.xsltImplementation = xsltImplementation;
         this.cache = cache;
     }

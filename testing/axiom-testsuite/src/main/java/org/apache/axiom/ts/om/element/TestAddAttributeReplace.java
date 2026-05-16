@@ -44,7 +44,6 @@ public class TestAddAttributeReplace extends AxiomTestCase {
 
     @Inject
     public TestAddAttributeReplace(AddAttributeStrategy strategy) {
-        super();
         this.strategy = strategy;
     }
 

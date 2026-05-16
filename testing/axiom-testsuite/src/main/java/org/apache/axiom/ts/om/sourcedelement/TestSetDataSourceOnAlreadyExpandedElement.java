@@ -31,10 +31,6 @@ public class TestSetDataSourceOnAlreadyExpandedElement extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSetDataSourceOnAlreadyExpandedElement() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMSourcedElement element =

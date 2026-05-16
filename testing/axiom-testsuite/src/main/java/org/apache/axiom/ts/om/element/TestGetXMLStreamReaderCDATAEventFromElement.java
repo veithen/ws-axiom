@@ -33,10 +33,6 @@ public class TestGetXMLStreamReaderCDATAEventFromElement extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetXMLStreamReaderCDATAEventFromElement() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory omfactory = metaFactory.getOMFactory();

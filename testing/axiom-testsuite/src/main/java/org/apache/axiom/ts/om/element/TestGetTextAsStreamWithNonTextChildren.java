@@ -32,10 +32,6 @@ public class TestGetTextAsStreamWithNonTextChildren extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetTextAsStreamWithNonTextChildren() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(metaFactory.getOMFactory(), "<a>A<b>B</b>C</a>");

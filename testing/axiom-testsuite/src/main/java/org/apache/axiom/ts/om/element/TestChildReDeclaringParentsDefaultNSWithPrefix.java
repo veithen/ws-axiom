@@ -34,10 +34,6 @@ public class TestChildReDeclaringParentsDefaultNSWithPrefix extends AxiomTestCas
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestChildReDeclaringParentsDefaultNSWithPrefix() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory fac = metaFactory.getOMFactory();

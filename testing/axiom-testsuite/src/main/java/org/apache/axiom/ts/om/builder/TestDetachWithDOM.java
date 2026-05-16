@@ -40,7 +40,6 @@ public class TestDetachWithDOM extends AxiomTestCase {
 
     @Inject
     public TestDetachWithDOM(@Named("useDOMSource") boolean useDOMSource) {
-        super();
         this.useDOMSource = useDOMSource;
     }
 

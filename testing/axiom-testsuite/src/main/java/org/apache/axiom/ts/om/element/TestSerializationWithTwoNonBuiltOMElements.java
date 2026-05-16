@@ -33,10 +33,6 @@ public class TestSerializationWithTwoNonBuiltOMElements extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSerializationWithTwoNonBuiltOMElements() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         String sampleXMLOne = "<ChildOne><Name>ChildName</Name></ChildOne>";

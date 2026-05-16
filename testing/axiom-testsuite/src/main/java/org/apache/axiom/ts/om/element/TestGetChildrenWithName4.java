@@ -36,10 +36,6 @@ public class TestGetChildrenWithName4 extends AxiomTestCase {
     private static final String NS_B = "urn://b";
     private static final String NS_C = "urn://c";
 
-    public TestGetChildrenWithName4() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         // Create a document with 2 children, each named "sample" but

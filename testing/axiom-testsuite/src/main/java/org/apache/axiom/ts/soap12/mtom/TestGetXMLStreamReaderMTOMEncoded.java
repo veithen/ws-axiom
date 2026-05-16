@@ -44,7 +44,6 @@ public class TestGetXMLStreamReaderMTOMEncoded extends AxiomTestCase {
 
     @Inject
     public TestGetXMLStreamReaderMTOMEncoded(@Named("cache") boolean cache) {
-        super();
         this.cache = cache;
     }
 

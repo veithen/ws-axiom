@@ -34,10 +34,6 @@ public class TestGetChildrenWithNamespaceURI extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetChildrenWithNamespaceURI() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = OMXMLBuilderFactory.createOMBuilder(

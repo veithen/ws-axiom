@@ -50,7 +50,6 @@ public class TestGetXMLStreamReaderWithIncompleteDescendant extends AxiomTestCas
 
     @Inject
     public TestGetXMLStreamReaderWithIncompleteDescendant(@Named("cache") boolean cache) {
-        super();
         this.cache = cache;
     }
 

@@ -36,10 +36,6 @@ public class TestHasNameWithoutNamespace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestHasNameWithoutNamespace() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMAttribute attr = metaFactory.getOMFactory().createOMAttribute("name", null, "value");

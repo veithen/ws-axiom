@@ -34,10 +34,6 @@ public class TestExpand extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestExpand() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMSourcedElement element =

@@ -37,7 +37,6 @@ public class BadInputTest extends AxiomTestCase {
 
     @Inject
     public BadInputTest(@Named("file") String file) {
-        super();
         this.file = file;
     }
 

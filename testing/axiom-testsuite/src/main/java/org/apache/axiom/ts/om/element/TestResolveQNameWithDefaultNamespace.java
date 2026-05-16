@@ -31,10 +31,6 @@ public class TestResolveQNameWithDefaultNamespace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestResolveQNameWithDefaultNamespace() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element =

@@ -38,7 +38,6 @@ public class TestDiscard extends AxiomTestCase {
 
     @Inject
     public TestDiscard(ExpansionStrategy expansionStrategy) {
-        super();
         this.expansionStrategy = expansionStrategy;
     }
 

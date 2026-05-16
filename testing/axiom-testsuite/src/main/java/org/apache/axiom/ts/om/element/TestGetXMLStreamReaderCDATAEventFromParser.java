@@ -36,10 +36,6 @@ public class TestGetXMLStreamReaderCDATAEventFromParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetXMLStreamReaderCDATAEventFromParser() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         // Create an element with a CDATA section.

@@ -38,10 +38,6 @@ public class TestCloseOnComplete extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCloseOnComplete() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         PullOMDataSource ds = new PullOMDataSource("<root><a/></root>");

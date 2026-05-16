@@ -31,10 +31,6 @@ public class TestAddChild extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestAddChild() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

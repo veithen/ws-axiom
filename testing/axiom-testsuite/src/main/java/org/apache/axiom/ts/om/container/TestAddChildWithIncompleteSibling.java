@@ -46,7 +46,6 @@ public class TestAddChildWithIncompleteSibling extends AxiomTestCase {
 
     @Inject
     public TestAddChildWithIncompleteSibling(OMContainerFactory containerFactory) {
-        super();
         this.containerFactory = containerFactory;
     }
 

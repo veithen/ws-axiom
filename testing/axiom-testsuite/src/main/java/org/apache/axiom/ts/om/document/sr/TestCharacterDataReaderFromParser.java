@@ -45,7 +45,6 @@ public class TestCharacterDataReaderFromParser extends AxiomTestCase {
 
     @Inject
     public TestCharacterDataReaderFromParser(@Named("cache") boolean cache) {
-        super();
         this.cache = cache;
     }
 

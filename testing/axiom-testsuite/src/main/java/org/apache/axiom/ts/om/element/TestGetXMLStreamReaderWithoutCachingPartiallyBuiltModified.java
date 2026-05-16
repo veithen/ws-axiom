@@ -40,10 +40,6 @@ public class TestGetXMLStreamReaderWithoutCachingPartiallyBuiltModified extends 
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetXMLStreamReaderWithoutCachingPartiallyBuiltModified() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement root = OMXMLBuilderFactory.createOMBuilder(

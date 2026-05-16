@@ -41,10 +41,6 @@ public class TestCreateOMBuilderFromDOMElement extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMBuilderFromDOMElement() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         Document document =

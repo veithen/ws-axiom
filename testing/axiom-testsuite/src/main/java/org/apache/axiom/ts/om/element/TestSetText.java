@@ -32,10 +32,6 @@ public class TestSetText extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSetText() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = metaFactory.getOMFactory().createOMElement("test", null);

@@ -33,10 +33,6 @@ public class TestGetChildrenWithLocalName extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetChildrenWithLocalName() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement elt = OMXMLBuilderFactory.createOMBuilder(

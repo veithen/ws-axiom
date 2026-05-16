@@ -43,10 +43,6 @@ public class TestGetNamespaceNormalizedWithSAXSource extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetNamespaceNormalizedWithSAXSource() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         SAXParserFactory factory = SAXParserFactory.newInstance();

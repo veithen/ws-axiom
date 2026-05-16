@@ -36,10 +36,6 @@ public class TestRemoveAttributeNotOwner extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestRemoveAttributeNotOwner() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

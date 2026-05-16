@@ -38,10 +38,6 @@ public class TestBuilderDetach extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestBuilderDetach() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         MTOMSample sample = MTOMSample.SAMPLE1;

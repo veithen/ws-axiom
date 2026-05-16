@@ -36,10 +36,6 @@ public class TestGetDocumentElementWithIllFormedDocument extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetDocumentElementWithIllFormedDocument() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMXMLParserWrapper builder =

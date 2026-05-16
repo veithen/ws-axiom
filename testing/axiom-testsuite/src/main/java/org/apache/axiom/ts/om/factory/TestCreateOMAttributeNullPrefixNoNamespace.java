@@ -37,10 +37,6 @@ public class TestCreateOMAttributeNullPrefixNoNamespace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMAttributeNullPrefixNoNamespace() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

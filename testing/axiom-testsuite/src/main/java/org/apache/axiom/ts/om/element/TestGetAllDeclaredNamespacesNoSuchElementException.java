@@ -37,10 +37,6 @@ public class TestGetAllDeclaredNamespacesNoSuchElementException extends AxiomTes
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetAllDeclaredNamespacesNoSuchElementException() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(metaFactory.getOMFactory(), "<e xmlns:p='urn:test' p:attr='test'/>");

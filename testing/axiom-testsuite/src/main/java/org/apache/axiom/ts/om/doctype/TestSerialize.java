@@ -33,10 +33,6 @@ public class TestSerialize extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSerialize() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMDocType doctype = metaFactory.getOMFactory().createOMDocType(null, "root", null, "my.dtd", null);

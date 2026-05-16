@@ -40,10 +40,6 @@ public class TestGetTextAsStreamWithNonDestructiveOMDataSource extends AxiomTest
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetTextAsStreamWithNonDestructiveOMDataSource() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

@@ -35,10 +35,6 @@ public class TestCreateOMAttributeWithInvalidNamespace1 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMAttributeWithInvalidNamespace1() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

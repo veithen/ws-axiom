@@ -34,10 +34,6 @@ public class TestDetachWithDifferentBuilder extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestDetachWithDifferentBuilder() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

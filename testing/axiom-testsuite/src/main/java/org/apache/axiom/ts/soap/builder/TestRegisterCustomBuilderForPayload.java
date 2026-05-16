@@ -47,7 +47,6 @@ public class TestRegisterCustomBuilderForPayload extends AxiomTestCase {
 
     @Inject
     public TestRegisterCustomBuilderForPayload(SOAPSample message) {
-        super();
         this.message = message;
     }
 

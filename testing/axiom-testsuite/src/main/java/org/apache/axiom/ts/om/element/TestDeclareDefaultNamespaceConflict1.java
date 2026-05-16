@@ -38,10 +38,6 @@ public class TestDeclareDefaultNamespaceConflict1 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestDeclareDefaultNamespaceConflict1() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

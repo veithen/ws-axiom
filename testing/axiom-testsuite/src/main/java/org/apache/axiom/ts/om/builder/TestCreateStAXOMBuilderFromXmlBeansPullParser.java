@@ -33,10 +33,6 @@ public class TestCreateStAXOMBuilderFromXmlBeansPullParser extends AxiomTestCase
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateStAXOMBuilderFromXmlBeansPullParser() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         URL inputUrl = TestCreateStAXOMBuilderFromXmlBeansPullParser.class.getResource("xmlvend.xml");

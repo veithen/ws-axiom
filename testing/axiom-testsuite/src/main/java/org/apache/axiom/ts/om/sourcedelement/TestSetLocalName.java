@@ -45,7 +45,6 @@ public class TestSetLocalName extends AxiomTestCase {
 
     @Inject
     public TestSetLocalName(@Named("expand") boolean expand) {
-        super();
         this.expand = expand;
     }
 

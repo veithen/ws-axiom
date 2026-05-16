@@ -34,10 +34,6 @@ public class TestObjectEqualsWithDifferentURIs extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestObjectEqualsWithDifferentURIs() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

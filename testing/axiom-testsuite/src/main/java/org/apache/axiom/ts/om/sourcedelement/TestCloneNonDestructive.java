@@ -42,7 +42,6 @@ public class TestCloneNonDestructive extends AxiomTestCase {
 
     @Inject
     public TestCloneNonDestructive(@Named("copyOMDataSources") boolean copyOMDataSources) {
-        super();
         this.copyOMDataSources = copyOMDataSources;
     }
 

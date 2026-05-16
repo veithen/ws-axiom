@@ -36,10 +36,6 @@ public class TestAddChildWithParent extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestAddChildWithParent() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

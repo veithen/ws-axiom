@@ -37,10 +37,6 @@ public class TestGetFirstChildWithNameOnIncompleteElement extends AxiomTestCase 
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetFirstChildWithNameOnIncompleteElement() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = OMXMLBuilderFactory.createOMBuilder(

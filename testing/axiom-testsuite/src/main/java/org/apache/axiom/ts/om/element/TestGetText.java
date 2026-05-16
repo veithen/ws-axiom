@@ -35,10 +35,6 @@ public class TestGetText extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetText() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

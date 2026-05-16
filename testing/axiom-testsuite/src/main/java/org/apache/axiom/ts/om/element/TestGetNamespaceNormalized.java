@@ -51,7 +51,6 @@ public class TestGetNamespaceNormalized extends AxiomTestCase {
 
     @Inject
     public TestGetNamespaceNormalized(@Named("useNull") boolean useNull) {
-        super();
         this.useNull = useNull;
     }
 

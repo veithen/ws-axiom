@@ -48,7 +48,6 @@ public class TestGetXMLStreamReaderWithPreserveNamespaceContext extends AxiomTes
     @Inject
     public TestGetXMLStreamReaderWithPreserveNamespaceContext(
             @Named("preserveNamespaceContext") boolean preserveNamespaceContext, @Named("cache") boolean cache) {
-        super();
         this.preserveNamespaceContext = preserveNamespaceContext;
         this.cache = cache;
     }

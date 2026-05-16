@@ -36,10 +36,6 @@ public class TestIsCompleteWithParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestIsCompleteWithParser() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = OMXMLBuilderFactory.createOMBuilder(

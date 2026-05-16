@@ -32,10 +32,6 @@ public class TestDeclareNamespace1 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestDeclareNamespace1() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = metaFactory.getOMFactory().createOMElement(new QName("test"));

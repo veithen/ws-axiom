@@ -42,7 +42,6 @@ public class TestDetach extends AxiomTestCase {
 
     @Inject
     public TestDetach(@Named("document") boolean document, @Named("build") boolean build) {
-        super();
         this.document = document;
         this.build = build;
     }

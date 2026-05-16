@@ -37,10 +37,6 @@ public class TestBlobOMDataSource extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestBlobOMDataSource() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

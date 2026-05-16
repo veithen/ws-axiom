@@ -44,7 +44,6 @@ public class TestGetTextBinary extends AxiomTestCase {
 
     @Inject
     public TestGetTextBinary(@Named("compact") boolean compact) {
-        super();
         this.compact = compact;
     }
 

@@ -43,7 +43,6 @@ public class TestDetach extends AxiomTestCase {
 
     @Inject
     public TestDetach(ExpansionStrategy expansionStrategy) {
-        super();
         this.expansionStrategy = expansionStrategy;
     }
 

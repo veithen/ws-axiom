@@ -36,10 +36,6 @@ public class TestSerializeAndConsumePartiallyBuilt extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSerializeAndConsumePartiallyBuilt() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         String xml =

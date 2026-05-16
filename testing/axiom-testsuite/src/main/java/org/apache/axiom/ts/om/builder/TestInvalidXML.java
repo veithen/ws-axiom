@@ -34,10 +34,6 @@ public class TestInvalidXML extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestInvalidXML() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         XMLStreamReader originalReader =

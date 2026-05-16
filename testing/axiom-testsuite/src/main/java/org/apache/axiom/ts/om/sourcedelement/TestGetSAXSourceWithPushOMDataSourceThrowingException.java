@@ -36,10 +36,6 @@ public class TestGetSAXSourceWithPushOMDataSourceThrowingException extends Axiom
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetSAXSourceWithPushOMDataSourceThrowingException() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = metaFactory.getOMFactory().createOMElement(new AbstractPushOMDataSource() {

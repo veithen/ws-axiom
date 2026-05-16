@@ -31,10 +31,6 @@ public class TestSetLocalName extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSetLocalName() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

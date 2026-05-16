@@ -37,7 +37,6 @@ public class TestGetNamespaceContext extends AxiomTestCase {
 
     @Inject
     public TestGetNamespaceContext(@Named("cache") boolean cache) {
-        super();
         this.cache = cache;
     }
 

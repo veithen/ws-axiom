@@ -35,10 +35,6 @@ public class TestCloseWithSystemId extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCloseWithSystemId() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         InstrumentedDataProvider dataProvider = new InstrumentedDataProvider(XMLSample.SIMPLE.getUrl()::openStream);

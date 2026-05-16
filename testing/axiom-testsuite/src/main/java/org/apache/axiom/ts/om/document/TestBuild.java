@@ -33,10 +33,6 @@ public class TestBuild extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestBuild() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         InstrumentedInputStream in = new InstrumentedInputStream(XMLSample.LARGE.getInputStream());

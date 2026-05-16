@@ -25,7 +25,6 @@ public abstract class ConformanceTestCase extends AxiomTestCase {
     protected final XMLSample file;
 
     public ConformanceTestCase(XMLSample file) {
-        super();
         this.file = file;
     }
 }

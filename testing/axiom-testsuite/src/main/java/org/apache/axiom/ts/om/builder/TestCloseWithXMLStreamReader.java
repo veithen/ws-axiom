@@ -35,10 +35,6 @@ public class TestCloseWithXMLStreamReader extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCloseWithXMLStreamReader() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         InputStream in = XMLSample.SIMPLE.getInputStream();

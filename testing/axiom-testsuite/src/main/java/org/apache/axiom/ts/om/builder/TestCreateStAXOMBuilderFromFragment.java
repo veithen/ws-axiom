@@ -42,10 +42,6 @@ public class TestCreateStAXOMBuilderFromFragment extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateStAXOMBuilderFromFragment() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         XMLStreamReader reader = StAXUtils.createXMLStreamReader(new StringReader("<a><b>text</b></a>"));

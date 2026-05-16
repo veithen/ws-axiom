@@ -31,7 +31,6 @@ public class TestAXIOMXPath extends AxiomTestCase {
 
     @Inject
     public TestAXIOMXPath(@Named("methodName") String methodName) {
-        super();
         test = new AXIOMXPathTestCase(methodName, metaFactory);
     }
 

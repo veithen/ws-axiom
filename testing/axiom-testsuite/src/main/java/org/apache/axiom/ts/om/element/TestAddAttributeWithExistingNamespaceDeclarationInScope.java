@@ -42,7 +42,6 @@ public class TestAddAttributeWithExistingNamespaceDeclarationInScope extends Axi
 
     @Inject
     public TestAddAttributeWithExistingNamespaceDeclarationInScope(AddAttributeStrategy strategy) {
-        super();
         this.strategy = strategy;
     }
 

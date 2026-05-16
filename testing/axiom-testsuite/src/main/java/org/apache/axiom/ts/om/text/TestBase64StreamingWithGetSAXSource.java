@@ -74,10 +74,6 @@ public class TestBase64StreamingWithGetSAXSource extends AxiomTestCase {
         }
     }
 
-    public TestBase64StreamingWithGetSAXSource() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

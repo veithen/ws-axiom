@@ -38,10 +38,6 @@ public class TestGetXMLStreamReaderWithCaching extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetXMLStreamReaderWithCaching() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(

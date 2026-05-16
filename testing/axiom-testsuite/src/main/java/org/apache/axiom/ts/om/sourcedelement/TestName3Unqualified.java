@@ -38,10 +38,6 @@ public class TestName3Unqualified extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestName3Unqualified() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory f = metaFactory.getOMFactory();

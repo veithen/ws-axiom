@@ -37,7 +37,6 @@ public class TestGetBuilderNull extends AxiomTestCase {
 
     @Inject
     public TestGetBuilderNull(OMContainerFactory containerFactory) {
-        super();
         this.containerFactory = containerFactory;
     }
 

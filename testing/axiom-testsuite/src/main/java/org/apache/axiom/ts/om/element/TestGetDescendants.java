@@ -37,7 +37,6 @@ public class TestGetDescendants extends AxiomTestCase {
 
     @Inject
     public TestGetDescendants(@Named("includeSelf") boolean includeSelf) {
-        super();
         this.includeSelf = includeSelf;
     }
 

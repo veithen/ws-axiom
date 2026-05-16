@@ -29,10 +29,6 @@ public class TestCreateOMProcessingInstructionWithoutParent extends AxiomTestCas
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMProcessingInstructionWithoutParent() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMProcessingInstruction pi = metaFactory.getOMFactory().createOMProcessingInstruction(null, "mypi", "data");

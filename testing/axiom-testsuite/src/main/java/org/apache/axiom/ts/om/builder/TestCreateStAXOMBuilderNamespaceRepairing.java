@@ -39,10 +39,6 @@ public class TestCreateStAXOMBuilderNamespaceRepairing extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateStAXOMBuilderNamespaceRepairing() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         XMLStreamReader reader = StAXUtils.createXMLStreamReader(

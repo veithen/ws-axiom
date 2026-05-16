@@ -40,10 +40,6 @@ public class TestSerializeAndConsume extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSerializeAndConsume() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

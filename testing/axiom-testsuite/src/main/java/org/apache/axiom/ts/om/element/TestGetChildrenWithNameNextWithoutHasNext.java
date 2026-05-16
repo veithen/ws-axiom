@@ -40,10 +40,6 @@ public class TestGetChildrenWithNameNextWithoutHasNext extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetChildrenWithNameNextWithoutHasNext() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

@@ -35,10 +35,6 @@ public class TestSetOMDocumentElementReplaceSame extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSetOMDocumentElementReplaceSame() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

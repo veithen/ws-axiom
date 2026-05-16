@@ -33,10 +33,6 @@ public class TestComplete extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestComplete() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         // Build a root element and child OMSE

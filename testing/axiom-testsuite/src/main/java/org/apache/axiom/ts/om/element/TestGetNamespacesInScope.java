@@ -33,10 +33,6 @@ public class TestGetNamespacesInScope extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetNamespacesInScope() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element =

@@ -35,10 +35,6 @@ public class TestGetTextAsQNameWithExtraWhitespace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetTextAsQNameWithExtraWhitespace() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

@@ -39,10 +39,6 @@ public class TestGetXMLStreamReaderWithNamespaceURIInterning extends AxiomTestCa
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetXMLStreamReaderWithNamespaceURIInterning() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

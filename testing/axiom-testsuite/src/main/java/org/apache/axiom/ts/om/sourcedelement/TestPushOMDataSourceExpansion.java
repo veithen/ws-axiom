@@ -63,7 +63,6 @@ public class TestPushOMDataSourceExpansion extends AxiomTestCase {
 
     @Inject
     public TestPushOMDataSourceExpansion(PushOMDataSourceScenario scenario) {
-        super();
         this.scenario = scenario;
     }
 

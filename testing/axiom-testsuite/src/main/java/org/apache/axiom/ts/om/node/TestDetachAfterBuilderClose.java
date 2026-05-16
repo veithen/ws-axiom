@@ -31,10 +31,6 @@ public class TestDetachAfterBuilderClose extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestDetachAfterBuilderClose() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

@@ -35,10 +35,6 @@ public class TestSerializeModifiedOMSEWithNonDestructiveDataSource extends Axiom
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSerializeModifiedOMSEWithNonDestructiveDataSource() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMDataSourceExt ds = new StringOMDataSource("<element><child/></element>");

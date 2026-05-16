@@ -45,7 +45,6 @@ public class TestGetSAXResultSAXParser extends AxiomTestCase {
 
     @Inject
     public TestGetSAXResultSAXParser(SAXImplementation saxImplementation, XMLSample file) {
-        super();
         this.saxImplementation = saxImplementation;
         this.file = file;
     }

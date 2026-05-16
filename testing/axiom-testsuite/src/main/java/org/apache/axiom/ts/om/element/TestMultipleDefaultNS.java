@@ -31,10 +31,6 @@ public class TestMultipleDefaultNS extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestMultipleDefaultNS() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory omFactory = metaFactory.getOMFactory();

@@ -38,10 +38,6 @@ public class TestGetDocumentFromBuilder extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetDocumentFromBuilder() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

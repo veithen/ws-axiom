@@ -40,10 +40,6 @@ public class TestGetAllDeclaredNamespacesRemove extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetAllDeclaredNamespacesRemove() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

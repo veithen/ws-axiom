@@ -43,10 +43,6 @@ public class TestGetTextAsStreamWithoutCaching extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetTextAsStreamWithoutCaching() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         Charset charset = StandardCharsets.US_ASCII;

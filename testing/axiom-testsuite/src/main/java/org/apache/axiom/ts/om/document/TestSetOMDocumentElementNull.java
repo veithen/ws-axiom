@@ -35,10 +35,6 @@ public class TestSetOMDocumentElementNull extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSetOMDocumentElementNull() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

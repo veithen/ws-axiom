@@ -92,7 +92,6 @@ public class TestSerialization extends AxiomTestCase {
 
     @Inject
     public TestSerialization(Params params) {
-        super();
         this.params = params;
     }
 

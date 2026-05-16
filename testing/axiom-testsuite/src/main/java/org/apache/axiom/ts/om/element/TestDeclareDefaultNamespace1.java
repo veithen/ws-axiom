@@ -32,10 +32,6 @@ public class TestDeclareDefaultNamespace1 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestDeclareDefaultNamespace1() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         /**

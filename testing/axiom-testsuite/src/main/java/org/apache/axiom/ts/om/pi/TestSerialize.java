@@ -33,10 +33,6 @@ public class TestSerialize extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestSerialize() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMProcessingInstruction pi = metaFactory.getOMFactory().createOMProcessingInstruction(null, "target", "data");

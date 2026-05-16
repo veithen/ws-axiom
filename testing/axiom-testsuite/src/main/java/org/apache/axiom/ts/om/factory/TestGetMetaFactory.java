@@ -33,10 +33,6 @@ public class TestGetMetaFactory extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetMetaFactory() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         assertThat(metaFactory.getOMFactory().getMetaFactory()).isSameAs(metaFactory);

@@ -37,7 +37,6 @@ public class TestCreateOMBuilderFromDOMWithNSUnawareNamespaceDeclaration extends
 
     @Inject
     public TestCreateOMBuilderFromDOMWithNSUnawareNamespaceDeclaration(@Named("prefix") String prefix) {
-        super();
         this.prefix = prefix;
     }
 

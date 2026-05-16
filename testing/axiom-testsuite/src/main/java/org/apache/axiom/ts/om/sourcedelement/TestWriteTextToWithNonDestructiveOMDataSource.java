@@ -39,10 +39,6 @@ public class TestWriteTextToWithNonDestructiveOMDataSource extends AxiomTestCase
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestWriteTextToWithNonDestructiveOMDataSource() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

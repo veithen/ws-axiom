@@ -31,10 +31,6 @@ public class TestChildReDeclaringGrandParentsDefaultNSWithPrefix extends AxiomTe
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestChildReDeclaringGrandParentsDefaultNSWithPrefix() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory fac = metaFactory.getOMFactory();

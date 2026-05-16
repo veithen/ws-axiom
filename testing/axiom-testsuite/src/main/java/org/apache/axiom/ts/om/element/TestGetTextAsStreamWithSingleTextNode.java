@@ -34,10 +34,6 @@ public class TestGetTextAsStreamWithSingleTextNode extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetTextAsStreamWithSingleTextNode() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

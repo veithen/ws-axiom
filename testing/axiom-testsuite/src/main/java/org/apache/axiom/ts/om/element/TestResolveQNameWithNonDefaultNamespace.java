@@ -31,10 +31,6 @@ public class TestResolveQNameWithNonDefaultNamespace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestResolveQNameWithNonDefaultNamespace() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(metaFactory.getOMFactory(), "<root xmlns:p='urn:ns'/>");

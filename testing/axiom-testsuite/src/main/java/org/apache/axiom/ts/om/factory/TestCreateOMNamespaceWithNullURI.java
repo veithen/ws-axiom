@@ -28,10 +28,6 @@ public class TestCreateOMNamespaceWithNullURI extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestCreateOMNamespaceWithNullURI() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         assertThatThrownBy(() -> metaFactory.getOMFactory().createOMNamespace(null, "t"))

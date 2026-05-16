@@ -31,10 +31,6 @@ public class TestHashCode extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestHashCode() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OMFactory factory = metaFactory.getOMFactory();

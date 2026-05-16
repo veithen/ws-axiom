@@ -41,7 +41,6 @@ public class TestSerialize extends AxiomTestCase {
     @Inject
     public TestSerialize(
             SOAPSample message, ExpansionStrategy expansionStrategy, SerializationStrategy serializationStrategy) {
-        super();
         this.message = message;
         this.expansionStrategy = expansionStrategy;
         this.serializationStrategy = serializationStrategy;

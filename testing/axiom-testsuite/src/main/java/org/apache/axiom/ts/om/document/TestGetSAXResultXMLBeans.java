@@ -37,10 +37,6 @@ public class TestGetSAXResultXMLBeans extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    public TestGetSAXResultXMLBeans() {
-        super();
-    }
-
     @Override
     protected void runTest() throws Throwable {
         OrderDocument document = OrderDocument.Factory.newInstance();
