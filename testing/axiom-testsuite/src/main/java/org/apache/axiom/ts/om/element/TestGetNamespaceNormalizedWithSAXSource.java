@@ -26,7 +26,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.sax.SAXSource;
 import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamedInformationItem;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.ts.AxiomTestCase;
@@ -41,7 +41,7 @@ import org.xml.sax.InputSource;
  */
 public class TestGetNamespaceNormalizedWithSAXSource extends AxiomTestCase {
     @Inject
-    private OMMetaFactory metaFactory;
+    private OMFactory factory;
 
     @Override
     protected void runTest() throws Throwable {
@@ -50,7 +50,7 @@ public class TestGetNamespaceNormalizedWithSAXSource extends AxiomTestCase {
         factory.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
         SAXParser parser = factory.newSAXParser();
         SAXSource source = new SAXSource(parser.getXMLReader(), new InputSource(new StringReader("<root xmlns=''/>")));
-        OMElement element = OMXMLBuilderFactory.createOMBuilder(metaFactory.getOMFactory(), source)
+        OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, source)
                 .getDocumentElement();
         assertThat(element.getNamespace()).isNull();
     }

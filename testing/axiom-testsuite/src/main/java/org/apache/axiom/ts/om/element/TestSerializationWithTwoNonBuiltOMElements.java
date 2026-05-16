@@ -24,14 +24,13 @@ import com.google.inject.Inject;
 import java.io.StringReader;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
-import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.ts.AxiomTestCase;
 
 /** Regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-65">AXIOM-65</a>. */
 public class TestSerializationWithTwoNonBuiltOMElements extends AxiomTestCase {
     @Inject
-    private OMMetaFactory metaFactory;
+    private OMFactory factory;
 
     @Override
     protected void runTest() throws Throwable {
@@ -40,9 +39,8 @@ public class TestSerializationWithTwoNonBuiltOMElements extends AxiomTestCase {
 
         String expectedXML =
                 "<Root><ChildOne><Name>ChildName</Name></ChildOne><ChildTwo><Name>ChildName</Name></ChildTwo></Root>";
-        OMFactory omFactory = metaFactory.getOMFactory();
 
-        OMElement rootElement = omFactory.createOMElement("Root", null);
+        OMElement rootElement = factory.createOMElement("Root", null);
         OMElement childOne = OMXMLBuilderFactory.createOMBuilder(omFactory, new StringReader(sampleXMLOne))
                 .getDocumentElement(true);
         rootElement.addChild(childOne);

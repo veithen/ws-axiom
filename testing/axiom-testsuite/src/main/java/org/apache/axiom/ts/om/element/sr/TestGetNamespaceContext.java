@@ -25,13 +25,13 @@ import com.google.inject.name.Named;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.stream.XMLStreamReader;
 import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestGetNamespaceContext extends AxiomTestCase {
     @Inject
-    private OMMetaFactory metaFactory;
+    private OMFactory factory;
 
     private final boolean cache;
 
@@ -43,7 +43,7 @@ public class TestGetNamespaceContext extends AxiomTestCase {
     @Override
     protected void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(
-                metaFactory.getOMFactory(), "<a xmlns='urn:ns1' xmlns:ns2='urn:ns2'><b xmlns:ns3='urn:ns3'/></a>");
+                factory, "<a xmlns='urn:ns1' xmlns:ns2='urn:ns2'><b xmlns:ns3='urn:ns3'/></a>");
         XMLStreamReader stream = cache ? element.getXMLStreamReader() : element.getXMLStreamReaderWithoutCaching();
         stream.next();
         assertThat(stream.next()).isEqualTo(XMLStreamReader.START_ELEMENT);

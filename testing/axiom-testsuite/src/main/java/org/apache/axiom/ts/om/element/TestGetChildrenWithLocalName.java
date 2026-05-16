@@ -24,19 +24,19 @@ import com.google.inject.Inject;
 import java.util.Iterator;
 import javax.xml.namespace.QName;
 import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.ts.AxiomTestCase;
 import org.apache.axiom.ts.xml.XMLSample;
 
 public class TestGetChildrenWithLocalName extends AxiomTestCase {
     @Inject
-    private OMMetaFactory metaFactory;
+    private OMFactory factory;
 
     @Override
     protected void runTest() throws Throwable {
         OMElement elt = OMXMLBuilderFactory.createOMBuilder(
-                        metaFactory.getOMFactory(), XMLSample.SIMPLE.getInputStream())
+                        factory, XMLSample.SIMPLE.getInputStream())
                 .getDocumentElement()
                 .getFirstElement();
         Iterator<OMElement> it = elt.getChildrenWithLocalName("subelement");
