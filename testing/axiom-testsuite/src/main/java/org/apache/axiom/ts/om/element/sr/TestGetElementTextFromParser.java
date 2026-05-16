@@ -25,6 +25,7 @@ import com.google.inject.name.Named;
 import java.io.StringReader;
 import java.util.Iterator;
 import javax.xml.stream.XMLStreamReader;
+import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMNode;
@@ -44,6 +45,10 @@ public class TestGetElementTextFromParser extends AxiomTestCase {
     @Named("cache")
     private boolean cache;
 
+    /**
+     * The number of descendants that should be built before calling {@link
+     * OMContainer#getXMLStreamReader(boolean)}.
+     */
     @Inject
     @Named("build")
     private int build;

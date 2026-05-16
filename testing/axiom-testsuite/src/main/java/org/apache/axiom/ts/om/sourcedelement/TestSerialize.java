@@ -43,27 +43,36 @@ public class TestSerialize extends AxiomTestCase {
     @Inject
     private OMFactory factory;
 
+    /**
+     * Specifies whether the data source to be used extends {@link AbstractPullOMDataSource} (<code>
+     * false</code>) or {@link AbstractPushOMDataSource} (<code>true</code>).
+     */
     @Inject
     @Named("push")
     private boolean push;
 
+    /** Specifies if the {@link OMDataSource} is destructive or not. */
     @Inject
     @Named("destructive")
     private boolean destructive;
 
+    /** Specifies if and how the {@link OMSourcedElement} is to be placed inside an {@link OMContainer}. */
     @Inject
     private ElementContext elementContext;
 
     @Inject
     private ExpansionStrategy expansionStrategy;
 
+    /** The serialization strategy to test. */
     @Inject
     private SerializationStrategy serializationStrategy;
 
+    /** Specifies if the parent of the {@link OMSourcedElement} should be serialized instead of the {@link OMSourcedElement} itself. */
     @Inject
     @Named("serializeParent")
     private boolean serializeParent;
 
+    /** The number of times the {@link OMSourcedElement} will be serialized; the only meaningful values are 1 and 2. */
     @Inject
     @Named("count")
     private int count;
