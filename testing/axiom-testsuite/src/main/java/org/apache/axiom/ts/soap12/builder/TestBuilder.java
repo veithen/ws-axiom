@@ -50,6 +50,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestBuilder extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestBuilder() {
         super();
     }

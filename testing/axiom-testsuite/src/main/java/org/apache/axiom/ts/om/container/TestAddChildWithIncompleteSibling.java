@@ -41,10 +41,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestAddChildWithIncompleteSibling extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final OMContainerFactory containerFactory;
 
     @Inject
-    public TestAddChildWithIncompleteSibling( OMContainerFactory containerFactory) {
+    public TestAddChildWithIncompleteSibling(OMContainerFactory containerFactory) {
         super();
         this.containerFactory = containerFactory;
     }

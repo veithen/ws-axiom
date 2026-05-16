@@ -32,10 +32,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class BadInputTest extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final String file;
 
     @Inject
-    public BadInputTest( @Named("file") String file) {
+    public BadInputTest(@Named("file") String file) {
         super();
         this.file = file;
     }

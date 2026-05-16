@@ -40,6 +40,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestDiscardPartiallyBuilt extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestDiscardPartiallyBuilt() {
         super();
     }

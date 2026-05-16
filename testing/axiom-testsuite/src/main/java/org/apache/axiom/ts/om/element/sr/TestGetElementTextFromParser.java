@@ -37,6 +37,7 @@ import org.xml.sax.InputSource;
 public class TestGetElementTextFromParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final BuilderFactory builderFactory;
     private final boolean cache;
     private final int build;
@@ -52,9 +53,7 @@ public class TestGetElementTextFromParser extends AxiomTestCase {
      */
     @Inject
     public TestGetElementTextFromParser(
-            BuilderFactory builderFactory,
-            @Named("cache") boolean cache,
-            @Named("build") int build) {
+            BuilderFactory builderFactory, @Named("cache") boolean cache, @Named("build") int build) {
         super();
         this.builderFactory = builderFactory;
         this.cache = cache;

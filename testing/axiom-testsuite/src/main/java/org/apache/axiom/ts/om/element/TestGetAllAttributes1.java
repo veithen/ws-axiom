@@ -31,6 +31,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetAllAttributes1 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetAllAttributes1() {
         super();
     }

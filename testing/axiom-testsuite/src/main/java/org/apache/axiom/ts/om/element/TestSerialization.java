@@ -50,6 +50,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestSerialization extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private static final String NS = "urn:ns";
     private static final String PREFIX = "p";
 
@@ -90,7 +91,7 @@ public class TestSerialization extends AxiomTestCase {
     private final Params params;
 
     @Inject
-    public TestSerialization( Params params) {
+    public TestSerialization(Params params) {
         super();
         this.params = params;
     }

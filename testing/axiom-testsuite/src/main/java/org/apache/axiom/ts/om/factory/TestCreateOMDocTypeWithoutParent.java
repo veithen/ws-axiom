@@ -28,6 +28,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestCreateOMDocTypeWithoutParent extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestCreateOMDocTypeWithoutParent() {
         super();
     }

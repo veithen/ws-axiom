@@ -30,6 +30,7 @@ import org.apache.axiom.ts.om.DigestTestCase;
 public class TestDigest extends DigestTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public record Params(String file, String algorithm, String expectedDigest) {}
 
     public static final ImmutableList<Params> PARAMS = ImmutableList.of(
@@ -41,7 +42,7 @@ public class TestDigest extends DigestTestCase {
     private final Params params;
 
     @Inject
-    public TestDigest( Params params) {
+    public TestDigest(Params params) {
         super(params.algorithm(), params.expectedDigest());
         this.params = params;
     }

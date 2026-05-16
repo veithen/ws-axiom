@@ -42,10 +42,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestSetOptimize extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean optimize;
 
     @Inject
-    public TestSetOptimize( @Named("optimize") boolean optimize) {
+    public TestSetOptimize(@Named("optimize") boolean optimize) {
         super();
         this.optimize = optimize;
     }

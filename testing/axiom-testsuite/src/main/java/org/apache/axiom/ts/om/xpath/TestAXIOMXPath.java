@@ -20,16 +20,17 @@ package org.apache.axiom.ts.om.xpath;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import org.apache.axiom.ts.AxiomTestCase;
 import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestAXIOMXPath extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final AXIOMXPathTestCase test;
 
     @Inject
-    public TestAXIOMXPath( @Named("methodName") String methodName) {
+    public TestAXIOMXPath(@Named("methodName") String methodName) {
         super();
         test = new AXIOMXPathTestCase(methodName, metaFactory);
     }

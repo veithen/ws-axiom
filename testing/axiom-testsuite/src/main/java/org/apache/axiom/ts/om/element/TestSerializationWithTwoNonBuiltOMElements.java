@@ -32,6 +32,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestSerializationWithTwoNonBuiltOMElements extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestSerializationWithTwoNonBuiltOMElements() {
         super();
     }

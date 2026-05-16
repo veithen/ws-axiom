@@ -42,6 +42,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestCloneUnknownName extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestCloneUnknownName() {
         super();
     }

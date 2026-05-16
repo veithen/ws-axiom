@@ -47,6 +47,7 @@ import org.xml.sax.helpers.DefaultHandler;
 public class TestBase64StreamingWithGetSAXSource extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private static class Base64Comparator extends DefaultHandler {
         private final Writer out;
 

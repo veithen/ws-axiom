@@ -33,6 +33,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetChildrenRemove2 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetChildrenRemove2() {
         super();
     }

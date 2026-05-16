@@ -31,6 +31,7 @@ import org.xml.sax.InputSource;
 public class TestDetachWithSAXSource extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestDetachWithSAXSource() {
         super();
     }

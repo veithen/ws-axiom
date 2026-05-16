@@ -34,10 +34,11 @@ import org.apache.axiom.ts.xml.XMLSample;
 public class TestGetSAXResult extends ConformanceTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final XSLTImplementation xsltImplementation;
 
     @Inject
-    public TestGetSAXResult( XSLTImplementation xsltImplementation, XMLSample file) {
+    public TestGetSAXResult(XSLTImplementation xsltImplementation, XMLSample file) {
         super(file);
         this.xsltImplementation = xsltImplementation;
     }

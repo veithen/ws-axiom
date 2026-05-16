@@ -32,6 +32,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetNamespace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetNamespace() {
         super();
     }

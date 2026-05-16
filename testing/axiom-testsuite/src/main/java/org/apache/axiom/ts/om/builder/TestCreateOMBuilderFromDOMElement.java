@@ -40,6 +40,7 @@ import org.xml.sax.InputSource;
 public class TestCreateOMBuilderFromDOMElement extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestCreateOMBuilderFromDOMElement() {
         super();
     }

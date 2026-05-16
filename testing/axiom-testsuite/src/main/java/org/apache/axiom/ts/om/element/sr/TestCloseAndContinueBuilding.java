@@ -42,10 +42,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestCloseAndContinueBuilding extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean cache;
 
     @Inject
-    public TestCloseAndContinueBuilding( @Named("cache") boolean cache) {
+    public TestCloseAndContinueBuilding(@Named("cache") boolean cache) {
         super();
         this.cache = cache;
     }

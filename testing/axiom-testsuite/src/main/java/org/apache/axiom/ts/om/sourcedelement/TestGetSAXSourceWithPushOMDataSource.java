@@ -42,13 +42,13 @@ import org.apache.axiom.ts.om.sourcedelement.push.PushOMDataSourceScenario;
 public class TestGetSAXSourceWithPushOMDataSource extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final PushOMDataSourceScenario scenario;
     private boolean serializeParent;
 
     @Inject
     public TestGetSAXSourceWithPushOMDataSource(
-            PushOMDataSourceScenario scenario,
-            @Named("serializeParent") boolean serializeParent) {
+            PushOMDataSourceScenario scenario, @Named("serializeParent") boolean serializeParent) {
         super();
         this.scenario = scenario;
         this.serializeParent = serializeParent;

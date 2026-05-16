@@ -41,13 +41,13 @@ import org.xml.sax.InputSource;
 public class TestGetDocumentElement extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final BuilderFactory builderFactory;
     private final Boolean discardDocument;
 
     @Inject
     public TestGetDocumentElement(
-            BuilderFactory builderFactory,
-            @Named("discardDocument") @Nullable Boolean discardDocument) {
+            BuilderFactory builderFactory, @Named("discardDocument") @Nullable Boolean discardDocument) {
         super();
         this.builderFactory = builderFactory;
         this.discardDocument = discardDocument;

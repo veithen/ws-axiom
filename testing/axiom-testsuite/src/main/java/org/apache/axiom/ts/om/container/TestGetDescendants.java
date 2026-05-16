@@ -36,11 +36,12 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetDescendants extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final OMContainerFactory containerFactory;
     private final boolean includeSelf;
 
     @Inject
-    public TestGetDescendants( OMContainerFactory containerFactory, @Named("includeSelf") boolean includeSelf) {
+    public TestGetDescendants(OMContainerFactory containerFactory, @Named("includeSelf") boolean includeSelf) {
         super();
         this.containerFactory = containerFactory;
         this.includeSelf = includeSelf;

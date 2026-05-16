@@ -32,10 +32,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetDescendants extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean includeSelf;
 
     @Inject
-    public TestGetDescendants( @Named("includeSelf") boolean includeSelf) {
+    public TestGetDescendants(@Named("includeSelf") boolean includeSelf) {
         super();
         this.includeSelf = includeSelf;
     }

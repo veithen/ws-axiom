@@ -45,10 +45,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetXMLStreamReaderWithIncompleteDescendant extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean cache;
 
     @Inject
-    public TestGetXMLStreamReaderWithIncompleteDescendant( @Named("cache") boolean cache) {
+    public TestGetXMLStreamReaderWithIncompleteDescendant(@Named("cache") boolean cache) {
         super();
         this.cache = cache;
     }

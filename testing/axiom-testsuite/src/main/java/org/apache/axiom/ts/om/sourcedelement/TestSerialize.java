@@ -45,6 +45,7 @@ import org.xml.sax.InputSource;
 public class TestSerialize extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean push;
     private final boolean destructive;
     private final ElementContext elementContext;

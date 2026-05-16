@@ -36,8 +36,10 @@ import org.apache.axiom.om.OMNamespace;
 public class TestCreateOMElementWithoutNamespaceNullPrefix extends CreateOMElementTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     @Inject
-    public TestCreateOMElementWithoutNamespaceNullPrefix( CreateOMElementVariant variant, CreateOMElementParentSupplier parentSupplier) {
+    public TestCreateOMElementWithoutNamespaceNullPrefix(
+            CreateOMElementVariant variant, CreateOMElementParentSupplier parentSupplier) {
         super(variant, parentSupplier);
     }
 

@@ -36,11 +36,12 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestDetach extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean document;
     private final boolean build;
 
     @Inject
-    public TestDetach( @Named("document") boolean document, @Named("build") boolean build) {
+    public TestDetach(@Named("document") boolean document, @Named("build") boolean build) {
         super();
         this.document = document;
         this.build = build;

@@ -42,6 +42,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetTextAsStreamWithoutCaching extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetTextAsStreamWithoutCaching() {
         super();
     }

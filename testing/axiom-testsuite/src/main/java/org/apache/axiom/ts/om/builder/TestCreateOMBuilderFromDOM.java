@@ -39,6 +39,7 @@ import org.xml.sax.InputSource;
 public class TestCreateOMBuilderFromDOM extends ConformanceTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final DOMImplementation implementation;
     private final Boolean expandEntityReferences;
 

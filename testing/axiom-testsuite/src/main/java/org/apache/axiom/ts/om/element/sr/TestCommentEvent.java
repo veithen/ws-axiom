@@ -34,11 +34,12 @@ import org.xml.sax.InputSource;
 public class TestCommentEvent extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final BuilderFactory builderFactory;
     private final boolean cache;
 
     @Inject
-    public TestCommentEvent( BuilderFactory builderFactory, @Named("cache") boolean cache) {
+    public TestCommentEvent(BuilderFactory builderFactory, @Named("cache") boolean cache) {
         super();
         this.builderFactory = builderFactory;
         this.cache = cache;

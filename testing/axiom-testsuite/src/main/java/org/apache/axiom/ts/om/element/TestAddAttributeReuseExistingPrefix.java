@@ -36,6 +36,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestAddAttributeReuseExistingPrefix extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestAddAttributeReuseExistingPrefix() {
         super();
     }

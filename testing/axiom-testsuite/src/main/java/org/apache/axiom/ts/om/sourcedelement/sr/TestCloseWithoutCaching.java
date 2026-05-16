@@ -39,10 +39,11 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 public class TestCloseWithoutCaching extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final int events;
 
     @Inject
-    public TestCloseWithoutCaching( @Named("events") int events) {
+    public TestCloseWithoutCaching(@Named("events") int events) {
         super();
         this.events = events;
     }

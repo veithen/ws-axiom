@@ -39,7 +39,7 @@ public abstract class DigestTestCase extends AxiomTestCase {
     private final String algorithm;
     private final String expectedDigest;
 
-    public DigestTestCase( String algorithm, String expectedDigest) {
+    public DigestTestCase(String algorithm, String expectedDigest) {
         super();
         this.algorithm = algorithm;
         this.expectedDigest = expectedDigest;

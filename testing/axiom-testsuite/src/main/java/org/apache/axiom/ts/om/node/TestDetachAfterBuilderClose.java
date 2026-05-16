@@ -30,6 +30,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestDetachAfterBuilderClose extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestDetachAfterBuilderClose() {
         super();
     }

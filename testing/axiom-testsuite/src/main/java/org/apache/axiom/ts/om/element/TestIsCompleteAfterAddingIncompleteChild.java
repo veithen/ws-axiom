@@ -36,6 +36,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestIsCompleteAfterAddingIncompleteChild extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestIsCompleteAfterAddingIncompleteChild() {
         super();
     }

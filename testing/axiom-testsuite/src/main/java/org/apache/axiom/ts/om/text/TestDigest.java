@@ -26,6 +26,7 @@ import org.apache.axiom.ts.om.DigestTestCase;
 public class TestDigest extends DigestTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestDigest() {
         super("SHA1", "91b802187b7ae7c2c858f4aa5ae5470fc50d0306");
     }

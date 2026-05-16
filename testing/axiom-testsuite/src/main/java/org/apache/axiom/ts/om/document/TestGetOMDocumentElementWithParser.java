@@ -36,6 +36,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetOMDocumentElementWithParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetOMDocumentElementWithParser() {
         super();
     }

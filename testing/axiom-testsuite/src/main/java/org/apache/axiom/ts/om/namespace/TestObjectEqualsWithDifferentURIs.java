@@ -33,6 +33,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestObjectEqualsWithDifferentURIs extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestObjectEqualsWithDifferentURIs() {
         super();
     }

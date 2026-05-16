@@ -26,7 +26,7 @@ import org.apache.axiom.om.OMSourcedElement;
 
 public class TestGetPrefix extends LazyNameTestCase {
     @Inject
-    public TestGetPrefix( OMSourcedElementVariant variant, QName qname) {
+    public TestGetPrefix(OMSourcedElementVariant variant, QName qname) {
         super(variant, qname);
     }
 

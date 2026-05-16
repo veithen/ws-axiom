@@ -39,11 +39,12 @@ import org.xml.sax.XMLReader;
 public class TestGetSAXResultSAXParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final SAXImplementation saxImplementation;
     private final XMLSample file;
 
     @Inject
-    public TestGetSAXResultSAXParser( SAXImplementation saxImplementation, XMLSample file) {
+    public TestGetSAXResultSAXParser(SAXImplementation saxImplementation, XMLSample file) {
         super();
         this.saxImplementation = saxImplementation;
         this.file = file;

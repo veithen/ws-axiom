@@ -35,8 +35,9 @@ import org.apache.axiom.om.OMNamespace;
 public class TestCreateOMElementWithoutNamespace3 extends CreateOMElementTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     @Inject
-    public TestCreateOMElementWithoutNamespace3( CreateOMElementVariant variant) {
+    public TestCreateOMElementWithoutNamespace3(CreateOMElementVariant variant) {
         super(variant, null);
     }
 

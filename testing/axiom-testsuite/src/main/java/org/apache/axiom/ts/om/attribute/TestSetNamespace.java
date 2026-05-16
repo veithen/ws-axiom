@@ -78,7 +78,7 @@ public class TestSetNamespace extends SetNamespaceTestCase {
     private final Params params;
 
     @Inject
-    public TestSetNamespace( Params params) {
+    public TestSetNamespace(Params params) {
         super(params);
         this.params = params;
     }

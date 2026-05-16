@@ -39,6 +39,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetAllDeclaredNamespacesRemove extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetAllDeclaredNamespacesRemove() {
         super();
     }

@@ -26,7 +26,7 @@ import org.apache.axiom.om.OMSourcedElement;
 
 public class TestGetLocalName extends LazyNameTestCase {
     @Inject
-    public TestGetLocalName( OMSourcedElementVariant variant, QName qname) {
+    public TestGetLocalName(OMSourcedElementVariant variant, QName qname) {
         super(variant, qname);
     }
 

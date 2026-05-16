@@ -36,6 +36,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestBlobOMDataSource extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestBlobOMDataSource() {
         super();
     }

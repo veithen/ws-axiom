@@ -31,6 +31,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetChildrenWithName4 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private static final String NS_A = "urn://a";
     private static final String NS_B = "urn://b";
     private static final String NS_C = "urn://c";

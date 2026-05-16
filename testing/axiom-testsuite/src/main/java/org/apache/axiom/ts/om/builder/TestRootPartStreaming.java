@@ -43,6 +43,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestRootPartStreaming extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestRootPartStreaming() {
         super();
     }

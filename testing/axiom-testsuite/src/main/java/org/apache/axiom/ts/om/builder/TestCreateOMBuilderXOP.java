@@ -34,11 +34,12 @@ import org.apache.axiom.ts.xml.XOPSample;
 public class TestCreateOMBuilderXOP extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final XOPSample sample;
     private final boolean build;
 
     @Inject
-    public TestCreateOMBuilderXOP( XOPSample sample, @Named("build") boolean build) {
+    public TestCreateOMBuilderXOP(XOPSample sample, @Named("build") boolean build) {
         super();
         this.sample = sample;
         this.build = build;

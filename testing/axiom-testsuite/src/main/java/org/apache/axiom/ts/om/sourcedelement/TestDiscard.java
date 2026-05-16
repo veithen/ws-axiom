@@ -33,10 +33,11 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 public class TestDiscard extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final ExpansionStrategy expansionStrategy;
 
     @Inject
-    public TestDiscard( ExpansionStrategy expansionStrategy) {
+    public TestDiscard(ExpansionStrategy expansionStrategy) {
         super();
         this.expansionStrategy = expansionStrategy;
     }

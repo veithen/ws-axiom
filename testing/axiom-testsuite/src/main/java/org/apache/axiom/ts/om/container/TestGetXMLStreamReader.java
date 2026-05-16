@@ -39,6 +39,7 @@ import org.xml.sax.InputSource;
 public class TestGetXMLStreamReader extends ConformanceTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final BuilderFactory builderFactory;
     private final OMContainerExtractor containerExtractor;
     private final boolean cache;

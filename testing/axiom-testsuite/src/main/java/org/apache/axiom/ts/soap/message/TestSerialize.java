@@ -33,15 +33,14 @@ import org.apache.axiom.ts.soap.SOAPSample;
 public class TestSerialize extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final SOAPSample message;
     private final ExpansionStrategy expansionStrategy;
     private final SerializationStrategy serializationStrategy;
 
     @Inject
     public TestSerialize(
-            SOAPSample message,
-            ExpansionStrategy expansionStrategy,
-            SerializationStrategy serializationStrategy) {
+            SOAPSample message, ExpansionStrategy expansionStrategy, SerializationStrategy serializationStrategy) {
         super();
         this.message = message;
         this.expansionStrategy = expansionStrategy;

@@ -43,14 +43,13 @@ import org.xml.sax.InputSource;
 public class TestSerialize extends ConformanceTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final OMContainerExtractor containerExtractor;
     private final SerializationStrategy serializationStrategy;
 
     @Inject
     public TestSerialize(
-            XMLSample file,
-            OMContainerExtractor containerExtractor,
-            SerializationStrategy serializationStrategy) {
+            XMLSample file, OMContainerExtractor containerExtractor, SerializationStrategy serializationStrategy) {
         super(file);
         this.containerExtractor = containerExtractor;
         this.serializationStrategy = serializationStrategy;

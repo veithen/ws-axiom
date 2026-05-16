@@ -38,13 +38,13 @@ import org.apache.axiom.ts.dimension.NoNamespaceStrategy;
 public class TestAddAttributeWithoutNamespace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final AddAttributeStrategy addAttributeStrategy;
     private final NoNamespaceStrategy noNamespaceStrategy;
 
     @Inject
     public TestAddAttributeWithoutNamespace(
-            AddAttributeStrategy addAttributeStrategy,
-            NoNamespaceStrategy noNamespaceStrategy) {
+            AddAttributeStrategy addAttributeStrategy, NoNamespaceStrategy noNamespaceStrategy) {
         super();
         this.addAttributeStrategy = addAttributeStrategy;
         this.noNamespaceStrategy = noNamespaceStrategy;

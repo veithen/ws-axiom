@@ -34,6 +34,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestCreateOMElementWithNullOMDataSource2 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestCreateOMElementWithNullOMDataSource2() {
         super();
     }

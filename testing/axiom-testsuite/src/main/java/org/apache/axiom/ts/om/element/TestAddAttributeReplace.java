@@ -39,10 +39,11 @@ import org.apache.axiom.ts.dimension.AddAttributeStrategy;
 public class TestAddAttributeReplace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final AddAttributeStrategy strategy;
 
     @Inject
-    public TestAddAttributeReplace( AddAttributeStrategy strategy) {
+    public TestAddAttributeReplace(AddAttributeStrategy strategy) {
         super();
         this.strategy = strategy;
     }

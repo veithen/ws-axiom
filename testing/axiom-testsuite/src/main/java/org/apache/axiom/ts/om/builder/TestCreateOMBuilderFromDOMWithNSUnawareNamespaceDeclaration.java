@@ -32,10 +32,11 @@ import org.w3c.dom.Element;
 public class TestCreateOMBuilderFromDOMWithNSUnawareNamespaceDeclaration extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final String prefix;
 
     @Inject
-    public TestCreateOMBuilderFromDOMWithNSUnawareNamespaceDeclaration( @Named("prefix") String prefix) {
+    public TestCreateOMBuilderFromDOMWithNSUnawareNamespaceDeclaration(@Named("prefix") String prefix) {
         super();
         this.prefix = prefix;
     }

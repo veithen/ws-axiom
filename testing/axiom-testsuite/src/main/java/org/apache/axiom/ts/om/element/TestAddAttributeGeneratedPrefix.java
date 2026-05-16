@@ -38,10 +38,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestAddAttributeGeneratedPrefix extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean defaultNamespaceInScope;
 
     @Inject
-    public TestAddAttributeGeneratedPrefix( @Named("defaultNamespaceInScope") boolean defaultNamespaceInScope) {
+    public TestAddAttributeGeneratedPrefix(@Named("defaultNamespaceInScope") boolean defaultNamespaceInScope) {
         super();
         this.defaultNamespaceInScope = defaultNamespaceInScope;
     }

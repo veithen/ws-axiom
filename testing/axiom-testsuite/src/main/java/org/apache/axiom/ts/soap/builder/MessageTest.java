@@ -28,10 +28,11 @@ import org.apache.axiom.ts.soap.SOAPSample;
 public class MessageTest extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final SOAPSample message;
 
     @Inject
-    public MessageTest( SOAPSample message) {
+    public MessageTest(SOAPSample message) {
         super();
         this.message = message;
     }

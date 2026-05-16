@@ -36,10 +36,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestCloneBinary extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private boolean fetch;
 
     @Inject
-    public TestCloneBinary( @Named("fetch") boolean fetch) {
+    public TestCloneBinary(@Named("fetch") boolean fetch) {
         super();
         this.fetch = fetch;
     }

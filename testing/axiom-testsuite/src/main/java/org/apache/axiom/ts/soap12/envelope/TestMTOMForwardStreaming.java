@@ -47,10 +47,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestMTOMForwardStreaming extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean buildSOAPPart;
 
     @Inject
-    public TestMTOMForwardStreaming( @Named("buildSOAPPart") boolean buildSOAPPart) {
+    public TestMTOMForwardStreaming(@Named("buildSOAPPart") boolean buildSOAPPart) {
         super();
         this.buildSOAPPart = buildSOAPPart;
     }

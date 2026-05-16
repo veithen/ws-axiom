@@ -34,6 +34,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestSetOMDocumentElementReplaceSame extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestSetOMDocumentElementReplaceSame() {
         super();
     }

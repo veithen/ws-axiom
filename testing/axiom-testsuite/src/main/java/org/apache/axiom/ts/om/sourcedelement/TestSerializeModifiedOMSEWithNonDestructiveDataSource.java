@@ -34,6 +34,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestSerializeModifiedOMSEWithNonDestructiveDataSource extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestSerializeModifiedOMSEWithNonDestructiveDataSource() {
         super();
     }

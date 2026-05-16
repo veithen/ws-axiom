@@ -46,10 +46,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetNamespaceNormalized extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean useNull;
 
     @Inject
-    public TestGetNamespaceNormalized( @Named("useNull") boolean useNull) {
+    public TestGetNamespaceNormalized(@Named("useNull") boolean useNull) {
         super();
         this.useNull = useNull;
     }

@@ -36,10 +36,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetNamespaceContext extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean detached;
 
     @Inject
-    public TestGetNamespaceContext( @Named("detached") boolean detached) {
+    public TestGetNamespaceContext(@Named("detached") boolean detached) {
         super();
         this.detached = detached;
     }

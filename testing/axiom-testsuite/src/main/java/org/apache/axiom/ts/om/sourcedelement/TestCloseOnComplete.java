@@ -37,6 +37,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 public class TestCloseOnComplete extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestCloseOnComplete() {
         super();
     }

@@ -30,6 +30,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestAxiom95 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestAxiom95() {
         super();
     }

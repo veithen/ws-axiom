@@ -36,6 +36,7 @@ import org.xml.sax.ext.LexicalHandler;
 public class TestGetSAXResultXMLBeans extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetSAXResultXMLBeans() {
         super();
     }

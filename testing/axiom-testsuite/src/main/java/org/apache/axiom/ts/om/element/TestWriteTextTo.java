@@ -39,6 +39,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestWriteTextTo extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestWriteTextTo() {
         super();
     }

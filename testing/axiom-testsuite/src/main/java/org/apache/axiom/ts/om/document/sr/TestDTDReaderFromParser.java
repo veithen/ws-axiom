@@ -38,11 +38,12 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestDTDReaderFromParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean build;
     private final boolean cache;
 
     @Inject
-    public TestDTDReaderFromParser( @Named("build") boolean build, @Named("cache") boolean cache) {
+    public TestDTDReaderFromParser(@Named("build") boolean build, @Named("cache") boolean cache) {
         super();
         this.build = build;
         this.cache = cache;

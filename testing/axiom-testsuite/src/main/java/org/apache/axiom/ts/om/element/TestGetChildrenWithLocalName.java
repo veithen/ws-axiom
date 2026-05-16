@@ -32,6 +32,7 @@ import org.apache.axiom.ts.xml.XMLSample;
 public class TestGetChildrenWithLocalName extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetChildrenWithLocalName() {
         super();
     }

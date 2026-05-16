@@ -37,6 +37,7 @@ import org.apache.axiom.ts.soap.MTOMSample;
 public class TestBuilderDetach extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestBuilderDetach() {
         super();
     }

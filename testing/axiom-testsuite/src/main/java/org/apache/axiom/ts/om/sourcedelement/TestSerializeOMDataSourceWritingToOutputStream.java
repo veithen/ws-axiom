@@ -46,6 +46,7 @@ import org.apache.axiom.ts.dimension.serialization.SerializeToOutputStream;
 public class TestSerializeOMDataSourceWritingToOutputStream extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private static final class OMDataSourceImpl extends AbstractPushOMDataSource {
         private boolean outputStreamUsed;
 
@@ -89,8 +90,7 @@ public class TestSerializeOMDataSourceWritingToOutputStream extends AxiomTestCas
 
     @Inject
     public TestSerializeOMDataSourceWritingToOutputStream(
-            SerializationStrategy serializationStrategy,
-            @Named("serializeParent") boolean serializeParent) {
+            SerializationStrategy serializationStrategy, @Named("serializeParent") boolean serializeParent) {
         super();
         this.serializationStrategy = serializationStrategy;
         this.serializeParent = serializeParent;

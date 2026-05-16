@@ -40,6 +40,7 @@ import org.apache.axiom.ts.om.factory.TestCreateOMAttributeWithInvalidNamespace2
 public class TestAddAttributeWithInvalidNamespace2 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestAddAttributeWithInvalidNamespace2() {
         super();
     }

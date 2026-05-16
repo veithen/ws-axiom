@@ -38,6 +38,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestRemoveChildrenUnexpanded extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestRemoveChildrenUnexpanded() {
         super();
     }

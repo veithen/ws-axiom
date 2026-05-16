@@ -30,6 +30,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestResolveQNameWithNonDefaultNamespace extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestResolveQNameWithNonDefaultNamespace() {
         super();
     }

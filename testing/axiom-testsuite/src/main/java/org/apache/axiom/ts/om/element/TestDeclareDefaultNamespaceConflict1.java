@@ -37,6 +37,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestDeclareDefaultNamespaceConflict1 extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestDeclareDefaultNamespaceConflict1() {
         super();
     }

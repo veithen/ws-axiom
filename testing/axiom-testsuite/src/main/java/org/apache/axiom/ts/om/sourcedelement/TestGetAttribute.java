@@ -37,6 +37,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 public class TestGetAttribute extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetAttribute() {
         super();
     }

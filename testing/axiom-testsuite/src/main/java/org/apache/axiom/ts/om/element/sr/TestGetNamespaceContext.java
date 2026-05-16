@@ -32,10 +32,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetNamespaceContext extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean cache;
 
     @Inject
-    public TestGetNamespaceContext( @Named("cache") boolean cache) {
+    public TestGetNamespaceContext(@Named("cache") boolean cache) {
         super();
         this.cache = cache;
     }

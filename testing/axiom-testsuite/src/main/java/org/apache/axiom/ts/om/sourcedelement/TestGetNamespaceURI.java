@@ -26,7 +26,7 @@ import org.apache.axiom.om.OMSourcedElement;
 
 public class TestGetNamespaceURI extends LazyNameTestCase {
     @Inject
-    public TestGetNamespaceURI( OMSourcedElementVariant variant, QName qname) {
+    public TestGetNamespaceURI(OMSourcedElementVariant variant, QName qname) {
         super(variant, qname);
     }
 

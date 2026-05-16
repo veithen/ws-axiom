@@ -27,6 +27,7 @@ import org.apache.axiom.ts.om.DigestTestCase;
 public class TestDigestWithNamespace extends DigestTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestDigestWithNamespace() {
         super("MD5", "76e696f6b648837de0fa32e2ad8f1250");
     }

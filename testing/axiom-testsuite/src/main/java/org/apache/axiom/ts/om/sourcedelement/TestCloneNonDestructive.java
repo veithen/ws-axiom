@@ -37,10 +37,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestCloneNonDestructive extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean copyOMDataSources;
 
     @Inject
-    public TestCloneNonDestructive( @Named("copyOMDataSources") boolean copyOMDataSources) {
+    public TestCloneNonDestructive(@Named("copyOMDataSources") boolean copyOMDataSources) {
         super();
         this.copyOMDataSources = copyOMDataSources;
     }

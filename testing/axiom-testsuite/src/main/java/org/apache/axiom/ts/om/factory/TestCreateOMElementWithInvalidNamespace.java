@@ -31,8 +31,10 @@ import org.apache.axiom.om.OMMetaFactory;
 public class TestCreateOMElementWithInvalidNamespace extends CreateOMElementTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     @Inject
-    public TestCreateOMElementWithInvalidNamespace( CreateOMElementVariant variant, CreateOMElementParentSupplier parentSupplier) {
+    public TestCreateOMElementWithInvalidNamespace(
+            CreateOMElementVariant variant, CreateOMElementParentSupplier parentSupplier) {
         super(variant, parentSupplier);
     }
 

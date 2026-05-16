@@ -35,10 +35,11 @@ import org.w3c.dom.Element;
 public class TestDetachWithDOM extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean useDOMSource;
 
     @Inject
-    public TestDetachWithDOM( @Named("useDOMSource") boolean useDOMSource) {
+    public TestDetachWithDOM(@Named("useDOMSource") boolean useDOMSource) {
         super();
         this.useDOMSource = useDOMSource;
     }

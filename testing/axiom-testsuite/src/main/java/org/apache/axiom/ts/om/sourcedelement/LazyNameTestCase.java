@@ -18,19 +18,20 @@
  */
 package org.apache.axiom.ts.om.sourcedelement;
 
+import com.google.inject.Inject;
 import javax.xml.namespace.QName;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.ts.AxiomTestCase;
-import com.google.inject.Inject;
 
 public abstract class LazyNameTestCase extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     protected final OMSourcedElementVariant variant;
     protected final QName qname;
 
-    public LazyNameTestCase( OMSourcedElementVariant variant, QName qname) {
+    public LazyNameTestCase(OMSourcedElementVariant variant, QName qname) {
         super();
         this.variant = variant;
         this.qname = qname;

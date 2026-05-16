@@ -35,6 +35,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetXMLStreamReaderCDATAEventFromParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetXMLStreamReaderCDATAEventFromParser() {
         super();
     }

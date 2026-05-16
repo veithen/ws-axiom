@@ -43,6 +43,7 @@ import org.w3c.dom.Text;
 public class TestCreateOMAttributeInterfaces extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestCreateOMAttributeInterfaces() {
         super();
     }

@@ -34,10 +34,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestSerialize extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final int type;
 
     @Inject
-    public TestSerialize( @Named("type") int type) {
+    public TestSerialize(@Named("type") int type) {
         super();
         this.type = type;
     }

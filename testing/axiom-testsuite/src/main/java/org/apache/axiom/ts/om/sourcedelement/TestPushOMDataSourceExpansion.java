@@ -39,6 +39,7 @@ import org.apache.axiom.ts.om.sourcedelement.push.PushOMDataSourceScenario;
 public class TestPushOMDataSourceExpansion extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     class PushOMDataSource extends AbstractPushOMDataSource {
         private boolean expanded;
 
@@ -61,7 +62,7 @@ public class TestPushOMDataSourceExpansion extends AxiomTestCase {
     private final PushOMDataSourceScenario scenario;
 
     @Inject
-    public TestPushOMDataSourceExpansion( PushOMDataSourceScenario scenario) {
+    public TestPushOMDataSourceExpansion(PushOMDataSourceScenario scenario) {
         super();
         this.scenario = scenario;
     }

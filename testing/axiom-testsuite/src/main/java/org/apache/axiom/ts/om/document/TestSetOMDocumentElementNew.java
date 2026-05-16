@@ -37,6 +37,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestSetOMDocumentElementNew extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestSetOMDocumentElementNew() {
         super();
     }

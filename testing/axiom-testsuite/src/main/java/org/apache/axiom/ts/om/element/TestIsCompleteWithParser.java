@@ -35,6 +35,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestIsCompleteWithParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestIsCompleteWithParser() {
         super();
     }

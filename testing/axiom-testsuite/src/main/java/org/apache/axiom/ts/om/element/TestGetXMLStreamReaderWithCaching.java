@@ -37,6 +37,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetXMLStreamReaderWithCaching extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetXMLStreamReaderWithCaching() {
         super();
     }

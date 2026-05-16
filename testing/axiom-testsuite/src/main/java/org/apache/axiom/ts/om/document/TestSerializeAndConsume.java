@@ -39,6 +39,7 @@ import org.apache.commons.io.output.NullOutputStream;
 public class TestSerializeAndConsume extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestSerializeAndConsume() {
         super();
     }

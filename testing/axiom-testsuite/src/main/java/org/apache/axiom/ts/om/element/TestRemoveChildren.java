@@ -36,10 +36,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestRemoveChildren extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean complete;
 
     @Inject
-    public TestRemoveChildren( @Named("complete") boolean complete) {
+    public TestRemoveChildren(@Named("complete") boolean complete) {
         super();
         this.complete = complete;
     }

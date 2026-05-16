@@ -32,10 +32,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestDetachFirstChild extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean build;
 
     @Inject
-    public TestDetachFirstChild( @Named("build") boolean build) {
+    public TestDetachFirstChild(@Named("build") boolean build) {
         super();
         this.build = build;
     }

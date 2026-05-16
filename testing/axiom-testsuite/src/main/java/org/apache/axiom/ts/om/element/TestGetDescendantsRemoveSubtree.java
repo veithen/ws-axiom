@@ -37,6 +37,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestGetDescendantsRemoveSubtree extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestGetDescendantsRemoveSubtree() {
         super();
     }

@@ -28,6 +28,7 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestCreateOMCommentWithoutParent extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     public TestCreateOMCommentWithoutParent() {
         super();
     }

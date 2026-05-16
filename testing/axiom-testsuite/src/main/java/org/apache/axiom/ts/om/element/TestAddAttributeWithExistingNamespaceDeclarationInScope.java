@@ -37,10 +37,11 @@ import org.apache.axiom.ts.dimension.AddAttributeStrategy;
 public class TestAddAttributeWithExistingNamespaceDeclarationInScope extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final AddAttributeStrategy strategy;
 
     @Inject
-    public TestAddAttributeWithExistingNamespaceDeclarationInScope( AddAttributeStrategy strategy) {
+    public TestAddAttributeWithExistingNamespaceDeclarationInScope(AddAttributeStrategy strategy) {
         super();
         this.strategy = strategy;
     }

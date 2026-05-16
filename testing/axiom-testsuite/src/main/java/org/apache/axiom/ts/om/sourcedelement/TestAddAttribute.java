@@ -38,10 +38,11 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 public class TestAddAttribute extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final AddAttributeStrategy strategy;
 
     @Inject
-    public TestAddAttribute( AddAttributeStrategy strategy) {
+    public TestAddAttribute(AddAttributeStrategy strategy) {
         super();
         this.strategy = strategy;
     }

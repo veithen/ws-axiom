@@ -38,13 +38,13 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestRemoveChildren extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean complete;
     private final boolean accessDocumentElement;
 
     @Inject
     public TestRemoveChildren(
-            @Named("complete") boolean complete,
-            @Named("accessDocumentElement") boolean accessDocumentElement) {
+            @Named("complete") boolean complete, @Named("accessDocumentElement") boolean accessDocumentElement) {
         super();
         this.complete = complete;
         this.accessDocumentElement = accessDocumentElement;

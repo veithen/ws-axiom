@@ -39,10 +39,11 @@ import org.apache.commons.codec.binary.Base64;
 public class TestGetTextBinary extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean compact;
 
     @Inject
-    public TestGetTextBinary( @Named("compact") boolean compact) {
+    public TestGetTextBinary(@Named("compact") boolean compact) {
         super();
         this.compact = compact;
     }

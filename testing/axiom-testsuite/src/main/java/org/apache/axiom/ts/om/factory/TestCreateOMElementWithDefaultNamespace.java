@@ -30,8 +30,10 @@ import org.apache.axiom.om.OMNamespace;
 public class TestCreateOMElementWithDefaultNamespace extends CreateOMElementTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     @Inject
-    public TestCreateOMElementWithDefaultNamespace( CreateOMElementVariant variant, CreateOMElementParentSupplier parentSupplier) {
+    public TestCreateOMElementWithDefaultNamespace(
+            CreateOMElementVariant variant, CreateOMElementParentSupplier parentSupplier) {
         super(variant, parentSupplier);
     }
 

@@ -40,10 +40,11 @@ import org.apache.axiom.ts.AxiomTestCase;
 public class TestCharacterDataReaderFromParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
+
     private final boolean cache;
 
     @Inject
-    public TestCharacterDataReaderFromParser( @Named("cache") boolean cache) {
+    public TestCharacterDataReaderFromParser(@Named("cache") boolean cache) {
         super();
         this.cache = cache;
     }
