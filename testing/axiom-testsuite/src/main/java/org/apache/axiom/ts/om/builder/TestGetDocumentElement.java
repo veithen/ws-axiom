@@ -31,6 +31,7 @@ import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.axiom.ts.AxiomTestCase;
 import org.apache.axiom.ts.dimension.BuilderFactory;
+import org.jspecify.annotations.Nullable;
 import org.xml.sax.InputSource;
 
 /**
@@ -46,6 +47,7 @@ public class TestGetDocumentElement extends AxiomTestCase {
 
     @Inject
     @Named("discardDocument")
+    @Nullable
     private Boolean discardDocument;
 
     @Override
