@@ -25,7 +25,6 @@ import com.google.inject.name.Named;
 import java.io.StringReader;
 import java.util.Iterator;
 import javax.xml.stream.XMLStreamReader;
-import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMNode;
@@ -38,26 +37,16 @@ public class TestGetElementTextFromParser extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    private final BuilderFactory builderFactory;
-    private final boolean cache;
-    private final int build;
-
-    /**
-     * Constructor.
-     *
-     * @param metaFactory
-     * @param builderFactory
-     * @param cache
-     * @param build the number of descendants that should be built before calling {@link
-     *     OMContainer#getXMLStreamReader(boolean)}
-     */
     @Inject
-    public TestGetElementTextFromParser(
-            BuilderFactory builderFactory, @Named("cache") boolean cache, @Named("build") int build) {
-        this.builderFactory = builderFactory;
-        this.cache = cache;
-        this.build = build;
-    }
+    private BuilderFactory builderFactory;
+
+    @Inject
+    @Named("cache")
+    private boolean cache;
+
+    @Inject
+    @Named("build")
+    private int build;
 
     @Override
     protected void runTest() throws Throwable {

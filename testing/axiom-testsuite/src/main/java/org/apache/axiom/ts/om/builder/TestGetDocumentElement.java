@@ -31,7 +31,6 @@ import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.axiom.ts.AxiomTestCase;
 import org.apache.axiom.ts.dimension.BuilderFactory;
-import org.jspecify.annotations.Nullable;
 import org.xml.sax.InputSource;
 
 /**
@@ -42,15 +41,12 @@ public class TestGetDocumentElement extends AxiomTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
-    private final BuilderFactory builderFactory;
-    private final Boolean discardDocument;
+    @Inject
+    private BuilderFactory builderFactory;
 
     @Inject
-    public TestGetDocumentElement(
-            BuilderFactory builderFactory, @Named("discardDocument") @Nullable Boolean discardDocument) {
-        this.builderFactory = builderFactory;
-        this.discardDocument = discardDocument;
-    }
+    @Named("discardDocument")
+    private Boolean discardDocument;
 
     @Override
     protected void runTest() throws Throwable {
