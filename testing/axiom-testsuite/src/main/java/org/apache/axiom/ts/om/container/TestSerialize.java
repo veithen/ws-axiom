@@ -41,16 +41,17 @@ import org.apache.commons.io.IOUtils;
 import org.xml.sax.InputSource;
 
 public class TestSerialize extends ConformanceTestCase {
+    @Inject
+    private OMMetaFactory metaFactory;
     private final OMContainerExtractor containerExtractor;
     private final SerializationStrategy serializationStrategy;
 
     @Inject
     public TestSerialize(
-            OMMetaFactory metaFactory,
             XMLSample file,
             OMContainerExtractor containerExtractor,
             SerializationStrategy serializationStrategy) {
-        super(metaFactory, file);
+        super(file);
         this.containerExtractor = containerExtractor;
         this.serializationStrategy = serializationStrategy;
     }

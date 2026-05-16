@@ -41,8 +41,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 // AXIOM-288
 public class TestSerializeAndConsumeConsumed extends AxiomTestCase {
     @Inject
-    public TestSerializeAndConsumeConsumed(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestSerializeAndConsumeConsumed() {
+        super();
     }
 
     @Override

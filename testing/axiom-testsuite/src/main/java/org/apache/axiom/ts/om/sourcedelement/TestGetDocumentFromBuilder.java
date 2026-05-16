@@ -36,8 +36,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetDocumentFromBuilder extends AxiomTestCase {
     @Inject
-    public TestGetDocumentFromBuilder(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetDocumentFromBuilder() {
+        super();
     }
 
     @Override

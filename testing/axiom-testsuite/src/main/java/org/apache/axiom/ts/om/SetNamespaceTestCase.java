@@ -29,8 +29,11 @@ import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMNamedInformationItem;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.ts.AxiomTestCase;
+import com.google.inject.Inject;
 
 public abstract class SetNamespaceTestCase extends AxiomTestCase {
+    @Inject
+    private OMMetaFactory metaFactory;
     /**
      * Common test parameters for {@link SetNamespaceTestCase} subclasses.
      *
@@ -78,8 +81,8 @@ public abstract class SetNamespaceTestCase extends AxiomTestCase {
      * @param metaFactory the meta factory
      * @param params the test parameters
      */
-    public SetNamespaceTestCase(OMMetaFactory metaFactory, Params params) {
-        super(metaFactory);
+    public SetNamespaceTestCase( Params params) {
+        super();
         this.params = params;
     }
 

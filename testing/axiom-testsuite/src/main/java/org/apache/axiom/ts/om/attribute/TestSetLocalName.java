@@ -29,8 +29,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestSetLocalName extends AxiomTestCase {
     @Inject
-    public TestSetLocalName(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestSetLocalName() {
+        super();
     }
 
     @Override

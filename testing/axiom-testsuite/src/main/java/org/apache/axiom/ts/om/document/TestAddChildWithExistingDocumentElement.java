@@ -37,8 +37,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestAddChildWithExistingDocumentElement extends AxiomTestCase {
     @Inject
-    public TestAddChildWithExistingDocumentElement(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestAddChildWithExistingDocumentElement() {
+        super();
     }
 
     @Override

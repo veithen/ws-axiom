@@ -32,8 +32,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 /** test the remove exception behavior */
 public class TestGetChildrenRemove1 extends AxiomTestCase {
     @Inject
-    public TestGetChildrenRemove1(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetChildrenRemove1() {
+        super();
     }
 
     @Override

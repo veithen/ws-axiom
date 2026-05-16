@@ -32,11 +32,13 @@ import org.apache.axiom.om.OMText;
 import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestSerialize extends AxiomTestCase {
+    @Inject
+    private OMMetaFactory metaFactory;
     private final int type;
 
     @Inject
-    public TestSerialize(OMMetaFactory metaFactory, @Named("type") int type) {
-        super(metaFactory);
+    public TestSerialize( @Named("type") int type) {
+        super();
         this.type = type;
     }
 

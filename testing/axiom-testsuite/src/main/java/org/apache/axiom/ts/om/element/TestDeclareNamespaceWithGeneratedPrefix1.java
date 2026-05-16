@@ -35,8 +35,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestDeclareNamespaceWithGeneratedPrefix1 extends AxiomTestCase {
     @Inject
-    public TestDeclareNamespaceWithGeneratedPrefix1(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestDeclareNamespaceWithGeneratedPrefix1() {
+        super();
     }
 
     @Override

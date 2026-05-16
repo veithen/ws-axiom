@@ -43,6 +43,8 @@ import org.xml.sax.InputSource;
 
 /** Tests various ways to serialize an {@link OMSourcedElement}. */
 public class TestSerialize extends AxiomTestCase {
+    @Inject
+    private OMMetaFactory metaFactory;
     private final boolean push;
     private final boolean destructive;
     private final ElementContext elementContext;
@@ -69,7 +71,6 @@ public class TestSerialize extends AxiomTestCase {
      */
     @Inject
     public TestSerialize(
-            OMMetaFactory metaFactory,
             @Named("push") boolean push,
             @Named("destructive") boolean destructive,
             ElementContext elementContext,
@@ -77,7 +78,7 @@ public class TestSerialize extends AxiomTestCase {
             SerializationStrategy serializationStrategy,
             @Named("serializeParent") boolean serializeParent,
             @Named("count") int count) {
-        super(metaFactory);
+        super();
         this.push = push;
         this.destructive = destructive;
         this.elementContext = elementContext;

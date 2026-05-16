@@ -29,8 +29,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestFindNamespaceURIWithPrefixUndeclaring extends AxiomTestCase {
     @Inject
-    public TestFindNamespaceURIWithPrefixUndeclaring(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestFindNamespaceURIWithPrefixUndeclaring() {
+        super();
     }
 
     @Override

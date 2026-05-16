@@ -32,8 +32,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 /** test whether the children count reduces. */
 public class TestGetChildrenRemove4 extends AxiomTestCase {
     @Inject
-    public TestGetChildrenRemove4(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetChildrenRemove4() {
+        super();
     }
 
     @Override

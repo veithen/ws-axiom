@@ -24,10 +24,13 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.ts.AxiomTestCase;
+import com.google.inject.Inject;
 
 public abstract class XMLDeclarationSerializationTestCase extends AxiomTestCase {
-    public XMLDeclarationSerializationTestCase(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    @Inject
+    private OMMetaFactory metaFactory;
+    public XMLDeclarationSerializationTestCase() {
+        super();
     }
 
     @Override

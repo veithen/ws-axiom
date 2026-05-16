@@ -30,8 +30,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestCreateOMText extends AxiomTestCase {
     @Inject
-    public TestCreateOMText(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestCreateOMText() {
+        super();
     }
 
     @Override

@@ -34,8 +34,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestWrappedTextNodeOMDataSourceFromReader extends AxiomTestCase {
     @Inject
-    public TestWrappedTextNodeOMDataSourceFromReader(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestWrappedTextNodeOMDataSourceFromReader() {
+        super();
     }
 
     @Override

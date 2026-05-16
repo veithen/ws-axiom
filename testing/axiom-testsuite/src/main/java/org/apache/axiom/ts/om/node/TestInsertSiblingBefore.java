@@ -31,8 +31,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 /** Tests the behavior of {@link OMNode#insertSiblingBefore(OMNode)}. */
 public class TestInsertSiblingBefore extends AxiomTestCase {
     @Inject
-    public TestInsertSiblingBefore(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestInsertSiblingBefore() {
+        super();
     }
 
     @Override

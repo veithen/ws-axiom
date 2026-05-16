@@ -40,8 +40,9 @@ import org.apache.xerces.impl.dv.util.Base64;
  */
 public class TestSetOptimizePlainOMText extends AxiomTestCase {
     @Inject
-    public TestSetOptimizePlainOMText(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestSetOptimizePlainOMText() {
+        super();
     }
 
     @Override

@@ -34,8 +34,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetNamespaceURIWithoutNamespace extends AxiomTestCase {
     @Inject
-    public TestGetNamespaceURIWithoutNamespace(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetNamespaceURIWithoutNamespace() {
+        super();
     }
 
     @Override

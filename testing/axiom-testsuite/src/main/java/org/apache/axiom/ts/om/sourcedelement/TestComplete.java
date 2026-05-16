@@ -31,8 +31,9 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 /** Make sure that the incomplete setting of an OMSE is not propogated to the root */
 public class TestComplete extends AxiomTestCase {
     @Inject
-    public TestComplete(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestComplete() {
+        super();
     }
 
     @Override

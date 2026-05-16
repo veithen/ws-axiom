@@ -31,8 +31,9 @@ import org.apache.axiom.ts.xml.XMLSample;
 
 public class TestClose extends AxiomTestCase {
     @Inject
-    public TestClose(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestClose() {
+        super();
     }
 
     @Override

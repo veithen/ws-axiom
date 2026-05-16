@@ -33,8 +33,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetTextWithCDATASectionChild extends AxiomTestCase {
     @Inject
-    public TestGetTextWithCDATASectionChild(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetTextWithCDATASectionChild() {
+        super();
     }
 
     @Override

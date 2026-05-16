@@ -35,8 +35,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetFirstChildWithNameOnIncompleteElement extends AxiomTestCase {
     @Inject
-    public TestGetFirstChildWithNameOnIncompleteElement(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetFirstChildWithNameOnIncompleteElement() {
+        super();
     }
 
     @Override

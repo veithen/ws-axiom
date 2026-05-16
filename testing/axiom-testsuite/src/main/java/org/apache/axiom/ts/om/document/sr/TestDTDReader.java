@@ -35,8 +35,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestDTDReader extends AxiomTestCase {
     @Inject
-    public TestDTDReader(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestDTDReader() {
+        super();
     }
 
     @Override

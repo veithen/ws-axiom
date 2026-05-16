@@ -36,8 +36,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetChildElementsConcurrentModification extends AxiomTestCase {
     @Inject
-    public TestGetChildElementsConcurrentModification(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetChildElementsConcurrentModification() {
+        super();
     }
 
     @Override

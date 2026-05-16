@@ -38,8 +38,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetXMLStreamReaderWithoutCachingPartiallyBuiltModified extends AxiomTestCase {
     @Inject
-    public TestGetXMLStreamReaderWithoutCachingPartiallyBuiltModified(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetXMLStreamReaderWithoutCachingPartiallyBuiltModified() {
+        super();
     }
 
     @Override

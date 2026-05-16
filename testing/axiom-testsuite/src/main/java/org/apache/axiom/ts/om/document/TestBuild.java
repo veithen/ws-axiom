@@ -31,8 +31,9 @@ import org.apache.axiom.ts.xml.XMLSample;
 
 public class TestBuild extends AxiomTestCase {
     @Inject
-    public TestBuild(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestBuild() {
+        super();
     }
 
     @Override

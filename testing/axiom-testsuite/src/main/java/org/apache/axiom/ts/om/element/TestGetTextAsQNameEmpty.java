@@ -29,8 +29,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 /** Tests the behavior of {@link OMElement#getTextAsQName()} if the element is empty. */
 public class TestGetTextAsQNameEmpty extends AxiomTestCase {
     @Inject
-    public TestGetTextAsQNameEmpty(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetTextAsQNameEmpty() {
+        super();
     }
 
     @Override

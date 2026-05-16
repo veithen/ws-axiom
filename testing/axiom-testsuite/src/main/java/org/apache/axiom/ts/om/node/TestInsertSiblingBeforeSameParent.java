@@ -35,8 +35,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestInsertSiblingBeforeSameParent extends AxiomTestCase {
     @Inject
-    public TestInsertSiblingBeforeSameParent(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestInsertSiblingBeforeSameParent() {
+        super();
     }
 
     @Override

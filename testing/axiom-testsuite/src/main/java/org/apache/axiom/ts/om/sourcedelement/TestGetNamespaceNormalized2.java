@@ -40,8 +40,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetNamespaceNormalized2 extends AxiomTestCase {
     @Inject
-    public TestGetNamespaceNormalized2(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetNamespaceNormalized2() {
+        super();
     }
 
     @Override

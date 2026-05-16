@@ -31,8 +31,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 /** Tests that {@link OMNode#insertSiblingAfter(OMNode)} fails if the node doesn't have a parent. */
 public class TestInsertSiblingBeforeOnOrphan extends AxiomTestCase {
     @Inject
-    public TestInsertSiblingBeforeOnOrphan(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestInsertSiblingBeforeOnOrphan() {
+        super();
     }
 
     @Override

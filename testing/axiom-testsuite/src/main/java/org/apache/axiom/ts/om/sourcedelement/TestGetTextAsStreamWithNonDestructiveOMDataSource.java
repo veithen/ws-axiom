@@ -38,8 +38,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestGetTextAsStreamWithNonDestructiveOMDataSource extends AxiomTestCase {
     @Inject
-    public TestGetTextAsStreamWithNonDestructiveOMDataSource(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetTextAsStreamWithNonDestructiveOMDataSource() {
+        super();
     }
 
     @Override

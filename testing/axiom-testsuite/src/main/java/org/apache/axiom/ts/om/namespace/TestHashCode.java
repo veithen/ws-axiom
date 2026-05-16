@@ -29,8 +29,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 /** Tests that the {@link OMNamespace} overrides {@link Object#hashCode()}. */
 public class TestHashCode extends AxiomTestCase {
     @Inject
-    public TestHashCode(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestHashCode() {
+        super();
     }
 
     @Override

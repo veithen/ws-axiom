@@ -29,8 +29,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestFindNamespaceCaseSensitivity extends AxiomTestCase {
     @Inject
-    public TestFindNamespaceCaseSensitivity(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestFindNamespaceCaseSensitivity() {
+        super();
     }
 
     @Override

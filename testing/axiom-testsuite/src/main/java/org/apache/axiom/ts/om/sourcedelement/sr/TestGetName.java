@@ -38,8 +38,9 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  */
 public class TestGetName extends AxiomTestCase {
     @Inject
-    public TestGetName(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetName() {
+        super();
     }
 
     @Override

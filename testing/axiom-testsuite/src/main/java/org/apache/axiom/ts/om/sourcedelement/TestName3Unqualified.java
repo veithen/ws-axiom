@@ -36,8 +36,9 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  */
 public class TestName3Unqualified extends AxiomTestCase {
     @Inject
-    public TestName3Unqualified(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestName3Unqualified() {
+        super();
     }
 
     @Override

@@ -36,8 +36,9 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class TestGetTextCharactersFromDataHandler extends AxiomTestCase {
     @Inject
-    public TestGetTextCharactersFromDataHandler(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetTextCharactersFromDataHandler() {
+        super();
     }
 
     @Override

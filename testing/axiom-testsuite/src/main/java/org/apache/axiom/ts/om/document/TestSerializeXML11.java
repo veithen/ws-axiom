@@ -24,12 +24,10 @@ import com.google.inject.Inject;
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import org.apache.axiom.om.OMDocument;
-import org.apache.axiom.om.OMMetaFactory;
 
 public class TestSerializeXML11 extends XMLDeclarationSerializationTestCase {
-    @Inject
-    public TestSerializeXML11(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    public TestSerializeXML11() {
+        super();
     }
 
     @Override

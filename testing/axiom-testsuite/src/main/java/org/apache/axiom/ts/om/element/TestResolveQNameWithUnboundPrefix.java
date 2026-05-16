@@ -32,8 +32,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestResolveQNameWithUnboundPrefix extends AxiomTestCase {
     @Inject
-    public TestResolveQNameWithUnboundPrefix(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestResolveQNameWithUnboundPrefix() {
+        super();
     }
 
     @Override

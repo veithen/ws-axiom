@@ -33,8 +33,9 @@ import org.apache.axiom.ts.xml.XMLSample;
 /** Test the element iterator */
 public class TestGetChildrenWithName extends AxiomTestCase {
     @Inject
-    public TestGetChildrenWithName(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetChildrenWithName() {
+        super();
     }
 
     @Override

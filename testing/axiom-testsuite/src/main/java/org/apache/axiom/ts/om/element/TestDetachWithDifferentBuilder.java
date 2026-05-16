@@ -32,8 +32,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestDetachWithDifferentBuilder extends AxiomTestCase {
     @Inject
-    public TestDetachWithDifferentBuilder(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestDetachWithDifferentBuilder() {
+        super();
     }
 
     @Override

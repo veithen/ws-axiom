@@ -38,8 +38,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetFirstOMChildAfterConsume extends AxiomTestCase {
     @Inject
-    public TestGetFirstOMChildAfterConsume(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetFirstOMChildAfterConsume() {
+        super();
     }
 
     @Override

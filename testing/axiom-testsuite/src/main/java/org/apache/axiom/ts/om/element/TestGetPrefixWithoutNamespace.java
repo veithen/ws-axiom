@@ -34,8 +34,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetPrefixWithoutNamespace extends AxiomTestCase {
     @Inject
-    public TestGetPrefixWithoutNamespace(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetPrefixWithoutNamespace() {
+        super();
     }
 
     @Override

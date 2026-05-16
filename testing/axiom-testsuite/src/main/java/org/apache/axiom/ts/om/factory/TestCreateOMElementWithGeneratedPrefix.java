@@ -35,9 +35,10 @@ import org.apache.axiom.om.OMNamespace;
  */
 public class TestCreateOMElementWithGeneratedPrefix extends CreateOMElementTestCase {
     @Inject
-    public TestCreateOMElementWithGeneratedPrefix(
-            OMMetaFactory metaFactory, CreateOMElementVariant variant, CreateOMElementParentSupplier parentSupplier) {
-        super(metaFactory, variant, parentSupplier);
+    private OMMetaFactory metaFactory;
+    @Inject
+    public TestCreateOMElementWithGeneratedPrefix( CreateOMElementVariant variant, CreateOMElementParentSupplier parentSupplier) {
+        super(variant, parentSupplier);
     }
 
     @Override

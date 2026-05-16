@@ -32,9 +32,10 @@ import org.apache.axiom.om.OMMetaFactory;
  */
 public class TestCreateOMElementWithoutNamespace extends CreateOMElementTestCase {
     @Inject
-    public TestCreateOMElementWithoutNamespace(
-            OMMetaFactory metaFactory, CreateOMElementVariant variant, CreateOMElementParentSupplier parentSupplier) {
-        super(metaFactory, variant, parentSupplier);
+    private OMMetaFactory metaFactory;
+    @Inject
+    public TestCreateOMElementWithoutNamespace( CreateOMElementVariant variant, CreateOMElementParentSupplier parentSupplier) {
+        super(variant, parentSupplier);
     }
 
     @Override

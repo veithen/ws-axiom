@@ -35,8 +35,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetAttributeValueWithXmlPrefix2 extends AxiomTestCase {
     @Inject
-    public TestGetAttributeValueWithXmlPrefix2(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetAttributeValueWithXmlPrefix2() {
+        super();
     }
 
     @Override

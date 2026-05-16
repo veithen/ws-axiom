@@ -33,8 +33,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetTextAsQNameWithExtraWhitespace extends AxiomTestCase {
     @Inject
-    public TestGetTextAsQNameWithExtraWhitespace(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetTextAsQNameWithExtraWhitespace() {
+        super();
     }
 
     @Override

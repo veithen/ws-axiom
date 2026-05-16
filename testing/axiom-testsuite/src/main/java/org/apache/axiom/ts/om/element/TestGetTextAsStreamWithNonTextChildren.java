@@ -30,8 +30,9 @@ import org.apache.commons.io.IOUtils;
 
 public class TestGetTextAsStreamWithNonTextChildren extends AxiomTestCase {
     @Inject
-    public TestGetTextAsStreamWithNonTextChildren(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetTextAsStreamWithNonTextChildren() {
+        super();
     }
 
     @Override

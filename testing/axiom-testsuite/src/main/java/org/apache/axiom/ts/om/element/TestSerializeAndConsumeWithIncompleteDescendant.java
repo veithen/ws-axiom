@@ -40,8 +40,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestSerializeAndConsumeWithIncompleteDescendant extends AxiomTestCase {
     @Inject
-    public TestSerializeAndConsumeWithIncompleteDescendant(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestSerializeAndConsumeWithIncompleteDescendant() {
+        super();
     }
 
     @Override

@@ -29,8 +29,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestResolveQNameWithoutNamespace extends AxiomTestCase {
     @Inject
-    public TestResolveQNameWithoutNamespace(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestResolveQNameWithoutNamespace() {
+        super();
     }
 
     @Override

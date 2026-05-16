@@ -40,8 +40,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestAddChildIncomplete extends AxiomTestCase {
     @Inject
-    public TestAddChildIncomplete(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestAddChildIncomplete() {
+        super();
     }
 
     @Override

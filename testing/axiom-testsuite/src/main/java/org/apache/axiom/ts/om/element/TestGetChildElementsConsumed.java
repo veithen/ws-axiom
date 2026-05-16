@@ -38,8 +38,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetChildElementsConsumed extends AxiomTestCase {
     @Inject
-    public TestGetChildElementsConsumed(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetChildElementsConsumed() {
+        super();
     }
 
     @Override

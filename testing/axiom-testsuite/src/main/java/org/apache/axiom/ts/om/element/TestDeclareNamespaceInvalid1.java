@@ -33,8 +33,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestDeclareNamespaceInvalid1 extends AxiomTestCase {
     @Inject
-    public TestDeclareNamespaceInvalid1(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestDeclareNamespaceInvalid1() {
+        super();
     }
 
     @Override

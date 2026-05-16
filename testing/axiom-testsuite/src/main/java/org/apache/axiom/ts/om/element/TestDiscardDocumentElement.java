@@ -36,8 +36,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestDiscardDocumentElement extends AxiomTestCase {
     @Inject
-    public TestDiscardDocumentElement(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestDiscardDocumentElement() {
+        super();
     }
 
     @Override

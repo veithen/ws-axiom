@@ -32,8 +32,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestGetNextOMSiblingAfterDiscard extends AxiomTestCase {
     @Inject
-    public TestGetNextOMSiblingAfterDiscard(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetNextOMSiblingAfterDiscard() {
+        super();
     }
 
     @Override

@@ -31,8 +31,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestSetTextEmptyString extends AxiomTestCase {
     @Inject
-    public TestSetTextEmptyString(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestSetTextEmptyString() {
+        super();
     }
 
     @Override

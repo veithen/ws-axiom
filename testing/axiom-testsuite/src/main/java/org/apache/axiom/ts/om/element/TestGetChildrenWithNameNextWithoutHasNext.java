@@ -38,8 +38,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetChildrenWithNameNextWithoutHasNext extends AxiomTestCase {
     @Inject
-    public TestGetChildrenWithNameNextWithoutHasNext(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetChildrenWithNameNextWithoutHasNext() {
+        super();
     }
 
     @Override

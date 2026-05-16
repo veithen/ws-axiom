@@ -36,8 +36,9 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  */
 public class TestName2QualifiedPrefix extends AxiomTestCase {
     @Inject
-    public TestName2QualifiedPrefix(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestName2QualifiedPrefix() {
+        super();
     }
 
     @Override

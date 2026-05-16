@@ -29,8 +29,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestAddChild extends AxiomTestCase {
     @Inject
-    public TestAddChild(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestAddChild() {
+        super();
     }
 
     @Override

@@ -32,8 +32,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 /** Tests the behavior of {@link OMContainer#getChildrenWithNamespaceURI(String)}. */
 public class TestGetChildrenWithNamespaceURI extends AxiomTestCase {
     @Inject
-    public TestGetChildrenWithNamespaceURI(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetChildrenWithNamespaceURI() {
+        super();
     }
 
     @Override

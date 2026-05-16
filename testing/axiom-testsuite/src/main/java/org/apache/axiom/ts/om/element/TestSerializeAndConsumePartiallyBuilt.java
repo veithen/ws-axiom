@@ -34,8 +34,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestSerializeAndConsumePartiallyBuilt extends AxiomTestCase {
     @Inject
-    public TestSerializeAndConsumePartiallyBuilt(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestSerializeAndConsumePartiallyBuilt() {
+        super();
     }
 
     @Override

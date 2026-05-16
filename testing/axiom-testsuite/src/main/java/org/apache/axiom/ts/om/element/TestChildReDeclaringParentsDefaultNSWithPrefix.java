@@ -32,8 +32,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestChildReDeclaringParentsDefaultNSWithPrefix extends AxiomTestCase {
     @Inject
-    public TestChildReDeclaringParentsDefaultNSWithPrefix(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestChildReDeclaringParentsDefaultNSWithPrefix() {
+        super();
     }
 
     @Override

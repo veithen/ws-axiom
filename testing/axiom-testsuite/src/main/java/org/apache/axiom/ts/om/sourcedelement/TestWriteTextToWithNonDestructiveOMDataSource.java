@@ -37,8 +37,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestWriteTextToWithNonDestructiveOMDataSource extends AxiomTestCase {
     @Inject
-    public TestWriteTextToWithNonDestructiveOMDataSource(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestWriteTextToWithNonDestructiveOMDataSource() {
+        super();
     }
 
     @Override

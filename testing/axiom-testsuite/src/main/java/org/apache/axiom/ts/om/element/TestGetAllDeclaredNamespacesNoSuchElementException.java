@@ -35,8 +35,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetAllDeclaredNamespacesNoSuchElementException extends AxiomTestCase {
     @Inject
-    public TestGetAllDeclaredNamespacesNoSuchElementException(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetAllDeclaredNamespacesNoSuchElementException() {
+        super();
     }
 
     @Override

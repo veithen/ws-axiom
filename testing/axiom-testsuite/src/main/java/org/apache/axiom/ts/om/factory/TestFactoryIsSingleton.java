@@ -32,8 +32,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestFactoryIsSingleton extends AxiomTestCase {
     @Inject
-    public TestFactoryIsSingleton(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestFactoryIsSingleton() {
+        super();
     }
 
     @Override

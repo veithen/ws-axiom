@@ -30,8 +30,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestAddChild2 extends AxiomTestCase {
     @Inject
-    public TestAddChild2(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestAddChild2() {
+        super();
     }
 
     @Override

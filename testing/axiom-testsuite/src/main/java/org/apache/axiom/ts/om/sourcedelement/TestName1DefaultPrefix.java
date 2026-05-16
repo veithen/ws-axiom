@@ -36,8 +36,9 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  */
 public class TestName1DefaultPrefix extends AxiomTestCase {
     @Inject
-    public TestName1DefaultPrefix(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestName1DefaultPrefix() {
+        super();
     }
 
     @Override

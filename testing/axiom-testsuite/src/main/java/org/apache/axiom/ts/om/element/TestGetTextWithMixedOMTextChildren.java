@@ -33,8 +33,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetTextWithMixedOMTextChildren extends AxiomTestCase {
     @Inject
-    public TestGetTextWithMixedOMTextChildren(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetTextWithMixedOMTextChildren() {
+        super();
     }
 
     @Override

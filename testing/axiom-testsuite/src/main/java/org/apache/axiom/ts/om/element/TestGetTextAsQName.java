@@ -30,8 +30,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 /** Tests the behavior of {@link OMElement#getTextAsQName()} for a prefixed QName. */
 public class TestGetTextAsQName extends AxiomTestCase {
     @Inject
-    public TestGetTextAsQName(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetTextAsQName() {
+        super();
     }
 
     @Override

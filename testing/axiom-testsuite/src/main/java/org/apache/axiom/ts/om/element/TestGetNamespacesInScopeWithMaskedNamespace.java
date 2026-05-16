@@ -30,8 +30,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestGetNamespacesInScopeWithMaskedNamespace extends AxiomTestCase {
     @Inject
-    public TestGetNamespacesInScopeWithMaskedNamespace(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetNamespacesInScopeWithMaskedNamespace() {
+        super();
     }
 
     @Override

@@ -29,8 +29,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestCreateOMEntityReference extends AxiomTestCase {
     @Inject
-    public TestCreateOMEntityReference(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestCreateOMEntityReference() {
+        super();
     }
 
     @Override

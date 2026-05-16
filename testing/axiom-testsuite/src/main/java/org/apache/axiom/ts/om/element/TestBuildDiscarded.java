@@ -36,8 +36,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestBuildDiscarded extends AxiomTestCase {
     @Inject
-    public TestBuildDiscarded(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestBuildDiscarded() {
+        super();
     }
 
     @Override

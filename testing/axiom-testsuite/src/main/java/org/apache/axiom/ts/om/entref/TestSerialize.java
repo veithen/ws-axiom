@@ -31,8 +31,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestSerialize extends AxiomTestCase {
     @Inject
-    public TestSerialize(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestSerialize() {
+        super();
     }
 
     @Override

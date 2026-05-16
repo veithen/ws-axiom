@@ -39,8 +39,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestCreateStAXOMBuilderNamespaceRepairing2 extends AxiomTestCase {
     @Inject
-    public TestCreateStAXOMBuilderNamespaceRepairing2(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestCreateStAXOMBuilderNamespaceRepairing2() {
+        super();
     }
 
     @Override

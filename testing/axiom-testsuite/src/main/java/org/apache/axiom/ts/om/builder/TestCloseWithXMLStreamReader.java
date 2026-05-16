@@ -33,8 +33,9 @@ import org.apache.axiom.ts.xml.XMLSample;
 
 public class TestCloseWithXMLStreamReader extends AxiomTestCase {
     @Inject
-    public TestCloseWithXMLStreamReader(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestCloseWithXMLStreamReader() {
+        super();
     }
 
     @Override

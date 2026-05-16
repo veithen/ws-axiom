@@ -32,8 +32,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestObjectEquals extends AxiomTestCase {
     @Inject
-    public TestObjectEquals(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestObjectEquals() {
+        super();
     }
 
     @Override

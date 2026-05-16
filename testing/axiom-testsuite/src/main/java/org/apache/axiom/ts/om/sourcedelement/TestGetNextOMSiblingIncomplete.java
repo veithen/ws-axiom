@@ -35,8 +35,9 @@ import org.apache.axiom.ts.AxiomTestCase;
  */
 public class TestGetNextOMSiblingIncomplete extends AxiomTestCase {
     @Inject
-    public TestGetNextOMSiblingIncomplete(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetNextOMSiblingIncomplete() {
+        super();
     }
 
     @Override

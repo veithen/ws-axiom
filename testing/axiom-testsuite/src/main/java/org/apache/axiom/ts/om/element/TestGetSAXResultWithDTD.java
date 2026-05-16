@@ -38,8 +38,9 @@ import org.xml.sax.helpers.AttributesImpl;
  */
 public class TestGetSAXResultWithDTD extends AxiomTestCase {
     @Inject
-    public TestGetSAXResultWithDTD(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestGetSAXResultWithDTD() {
+        super();
     }
 
     @Override

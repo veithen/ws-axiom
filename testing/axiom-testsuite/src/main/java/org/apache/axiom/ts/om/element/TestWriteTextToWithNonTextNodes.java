@@ -29,8 +29,9 @@ import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestWriteTextToWithNonTextNodes extends AxiomTestCase {
     @Inject
-    public TestWriteTextToWithNonTextNodes(OMMetaFactory metaFactory) {
-        super(metaFactory);
+    private OMMetaFactory metaFactory;
+    public TestWriteTextToWithNonTextNodes() {
+        super();
     }
 
     @Override
