@@ -37,8 +37,7 @@ public class TestGetChildrenWithName extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement elt = OMXMLBuilderFactory.createOMBuilder(
-                        factory, XMLSample.SIMPLE.getInputStream())
+        OMElement elt = OMXMLBuilderFactory.createOMBuilder(factory, XMLSample.SIMPLE.getInputStream())
                 .getDocumentElement()
                 .getFirstElement();
         QName qname = new QName("urn:ns2", "subelement");

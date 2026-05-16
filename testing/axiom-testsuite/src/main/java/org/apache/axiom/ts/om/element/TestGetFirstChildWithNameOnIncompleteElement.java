@@ -39,8 +39,7 @@ public class TestGetFirstChildWithNameOnIncompleteElement extends AxiomTestCase 
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement element = OMXMLBuilderFactory.createOMBuilder(
-                        factory, new StringReader("<root><a/><b/><c/></root>"))
+        OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root><a/><b/><c/></root>"))
                 .getDocumentElement();
         OMElement b = element.getFirstChildWithName(new QName("b"));
         assertThat(b.isComplete()).isFalse();

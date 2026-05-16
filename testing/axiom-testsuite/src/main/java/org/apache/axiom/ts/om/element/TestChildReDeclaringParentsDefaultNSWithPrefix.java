@@ -43,8 +43,8 @@ public class TestChildReDeclaringParentsDefaultNSWithPrefix extends AxiomTestCas
         factory.createOMElement(new QName("http://schemas.xmlsoap.org/ws/2005/02/trust", "Entropy", "wst"), elem);
         String xml = elem.toString();
 
-        OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(
-                factory, new ByteArrayInputStream(xml.getBytes()));
+        OMXMLParserWrapper builder =
+                OMXMLBuilderFactory.createOMBuilder(factory, new ByteArrayInputStream(xml.getBytes()));
 
         builder.getDocumentElement().build();
 

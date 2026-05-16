@@ -109,8 +109,8 @@ public class TestSerialization extends AxiomTestCase {
     @Override
     protected void runTest() throws Throwable {
 
-        OMNamespace nsParent = createNamespace(fac, params.parent());
-        OMNamespace nsChildren = createNamespace(fac, params.children());
+        OMNamespace nsParent = createNamespace(factory, params.parent());
+        OMNamespace nsChildren = createNamespace(factory, params.children());
 
         OMElement personElem = factory.createOMElement("person", nsParent);
         OMElement nameElem = factory.createOMElement("name", nsChildren);

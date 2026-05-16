@@ -42,8 +42,7 @@ public class TestGetXMLStreamReaderWithoutCachingPartiallyBuilt extends AxiomTes
         // Note: the problem described in AXIOM-393 specifically occurred with descendants
         //       having the same name as the root element
         OMElement root = OMXMLBuilderFactory.createOMBuilder(
-                        factory,
-                        new StringReader("<element><element><element/><element/></element></element>"))
+                        factory, new StringReader("<element><element><element/><element/></element></element>"))
                 .getDocumentElement();
 
         // Partially build the tree

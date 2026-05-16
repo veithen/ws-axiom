@@ -49,11 +49,9 @@ public class TestDetachWithStream extends AxiomTestCase {
         InstrumentedStream stream = streamType.instrumentStream(streamType.getStream(XMLSample.LARGE));
         OMXMLParserWrapper builder;
         if (useStreamSource) {
-            builder = OMXMLBuilderFactory.createOMBuilder(
-                    factory, streamType.createStreamSource(stream));
+            builder = OMXMLBuilderFactory.createOMBuilder(factory, streamType.createStreamSource(stream));
         } else {
-            builder =
-                    streamType.getAdapter(StreamTypeAdapter.class).createOMBuilder(factory, stream);
+            builder = streamType.getAdapter(StreamTypeAdapter.class).createOMBuilder(factory, stream);
         }
         long countBeforeDetach = stream.getCount();
         builder.detach();

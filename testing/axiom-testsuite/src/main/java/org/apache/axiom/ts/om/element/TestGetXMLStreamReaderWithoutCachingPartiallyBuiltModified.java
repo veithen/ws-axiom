@@ -42,8 +42,7 @@ public class TestGetXMLStreamReaderWithoutCachingPartiallyBuiltModified extends 
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement root = OMXMLBuilderFactory.createOMBuilder(
-                        factory, new StringReader("<root><a/><b/><c/></root>"))
+        OMElement root = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root><a/><b/><c/></root>"))
                 .getDocumentElement();
 
         OMElement b = root.getFirstChildWithName(new QName("b"));

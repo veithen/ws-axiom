@@ -62,8 +62,8 @@ public class TestIOExceptionInGetText extends AxiomTestCase {
         InvocationCounter invocationCounter = new InvocationCounter();
         XMLStreamReader reader = (XMLStreamReader) invocationCounter.createProxy(originalReader);
 
-        OMElement element = OMXMLBuilderFactory.createStAXOMBuilder(factory, reader)
-                .getDocumentElement();
+        OMElement element =
+                OMXMLBuilderFactory.createStAXOMBuilder(factory, reader).getDocumentElement();
 
         assertThatThrownBy(element::getNextOMSibling);
 

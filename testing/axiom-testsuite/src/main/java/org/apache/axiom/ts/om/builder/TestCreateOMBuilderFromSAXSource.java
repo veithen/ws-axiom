@@ -57,18 +57,17 @@ public class TestCreateOMBuilderFromSAXSource extends ConformanceTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        SAXParserFactory factory = implementation.newSAXParserFactory();
-        factory.setNamespaceAware(true);
-        factory.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
-        SAXParser parser = factory.newSAXParser();
+        SAXParserFactory saxFactory = implementation.newSAXParserFactory();
+        saxFactory.setNamespaceAware(true);
+        saxFactory.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
+        SAXParser parser = saxFactory.newSAXParser();
         SAXSource source = new SAXSource(
                 parser.getXMLReader(), new InputSource(file.getUrl().toString()));
         OMXMLParserWrapper builder;
         if (expandEntityReferences == null) {
             builder = OMXMLBuilderFactory.createOMBuilder(factory, source);
         } else {
-            builder = OMXMLBuilderFactory.createOMBuilder(
-                    factory, source, expandEntityReferences.booleanValue());
+            builder = OMXMLBuilderFactory.createOMBuilder(factory, source, expandEntityReferences.booleanValue());
         }
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         builder.getDocument().serialize(baos);

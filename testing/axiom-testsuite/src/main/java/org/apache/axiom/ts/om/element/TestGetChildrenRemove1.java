@@ -36,8 +36,7 @@ public class TestGetChildrenRemove1 extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement elt = OMXMLBuilderFactory.createOMBuilder(
-                        factory, new StringReader("<root><child/></root>"))
+        OMElement elt = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root><child/></root>"))
                 .getDocumentElement();
         Iterator<OMNode> iter = elt.getChildren();
 

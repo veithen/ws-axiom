@@ -40,8 +40,7 @@ public class TestGetDescendantsRemoveSubtree extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement root = OMXMLBuilderFactory.createOMBuilder(
-                        factory, new StringReader("<root><a><b/></a><c/></root>"))
+        OMElement root = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root><a><b/></a><c/></root>"))
                 .getDocumentElement();
         Iterator<OMNode> it = root.getDescendants(false);
         assertThat(((OMElement) it.next()).getLocalName()).isEqualTo("a");

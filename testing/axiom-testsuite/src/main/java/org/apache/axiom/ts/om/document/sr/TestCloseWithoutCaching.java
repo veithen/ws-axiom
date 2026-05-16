@@ -55,8 +55,7 @@ public class TestCloseWithoutCaching extends AxiomTestCase {
         writer.write("</a></root>");
         writer.close();
         InstrumentedInputStream in = new InstrumentedInputStream(new ByteArrayInputStream(baos.toByteArray()));
-        OMDocument doc = OMXMLBuilderFactory.createOMBuilder(factory, in)
-                .getDocument();
+        OMDocument doc = OMXMLBuilderFactory.createOMBuilder(factory, in).getDocument();
         XMLStreamReader reader = doc.getXMLStreamReaderWithoutCaching();
         reader.next();
         reader.next();

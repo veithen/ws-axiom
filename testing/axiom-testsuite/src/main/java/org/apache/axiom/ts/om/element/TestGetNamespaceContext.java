@@ -47,8 +47,7 @@ public class TestGetNamespaceContext extends AxiomTestCase {
     @Override
     protected void runTest() throws Throwable {
         InputStream in = TestGetNamespaceContext.class.getResourceAsStream("namespacecontext.xml");
-        OMElement root = OMXMLBuilderFactory.createOMBuilder(factory, in)
-                .getDocumentElement();
+        OMElement root = OMXMLBuilderFactory.createOMBuilder(factory, in).getDocumentElement();
         OMElement inner = root.getFirstElement().getFirstElement();
         NamespaceContext context = inner.getNamespaceContext(detached);
         assertThat(context.getNamespaceURI("p")).isEqualTo("urn:test2");

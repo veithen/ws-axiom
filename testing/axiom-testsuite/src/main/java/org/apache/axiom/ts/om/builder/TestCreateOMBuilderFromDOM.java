@@ -66,8 +66,7 @@ public class TestCreateOMBuilderFromDOM extends ConformanceTestCase {
         if (expandEntityReferences == null) {
             builder = OMXMLBuilderFactory.createOMBuilder(factory, new DOMSource(document));
         } else {
-            builder = OMXMLBuilderFactory.createOMBuilder(
-                    factory, document, expandEntityReferences.booleanValue());
+            builder = OMXMLBuilderFactory.createOMBuilder(factory, document, expandEntityReferences.booleanValue());
         }
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         builder.getDocument().serialize(baos);

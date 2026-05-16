@@ -37,8 +37,7 @@ public class TestCreateStAXOMBuilderFromXmlBeansPullParser extends AxiomTestCase
     protected void runTest() throws Throwable {
         URL inputUrl = TestCreateStAXOMBuilderFromXmlBeansPullParser.class.getResource("xmlvend.xml");
         AdviceReqDocument adviceReq = AdviceReqDocument.Factory.parse(inputUrl);
-        OMDocument doc = OMXMLBuilderFactory.createStAXOMBuilder(
-                        factory, adviceReq.newXMLStreamReader())
+        OMDocument doc = OMXMLBuilderFactory.createStAXOMBuilder(factory, adviceReq.newXMLStreamReader())
                 .getDocument();
         assertAbout(xml())
                 .that(xml(OMDocument.class, doc))

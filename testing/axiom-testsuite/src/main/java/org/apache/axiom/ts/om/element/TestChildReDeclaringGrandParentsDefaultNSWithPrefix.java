@@ -37,8 +37,8 @@ public class TestChildReDeclaringGrandParentsDefaultNSWithPrefix extends AxiomTe
         factory.createOMElement(new QName("TokenType"), elem).setText("test");
         factory.createOMElement(new QName("RequestType"), elem).setText("test1");
 
-        OMElement entElem =
-                factory.createOMElement(new QName("http://schemas.xmlsoap.org/ws/2005/02/trust", "Entropy", "wst"), elem);
+        OMElement entElem = factory.createOMElement(
+                new QName("http://schemas.xmlsoap.org/ws/2005/02/trust", "Entropy", "wst"), elem);
         OMElement binSecElem = factory.createOMElement(
                 new QName("http://schemas.xmlsoap.org/ws/2005/02/trust", "Binarysecret", "wst"), entElem);
         binSecElem.setText("secret value");

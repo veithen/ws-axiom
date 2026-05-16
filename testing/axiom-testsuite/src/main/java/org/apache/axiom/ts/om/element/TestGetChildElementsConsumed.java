@@ -43,8 +43,7 @@ public class TestGetChildElementsConsumed extends AxiomTestCase {
     @Override
     protected void runTest() throws Throwable {
         OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(
-                factory,
-                TestGetChildElementsConsumed.class.getResourceAsStream("purchase-order.xml"));
+                factory, TestGetChildElementsConsumed.class.getResourceAsStream("purchase-order.xml"));
 
         OMElement documentElement = builder.getDocumentElement();
         XMLStreamReader reader = documentElement.getXMLStreamReaderWithoutCaching();

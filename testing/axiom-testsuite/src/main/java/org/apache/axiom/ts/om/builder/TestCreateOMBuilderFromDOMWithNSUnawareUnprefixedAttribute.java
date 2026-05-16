@@ -37,8 +37,8 @@ public class TestCreateOMBuilderFromDOMWithNSUnawareUnprefixedAttribute extends 
     protected void runTest() throws Throwable {
         Element domElement = DOMImplementation.XERCES.newDocument().createElementNS(null, "test");
         domElement.setAttribute("attr", "value");
-        OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, domElement, false)
-                .getDocumentElement();
+        OMElement element =
+                OMXMLBuilderFactory.createOMBuilder(factory, domElement, false).getDocumentElement();
         assertThat(element.getAttributeValue(new QName("attr"))).isEqualTo("value");
     }
 }

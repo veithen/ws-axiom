@@ -51,8 +51,8 @@ public class TestDigest extends DigestTestCase {
     protected OMInformationItem createInformationItem() throws Exception {
         InputStream in = TestDigest.class.getResourceAsStream(params.file());
         try {
-            OMDocument document = OMXMLBuilderFactory.createOMBuilder(factory, in)
-                    .getDocument();
+            OMDocument document =
+                    OMXMLBuilderFactory.createOMBuilder(factory, in).getDocument();
             document.build();
             return document;
         } finally {

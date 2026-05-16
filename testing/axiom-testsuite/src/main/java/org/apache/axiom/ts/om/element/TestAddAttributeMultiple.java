@@ -48,7 +48,6 @@ public class TestAddAttributeMultiple extends AxiomTestCase {
         String expectedXML = "<AttributeTester xmlns:myAttr2NS=\"http://test-attributes-2.org\" "
                 + "xmlns:myAttr1NS=\"http://test-attributes-1.org\" myAttr2NS:attrNumber=\"2\" myAttr1NS:attrNumber=\"1\" />";
 
-
         OMNamespace attrNS1 = factory.createOMNamespace("http://test-attributes-1.org", "myAttr1NS");
         OMNamespace attrNS2 = factory.createOMNamespace("http://test-attributes-2.org", "myAttr2NS");
         OMElement omElement = factory.createOMElement("AttributeTester", null);

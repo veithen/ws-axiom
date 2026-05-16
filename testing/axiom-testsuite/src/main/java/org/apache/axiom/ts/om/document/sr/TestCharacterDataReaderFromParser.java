@@ -51,8 +51,7 @@ public class TestCharacterDataReaderFromParser extends AxiomTestCase {
     @Override
     protected void runTest() throws Throwable {
         String text = "This is a test for the CharacterDataReader extension";
-        OMDocument doc = OMXMLBuilderFactory.createOMBuilder(
-                        factory, new StringReader("<root>" + text + "</root>"))
+        OMDocument doc = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root>" + text + "</root>"))
                 .getDocument();
         XMLStreamReader reader = doc.getXMLStreamReader(cache);
         CharacterDataReader cdataReader = (CharacterDataReader) reader.getProperty(CharacterDataReader.PROPERTY);

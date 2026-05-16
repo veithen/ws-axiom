@@ -33,8 +33,7 @@ public class TestResolveQNameWithDefaultNamespace extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement element =
-                AXIOMUtil.stringToOM(factory, "<p:root xmlns:p='urn:ns1' xmlns='urn:ns2'/>");
+        OMElement element = AXIOMUtil.stringToOM(factory, "<p:root xmlns:p='urn:ns1' xmlns='urn:ns2'/>");
         QName qname = element.resolveQName("test");
         assertThat(qname.getPrefix()).isEqualTo("");
         assertThat(qname.getNamespaceURI()).isEqualTo("urn:ns2");

@@ -50,8 +50,7 @@ public class TestCloneBinary extends AxiomTestCase {
         StringReader rootPart = new StringReader(
                 "<root><xop:Include xmlns:xop='http://www.w3.org/2004/08/xop/include' href='cid:123456@example.org'/></root>");
         DummyAttachmentAccessor attachmentAccessor = new DummyAttachmentAccessor("123456@example.org", blob);
-        OMElement root = OMXMLBuilderFactory.createOMBuilder(
-                        factory, new StreamSource(rootPart), attachmentAccessor)
+        OMElement root = OMXMLBuilderFactory.createOMBuilder(factory, new StreamSource(rootPart), attachmentAccessor)
                 .getDocumentElement();
         OMText text = (OMText) root.getFirstOMChild();
         OMCloneOptions options = new OMCloneOptions();

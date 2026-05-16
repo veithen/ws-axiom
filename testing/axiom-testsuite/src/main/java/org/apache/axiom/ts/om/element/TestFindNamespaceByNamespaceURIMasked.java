@@ -37,8 +37,7 @@ public class TestFindNamespaceByNamespaceURIMasked extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement root = AXIOMUtil.stringToOM(
-                factory, "<root xmlns:p='urn:ns1'><child xmlns:p='urn:ns2'/></a>");
+        OMElement root = AXIOMUtil.stringToOM(factory, "<root xmlns:p='urn:ns1'><child xmlns:p='urn:ns2'/></a>");
         assertThat(root.getFirstElement().findNamespace("urn:ns1", null)).isNull();
         root.close(false);
     }

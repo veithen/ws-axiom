@@ -18,10 +18,10 @@
  */
 package org.apache.axiom.ts.om.factory;
 
-import org.apache.axiom.om.OMFactory;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
+import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestCreateOMNamespaceWithNullURI extends AxiomTestCase {
@@ -30,7 +30,6 @@ public class TestCreateOMNamespaceWithNullURI extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        assertThatThrownBy(() -> factory.createOMNamespace(null, "t"))
-                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> factory.createOMNamespace(null, "t")).isInstanceOf(IllegalArgumentException.class);
     }
 }

@@ -40,8 +40,7 @@ public class TestDiscardIncomplete extends AxiomTestCase {
         // an element from it
         // TODO: we shouldn't use a SOAP message here
         OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(
-                factory,
-                SOAPSampleSet.WSA.getMessage(SOAPSpec.SOAP11).getInputStream());
+                factory, SOAPSampleSet.WSA.getMessage(SOAPSpec.SOAP11).getInputStream());
         documentElement = builder.getDocumentElement();
 
         documentElement.getFirstElement().discard();

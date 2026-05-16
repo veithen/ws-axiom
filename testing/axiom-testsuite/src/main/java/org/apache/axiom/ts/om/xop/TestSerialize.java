@@ -70,8 +70,7 @@ public class TestSerialize extends AxiomTestCase {
         // Write out the message
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-        OMXMLParserWrapper builder =
-                OMXMLBuilderFactory.createOMBuilder(factory, StAXParserConfiguration.DEFAULT, mb);
+        OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(factory, StAXParserConfiguration.DEFAULT, mb);
         OMElement om = builder.getDocumentElement();
         om.serialize(baos, oof);
         om.close(false);

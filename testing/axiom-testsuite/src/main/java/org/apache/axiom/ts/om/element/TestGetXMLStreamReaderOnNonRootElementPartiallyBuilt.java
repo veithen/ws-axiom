@@ -51,8 +51,8 @@ public class TestGetXMLStreamReaderOnNonRootElementPartiallyBuilt extends AxiomT
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement root = AXIOMUtil.stringToOM(
-                factory, "<root><child><emptyElement/><element>content</element></child></root>");
+        OMElement root =
+                AXIOMUtil.stringToOM(factory, "<root><child><emptyElement/><element>content</element></child></root>");
         OMElement child = (OMElement) root.getFirstOMChild();
 
         // Partially build the tree

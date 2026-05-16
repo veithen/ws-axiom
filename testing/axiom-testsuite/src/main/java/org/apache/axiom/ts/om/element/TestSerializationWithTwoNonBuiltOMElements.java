@@ -41,10 +41,10 @@ public class TestSerializationWithTwoNonBuiltOMElements extends AxiomTestCase {
                 "<Root><ChildOne><Name>ChildName</Name></ChildOne><ChildTwo><Name>ChildName</Name></ChildTwo></Root>";
 
         OMElement rootElement = factory.createOMElement("Root", null);
-        OMElement childOne = OMXMLBuilderFactory.createOMBuilder(omFactory, new StringReader(sampleXMLOne))
+        OMElement childOne = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader(sampleXMLOne))
                 .getDocumentElement(true);
         rootElement.addChild(childOne);
-        OMElement childTwo = OMXMLBuilderFactory.createOMBuilder(omFactory, new StringReader(sampleXMLTwo))
+        OMElement childTwo = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader(sampleXMLTwo))
                 .getDocumentElement(true);
         rootElement.addChild(childTwo);
 

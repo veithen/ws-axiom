@@ -46,8 +46,7 @@ public class TestCreateOMBuilderFromDOMElement extends AxiomTestCase {
         Document document =
                 DOMImplementation.XERCES.parse(new InputSource(new StringReader("<a><b><c/></b><b2/></a>")));
         Element domB = (Element) document.getElementsByTagNameNS(null, "b").item(0);
-        OMElement omB = OMXMLBuilderFactory.createOMBuilder(factory, domB, true)
-                .getDocumentElement();
+        OMElement omB = OMXMLBuilderFactory.createOMBuilder(factory, domB, true).getDocumentElement();
         assertThat(omB.getLocalName()).isEqualTo("b");
         assertThat(omB.getNextOMSibling()).isNull();
     }

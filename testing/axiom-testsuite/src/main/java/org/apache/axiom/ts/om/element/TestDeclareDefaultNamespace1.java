@@ -38,8 +38,8 @@ public class TestDeclareDefaultNamespace1 extends AxiomTestCase {
          * xmlns:ns2="http://ws.apache.org/axis2" xmlns="http://two.org"> <ChildElementTwo
          * xmlns="http://one.org" /> </ns2:ChildElementOne> </RootElement>
          */
-
-        OMElement documentElement = factory.createOMElement("RootElement", factory.createOMNamespace("http://one.org", ""));
+        OMElement documentElement =
+                factory.createOMElement("RootElement", factory.createOMNamespace("http://one.org", ""));
 
         OMNamespace ns = factory.createOMNamespace("http://ws.apache.org/axis2", "ns2");
         OMElement childOne = factory.createOMElement("ChildElementOne", ns, documentElement);

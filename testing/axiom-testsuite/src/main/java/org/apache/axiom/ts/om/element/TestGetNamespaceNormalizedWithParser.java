@@ -40,8 +40,7 @@ public class TestGetNamespaceNormalizedWithParser extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement element = OMXMLBuilderFactory.createOMBuilder(
-                        factory, new StringReader("<root xmlns=''/>"))
+        OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root xmlns=''/>"))
                 .getDocumentElement();
         assertThat(element.getNamespace()).isNull();
     }

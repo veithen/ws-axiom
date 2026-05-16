@@ -51,9 +51,9 @@ public class TestGetSAXResultSAXParser extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        SAXParserFactory factory = saxImplementation.newSAXParserFactory();
-        factory.setNamespaceAware(true);
-        XMLReader reader = factory.newSAXParser().getXMLReader();
+        SAXParserFactory saxFactory = saxImplementation.newSAXParserFactory();
+        saxFactory.setNamespaceAware(true);
+        XMLReader reader = saxFactory.newSAXParser().getXMLReader();
         OMDocument document = factory.createOMDocument();
         ContentHandler handler = document.getSAXResult().getHandler();
         reader.setContentHandler(handler);

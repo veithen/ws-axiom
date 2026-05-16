@@ -36,8 +36,7 @@ public class TestBuild extends AxiomTestCase {
     @Override
     protected void runTest() throws Throwable {
         InstrumentedInputStream in = new InstrumentedInputStream(XMLSample.LARGE.getInputStream());
-        OMDocument doc = OMXMLBuilderFactory.createOMBuilder(factory, in)
-                .getDocument();
+        OMDocument doc = OMXMLBuilderFactory.createOMBuilder(factory, in).getDocument();
         assertThat(doc.isComplete()).isFalse();
         long countBeforeBuild = in.getCount();
         doc.build();

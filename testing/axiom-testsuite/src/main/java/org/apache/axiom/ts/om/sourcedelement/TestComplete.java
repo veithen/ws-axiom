@@ -37,7 +37,8 @@ public class TestComplete extends AxiomTestCase {
         // Build a root element and child OMSE
         OMNamespace ns = factory.createOMNamespace("http://www.sosnoski.com/uwjws/library", "");
         OMNamespace rootNS = factory.createOMNamespace("http://sampleroot", "rootPrefix");
-        OMElement child = factory.createOMElement(new PullOMDataSource(TestDocument.DOCUMENT1.getContent()), "library", ns);
+        OMElement child =
+                factory.createOMElement(new PullOMDataSource(TestDocument.DOCUMENT1.getContent()), "library", ns);
         OMElement root = factory.createOMElement("root", rootNS);
 
         // Trigger expansion of the child OMSE

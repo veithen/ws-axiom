@@ -50,8 +50,7 @@ public class TestCreateOMBuilderXOP extends AxiomTestCase {
                 .setInputStream(sample.getInputStream())
                 .setContentType(sample.getContentType())
                 .build();
-        OMElement content = OMXMLBuilderFactory.createOMBuilder(
-                        factory, StAXParserConfiguration.DEFAULT, mb)
+        OMElement content = OMXMLBuilderFactory.createOMBuilder(factory, StAXParserConfiguration.DEFAULT, mb)
                 .getDocumentElement();
         if (build) {
             content.build();

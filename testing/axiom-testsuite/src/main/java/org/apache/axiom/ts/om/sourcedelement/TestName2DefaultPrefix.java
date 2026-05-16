@@ -44,7 +44,8 @@ public class TestName2DefaultPrefix extends AxiomTestCase {
         // prefix
         OMNamespace rootNS = factory.createOMNamespace("http://sampleroot", "rootPrefix");
         OMNamespace ns = factory.createOMNamespace("http://www.sosnoski.com/uwjws/library", "DUMMYPREFIX");
-        OMElement element = factory.createOMElement(new PullOMDataSource(TestDocument.DOCUMENT1.getContent()), "library", ns);
+        OMElement element =
+                factory.createOMElement(new PullOMDataSource(TestDocument.DOCUMENT1.getContent()), "library", ns);
         OMElement root = factory.createOMElement("root", rootNS);
         root.addChild(element);
 

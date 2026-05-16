@@ -45,13 +45,12 @@ public class TestGetNamespaceNormalizedWithSAXSource extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        SAXParserFactory factory = SAXParserFactory.newInstance();
-        factory.setNamespaceAware(true);
-        factory.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
-        SAXParser parser = factory.newSAXParser();
+        SAXParserFactory saxFactory = SAXParserFactory.newInstance();
+        saxFactory.setNamespaceAware(true);
+        saxFactory.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
+        SAXParser parser = saxFactory.newSAXParser();
         SAXSource source = new SAXSource(parser.getXMLReader(), new InputSource(new StringReader("<root xmlns=''/>")));
-        OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, source)
-                .getDocumentElement();
+        OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, source).getDocumentElement();
         assertThat(element.getNamespace()).isNull();
     }
 }

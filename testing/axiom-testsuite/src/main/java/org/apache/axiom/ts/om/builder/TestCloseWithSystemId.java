@@ -41,8 +41,7 @@ public class TestCloseWithSystemId extends AxiomTestCase {
         URLRegistration registration = URLRegistry.register(dataProvider);
         try {
             OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(
-                    factory,
-                    new StreamSource(registration.getURL().toExternalForm()));
+                    factory, new StreamSource(registration.getURL().toExternalForm()));
             builder.getDocumentElement();
             builder.close();
             // Since the caller doesn't have control over the stream, the builder is responsible

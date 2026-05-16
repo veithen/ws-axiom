@@ -53,8 +53,7 @@ public class TestCloseAndContinueBuilding extends AxiomTestCase {
     @Override
     protected void runTest() throws Throwable {
         OMElement root = OMXMLBuilderFactory.createOMBuilder(
-                        factory,
-                        new StringReader("<root><a><b>some text</b></a><c>content</c></root>"))
+                        factory, new StringReader("<root><a><b>some text</b></a><c>content</c></root>"))
                 .getDocumentElement();
         OMElement a = (OMElement) root.getFirstOMChild();
         XMLStreamReader reader = a.getXMLStreamReader(cache);

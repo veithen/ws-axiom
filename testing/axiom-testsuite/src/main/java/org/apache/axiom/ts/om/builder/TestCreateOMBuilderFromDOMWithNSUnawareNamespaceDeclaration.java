@@ -44,8 +44,8 @@ public class TestCreateOMBuilderFromDOMWithNSUnawareNamespaceDeclaration extends
     protected void runTest() throws Throwable {
         Element domElement = DOMImplementation.XERCES.newDocument().createElementNS(null, "test");
         domElement.setAttribute(prefix.isEmpty() ? "xmlns" : "xmlns:" + prefix, "urn:ns1");
-        OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, domElement, false)
-                .getDocumentElement();
+        OMElement element =
+                OMXMLBuilderFactory.createOMBuilder(factory, domElement, false).getDocumentElement();
         assertThat(element).hasNamespaceDeclaration(prefix, "urn:ns1");
     }
 }

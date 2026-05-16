@@ -38,8 +38,7 @@ public class TestIsCompleteWithParser extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement element = OMXMLBuilderFactory.createOMBuilder(
-                        factory, new StringReader("<a><b/></a>"))
+        OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<a><b/></a>"))
                 .getDocumentElement();
         assertThat(element.isComplete()).isFalse();
         element.getFirstElement().getNextOMSibling();

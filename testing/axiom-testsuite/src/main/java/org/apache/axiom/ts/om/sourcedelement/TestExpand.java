@@ -36,8 +36,7 @@ public class TestExpand extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMSourcedElement element =
-                TestDocument.DOCUMENT1.createOMSourcedElement(factory, false, true);
+        OMSourcedElement element = TestDocument.DOCUMENT1.createOMSourcedElement(factory, false, true);
         element.getAllDeclaredNamespaces();
         assertThat(countItems(element.getAllDeclaredNamespaces())).isEqualTo(1);
         assertThat(countItems(element.getAllAttributes())).isEqualTo(1);

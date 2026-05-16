@@ -50,8 +50,8 @@ public class TestCreateStAXOMBuilderFromFragment extends AxiomTestCase {
             reader.next();
         }
         // Check that the builder only builds the part of the document corresponding to <b>text</b>
-        OMElement element = OMXMLBuilderFactory.createStAXOMBuilder(factory, reader)
-                .getDocumentElement();
+        OMElement element =
+                OMXMLBuilderFactory.createStAXOMBuilder(factory, reader).getDocumentElement();
         assertThat(element.getLocalName()).isEqualTo("b");
         OMNode child = element.getFirstOMChild();
         assertThat(child).isInstanceOf(OMText.class);

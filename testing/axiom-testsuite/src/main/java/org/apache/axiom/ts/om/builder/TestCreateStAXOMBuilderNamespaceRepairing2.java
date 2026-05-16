@@ -45,8 +45,7 @@ public class TestCreateStAXOMBuilderNamespaceRepairing2 extends AxiomTestCase {
     protected void runTest() throws Throwable {
         XMLStreamReader reader = StAXUtils.createXMLStreamReader(
                 new StringReader("<test xmlns='urn:test'><arg0 xmlns=''>dGVzdA==</arg0></test>"));
-        OMElement element = OMXMLBuilderFactory.createStAXOMBuilder(
-                        factory, new NamespaceDeclarationFilter(reader))
+        OMElement element = OMXMLBuilderFactory.createStAXOMBuilder(factory, new NamespaceDeclarationFilter(reader))
                 .getDocumentElement();
 
         Iterator<OMNamespace> it = element.getAllDeclaredNamespaces();

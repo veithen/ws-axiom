@@ -33,8 +33,7 @@ public class TestSetDataSourceOnAlreadyExpandedElement extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMSourcedElement element =
-                TestDocument.DOCUMENT1.createOMSourcedElement(factory, false, true);
+        OMSourcedElement element = TestDocument.DOCUMENT1.createOMSourcedElement(factory, false, true);
         // Make sure the OMSourcedElement is expanded
         element.getFirstOMChild();
         assertThat(element.isExpanded()).isTrue();

@@ -38,8 +38,7 @@ public class TestGetDocumentElementWithIllFormedDocument extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMXMLParserWrapper builder =
-                OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<!--comment1-->"));
+        OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<!--comment1-->"));
         assertThatThrownBy(builder::getDocumentElement).isInstanceOf(OMException.class);
     }
 }

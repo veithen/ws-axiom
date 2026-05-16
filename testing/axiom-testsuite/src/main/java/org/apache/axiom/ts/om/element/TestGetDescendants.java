@@ -42,8 +42,7 @@ public class TestGetDescendants extends AxiomTestCase {
 
     @Override
     protected void runTest() throws Throwable {
-        OMElement element =
-                AXIOMUtil.stringToOM(factory, "<root><a><b><c><d/><e/></c></b><f/></a><g/></root>");
+        OMElement element = AXIOMUtil.stringToOM(factory, "<root><a><b><c><d/><e/></c></b><f/></a><g/></root>");
         // We intentionally get the descendants of <a> so that we can test containment
         // (the iterator must never return <g>, which is a sibling of <a>).
         Iterator<OMNode> it = element.getFirstElement().getDescendants(includeSelf);

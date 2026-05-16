@@ -55,8 +55,7 @@ public class TestGetXMLStreamReaderWithPreserveNamespaceContext extends AxiomTes
     @Override
     protected void runTest() throws Throwable {
         InputStream in = TestGetXMLStreamReaderWithPreserveNamespaceContext.class.getResourceAsStream("AXIOM-114.xml");
-        OMElement root = OMXMLBuilderFactory.createOMBuilder(factory, in)
-                .getDocumentElement();
+        OMElement root = OMXMLBuilderFactory.createOMBuilder(factory, in).getDocumentElement();
         root.declareNamespace("http://example.org", "p");
         OMXMLStreamReaderConfiguration configuration = new OMXMLStreamReaderConfiguration();
         configuration.setPreserveNamespaceContext(preserveNamespaceContext);

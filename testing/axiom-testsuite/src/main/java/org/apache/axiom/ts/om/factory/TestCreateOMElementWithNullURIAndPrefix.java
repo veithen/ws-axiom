@@ -18,10 +18,10 @@
  */
 package org.apache.axiom.ts.om.factory;
 
-import org.apache.axiom.om.OMFactory;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
+import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.ts.AxiomTestCase;
 
 public class TestCreateOMElementWithNullURIAndPrefix extends AxiomTestCase {
