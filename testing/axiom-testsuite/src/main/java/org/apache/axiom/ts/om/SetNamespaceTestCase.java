@@ -32,8 +32,6 @@ import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.ts.AxiomTestCase;
 
 public abstract class SetNamespaceTestCase extends AxiomTestCase {
-    @Inject
-    private OMMetaFactory metaFactory;
     /**
      * Common test parameters for {@link SetNamespaceTestCase} subclasses.
      *
@@ -73,14 +71,11 @@ public abstract class SetNamespaceTestCase extends AxiomTestCase {
         boolean expectNSDecl();
     }
 
+    @Inject
+    private OMMetaFactory metaFactory;
+
     private final Params params;
 
-    /**
-     * Constructor.
-     *
-     * @param metaFactory the meta factory
-     * @param params the test parameters
-     */
     public SetNamespaceTestCase(Params params) {
         this.params = params;
     }
