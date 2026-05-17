@@ -51,7 +51,9 @@ public class TestDisallowDoctypeDeclWithDenialOfService extends DialectTestCase 
             } catch (RuntimeException ex) {
                 gotException = true;
             }
+            // Assert that an exception was expected
             assertThat(gotException).isTrue();
+            // Assert that the parser failed to throw an exception before reaching the document element
             assertThat(reachedDocumentElement).isFalse();
         } finally {
             in.close();

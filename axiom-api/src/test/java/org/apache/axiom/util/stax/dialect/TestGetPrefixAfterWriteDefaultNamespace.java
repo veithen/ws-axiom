@@ -34,6 +34,6 @@ public class TestGetPrefixAfterWriteDefaultNamespace extends DialectTestCase {
                 staxImpl.newNormalizedXMLOutputFactory().createXMLStreamWriter(NullOutputStream.INSTANCE);
         writer.writeStartElement("ns1", "root", "urn:ns1");
         writer.writeDefaultNamespace("urn:ns2");
-        assertThat(writer.getPrefix("urn:ns2")).isEqualTo("");
+        assertThat(writer.getPrefix("urn:ns2")).isEmpty();
     }
 }

@@ -48,6 +48,6 @@ public class TestGetEncodingFromDetection extends DialectTestCase {
         XMLStreamReader reader = factory.createXMLStreamReader(
                 new ByteArrayInputStream("<?xml version=\"1.0\"?><root/>".getBytes(javaEncoding)));
         String actualEncoding = reader.getEncoding();
-        assertThat(xmlEncodings).contains(actualEncoding);
+        assertThat(actualEncoding).isIn(xmlEncodings);
     }
 }
