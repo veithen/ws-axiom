@@ -21,10 +21,10 @@ package org.apache.axiom.ts.om.attribute;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests that the default attribute type for programmatically created attributes is {@code CDATA}.

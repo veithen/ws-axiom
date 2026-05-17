@@ -24,11 +24,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import javax.xml.namespace.QName;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamedInformationItem;
 import org.apache.axiom.om.OMNamespace;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public abstract class SetNamespaceTestCase extends MatrixTestCase {
     /**

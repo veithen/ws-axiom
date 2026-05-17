@@ -25,11 +25,11 @@ import com.google.inject.Inject;
 import java.io.StringReader;
 import java.util.Random;
 import javax.xml.namespace.QName;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.om.ds.WrappedTextNodeOMDataSourceFromReader;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestWrappedTextNodeOMDataSourceFromReader extends MatrixTestCase {
     @Inject

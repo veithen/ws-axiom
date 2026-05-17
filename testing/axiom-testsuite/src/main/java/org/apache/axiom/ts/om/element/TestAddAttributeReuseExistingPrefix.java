@@ -21,11 +21,11 @@ package org.apache.axiom.ts.om.element;
 import static org.apache.axiom.truth.AxiomTruth.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests that when {@link OMElement#addAttribute(String, String, OMNamespace)} is called with an

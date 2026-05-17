@@ -25,13 +25,13 @@ import com.google.inject.name.Named;
 import java.io.InputStream;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.sax.SAXSource;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.jaxp.xslt.XSLTImplementation;
 import org.xml.sax.ContentHandler;
 

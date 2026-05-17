@@ -21,13 +21,13 @@ package org.apache.axiom.ts.om.sourcedelement;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.om.ds.StringOMDataSource;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests that {@link OMElement#getNamespace()} returns <code>null</code> even if an {@link

@@ -23,11 +23,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPProcessingException;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class BadInputTest extends MatrixTestCase {
     @Inject

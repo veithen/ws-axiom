@@ -22,11 +22,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMException;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPHeader;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests the behavior of {@link SOAPHeader#addHeaderBlock(QName)} when passing a {@link QName} with

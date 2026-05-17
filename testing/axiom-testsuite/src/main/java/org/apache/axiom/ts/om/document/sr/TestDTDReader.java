@@ -22,11 +22,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.stream.XMLStreamReader;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ext.stax.DTDReader;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests that the {@link XMLStreamReader} returned by {@link OMContainer#getXMLStreamReader()} for a

@@ -24,13 +24,13 @@ import com.google.inject.Inject;
 import java.io.StringReader;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.util.StAXUtils;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests the behavior of {@link OMXMLBuilderFactory#createStAXOMBuilder(OMFactory, XMLStreamReader)}

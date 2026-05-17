@@ -22,12 +22,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.xpath.AXIOMXPath;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-141">AXIOM-141</a>. */
 public class TestXPathAppliedToSOAPEnvelope extends MatrixTestCase {

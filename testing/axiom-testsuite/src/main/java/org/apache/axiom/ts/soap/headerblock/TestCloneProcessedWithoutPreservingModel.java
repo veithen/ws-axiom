@@ -21,11 +21,11 @@ package org.apache.axiom.ts.soap.headerblock;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.soap.SOAPCloneOptions;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPHeaderBlock;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Test cloning a {@link SOAPHeaderBlock} flagged as processed, but without preserving the model. In

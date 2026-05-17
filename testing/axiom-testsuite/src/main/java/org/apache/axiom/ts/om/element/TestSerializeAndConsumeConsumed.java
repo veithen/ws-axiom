@@ -23,7 +23,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import com.google.inject.Inject;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.core.stream.stax.StAX;
 import org.apache.axiom.om.NodeUnavailableException;
 import org.apache.axiom.om.OMContainer;
@@ -31,6 +30,7 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests that {@link OMContainer#serializeAndConsume(XMLStreamWriter)} throws an appropriate

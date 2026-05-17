@@ -21,11 +21,11 @@ package org.apache.axiom.ts.om.xpath;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.xpath.AXIOMXPath;
 import org.apache.axiom.om.xpath.DocumentNavigator;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests that {@link DocumentNavigator#getAttributeQName(Object)} returns the correct result for an

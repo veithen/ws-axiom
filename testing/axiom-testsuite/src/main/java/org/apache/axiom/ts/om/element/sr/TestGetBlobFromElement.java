@@ -25,13 +25,13 @@ import com.google.inject.name.Named;
 import java.io.StringReader;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.blob.RandomBlob;
 import org.apache.axiom.testutils.io.IOTestUtils;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.util.stax.XMLStreamReaderUtils;
 
 /**

@@ -24,10 +24,10 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.stream.XMLStreamReader;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestGetNamespaceContext extends MatrixTestCase {
     @Inject

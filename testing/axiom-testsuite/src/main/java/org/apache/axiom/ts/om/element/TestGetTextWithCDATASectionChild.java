@@ -22,9 +22,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.stream.XMLStreamConstants;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests the behavior of {@link OMElement#getText()} when invoked on an element containing both a

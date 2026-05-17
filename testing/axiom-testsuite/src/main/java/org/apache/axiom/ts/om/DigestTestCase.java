@@ -20,13 +20,13 @@ package org.apache.axiom.ts.om;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMInformationItem;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.util.DigestGenerator;
 import org.apache.axiom.testutils.DigestUtils;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Base class for unit tests validating the DOMHASH implementation.

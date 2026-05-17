@@ -21,10 +21,10 @@ package org.apache.axiom.ts.soap12.fault;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFaultCode;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestMoreChildrenAddition extends MatrixTestCase {
     @Inject

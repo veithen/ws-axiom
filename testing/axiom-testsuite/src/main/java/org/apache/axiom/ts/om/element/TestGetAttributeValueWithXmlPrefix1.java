@@ -23,10 +23,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Test that {@link OMElement#getAttributeValue(QName)} works properly for an attribute with the

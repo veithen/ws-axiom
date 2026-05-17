@@ -26,14 +26,14 @@ import com.google.inject.name.Named;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import javax.xml.transform.stream.StreamSource;
-import junit.framework.TestCase;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.jaxp.xslt.XSLTImplementation;
 import org.apache.axiom.ts.xml.XMLSample;
 import org.xml.sax.InputSource;
 
-public class StreamSourceToOMResultTestCase extends TestCase {
+public class StreamSourceToOMResultTestCase extends MatrixTestCase {
     @Inject
     @Named("axiomImplementation")
     private String axiomImplementation;

@@ -22,11 +22,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
 import java.io.StringReader;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.NodeUnavailableException;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.commons.io.output.NullOutputStream;
 
 /**

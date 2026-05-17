@@ -23,7 +23,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMOutputFormat;
@@ -31,6 +30,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPMessage;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests {@link OMDocument#getCharsetEncoding()} on a {@link SOAPMessage} created by a builder. */
 public class TestGetCharsetEncodingWithParser extends MatrixTestCase {

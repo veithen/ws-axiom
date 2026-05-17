@@ -21,10 +21,10 @@ package org.apache.axiom.ts.soap11.faultreason;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFault;
 import org.apache.axiom.soap.SOAPFaultReason;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestGetFirstSOAPText extends MatrixTestCase {
     @Inject

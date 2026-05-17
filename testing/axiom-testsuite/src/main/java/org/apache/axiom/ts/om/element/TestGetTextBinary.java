@@ -21,7 +21,6 @@ package org.apache.axiom.ts.om.element;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import java.io.ByteArrayInputStream;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -29,6 +28,7 @@ import org.apache.axiom.om.OMText;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.blob.RandomBlob;
 import org.apache.axiom.testutils.io.IOTestUtils;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.commons.codec.binary.Base64;
 
 /**

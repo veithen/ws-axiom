@@ -23,10 +23,10 @@ import static org.apache.axiom.truth.xml.XMLTruth.xml;
 
 import com.google.inject.Inject;
 import java.net.URL;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import za.co.eskom.nrs.xmlvend.base.x20.schema.AdviceReqDocument;
 
 public class TestCreateStAXOMBuilderFromXmlBeansPullParser extends MatrixTestCase {

@@ -22,10 +22,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.util.Locale;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFaultReason;
 import org.apache.axiom.soap.SOAPFaultText;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestGetFaultReasonTextCaseSensitivity extends MatrixTestCase {
     @Inject

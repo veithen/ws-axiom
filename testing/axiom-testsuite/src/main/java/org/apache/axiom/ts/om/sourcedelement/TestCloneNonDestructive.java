@@ -24,7 +24,6 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import java.nio.charset.StandardCharsets;
 import javax.xml.namespace.QName;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMCloneOptions;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMElement;
@@ -32,6 +31,7 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.om.ds.WrappedTextNodeOMDataSourceFromBlob;
 import org.apache.axiom.testutils.blob.TextBlob;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestCloneNonDestructive extends MatrixTestCase {
     @Inject

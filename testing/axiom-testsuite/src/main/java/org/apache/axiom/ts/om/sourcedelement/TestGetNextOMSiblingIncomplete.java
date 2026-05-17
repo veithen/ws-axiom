@@ -22,11 +22,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.om.ds.StringOMDataSource;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests that {@link OMElement#getNextOMSibling()} doesn't change the state of an {@link

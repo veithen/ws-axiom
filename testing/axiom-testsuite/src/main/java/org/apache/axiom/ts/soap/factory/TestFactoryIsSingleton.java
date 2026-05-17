@@ -21,8 +21,8 @@ package org.apache.axiom.ts.soap.factory;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.FactorySelector;
 import org.apache.axiom.ts.soap.SOAPSpec;
 

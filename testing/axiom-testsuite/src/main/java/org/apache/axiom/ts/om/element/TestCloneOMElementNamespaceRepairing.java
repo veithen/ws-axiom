@@ -24,10 +24,10 @@ import com.google.inject.Inject;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests that {@link OMElement#cloneOMElement()} performs namespace repairing. */
 // TODO: this is actually undocumented; in addition, it should probably made configurable

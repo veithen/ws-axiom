@@ -23,12 +23,12 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import com.google.inject.Inject;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMException;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.om.ds.AbstractPullOMDataSource;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests the behavior of {@link OMSourcedElement} if {@link OMDataSource#getReader()} throws an

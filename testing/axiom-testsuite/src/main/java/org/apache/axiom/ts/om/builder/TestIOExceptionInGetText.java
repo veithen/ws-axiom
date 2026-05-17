@@ -26,13 +26,13 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import javax.xml.stream.XMLStreamReader;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.util.StAXUtils;
 import org.apache.axiom.testutils.InvocationCounter;
 import org.apache.axiom.testutils.io.ExceptionInputStream;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Test the behavior of the builder when an exception is thrown by {@link

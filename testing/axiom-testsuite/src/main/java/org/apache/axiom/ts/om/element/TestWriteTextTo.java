@@ -24,11 +24,11 @@ import com.google.inject.Inject;
 import java.io.StringWriter;
 import java.io.Writer;
 import javax.xml.namespace.QName;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.io.InstrumentedWriter;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests the behavior of {@link OMElement#writeTextTo(Writer, boolean)} in the simple case with a

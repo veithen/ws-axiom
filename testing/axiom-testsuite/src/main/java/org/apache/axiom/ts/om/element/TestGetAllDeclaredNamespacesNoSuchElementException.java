@@ -23,11 +23,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests that the iterator returned by {@link OMElement#getAllDeclaredNamespaces()} respects the

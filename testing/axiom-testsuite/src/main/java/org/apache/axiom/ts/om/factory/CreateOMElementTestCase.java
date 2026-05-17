@@ -18,8 +18,8 @@
  */
 package org.apache.axiom.ts.om.factory;
 
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Base class for the test cases that validate the behavior of the various <code>createOMElement

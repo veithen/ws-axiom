@@ -23,7 +23,6 @@ import com.google.inject.name.Named;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.util.Iterator;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.mime.MultipartBody;
 import org.apache.axiom.mime.PartBlob;
@@ -37,6 +36,7 @@ import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.testutils.blob.TestBlob;
 import org.apache.axiom.testutils.io.IOTestUtils;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests that attachments are streamed (i.e. not read entirely into memory) if the original message

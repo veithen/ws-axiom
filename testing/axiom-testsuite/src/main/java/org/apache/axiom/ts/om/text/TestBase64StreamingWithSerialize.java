@@ -19,11 +19,11 @@
 package org.apache.axiom.ts.om.text;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.blob.TestBlob;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.commons.io.output.NullOutputStream;
 
 /**

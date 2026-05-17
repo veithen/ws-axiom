@@ -26,13 +26,13 @@ import java.io.Reader;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import javax.xml.namespace.QName;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.om.ds.WrappedTextNodeOMDataSourceFromBlob;
 import org.apache.axiom.testutils.blob.RandomBlob;
 import org.apache.axiom.testutils.io.CharacterStreamComparator;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestWriteTextToWithNonDestructiveOMDataSource extends MatrixTestCase {
     @Inject

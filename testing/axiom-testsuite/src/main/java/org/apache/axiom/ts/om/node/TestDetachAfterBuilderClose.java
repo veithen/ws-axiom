@@ -20,11 +20,11 @@ package org.apache.axiom.ts.om.node;
 
 import com.google.inject.Inject;
 import java.io.StringReader;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestDetachAfterBuilderClose extends MatrixTestCase {
     @Inject

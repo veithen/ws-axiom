@@ -21,9 +21,9 @@ package org.apache.axiom.ts.om.factory;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMProcessingInstruction;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestCreateOMProcessingInstructionWithoutParent extends MatrixTestCase {
     @Inject

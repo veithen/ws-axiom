@@ -22,7 +22,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.util.ArrayList;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.MemoryBlob;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMMetaFactory;
@@ -32,6 +31,7 @@ import org.apache.axiom.om.ds.custombuilder.CustomBuilderSupport;
 import org.apache.axiom.soap.SOAPHeader;
 import org.apache.axiom.soap.SOAPHeaderBlock;
 import org.apache.axiom.soap.SOAPModelBuilder;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSampleAdapter;
 import org.apache.axiom.ts.soap.SOAPSampleSet;
 import org.apache.axiom.ts.soap.SOAPSpec;

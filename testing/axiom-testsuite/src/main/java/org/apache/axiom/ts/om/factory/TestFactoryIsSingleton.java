@@ -21,8 +21,8 @@ package org.apache.axiom.ts.om.factory;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests that the {@link OMFactory} returned by {@link OMMetaFactory} is a singleton. More precisely

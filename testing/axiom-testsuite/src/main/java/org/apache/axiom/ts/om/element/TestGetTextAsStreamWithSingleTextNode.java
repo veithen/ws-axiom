@@ -24,9 +24,9 @@ import com.google.inject.Inject;
 import java.io.Reader;
 import java.io.StringReader;
 import javax.xml.namespace.QName;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.commons.io.IOUtils;
 
 public class TestGetTextAsStreamWithSingleTextNode extends MatrixTestCase {

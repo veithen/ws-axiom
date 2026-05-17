@@ -26,10 +26,10 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import javax.xml.stream.XMLStreamWriter;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.OMText;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestSerialize extends MatrixTestCase {
     @Inject

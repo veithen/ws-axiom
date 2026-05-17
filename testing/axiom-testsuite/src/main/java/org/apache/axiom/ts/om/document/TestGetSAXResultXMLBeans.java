@@ -24,9 +24,9 @@ import static org.apache.axiom.truth.xml.XMLTruth.xml;
 
 import com.google.inject.Inject;
 import java.io.StringWriter;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.om.document.xmlbeans.OrderDocument;
 import org.apache.axiom.ts.om.document.xmlbeans.OrderDocument.Order;
 import org.apache.axiom.ts.om.document.xmlbeans.OrderDocument.Order.Item;

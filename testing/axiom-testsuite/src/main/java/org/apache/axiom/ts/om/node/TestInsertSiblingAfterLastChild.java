@@ -22,10 +22,10 @@ import static com.google.common.truth.Truth.assertAbout;
 import static org.apache.axiom.truth.xml.XMLTruth.xml;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-153">AXIOM-153</a>. */
 public class TestInsertSiblingAfterLastChild extends MatrixTestCase {

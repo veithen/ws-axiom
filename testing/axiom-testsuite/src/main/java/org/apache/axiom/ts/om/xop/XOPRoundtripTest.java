@@ -24,7 +24,6 @@ import com.google.inject.Inject;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.stax.StAXSource;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -32,6 +31,7 @@ import org.apache.axiom.om.OMText;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.XOPEncoded;
 import org.apache.axiom.testutils.blob.TestBlob;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class XOPRoundtripTest extends MatrixTestCase {
     @Inject

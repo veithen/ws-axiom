@@ -21,9 +21,9 @@ package org.apache.axiom.ts.soap.faultrole;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFaultRole;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestGetRoleValue extends MatrixTestCase {
     @Inject

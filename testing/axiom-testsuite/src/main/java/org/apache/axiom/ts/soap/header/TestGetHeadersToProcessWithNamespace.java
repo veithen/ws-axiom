@@ -22,13 +22,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.util.Iterator;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.soap.RolePlayer;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPHeader;
 import org.apache.axiom.soap.SOAPHeaderBlock;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link SOAPHeader#getHeadersToProcess(RolePlayer, String)} */
 public class TestGetHeadersToProcessWithNamespace extends MatrixTestCase {

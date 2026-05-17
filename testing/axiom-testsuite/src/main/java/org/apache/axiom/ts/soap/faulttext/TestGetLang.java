@@ -22,9 +22,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.XMLConstants;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFaultText;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestGetLang extends MatrixTestCase {
     @Inject

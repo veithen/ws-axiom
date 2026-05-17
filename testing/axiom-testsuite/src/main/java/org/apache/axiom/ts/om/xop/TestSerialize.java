@@ -24,7 +24,6 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.mime.ContentType;
 import org.apache.axiom.mime.MediaType;
 import org.apache.axiom.mime.MultipartBody;
@@ -34,6 +33,7 @@ import org.apache.axiom.om.OMOutputFormat;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.axiom.om.util.StAXParserConfiguration;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.MTOMSample;
 
 public class TestSerialize extends MatrixTestCase {

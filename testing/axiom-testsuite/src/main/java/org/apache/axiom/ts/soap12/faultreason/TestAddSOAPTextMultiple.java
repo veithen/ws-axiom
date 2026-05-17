@@ -21,11 +21,11 @@ package org.apache.axiom.ts.soap12.faultreason;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFaultReason;
 import org.apache.axiom.soap.SOAPFaultText;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestAddSOAPTextMultiple extends MatrixTestCase {
     @Inject

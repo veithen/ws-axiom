@@ -20,8 +20,8 @@ package org.apache.axiom.ts.om.cross;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public abstract class CrossOMTestCase extends MatrixTestCase {
     @Inject

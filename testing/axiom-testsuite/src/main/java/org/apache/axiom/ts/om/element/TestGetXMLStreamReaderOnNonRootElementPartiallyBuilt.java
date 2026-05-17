@@ -22,12 +22,12 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import java.util.Iterator;
 import javax.xml.stream.XMLStreamReader;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.util.stax.debug.XMLStreamReaderValidator;
 
 /**

@@ -27,11 +27,11 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.stream.XMLStreamReader;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.OMXMLStreamReaderConfiguration;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /**
  * Tests the behavior of {@link OMElement#getXMLStreamReader(boolean,

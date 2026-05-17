@@ -20,8 +20,8 @@ package org.apache.axiom.ts.om.xpath;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestAXIOMXPath extends MatrixTestCase {
     @Inject

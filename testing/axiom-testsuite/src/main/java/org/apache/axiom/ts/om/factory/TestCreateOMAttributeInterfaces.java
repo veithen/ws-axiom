@@ -21,13 +21,13 @@ package org.apache.axiom.ts.om.factory;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.OMSerializable;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.w3c.dom.Attr;
 import org.w3c.dom.EntityReference;
 import org.w3c.dom.Text;

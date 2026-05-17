@@ -22,9 +22,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPBody;
 import org.apache.axiom.soap.SOAPFactory;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 public class TestHasFaultNoFault extends MatrixTestCase {
     @Inject
