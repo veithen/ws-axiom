@@ -40,12 +40,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * a builder. In that case, closing the reader is expected to close the builder without parsing the
  * rest of the document.
  */
-public class TestCloseWithoutCaching extends MatrixTestCase {
+public class TestCloseWithoutCaching implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         Writer writer = new OutputStreamWriter(baos, StandardCharsets.UTF_8);
         writer.write("<root><a>");

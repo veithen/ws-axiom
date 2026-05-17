@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMNamedInformationItem#getPrefix()} returns the prefix when invoked on an
  * {@link OMElement} that has a namespace with a prefix.
  */
-public class TestGetPrefixWithNamespace extends MatrixTestCase {
+public class TestGetPrefixWithNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("urn:ns", "test", "p"));
         assertThat(element.getPrefix()).isEqualTo("p");
     }

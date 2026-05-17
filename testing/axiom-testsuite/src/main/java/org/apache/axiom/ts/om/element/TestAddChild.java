@@ -26,12 +26,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestAddChild extends MatrixTestCase {
+public class TestAddChild implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("test", null);
         OMText text = factory.createOMText("test");
         element.addChild(text);

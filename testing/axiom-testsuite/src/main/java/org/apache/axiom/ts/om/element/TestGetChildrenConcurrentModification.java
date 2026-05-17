@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * ConcurrentModificationException} if the current node is removed using a method other than {@link
  * Iterator#remove()}.
  */
-public class TestGetChildrenConcurrentModification extends MatrixTestCase {
+public class TestGetChildrenConcurrentModification implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = factory.createOMElement("parent", null);
         factory.createOMElement("child1", null, parent);
         factory.createOMElement("child2", null, parent);

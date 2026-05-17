@@ -37,7 +37,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that the {@link CharacterDataReader} returned by {@link OMContainer#getXMLStreamReader()}
  * for an OM tree created by a builder correctly implements the {@link DTDReader} extension.
  */
-public class TestCharacterDataReaderFromParser extends MatrixTestCase {
+public class TestCharacterDataReaderFromParser implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -46,7 +46,7 @@ public class TestCharacterDataReaderFromParser extends MatrixTestCase {
     private boolean cache;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String text = "This is a test for the CharacterDataReader extension";
         OMDocument doc = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root>" + text + "</root>"))
                 .getDocument();

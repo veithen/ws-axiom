@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link SOAPBody#getFirstElementLocalName()} returns <code>null</code> if the body is
  * empty.
  */
-public class TestGetFirstElementLocalNameEmptyBody extends MatrixTestCase {
+public class TestGetFirstElementLocalNameEmptyBody implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultEnvelope();
         assertThat(envelope.getBody().getFirstElementLocalName()).isNull();
     }

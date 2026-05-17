@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMDocument#setOMDocumentElement(OMElement)} with a <code>null</code>
  * parameter.
  */
-public class TestSetOMDocumentElementNull extends MatrixTestCase {
+public class TestSetOMDocumentElementNull implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDocument document = factory.createOMDocument();
         assertThatThrownBy(() -> document.setOMDocumentElement(null)).isInstanceOf(IllegalArgumentException.class);
     }

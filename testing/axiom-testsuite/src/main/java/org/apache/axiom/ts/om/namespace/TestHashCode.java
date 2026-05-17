@@ -26,12 +26,12 @@ import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests that the {@link OMNamespace} overrides {@link Object#hashCode()}. */
-public class TestHashCode extends MatrixTestCase {
+public class TestHashCode implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace ns1 = factory.createOMNamespace("urn:ns", "ns");
         OMNamespace ns2 = factory.createOMNamespace("urn:ns", "ns");
         assertThat(ns2.hashCode()).isEqualTo(ns1.hashCode());

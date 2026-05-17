@@ -34,7 +34,7 @@ import org.apache.axiom.om.XOPEncoded;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.MTOMSample;
 
-public class TestGetXMLStreamReaderMTOMEncoded extends MatrixTestCase {
+public class TestGetXMLStreamReaderMTOMEncoded implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -45,7 +45,7 @@ public class TestGetXMLStreamReaderMTOMEncoded extends MatrixTestCase {
     private boolean cache;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         InputStream inStream = MTOMSample.SAMPLE2.getInputStream();
         MultipartBody mb = MultipartBody.builder()
                 .setInputStream(inStream)

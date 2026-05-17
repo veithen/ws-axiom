@@ -30,12 +30,12 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Test the element iterator */
-public class TestGetChildElements extends MatrixTestCase {
+public class TestGetChildElements implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement elt = OMXMLBuilderFactory.createOMBuilder(
                         factory, new StringReader("<root>a<b/><!--c--><d/>e</root>"))
                 .getDocumentElement();

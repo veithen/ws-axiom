@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.blob.RandomBlob;
 import org.apache.axiom.testutils.io.CharacterStreamComparator;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestWriteTextToWithNonDestructiveOMDataSource extends MatrixTestCase {
+public class TestWriteTextToWithNonDestructiveOMDataSource implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Blob blob = new RandomBlob(665544, 32, 128, 20000000);
         QName qname = new QName("a");
         OMSourcedElement element = factory.createOMElement(

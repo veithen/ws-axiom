@@ -31,12 +31,12 @@ import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.xml.XMLSample;
 
-public class TestCloseWithSystemId extends MatrixTestCase {
+public class TestCloseWithSystemId implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         InstrumentedDataProvider dataProvider = new InstrumentedDataProvider(XMLSample.SIMPLE.getUrl()::openStream);
         URLRegistration registration = URLRegistry.register(dataProvider);
         try {

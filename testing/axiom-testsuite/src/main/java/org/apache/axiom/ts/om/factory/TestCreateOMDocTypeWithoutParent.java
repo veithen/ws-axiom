@@ -25,12 +25,12 @@ import org.apache.axiom.om.OMDocType;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestCreateOMDocTypeWithoutParent extends MatrixTestCase {
+public class TestCreateOMDocTypeWithoutParent implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDocType dtd = factory.createOMDocType(null, "root", "publicId", "systemId", "internalSubset");
         assertThat(dtd.getParent()).isNull();
         assertThat(dtd.getRootName()).isEqualTo("root");

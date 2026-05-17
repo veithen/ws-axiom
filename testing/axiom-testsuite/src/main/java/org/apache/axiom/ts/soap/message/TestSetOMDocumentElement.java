@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMDocument#setOMDocumentElement(OMElement)} when used to set a
  * {@link SOAPEnvelope} as the root element of a {@link SOAPMessage}.
  */
-public class TestSetOMDocumentElement extends MatrixTestCase {
+public class TestSetOMDocumentElement implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPMessage message = soapFactory.createSOAPMessage();
         OMElement envelope = soapFactory.getDefaultEnvelope();
         message.setOMDocumentElement(envelope);

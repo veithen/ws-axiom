@@ -26,12 +26,12 @@ import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestAddFault1 extends MatrixTestCase {
+public class TestAddFault1 implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.createSOAPEnvelope();
         SOAPBody body = soapFactory.createSOAPBody(envelope);
         body.addFault(new Exception("This an exception for testing"));

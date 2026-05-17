@@ -35,7 +35,7 @@ import org.apache.axiom.util.stax.debug.XMLStreamReaderValidator;
  * events when called on an {@link OMElement} that is not the root element and that may be partially
  * built.
  */
-public class TestGetXMLStreamReaderOnNonRootElementPartiallyBuilt extends MatrixTestCase {
+public class TestGetXMLStreamReaderOnNonRootElementPartiallyBuilt implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -48,7 +48,7 @@ public class TestGetXMLStreamReaderOnNonRootElementPartiallyBuilt extends Matrix
     private int build;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement root =
                 AXIOMUtil.stringToOM(factory, "<root><child><emptyElement/><element>content</element></child></root>");
         OMElement child = (OMElement) root.getFirstOMChild();

@@ -29,12 +29,12 @@ import org.apache.axiom.om.OMEntityReference;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestSerialize extends MatrixTestCase {
+public class TestSerialize implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMEntityReference entref = factory.createOMEntityReference(null, "testref");
         XMLStreamWriter writer = mock(XMLStreamWriter.class);
         entref.serialize(writer);

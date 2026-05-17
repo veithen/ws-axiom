@@ -35,12 +35,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * href="https://issues.apache.org/jira/browse/AXIOM-78">AXIOM-78</a> and <a
  * href="https://issues.apache.org/jira/browse/AXIOM-172">AXIOM-172</a>.
  */
-public class TestGetChildrenWithNameNextWithoutHasNext extends MatrixTestCase {
+public class TestGetChildrenWithNameNextWithoutHasNext implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("root"));
         factory.createOMElement(new QName("child1"), element);
         OMElement child2 = factory.createOMElement(new QName("child2"), element);

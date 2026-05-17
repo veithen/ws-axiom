@@ -36,12 +36,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * OMElement#getChildElements()} results in the expected exception if the part of the document has
  * already been consumed by {@link OMContainer#getXMLStreamReaderWithoutCaching()}.
  */
-public class TestGetChildElementsConsumed extends MatrixTestCase {
+public class TestGetChildElementsConsumed implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(
                 factory, TestGetChildElementsConsumed.class.getResourceAsStream("purchase-order.xml"));
 

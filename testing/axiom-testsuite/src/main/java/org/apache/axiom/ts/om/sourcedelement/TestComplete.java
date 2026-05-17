@@ -28,12 +28,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 
 /** Make sure that the incomplete setting of an OMSE is not propogated to the root */
-public class TestComplete extends MatrixTestCase {
+public class TestComplete implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         // Build a root element and child OMSE
         OMNamespace ns = factory.createOMNamespace("http://www.sosnoski.com/uwjws/library", "");
         OMNamespace rootNS = factory.createOMNamespace("http://sampleroot", "rootPrefix");

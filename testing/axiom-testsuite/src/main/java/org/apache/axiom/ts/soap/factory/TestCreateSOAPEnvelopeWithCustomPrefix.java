@@ -30,7 +30,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
 /** Tests the behavior of {@link SOAPFactory#createSOAPEnvelope(OMNamespace)}. */
-public class TestCreateSOAPEnvelopeWithCustomPrefix extends MatrixTestCase {
+public class TestCreateSOAPEnvelopeWithCustomPrefix implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -38,7 +38,7 @@ public class TestCreateSOAPEnvelopeWithCustomPrefix extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String prefix = "my-soap";
         OMNamespace ns = soapFactory.createOMNamespace(spec.getEnvelopeNamespaceURI(), prefix);
         SOAPEnvelope env = soapFactory.createSOAPEnvelope(ns);

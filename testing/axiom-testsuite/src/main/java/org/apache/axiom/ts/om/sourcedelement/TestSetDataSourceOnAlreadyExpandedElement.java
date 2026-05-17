@@ -27,12 +27,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 
 @SuppressWarnings("deprecation")
-public class TestSetDataSourceOnAlreadyExpandedElement extends MatrixTestCase {
+public class TestSetDataSourceOnAlreadyExpandedElement implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMSourcedElement element = TestDocument.DOCUMENT1.createOMSourcedElement(factory, false, true);
         // Make sure the OMSourcedElement is expanded
         element.getFirstOMChild();

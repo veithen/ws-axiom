@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMElement#getText()} when invoked on an element containing a single
  * CDATA section.
  */
-public class TestGetTextWithMixedOMTextChildren extends MatrixTestCase {
+public class TestGetTextWithMixedOMTextChildren implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement omElement = factory.createOMElement("element2", null);
         final String normalText = "regular text and ";
         final String text = "this is <some> text in a CDATA";

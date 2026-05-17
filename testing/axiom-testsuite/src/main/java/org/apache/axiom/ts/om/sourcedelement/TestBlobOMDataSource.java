@@ -32,12 +32,12 @@ import org.apache.axiom.om.ds.BlobOMDataSource;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests functionality of BlobOMDataSource */
-public class TestBlobOMDataSource extends MatrixTestCase {
+public class TestBlobOMDataSource implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
 
         String localName = "myPayload";
         String encoding = "utf-8";

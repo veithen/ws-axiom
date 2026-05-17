@@ -35,12 +35,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMDocument#setOMDocumentElement(OMElement)} if the document already
  * has a document element.
  */
-public class TestSetOMDocumentElementReplace extends MatrixTestCase {
+public class TestSetOMDocumentElementReplace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDocument document = OMXMLBuilderFactory.createOMBuilder(
                         factory, new StringReader("<!--comment1--><root/><!--comment2-->"))
                 .getDocument();

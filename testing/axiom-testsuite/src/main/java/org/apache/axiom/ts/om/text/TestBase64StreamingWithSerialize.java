@@ -33,12 +33,12 @@ import org.apache.commons.io.output.NullOutputStream;
  *
  * <p>Regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-236">AXIOM-236</a>.
  */
-public class TestBase64StreamingWithSerialize extends MatrixTestCase {
+public class TestBase64StreamingWithSerialize implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement elem = factory.createOMElement("test", null);
         // Create a blob that would eat up all memory when loaded. If the test doesn't fail with an
         // OutOfMemoryError, we know that the OMText implementation supports streaming.

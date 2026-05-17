@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 /**
  * Tests the behavior of {@link OMNode#insertSiblingAfter(OMNode)} if the node is already a sibling.
  */
-public class TestInsertSiblingAfterSameParent extends MatrixTestCase {
+public class TestInsertSiblingAfterSameParent implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = factory.createOMElement("test", null);
         OMText text1 = factory.createOMText("text1");
         OMText text2 = factory.createOMText("text2");

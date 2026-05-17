@@ -39,12 +39,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  *
  * @see org.apache.axiom.ts.om.element.TestAddChildIncomplete
  */
-public class TestAddChildIncomplete extends MatrixTestCase {
+public class TestAddChildIncomplete implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDocument parent = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<!--a--><b/><!--c-->"))
                 .getDocument();
         parent.addChild(factory.createOMComment(null, "d"));

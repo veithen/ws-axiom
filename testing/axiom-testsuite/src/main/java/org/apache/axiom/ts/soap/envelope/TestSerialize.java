@@ -30,7 +30,7 @@ import org.apache.axiom.ts.dimension.ExpansionStrategy;
 import org.apache.axiom.ts.dimension.serialization.SerializationStrategy;
 import org.apache.axiom.ts.soap.SOAPSample;
 
-public class TestSerialize extends MatrixTestCase {
+public class TestSerialize implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -44,7 +44,7 @@ public class TestSerialize extends MatrixTestCase {
     private SerializationStrategy serializationStrategy;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope soapEnvelope = OMXMLBuilderFactory.createSOAPModelBuilder(
                         metaFactory, message.getInputStream(), null)
                 .getSOAPEnvelope();

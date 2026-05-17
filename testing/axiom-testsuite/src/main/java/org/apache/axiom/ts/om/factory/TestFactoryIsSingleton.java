@@ -29,12 +29,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * this unit test checks that subsequent calls to {@link OMMetaFactory#getOMFactory()} return the
  * same instance.
  */
-public class TestFactoryIsSingleton extends MatrixTestCase {
+public class TestFactoryIsSingleton implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         assertThat(factory).isSameAs(factory);
     }
 }

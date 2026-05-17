@@ -33,7 +33,7 @@ import org.apache.axiom.om.ds.WrappedTextNodeOMDataSourceFromBlob;
 import org.apache.axiom.testutils.blob.TextBlob;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestCloneNonDestructive extends MatrixTestCase {
+public class TestCloneNonDestructive implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -42,7 +42,7 @@ public class TestCloneNonDestructive extends MatrixTestCase {
     private boolean copyOMDataSources;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDataSource ds = new WrappedTextNodeOMDataSourceFromBlob(
                 new QName("wrapper"), new TextBlob("test", StandardCharsets.UTF_8), StandardCharsets.UTF_8);
         OMSourcedElement element = factory.createOMElement(ds);

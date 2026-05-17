@@ -26,12 +26,12 @@ import org.apache.axiom.soap.SOAPFault;
 import org.apache.axiom.soap.SOAPFaultReason;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetFirstSOAPText extends MatrixTestCase {
+public class TestGetFirstSOAPText implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFault fault = soapFactory.createSOAPFault();
         SOAPFaultReason faultReason = soapFactory.createSOAPFaultReason(fault);
         assertThatThrownBy(() -> faultReason.getFirstSOAPText()).isInstanceOf(UnsupportedOperationException.class);

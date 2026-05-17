@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * {@code xml} prefix, even if this prefix is not declared explicitly. This is a regression test for
  * <a href="https://issues.apache.org/jira/browse/AXIS2-329">AXIS2-329</a>.
  */
-public class TestGetAttributeValueWithXmlPrefix2 extends MatrixTestCase {
+public class TestGetAttributeValueWithXmlPrefix2 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement elem = AXIOMUtil.stringToOM(factory, "<Policy xml:base=\"uri:thisBase\"></Policy>");
         assertThat(elem.getAttributeValue(new QName(XMLConstants.XML_NS_URI, "base")))
                 .isEqualTo("uri:thisBase");

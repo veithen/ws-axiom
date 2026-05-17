@@ -35,12 +35,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * exception if the supplied {@link XMLStreamReader} is not positioned on a {@link
  * XMLStreamConstants#START_DOCUMENT} or {@link XMLStreamConstants#END_DOCUMENT} event.
  */
-public class TestCreateStAXOMBuilderIncorrectState extends MatrixTestCase {
+public class TestCreateStAXOMBuilderIncorrectState implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         XMLStreamReader reader = StAXUtils.createXMLStreamReader(new StringReader("<root>text</root>"));
         // Position the reader on a CHARACTERS event
         while (reader.getEventType() != XMLStreamReader.CHARACTERS) {

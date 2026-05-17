@@ -28,12 +28,12 @@ import org.apache.axiom.soap.SOAPHeader;
 import org.apache.axiom.soap.SOAPHeaderBlock;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetRole extends MatrixTestCase {
+public class TestGetRole implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace namespace = soapFactory.createOMNamespace("http://www.example.org", "test");
         SOAPEnvelope soapEnvelope = soapFactory.createSOAPEnvelope();
         SOAPHeader soapHeader = soapFactory.createSOAPHeader(soapEnvelope);

@@ -29,12 +29,12 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import za.co.eskom.nrs.xmlvend.base.x20.schema.AdviceReqDocument;
 
-public class TestCreateStAXOMBuilderFromXmlBeansPullParser extends MatrixTestCase {
+public class TestCreateStAXOMBuilderFromXmlBeansPullParser implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         URL inputUrl = TestCreateStAXOMBuilderFromXmlBeansPullParser.class.getResource("xmlvend.xml");
         AdviceReqDocument adviceReq = AdviceReqDocument.Factory.parse(inputUrl);
         OMDocument doc = OMXMLBuilderFactory.createStAXOMBuilder(factory, adviceReq.newXMLStreamReader())

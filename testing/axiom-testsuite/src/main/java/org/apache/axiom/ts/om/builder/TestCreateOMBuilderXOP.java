@@ -31,7 +31,7 @@ import org.apache.axiom.om.util.StAXParserConfiguration;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.xml.XOPSample;
 
-public class TestCreateOMBuilderXOP extends MatrixTestCase {
+public class TestCreateOMBuilderXOP implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -43,7 +43,7 @@ public class TestCreateOMBuilderXOP extends MatrixTestCase {
     private boolean build;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         MultipartBody mb = MultipartBody.builder()
                 .setInputStream(sample.getInputStream())
                 .setContentType(sample.getContentType())

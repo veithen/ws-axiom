@@ -24,12 +24,12 @@ import com.google.inject.Inject;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestCreateOMNamespaceWithNullURI extends MatrixTestCase {
+public class TestCreateOMNamespaceWithNullURI implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         assertThatThrownBy(() -> factory.createOMNamespace(null, "t")).isInstanceOf(IllegalArgumentException.class);
     }
 }

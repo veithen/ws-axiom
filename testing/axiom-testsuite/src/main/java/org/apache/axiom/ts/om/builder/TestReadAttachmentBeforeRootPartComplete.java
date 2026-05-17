@@ -52,12 +52,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  *       checks that this feature is working as expected.
  * </ul>
  */
-public class TestReadAttachmentBeforeRootPartComplete extends MatrixTestCase {
+public class TestReadAttachmentBeforeRootPartComplete implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
 
         // Programmatically create the message
         OMElement orgRoot = factory.createOMElement("root", null);

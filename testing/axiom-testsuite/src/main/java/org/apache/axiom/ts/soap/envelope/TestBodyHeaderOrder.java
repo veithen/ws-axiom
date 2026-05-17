@@ -27,12 +27,12 @@ import org.apache.axiom.soap.SOAPHeader;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 // Make sure order of header/body creation doesn't matter
-public class TestBodyHeaderOrder extends MatrixTestCase {
+public class TestBodyHeaderOrder implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope env = soapFactory.createSOAPEnvelope();
         soapFactory.createSOAPBody(env);
         soapFactory.createSOAPHeader(env);

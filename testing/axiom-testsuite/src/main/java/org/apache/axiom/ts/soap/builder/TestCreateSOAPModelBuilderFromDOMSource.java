@@ -35,7 +35,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
-public class TestCreateSOAPModelBuilderFromDOMSource extends MatrixTestCase {
+public class TestCreateSOAPModelBuilderFromDOMSource implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -43,7 +43,7 @@ public class TestCreateSOAPModelBuilderFromDOMSource extends MatrixTestCase {
     private SOAPSpec spec;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Document document = DOMImplementation.XERCES.parse(new InputSource(
                 SOAPSampleSet.SIMPLE_FAULT.getMessage(spec).getUrl().toString()));
         SOAPMessage message = OMXMLBuilderFactory.createSOAPModelBuilder(metaFactory, new DOMSource(document))

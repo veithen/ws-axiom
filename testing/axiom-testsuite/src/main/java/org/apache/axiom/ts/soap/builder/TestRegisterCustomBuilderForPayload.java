@@ -39,7 +39,7 @@ import org.apache.axiom.ts.soap.SOAPSample;
 import org.apache.axiom.ts.soap.SOAPSampleAdapter;
 import org.xml.sax.InputSource;
 
-public class TestRegisterCustomBuilderForPayload extends MatrixTestCase {
+public class TestRegisterCustomBuilderForPayload implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -47,7 +47,7 @@ public class TestRegisterCustomBuilderForPayload extends MatrixTestCase {
     private SOAPSample message;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPModelBuilder builder = message.getAdapter(SOAPSampleAdapter.class).getBuilder(metaFactory);
         ((CustomBuilderSupport) builder)
                 .registerCustomBuilder(

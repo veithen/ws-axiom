@@ -34,12 +34,12 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * XMLStreamReader} returned by {@link OMDataSource#getReader()} when the element is completely
  * built.
  */
-public class TestCloseOnComplete extends MatrixTestCase {
+public class TestCloseOnComplete implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         PullOMDataSource ds = new PullOMDataSource("<root><a/></root>");
         OMSourcedElement element = factory.createOMElement(ds);
         OMNode child = element.getFirstOMChild();

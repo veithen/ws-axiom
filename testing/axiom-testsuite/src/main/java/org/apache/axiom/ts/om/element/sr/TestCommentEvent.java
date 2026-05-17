@@ -31,7 +31,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.dimension.BuilderFactory;
 import org.xml.sax.InputSource;
 
-public class TestCommentEvent extends MatrixTestCase {
+public class TestCommentEvent implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -43,7 +43,7 @@ public class TestCommentEvent extends MatrixTestCase {
     private boolean cache;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMXMLParserWrapper builder =
                 builderFactory.getBuilder(metaFactory, new InputSource(new StringReader("<a><!--comment text--></a>")));
         OMElement element = builder.getDocumentElement();

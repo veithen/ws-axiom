@@ -29,12 +29,12 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.xml.XMLSample;
 
-public class TestGetChildrenWithLocalName extends MatrixTestCase {
+public class TestGetChildrenWithLocalName implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement elt = OMXMLBuilderFactory.createOMBuilder(factory, XMLSample.SIMPLE.getInputStream())
                 .getDocumentElement()
                 .getFirstElement();

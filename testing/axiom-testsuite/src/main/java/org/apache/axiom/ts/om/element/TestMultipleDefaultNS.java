@@ -26,12 +26,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestMultipleDefaultNS extends MatrixTestCase {
+public class TestMultipleDefaultNS implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace defaultNS1 = factory.createOMNamespace("http://defaultNS1.org", null);
         OMNamespace defaultNS2 = factory.createOMNamespace("http://defaultNS2.org", null);
 

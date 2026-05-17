@@ -51,7 +51,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
  * SOAPFactory#createSOAPFaultNode(SOAPFault)}, {@link SOAPFactory#createSOAPFaultRole(SOAPFault)}
  * and {@link SOAPFactory#createSOAPFaultDetail(SOAPFault)} with a non null parent.
  */
-public class TestCreateSOAPElementWithParent extends MatrixTestCase {
+public class TestCreateSOAPElementWithParent implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -67,7 +67,7 @@ public class TestCreateSOAPElementWithParent extends MatrixTestCase {
     private SOAPElementType parentType;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = parentType.getAdapter(SOAPElementTypeAdapter.class).create(soapFactory);
         QName expectedName = type.getQName(spec);
         if (expectedName == null) {

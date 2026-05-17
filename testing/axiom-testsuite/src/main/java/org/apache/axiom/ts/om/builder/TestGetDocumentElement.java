@@ -38,7 +38,7 @@ import org.xml.sax.InputSource;
  * Tests the behavior of {@link OMXMLParserWrapper#getDocumentElement()} and {@link
  * OMXMLParserWrapper#getDocumentElement(boolean)}.
  */
-public class TestGetDocumentElement extends MatrixTestCase {
+public class TestGetDocumentElement implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -51,7 +51,7 @@ public class TestGetDocumentElement extends MatrixTestCase {
     private Boolean discardDocument;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMXMLParserWrapper builder = builderFactory.getBuilder(
                 metaFactory, new InputSource(new StringReader("<!--comment1--><root/><!--comment2-->")));
         OMElement element;

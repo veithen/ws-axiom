@@ -29,12 +29,12 @@ import org.apache.axiom.om.OMDocType;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestSerialize extends MatrixTestCase {
+public class TestSerialize implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDocType doctype = factory.createOMDocType(null, "root", null, "my.dtd", null);
         XMLStreamWriter writer = mock(XMLStreamWriter.class);
         doctype.serialize(writer);

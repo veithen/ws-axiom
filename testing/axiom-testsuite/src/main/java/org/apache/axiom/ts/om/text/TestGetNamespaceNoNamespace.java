@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMText#getNamespace()} for an unprefixed QName and no default
  * namespace in scope.
  */
-public class TestGetNamespaceNoNamespace extends MatrixTestCase {
+public class TestGetNamespaceNoNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("TestElement", null);
         OMText text = factory.createOMText(element, "value");
         assertThat(text.getNamespace()).isNull();

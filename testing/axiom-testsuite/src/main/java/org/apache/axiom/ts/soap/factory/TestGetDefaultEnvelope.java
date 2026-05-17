@@ -31,7 +31,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
 /** Checks the content of the SOAP envelope returned by {@link SOAPFactory#getDefaultEnvelope()}. */
-public class TestGetDefaultEnvelope extends MatrixTestCase {
+public class TestGetDefaultEnvelope implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -39,7 +39,7 @@ public class TestGetDefaultEnvelope extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope env = soapFactory.getDefaultEnvelope();
 
         // Check correct SOAP version

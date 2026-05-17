@@ -35,12 +35,12 @@ import org.apache.commons.io.output.NullOutputStream;
  * {@link OMDocument} instance. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-24">AXIOM-24</a>.
  */
-public class TestSerializeAndConsume extends MatrixTestCase {
+public class TestSerializeAndConsume implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDocument document = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<elem>text</elem>"))
                 .getDocument();
         document.serializeAndConsume(NullOutputStream.INSTANCE);

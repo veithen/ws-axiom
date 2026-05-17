@@ -23,7 +23,7 @@ import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public abstract class SampleBasedSOAPTestCase extends MatrixTestCase {
+public abstract class SampleBasedSOAPTestCase implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -41,7 +41,7 @@ public abstract class SampleBasedSOAPTestCase extends MatrixTestCase {
     }
 
     @Override
-    protected final void runTest() throws Throwable {
+    public final void runTest() throws Throwable {
         runTest(sample.getAdapter(SOAPSampleAdapter.class).getSOAPEnvelope(metaFactory));
     }
 

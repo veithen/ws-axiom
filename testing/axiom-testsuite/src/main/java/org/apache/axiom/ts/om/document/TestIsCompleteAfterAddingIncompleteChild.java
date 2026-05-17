@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * correctly after an incomplete child is added to a programmatically created document. This is a
  * regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-315">AXIOM-315</a>.
  */
-public class TestIsCompleteAfterAddingIncompleteChild extends MatrixTestCase {
+public class TestIsCompleteAfterAddingIncompleteChild implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement incompleteElement = OMXMLBuilderFactory.createOMBuilder(
                         factory, new StringReader("<elem>text</elem>"))
                 .getDocumentElement(true);

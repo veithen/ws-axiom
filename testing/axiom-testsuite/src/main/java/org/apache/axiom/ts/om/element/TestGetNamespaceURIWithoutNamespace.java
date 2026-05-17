@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMNamedInformationItem#getNamespaceURI()} returns <code>null</code> when
  * invoked on an {@link OMElement} that has no namespace.
  */
-public class TestGetNamespaceURIWithoutNamespace extends MatrixTestCase {
+public class TestGetNamespaceURIWithoutNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("test"));
         assertThat(element.getNamespaceURI()).isNull();
     }

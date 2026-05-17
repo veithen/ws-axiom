@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Test {@link OMElement#getAllAttributes()} on a parsed document. Also check that the iterator
  * doesn't attempt to return namespace declarations.
  */
-public class TestGetAllAttributes2 extends MatrixTestCase {
+public class TestGetAllAttributes2 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(factory, "<e xmlns:p='urn:test' p:attr='test'/>");
         Iterator<OMAttribute> it = element.getAllAttributes();
         assertThat(it.hasNext()).isTrue();

@@ -31,7 +31,7 @@ import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public abstract class CloneTestCase extends MatrixTestCase {
+public abstract class CloneTestCase implements MatrixTestCase {
     protected final SOAPSpec spec;
 
     public CloneTestCase(SOAPSpec spec) {

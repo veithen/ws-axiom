@@ -30,12 +30,12 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** test the remove exception behavior, consecutive remove calls */
-public class TestGetChildrenRemove2 extends MatrixTestCase {
+public class TestGetChildrenRemove2 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement elt = OMXMLBuilderFactory.createOMBuilder(
                         factory, new StringReader("<root><child1/><child2/></root>"))
                 .getDocumentElement();

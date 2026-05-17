@@ -32,7 +32,7 @@ import org.apache.axiom.ts.jaxp.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class TestDetachWithDOM extends MatrixTestCase {
+public class TestDetachWithDOM implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -41,7 +41,7 @@ public class TestDetachWithDOM extends MatrixTestCase {
     private boolean useDOMSource;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Document document = DOMImplementation.XERCES.newDocument();
         Element root = document.createElementNS("", "root");
         root.appendChild(document.createElementNS("", "a"));

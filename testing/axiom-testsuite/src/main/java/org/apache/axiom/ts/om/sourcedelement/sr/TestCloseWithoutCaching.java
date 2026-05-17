@@ -35,7 +35,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * {@link OMContainer#getXMLStreamReaderWithoutCaching()} for an OM tree containing an {@link
  * AbstractPullOMDataSource} closes all readers requested from the data source.
  */
-public class TestCloseWithoutCaching extends MatrixTestCase {
+public class TestCloseWithoutCaching implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -44,7 +44,7 @@ public class TestCloseWithoutCaching extends MatrixTestCase {
     private int events;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement root = factory.createOMElement("root", null);
         PullOMDataSource ds = new PullOMDataSource("<child>content</child>");
         root.addChild(factory.createOMElement(ds));

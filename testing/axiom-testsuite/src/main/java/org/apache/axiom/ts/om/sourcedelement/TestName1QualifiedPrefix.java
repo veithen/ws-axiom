@@ -33,12 +33,12 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * serialization Document: testDocument2 (which uses a qualified prefix) Type of Serialization:
  * Serialize and cache Prefix test
  */
-public class TestName1QualifiedPrefix extends MatrixTestCase {
+public class TestName1QualifiedPrefix implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
 
         // Create OMSE with an unknown prefix
         OMNamespace rootNS = factory.createOMNamespace("http://sampleroot", "rootPrefix");

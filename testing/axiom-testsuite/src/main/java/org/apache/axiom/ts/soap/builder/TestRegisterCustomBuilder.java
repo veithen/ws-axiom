@@ -36,7 +36,7 @@ import org.apache.axiom.ts.soap.SOAPSampleAdapter;
 import org.apache.axiom.ts.soap.SOAPSampleSet;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public class TestRegisterCustomBuilder extends MatrixTestCase {
+public class TestRegisterCustomBuilder implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -44,7 +44,7 @@ public class TestRegisterCustomBuilder extends MatrixTestCase {
     private SOAPSpec spec;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPModelBuilder builder = SOAPSampleSet.WSA
                 .getMessage(spec)
                 .getAdapter(SOAPSampleAdapter.class)

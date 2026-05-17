@@ -34,7 +34,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that the SOAP builder creates {@link OMComment} nodes for comments appearing after the
  * document element.
  */
-public class TestCommentInEpilog extends MatrixTestCase {
+public class TestCommentInEpilog implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -42,7 +42,7 @@ public class TestCommentInEpilog extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = OMXMLBuilderFactory.createSOAPModelBuilder(
                         metaFactory, new StringReader(soapFactory.getDefaultEnvelope() + "<!--comment-->"))
                 .getSOAPEnvelope();

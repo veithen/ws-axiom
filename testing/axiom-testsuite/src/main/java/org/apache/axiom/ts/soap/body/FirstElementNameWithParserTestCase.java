@@ -41,7 +41,7 @@ import org.apache.axiom.soap.SOAPModelBuilder;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public abstract class FirstElementNameWithParserTestCase extends MatrixTestCase {
+public abstract class FirstElementNameWithParserTestCase implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -59,7 +59,7 @@ public abstract class FirstElementNameWithParserTestCase extends MatrixTestCase 
     }
 
     @Override
-    protected final void runTest() throws Throwable {
+    public final void runTest() throws Throwable {
         SOAPEnvelope orgEnvelope = soapFactory.getDefaultEnvelope();
         orgEnvelope
                 .getBody()

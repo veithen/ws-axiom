@@ -34,12 +34,12 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * Serialize and consume Tests that the namespace and localName are not affected by the
  * serializeAndConsume
  */
-public class TestName4DefaultPrefix extends MatrixTestCase {
+public class TestName4DefaultPrefix implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
 
         // Create OMSE with a DUMMYPREFIX prefix even though the underlying element uses the default
         // prefix

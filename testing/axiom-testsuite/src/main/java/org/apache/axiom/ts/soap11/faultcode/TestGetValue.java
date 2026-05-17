@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link SOAPFaultClassifier#getValue()} returns <code>null</code> when invoked on a
  * SOAP 1.1 {@link SOAPFaultCode}.
  */
-public class TestGetValue extends MatrixTestCase {
+public class TestGetValue implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope env = soapFactory.getDefaultEnvelope();
         SOAPFault fault = soapFactory.createSOAPFault(env.getBody());
         SOAPFaultCode code = soapFactory.createSOAPFaultCode(fault);

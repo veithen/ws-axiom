@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * has an explicit namespace declaration for the default namespace, i.e. {@code xmlns=""}. This is a
  * regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-398">AXIOM-398</a>.
  */
-public class TestGetNamespaceNormalizedWithParser extends MatrixTestCase {
+public class TestGetNamespaceNormalizedWithParser implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root xmlns=''/>"))
                 .getDocumentElement();
         assertThat(element.getNamespace()).isNull();

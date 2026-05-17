@@ -37,12 +37,12 @@ import org.apache.xerces.impl.dv.util.Base64;
  * encoded data. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-519">AXIOM-519</a>.
  */
-public class TestSetOptimizePlainOMText extends MatrixTestCase {
+public class TestSetOptimizePlainOMText implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("element", null);
         OMText text = factory.createOMText(element, Base64.encode("foobar".getBytes(StandardCharsets.UTF_8)));
         text.setOptimize(true);

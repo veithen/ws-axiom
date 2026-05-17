@@ -27,7 +27,7 @@ import org.apache.axiom.ts.soap.SOAPSampleSet;
 import org.apache.axiom.ts.soap.SOAPSpec;
 import org.w3c.dom.Document;
 
-public class TestLazySOAPFactorySelection extends MatrixTestCase {
+public class TestLazySOAPFactorySelection implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -35,7 +35,7 @@ public class TestLazySOAPFactorySelection extends MatrixTestCase {
     private OMMetaFactory metaFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         // Create a SOAP model builder without specifying the SOAP version.
         SOAPMessage message = OMXMLBuilderFactory.createSOAPModelBuilder(
                         metaFactory, SOAPSampleSet.NO_HEADER.getMessage(spec).getInputStream(), null)

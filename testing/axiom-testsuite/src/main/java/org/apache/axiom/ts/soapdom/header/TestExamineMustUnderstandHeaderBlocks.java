@@ -33,7 +33,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class TestExamineMustUnderstandHeaderBlocks extends MatrixTestCase {
+public class TestExamineMustUnderstandHeaderBlocks implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -41,7 +41,7 @@ public class TestExamineMustUnderstandHeaderBlocks extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPHeader header = soapFactory.createSOAPHeader();
 
         // Add header blocks using DOM

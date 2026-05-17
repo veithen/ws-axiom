@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * checks that the method doesn't build the returned element. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-333">AXIOM-333</a>.
  */
-public class TestGetFirstChildWithNameOnIncompleteElement extends MatrixTestCase {
+public class TestGetFirstChildWithNameOnIncompleteElement implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root><a/><b/><c/></root>"))
                 .getDocumentElement();
         OMElement b = element.getFirstChildWithName(new QName("b"));

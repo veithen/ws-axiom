@@ -28,7 +28,7 @@ import org.apache.axiom.soap.SOAPHeader;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public class TestGetHeader extends MatrixTestCase {
+public class TestGetHeader implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -36,7 +36,7 @@ public class TestGetHeader extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultEnvelope();
         SOAPHeader header = envelope.getHeader();
         assertThat(header.getLocalName()).isEqualTo(SOAPConstants.HEADER_LOCAL_NAME);

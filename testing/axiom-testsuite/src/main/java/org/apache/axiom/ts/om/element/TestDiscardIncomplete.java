@@ -28,12 +28,12 @@ import org.apache.axiom.ts.soap.SOAPSampleSet;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
 /** Test the discard method */
-public class TestDiscardIncomplete extends MatrixTestCase {
+public class TestDiscardIncomplete implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement documentElement = null;
 
         // first build the OM tree without caching and see whether we can discard

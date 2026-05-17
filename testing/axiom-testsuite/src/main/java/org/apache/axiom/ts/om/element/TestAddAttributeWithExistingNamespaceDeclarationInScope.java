@@ -33,7 +33,7 @@ import org.apache.axiom.ts.dimension.AddAttributeStrategy;
  * Tests that adding an attribute doesn't create an additional namespace declaration if a
  * corresponding declaration is already in scope.
  */
-public class TestAddAttributeWithExistingNamespaceDeclarationInScope extends MatrixTestCase {
+public class TestAddAttributeWithExistingNamespaceDeclarationInScope implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -41,7 +41,7 @@ public class TestAddAttributeWithExistingNamespaceDeclarationInScope extends Mat
     private AddAttributeStrategy strategy;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement root = factory.createOMElement(new QName("test"));
         OMNamespace ns = factory.createOMNamespace("urn:ns", "p");
         root.declareNamespace(ns);

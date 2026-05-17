@@ -29,12 +29,12 @@ import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetNextOMSiblingAfterDiscard extends MatrixTestCase {
+public class TestGetNextOMSiblingAfterDiscard implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = OMXMLBuilderFactory.createOMBuilder(
                         factory, new StringReader("<element><!--comment--><a/><!--comment--></element>"))
                 .getDocumentElement();

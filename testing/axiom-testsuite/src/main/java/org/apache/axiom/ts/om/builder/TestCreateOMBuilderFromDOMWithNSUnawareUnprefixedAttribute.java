@@ -29,12 +29,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.jaxp.dom.DOMImplementation;
 import org.w3c.dom.Element;
 
-public class TestCreateOMBuilderFromDOMWithNSUnawareUnprefixedAttribute extends MatrixTestCase {
+public class TestCreateOMBuilderFromDOMWithNSUnawareUnprefixedAttribute implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Element domElement = DOMImplementation.XERCES.newDocument().createElementNS(null, "test");
         domElement.setAttribute("attr", "value");
         OMElement element =

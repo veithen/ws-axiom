@@ -26,12 +26,12 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetQNameWithoutNamespace extends MatrixTestCase {
+public class TestGetQNameWithoutNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("name", null);
         QName qname = element.getQName();
         assertThat(qname.getLocalPart()).isEqualTo("name");

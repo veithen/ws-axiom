@@ -32,12 +32,12 @@ import org.apache.axiom.ts.xml.XMLSample;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
-public class SerializerConformanceTestCase extends MatrixTestCase {
+public class SerializerConformanceTestCase implements MatrixTestCase {
     @Inject
     private XMLSample sample;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         factory.setExpandEntityReferences(false);

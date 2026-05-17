@@ -33,12 +33,12 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * serialization Document: testDocument2 (which uses a qualified prefix) Type of Serialization:
  * Serialize and consume Tests update of prefix
  */
-public class TestName2QualifiedPrefix extends MatrixTestCase {
+public class TestName2QualifiedPrefix implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
 
         // Create OMSE with a DUMMYPREFIX prefix even though the underlying element uses the default
         // prefix

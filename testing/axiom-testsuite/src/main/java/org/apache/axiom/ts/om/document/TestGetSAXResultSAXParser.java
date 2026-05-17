@@ -36,7 +36,7 @@ import org.xml.sax.DTDHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-public class TestGetSAXResultSAXParser extends MatrixTestCase {
+public class TestGetSAXResultSAXParser implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -47,7 +47,7 @@ public class TestGetSAXResultSAXParser extends MatrixTestCase {
     private XMLSample file;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SAXParserFactory saxFactory = saxImplementation.newSAXParserFactory();
         saxFactory.setNamespaceAware(true);
         XMLReader reader = saxFactory.newSAXParser().getXMLReader();

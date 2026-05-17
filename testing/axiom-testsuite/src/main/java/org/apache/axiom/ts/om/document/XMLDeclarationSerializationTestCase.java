@@ -25,12 +25,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public abstract class XMLDeclarationSerializationTestCase extends MatrixTestCase {
+public abstract class XMLDeclarationSerializationTestCase implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected final void runTest() throws Throwable {
+    public final void runTest() throws Throwable {
 
         OMNamespace namespace = factory.createOMNamespace("http://testuri.org", "test");
         OMElement documentElement = factory.createOMElement("DocumentElement", namespace);

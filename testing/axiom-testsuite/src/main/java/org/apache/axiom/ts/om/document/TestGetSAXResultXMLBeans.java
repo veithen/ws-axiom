@@ -33,12 +33,12 @@ import org.apache.axiom.ts.om.document.xmlbeans.OrderDocument.Order.Item;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.ext.LexicalHandler;
 
-public class TestGetSAXResultXMLBeans extends MatrixTestCase {
+public class TestGetSAXResultXMLBeans implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OrderDocument document = OrderDocument.Factory.newInstance();
         Order order = document.addNewOrder();
         order.setCustomerId("73107481");

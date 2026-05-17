@@ -28,12 +28,12 @@ import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link OMElement#setText(String)} when invoked on an empty element. */
-public class TestSetText extends MatrixTestCase {
+public class TestSetText implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("test", null);
         String text = "The quick brown fox jumps over the lazy dog";
         element.setText(text);

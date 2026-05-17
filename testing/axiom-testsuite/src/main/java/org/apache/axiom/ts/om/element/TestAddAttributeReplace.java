@@ -35,7 +35,7 @@ import org.apache.axiom.ts.dimension.AddAttributeStrategy;
  * Test that adding an attribute has the expected effect when an attribute with the same name and
  * namespace URI already exists.
  */
-public class TestAddAttributeReplace extends MatrixTestCase {
+public class TestAddAttributeReplace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -43,7 +43,7 @@ public class TestAddAttributeReplace extends MatrixTestCase {
     private AddAttributeStrategy strategy;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         // Use same namespace URI but different prefixes
         OMNamespace ns1 = factory.createOMNamespace("urn:ns", "p1");
         OMNamespace ns2 = factory.createOMNamespace("urn:ns", "p2");

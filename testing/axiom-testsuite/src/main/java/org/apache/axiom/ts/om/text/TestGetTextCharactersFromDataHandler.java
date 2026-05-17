@@ -34,12 +34,12 @@ import org.apache.commons.codec.binary.Base64;
  * node backed by a {@link Blob}. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-442">AXIOM-442</a>.
  */
-public class TestGetTextCharactersFromDataHandler extends MatrixTestCase {
+public class TestGetTextCharactersFromDataHandler implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Blob blob = new TextBlob("test content", StandardCharsets.UTF_8);
         OMText text = factory.createOMText(blob, true);
         char[] chars = text.getTextCharacters();

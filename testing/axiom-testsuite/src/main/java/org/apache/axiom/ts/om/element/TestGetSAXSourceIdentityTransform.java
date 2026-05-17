@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.jaxp.xslt.XSLTImplementation;
 
-public class TestGetSAXSourceIdentityTransform extends MatrixTestCase {
+public class TestGetSAXSourceIdentityTransform implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -48,7 +48,7 @@ public class TestGetSAXSourceIdentityTransform extends MatrixTestCase {
     }
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Transformer transformer = xsltImplementation.newTransformerFactory().newTransformer();
 
         OMElement element =

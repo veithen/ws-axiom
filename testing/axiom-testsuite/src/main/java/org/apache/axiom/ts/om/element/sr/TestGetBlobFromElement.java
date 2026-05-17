@@ -38,7 +38,7 @@ import org.apache.axiom.util.stax.XMLStreamReaderUtils;
  * Tests {@link XMLStreamReaderUtils#getBlobFromElement(XMLStreamReader)} on an {@link
  * XMLStreamReader} returned by {@link OMElement#getXMLStreamReader(boolean)}.
  */
-public class TestGetBlobFromElement extends MatrixTestCase {
+public class TestGetBlobFromElement implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -47,7 +47,7 @@ public class TestGetBlobFromElement extends MatrixTestCase {
     private boolean cache;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Blob orgBlob = new RandomBlob(64 * 1024);
         OMElement orgRoot = factory.createOMElement(new QName("root"));
         OMElement orgChild = factory.createOMElement(new QName("child"), orgRoot);

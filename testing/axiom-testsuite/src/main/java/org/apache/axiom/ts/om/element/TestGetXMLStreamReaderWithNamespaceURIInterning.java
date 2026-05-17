@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * OMXMLStreamReaderConfiguration)} with {@link
  * OMXMLStreamReaderConfiguration#isNamespaceURIInterning()} set to <code>true</code>.
  */
-public class TestGetXMLStreamReaderWithNamespaceURIInterning extends MatrixTestCase {
+public class TestGetXMLStreamReaderWithNamespaceURIInterning implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         // Use "new String" to create String objects that are not interned
         OMNamespace ns1 = factory.createOMNamespace(new String("urn:ns1"), "p");
         OMNamespace ns2 = factory.createOMNamespace(new String("urn:ns2"), "q");

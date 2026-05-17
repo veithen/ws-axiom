@@ -28,12 +28,12 @@ import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetXMLStreamReaderCDATAEventFromElement extends MatrixTestCase {
+public class TestGetXMLStreamReaderCDATAEventFromElement implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("test", null);
         OMText cdata = factory.createOMText("hello world", OMNode.CDATA_SECTION_NODE);
         element.addChild(cdata);

@@ -25,12 +25,12 @@ import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFaultRole;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetRoleValue extends MatrixTestCase {
+public class TestGetRoleValue implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFaultRole role = soapFactory.createSOAPFaultRole();
         assertThat(role.getRoleValue()).isEqualTo("");
         role.setText("urn:my:custom:role");

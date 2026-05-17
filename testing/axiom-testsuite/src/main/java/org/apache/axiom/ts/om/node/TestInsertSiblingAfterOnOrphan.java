@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 /**
  * Tests that {@link OMNode#insertSiblingBefore(OMNode)} fails if the node doesn't have a parent.
  */
-public class TestInsertSiblingAfterOnOrphan extends MatrixTestCase {
+public class TestInsertSiblingAfterOnOrphan implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMText text1 = factory.createOMText("text1");
         OMText text2 = factory.createOMText("text2");
         assertThatThrownBy(() -> text1.insertSiblingBefore(text2)).isInstanceOf(OMException.class);

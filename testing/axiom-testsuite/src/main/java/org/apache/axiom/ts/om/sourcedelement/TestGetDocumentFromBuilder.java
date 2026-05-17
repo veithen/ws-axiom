@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * OMXMLParserWrapper#getDocumentElement()} throw {@link UnsupportedOperationException} when invoked
  * on the builder associated with an {@link OMSourcedElement}.
  */
-public class TestGetDocumentFromBuilder extends MatrixTestCase {
+public class TestGetDocumentFromBuilder implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDataSource ds = new StringOMDataSource("<root><a/></root>");
         OMSourcedElement element = factory.createOMElement(ds);
         // Force expansion

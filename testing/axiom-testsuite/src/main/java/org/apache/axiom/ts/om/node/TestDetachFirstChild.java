@@ -29,7 +29,7 @@ import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link OMNode#detach()}. */
-public class TestDetachFirstChild extends MatrixTestCase {
+public class TestDetachFirstChild implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -38,7 +38,7 @@ public class TestDetachFirstChild extends MatrixTestCase {
     private boolean build;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement root = AXIOMUtil.stringToOM(factory, "<root><a/><b/></root>");
         if (build) {
             root.build();

@@ -42,7 +42,7 @@ import org.apache.axiom.ts.dimension.serialization.SerializeToOutputStream;
  * Tests serialization with an {@link OMDataSource} that uses {@link
  * MTOMXMLStreamWriter#getOutputStream()}.
  */
-public class TestSerializeOMDataSourceWritingToOutputStream extends MatrixTestCase {
+public class TestSerializeOMDataSourceWritingToOutputStream implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -92,7 +92,7 @@ public class TestSerializeOMDataSourceWritingToOutputStream extends MatrixTestCa
     private boolean serializeParent;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDataSourceImpl ds = new OMDataSourceImpl();
         OMSourcedElement element = factory.createOMElement(ds);
         OMElement elementToSerialize;

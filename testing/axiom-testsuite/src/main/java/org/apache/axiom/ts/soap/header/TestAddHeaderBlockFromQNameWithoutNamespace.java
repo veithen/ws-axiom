@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link SOAPHeader#addHeaderBlock(QName)} when passing a {@link QName} with
  * no namespace.
  */
-public class TestAddHeaderBlockFromQNameWithoutNamespace extends MatrixTestCase {
+public class TestAddHeaderBlockFromQNameWithoutNamespace implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.createSOAPEnvelope();
         SOAPHeader header = soapFactory.createSOAPHeader(envelope);
         assertThatThrownBy(() -> header.addHeaderBlock(new QName("test"))).isInstanceOf(OMException.class);

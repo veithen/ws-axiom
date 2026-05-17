@@ -37,7 +37,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
  * OMInformationItem#clone(OMCloneOptions)} is a {@link SOAPMessage} if and only if {@link
  * OMCloneOptions#isPreserveModel()} is <code>true</code>.
  */
-public class TestClone extends MatrixTestCase {
+public class TestClone implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -49,7 +49,7 @@ public class TestClone extends MatrixTestCase {
     private boolean preserveModel;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPMessage message = soapFactory.createSOAPMessage();
         message.addChild(soapFactory.getDefaultEnvelope());
         OMCloneOptions options = new OMCloneOptions();

@@ -29,7 +29,7 @@ import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPProcessingException;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class BadInputTest extends MatrixTestCase {
+public class BadInputTest implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -38,7 +38,7 @@ public class BadInputTest extends MatrixTestCase {
     private String file;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         assertThatThrownBy(() -> {
                     SOAPEnvelope soapEnvelope = OMXMLBuilderFactory.createSOAPModelBuilder(
                                     metaFactory,

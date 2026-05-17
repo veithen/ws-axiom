@@ -34,7 +34,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
  * Test that attempts to add an arbitrary element to the SOAP envelope (after the body). This is
  * allowed in SOAP 1.1, but not in SOAP 1.2.
  */
-public class TestAddElementAfterBody extends MatrixTestCase {
+public class TestAddElementAfterBody implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -46,7 +46,7 @@ public class TestAddElementAfterBody extends MatrixTestCase {
     private boolean header;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope env = soapFactory.createSOAPEnvelope();
         if (header) {
             soapFactory.createSOAPHeader(env);

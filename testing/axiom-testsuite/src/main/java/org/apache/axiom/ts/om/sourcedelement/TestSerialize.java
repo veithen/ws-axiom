@@ -39,7 +39,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 import org.xml.sax.InputSource;
 
 /** Tests various ways to serialize an {@link OMSourcedElement}. */
-public class TestSerialize extends MatrixTestCase {
+public class TestSerialize implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -78,7 +78,7 @@ public class TestSerialize extends MatrixTestCase {
     private int count;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMSourcedElement element = TestDocument.DOCUMENT1.createOMSourcedElement(factory, push, destructive);
         OMDataSource ds = element.getDataSource();
         OMContainer parent = elementContext.wrap(element);

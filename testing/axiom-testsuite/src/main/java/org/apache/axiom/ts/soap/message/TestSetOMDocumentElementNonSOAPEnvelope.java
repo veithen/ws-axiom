@@ -35,12 +35,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * to set an {@link OMElement} that is not a {@link SOAPEnvelope} as the root element of a {@link
  * SOAPMessage}. In this case, an exception should be thrown.
  */
-public class TestSetOMDocumentElementNonSOAPEnvelope extends MatrixTestCase {
+public class TestSetOMDocumentElementNonSOAPEnvelope implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPMessage message = soapFactory.createSOAPMessage();
         OMElement element = soapFactory.createOMElement(new QName("test"));
         assertThatThrownBy(() -> message.setOMDocumentElement(element)).isInstanceOf(OMException.class);

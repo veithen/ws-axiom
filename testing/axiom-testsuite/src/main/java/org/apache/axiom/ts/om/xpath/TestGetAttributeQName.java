@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link DocumentNavigator#getAttributeQName(Object)} returns the correct result for an
  * attribute with namespace.
  */
-public class TestGetAttributeQName extends MatrixTestCase {
+public class TestGetAttributeQName implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("test", null);
         element.addAttribute("att", "value", factory.createOMNamespace("urn:test", "p"));
         assertThat(new AXIOMXPath("name(@*)").stringValueOf(element)).isEqualTo("p:att");

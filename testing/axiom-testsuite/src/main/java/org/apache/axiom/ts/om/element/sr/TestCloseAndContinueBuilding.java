@@ -39,7 +39,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * <p>This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-288">AXIOM-288</a>.
  */
-public class TestCloseAndContinueBuilding extends MatrixTestCase {
+public class TestCloseAndContinueBuilding implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -48,7 +48,7 @@ public class TestCloseAndContinueBuilding extends MatrixTestCase {
     private boolean cache;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement root = OMXMLBuilderFactory.createOMBuilder(
                         factory, new StringReader("<root><a><b>some text</b></a><c>content</c></root>"))
                 .getDocumentElement();

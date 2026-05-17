@@ -32,7 +32,7 @@ import org.apache.axiom.ts.dimension.AddAttributeStrategy;
  * Tests that when adding multiple attributes with different namespaces, a corresponding namespace
  * declaration is generated for each of them.
  */
-public class TestAddAttributeMultiple extends MatrixTestCase {
+public class TestAddAttributeMultiple implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -40,7 +40,7 @@ public class TestAddAttributeMultiple extends MatrixTestCase {
     private AddAttributeStrategy strategy;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String expectedXML = "<AttributeTester xmlns:myAttr2NS=\"http://test-attributes-2.org\" "
                 + "xmlns:myAttr1NS=\"http://test-attributes-1.org\" myAttr2NS:attrNumber=\"2\" myAttr1NS:attrNumber=\"1\" />";
 

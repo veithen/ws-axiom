@@ -28,7 +28,7 @@ import org.apache.axiom.soap.SOAPFault;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.AltSOAPFactory;
 
-public class TestSetNode extends MatrixTestCase {
+public class TestSetNode implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
@@ -37,7 +37,7 @@ public class TestSetNode extends MatrixTestCase {
     private SOAPFactory altSoapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFault soapFault = soapFactory.createSOAPFault();
         soapFault.setNode(soapFactory.createSOAPFaultNode(soapFault));
         assertThat(soapFault.getNode()).isNotNull();

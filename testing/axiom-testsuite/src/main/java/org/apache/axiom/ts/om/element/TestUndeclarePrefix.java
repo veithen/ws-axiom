@@ -28,12 +28,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestUndeclarePrefix extends MatrixTestCase {
+public class TestUndeclarePrefix implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("test"));
         element.undeclarePrefix("p");
         Iterator<OMNamespace> it = element.getAllDeclaredNamespaces();

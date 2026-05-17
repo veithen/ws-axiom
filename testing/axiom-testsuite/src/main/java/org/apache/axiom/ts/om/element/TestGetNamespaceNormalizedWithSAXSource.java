@@ -39,12 +39,12 @@ import org.xml.sax.InputSource;
  * xmlns=""}. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-398">AXIOM-398</a>.
  */
-public class TestGetNamespaceNormalizedWithSAXSource extends MatrixTestCase {
+public class TestGetNamespaceNormalizedWithSAXSource implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SAXParserFactory saxFactory = SAXParserFactory.newInstance();
         saxFactory.setNamespaceAware(true);
         saxFactory.setFeature("http://xml.org/sax/features/namespace-prefixes", true);

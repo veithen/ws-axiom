@@ -26,12 +26,12 @@ import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 // Regression test for AXIOM-218
-public class TestGetBodyOnEnvelopeWithHeaderOnly extends MatrixTestCase {
+public class TestGetBodyOnEnvelopeWithHeaderOnly implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.createSOAPEnvelope();
         soapFactory.createSOAPHeader(envelope);
         assertThat(envelope.getBody()).isNull();

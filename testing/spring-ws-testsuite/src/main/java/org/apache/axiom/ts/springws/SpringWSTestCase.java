@@ -27,7 +27,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.mock.env.MockPropertySource;
 
-public abstract class SpringWSTestCase extends MatrixTestCase {
+public abstract class SpringWSTestCase implements MatrixTestCase {
     @Inject
     protected SOAPSpec spec;
 

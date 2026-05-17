@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  *
  * <p>This is a regression test for an issue in older Axiom versions.
  */
-public class TestCloneProcessedWithoutPreservingModel extends MatrixTestCase {
+public class TestCloneProcessedWithoutPreservingModel implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPHeaderBlock headerBlock =
                 soapFactory.createSOAPHeaderBlock("test", soapFactory.createOMNamespace("urn:test", "p"));
         headerBlock.setProcessed();

@@ -41,7 +41,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * <p>This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-431">AXIOM-431</a>.
  */
-public class TestGetXMLStreamReaderWithIncompleteDescendant extends MatrixTestCase {
+public class TestGetXMLStreamReaderWithIncompleteDescendant implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -50,7 +50,7 @@ public class TestGetXMLStreamReaderWithIncompleteDescendant extends MatrixTestCa
     private boolean cache;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement root = factory.createOMElement(new QName("root"));
         OMElement child = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<a>test</a>"))
                 .getDocumentElement(true);

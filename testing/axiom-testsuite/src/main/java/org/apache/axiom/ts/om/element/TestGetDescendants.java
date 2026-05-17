@@ -29,7 +29,7 @@ import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetDescendants extends MatrixTestCase {
+public class TestGetDescendants implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -38,7 +38,7 @@ public class TestGetDescendants extends MatrixTestCase {
     private boolean includeSelf;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(factory, "<root><a><b><c><d/><e/></c></b><f/></a><g/></root>");
         // We intentionally get the descendants of <a> so that we can test containment
         // (the iterator must never return <g>, which is a sibling of <a>).

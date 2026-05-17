@@ -28,12 +28,12 @@ import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests {@link OMFactory#createOMText(OMContainer, OMText)}. */
-public class TestCreateOMTextFromOMText extends MatrixTestCase {
+public class TestCreateOMTextFromOMText implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMText orgText = factory.createOMText("text");
         OMElement parent = factory.createOMElement("test", null);
         OMText text = factory.createOMText(parent, orgText);

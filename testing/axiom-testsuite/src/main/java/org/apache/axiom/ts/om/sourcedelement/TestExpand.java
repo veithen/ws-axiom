@@ -30,12 +30,12 @@ import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Make sure the expanded OMSourcedElement behaves like a normal OMElement. */
-public class TestExpand extends MatrixTestCase {
+public class TestExpand implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMSourcedElement element = TestDocument.DOCUMENT1.createOMSourcedElement(factory, false, true);
         element.getAllDeclaredNamespaces();
         assertThat(countItems(element.getAllDeclaredNamespaces())).isEqualTo(1);

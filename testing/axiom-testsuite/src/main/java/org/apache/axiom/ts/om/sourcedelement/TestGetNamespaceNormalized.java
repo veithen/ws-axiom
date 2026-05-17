@@ -37,12 +37,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * <p>This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-398">AXIOM-398</a>.
  */
-public class TestGetNamespaceNormalized extends MatrixTestCase {
+public class TestGetNamespaceNormalized implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace ns = factory.createOMNamespace("", "");
         OMSourcedElement element =
                 factory.createOMElement(new StringOMDataSource("<element>content</element>"), "element", ns);

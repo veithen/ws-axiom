@@ -29,7 +29,7 @@ import org.apache.axiom.ts.StreamTypeAdapter;
 import org.apache.axiom.ts.xml.StreamType;
 import org.apache.axiom.ts.xml.XMLSample;
 
-public class TestCloseWithStream extends MatrixTestCase {
+public class TestCloseWithStream implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -37,7 +37,7 @@ public class TestCloseWithStream extends MatrixTestCase {
     private StreamType streamType;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         InstrumentedStream in = streamType.instrumentStream(streamType.getStream(XMLSample.SIMPLE));
         try {
             OMXMLParserWrapper builder =

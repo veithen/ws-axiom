@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMNamedInformationItem#getPrefix()} returns <code>null</code> when invoked on
  * an {@link OMElement} that has no namespace.
  */
-public class TestGetPrefixWithoutNamespace extends MatrixTestCase {
+public class TestGetPrefixWithoutNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("test"));
         assertThat(element.getPrefix()).isNull();
     }

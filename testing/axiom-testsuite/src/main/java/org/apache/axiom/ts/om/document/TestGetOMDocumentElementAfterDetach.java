@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * document element has been removed using {@link OMNode#detach()}. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-361">AXIOM-361</a>.
  */
-public class TestGetOMDocumentElementAfterDetach extends MatrixTestCase {
+public class TestGetOMDocumentElementAfterDetach implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDocument document = factory.createOMDocument();
         OMElement documentElement = factory.createOMElement("root", null, document);
         assertThat(document.getOMDocumentElement()).isSameAs(documentElement);

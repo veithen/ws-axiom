@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Iterator#remove()}. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-391">AXIOM-391</a>.
  */
-public class TestGetChildElementsConcurrentModification extends MatrixTestCase {
+public class TestGetChildElementsConcurrentModification implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = factory.createOMElement("parent", null);
         factory.createOMElement("child1", null, parent);
         factory.createOMElement("child2", null, parent);

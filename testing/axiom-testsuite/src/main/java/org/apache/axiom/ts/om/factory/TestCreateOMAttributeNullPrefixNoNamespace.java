@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * not allowed to bind a prefix to the empty namespace URI and an unprefixed attribute has no
  * namespace, this should give the same result as specifying an empty prefix.
  */
-public class TestCreateOMAttributeNullPrefixNoNamespace extends MatrixTestCase {
+public class TestCreateOMAttributeNullPrefixNoNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace ns = factory.createOMNamespace("", null);
         OMAttribute attr = factory.createOMAttribute("attr", ns, "value");
         assertThat(attr.getNamespace()).isNull();

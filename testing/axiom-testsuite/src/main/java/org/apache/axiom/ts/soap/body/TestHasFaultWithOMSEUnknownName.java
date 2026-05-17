@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that a call to {@link SOAPBody#hasFault()} doesn't cause expansion of an {@link
  * OMSourcedElement} with an unknown name that is the first child of the SOAP body.
  */
-public class TestHasFaultWithOMSEUnknownName extends MatrixTestCase {
+public class TestHasFaultWithOMSEUnknownName implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultEnvelope();
         SOAPBody body = envelope.getBody();
         OMSourcedElement element = soapFactory.createOMElement(new StringOMDataSource("<ns:root xmlns:ns='urn:ns'/>"));

@@ -34,12 +34,12 @@ import org.apache.axiom.soap.SOAPHeaderBlock;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests functionality of BlobOMDataSource */
-public class TestBlobOMDataSource extends MatrixTestCase {
+public class TestBlobOMDataSource implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope soapEnvelope = soapFactory.createSOAPEnvelope();
         SOAPHeader soapHeader = soapFactory.createSOAPHeader(soapEnvelope);
         String localName = "myPayload";

@@ -31,12 +31,12 @@ import org.apache.axiom.soap.SOAPHeaderBlock;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link SOAPHeader#getHeadersToProcess(RolePlayer, String)} */
-public class TestGetHeadersToProcessWithNamespace extends MatrixTestCase {
+public class TestGetHeadersToProcessWithNamespace implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.createSOAPEnvelope();
         SOAPHeader header = soapFactory.createSOAPHeader(envelope);
         OMNamespace ns1 = soapFactory.createOMNamespace("urn:ns1", "ns1");

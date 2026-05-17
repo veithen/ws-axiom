@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMSerializable#build()} on an {@link OMElement} that has been
  * discarded. In this case the method is expected to throw a {@link NodeUnavailableException}.
  */
-public class TestBuildDiscarded extends MatrixTestCase {
+public class TestBuildDiscarded implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root><a/><b/></root>"))
                 .getDocumentElement();
         // Partially build the parent

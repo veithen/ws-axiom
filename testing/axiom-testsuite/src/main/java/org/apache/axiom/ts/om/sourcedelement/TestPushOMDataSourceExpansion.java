@@ -35,7 +35,7 @@ import org.apache.axiom.ts.om.sourcedelement.push.PushOMDataSourceScenario;
 /**
  * Tests the expansion of an {@link OMSourcedElement} backed by an {@link AbstractPushOMDataSource}.
  */
-public class TestPushOMDataSourceExpansion extends MatrixTestCase {
+public class TestPushOMDataSourceExpansion implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -62,7 +62,7 @@ public class TestPushOMDataSourceExpansion extends MatrixTestCase {
     private PushOMDataSourceScenario scenario;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         PushOMDataSource ds = new PushOMDataSource();
         OMElement element = factory.createOMElement(ds);
         Iterator<Map.Entry<String, String>> it =

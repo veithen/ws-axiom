@@ -25,7 +25,7 @@ import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSample;
 
-public class MessageTest extends MatrixTestCase {
+public class MessageTest implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -33,7 +33,7 @@ public class MessageTest extends MatrixTestCase {
     private SOAPSample message;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope soapEnvelope = OMXMLBuilderFactory.createSOAPModelBuilder(
                         metaFactory, message.getInputStream(), null)
                 .getSOAPEnvelope();

@@ -37,7 +37,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * <p>This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-288">AXIOM-288</a>.
  */
-public class TestGetXMLStreamReaderOnNonRootElement extends MatrixTestCase {
+public class TestGetXMLStreamReaderOnNonRootElement implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -46,7 +46,7 @@ public class TestGetXMLStreamReaderOnNonRootElement extends MatrixTestCase {
     private boolean cache;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement root = AXIOMUtil.stringToOM(factory, "<a><b><c/></b><d>content</d></a>");
         OMElement b = (OMElement) root.getFirstOMChild();
         XMLStreamReader stream = b.getXMLStreamReader(cache);

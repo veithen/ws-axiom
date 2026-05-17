@@ -38,7 +38,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
  * that is incomplete. In particular, the test checks that {@link OMInformationItem#getOMFactory()}
  * returns the correct factory (which is determined lazily) on the clone.
  */
-public class TestCloneIncomplete extends MatrixTestCase {
+public class TestCloneIncomplete implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -53,7 +53,7 @@ public class TestCloneIncomplete extends MatrixTestCase {
     private boolean preserveModel;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPMessage message = SOAPSampleSet.WSA
                 .getMessage(spec)
                 .getAdapter(SOAPSampleAdapter.class)

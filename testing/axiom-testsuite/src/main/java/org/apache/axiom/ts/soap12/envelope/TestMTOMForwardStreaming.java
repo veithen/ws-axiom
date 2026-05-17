@@ -44,7 +44,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * OMOutputFormat)} is used to serialize the message. This feature is important because it allows
  * projects such as Synapse to forward MTOM messages very efficiently.
  */
-public class TestMTOMForwardStreaming extends MatrixTestCase {
+public class TestMTOMForwardStreaming implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -53,7 +53,7 @@ public class TestMTOMForwardStreaming extends MatrixTestCase {
     private boolean buildSOAPPart;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Blob blob1 = new TestBlob('A', Runtime.getRuntime().maxMemory());
         Blob blob2 = new TestBlob('B', Runtime.getRuntime().maxMemory());
 

@@ -35,12 +35,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * single {@link OMText} child. The test case also checks that the method doesn't call {@link
  * Writer#close()}.
  */
-public class TestWriteTextTo extends MatrixTestCase {
+public class TestWriteTextTo implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("a"));
         factory.createOMText(element, "test");
         StringWriter sw = new StringWriter();

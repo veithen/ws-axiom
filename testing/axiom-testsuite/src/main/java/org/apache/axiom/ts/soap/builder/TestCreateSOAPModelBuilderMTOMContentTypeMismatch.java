@@ -48,7 +48,7 @@ import org.apache.axiom.util.UIDGenerator;
  * produces an error if the SOAP version used in the root part doesn't match the Content-Type of the
  * message.
  */
-public class TestCreateSOAPModelBuilderMTOMContentTypeMismatch extends MatrixTestCase {
+public class TestCreateSOAPModelBuilderMTOMContentTypeMismatch implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -56,7 +56,7 @@ public class TestCreateSOAPModelBuilderMTOMContentTypeMismatch extends MatrixTes
     private SOAPSpec spec;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         final SOAPSample sample = SOAPSampleSet.NO_HEADER.getMessage(spec);
         // Generate an MTOM message with the wrong content type
         MimeMessage message = new MimeMessage((Session) null);

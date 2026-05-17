@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * NodeUnavailableException} if the element has been discarded before the first child could be
  * created.
  */
-public class TestGetFirstOMChildAfterDiscard extends MatrixTestCase {
+public class TestGetFirstOMChildAfterDiscard implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = OMXMLBuilderFactory.createOMBuilder(
                         factory, new StringReader("<element><!--comment--><a/><!--comment--></element>"))
                 .getDocumentElement();

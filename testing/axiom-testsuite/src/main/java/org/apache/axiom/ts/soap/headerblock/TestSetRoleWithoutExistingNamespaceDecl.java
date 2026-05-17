@@ -29,7 +29,7 @@ import org.apache.axiom.ts.soap.HeaderBlockAttribute;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
 /** Tests that {@link SOAPHeaderBlock#setRole(String)} adds a namespace declaration if necessary. */
-public class TestSetRoleWithoutExistingNamespaceDecl extends MatrixTestCase {
+public class TestSetRoleWithoutExistingNamespaceDecl implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -37,7 +37,7 @@ public class TestSetRoleWithoutExistingNamespaceDecl extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPHeaderBlock headerBlock =
                 soapFactory.createSOAPHeaderBlock("block", soapFactory.createOMNamespace("urn:test", "p"));
         headerBlock.setRole("urn:testrole");

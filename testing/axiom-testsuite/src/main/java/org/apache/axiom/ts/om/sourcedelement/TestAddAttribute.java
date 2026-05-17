@@ -34,7 +34,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * Tests that adding an attribute to an {@link OMSourcedElement} overrides a corresponding attribute
  * that may be produced during expansion.
  */
-public class TestAddAttribute extends MatrixTestCase {
+public class TestAddAttribute implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -42,7 +42,7 @@ public class TestAddAttribute extends MatrixTestCase {
     private AddAttributeStrategy strategy;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMSourcedElement element =
                 factory.createOMElement(new PullOMDataSource("<root attr='orgvalue'><child/></root>"), "root", null);
         // Add an attribute before expansion

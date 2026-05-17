@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
-public class TestGetSAXSourceWithPushOMDataSourceThrowingException extends MatrixTestCase {
+public class TestGetSAXSourceWithPushOMDataSourceThrowingException implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new AbstractPushOMDataSource() {
 
             @Override

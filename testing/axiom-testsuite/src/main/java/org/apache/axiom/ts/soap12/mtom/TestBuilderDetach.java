@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.io.InstrumentedInputStream;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.MTOMSample;
 
-public class TestBuilderDetach extends MatrixTestCase {
+public class TestBuilderDetach implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         MTOMSample sample = MTOMSample.SAMPLE1;
         InstrumentedInputStream in = new InstrumentedInputStream(sample.getInputStream());
         MultipartBody mb = MultipartBody.builder()

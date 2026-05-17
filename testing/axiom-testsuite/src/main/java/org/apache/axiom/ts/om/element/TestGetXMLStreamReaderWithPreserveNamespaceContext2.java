@@ -35,12 +35,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * or redundant namespace declarations. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-485">AXIOM-485</a>.
  */
-public class TestGetXMLStreamReaderWithPreserveNamespaceContext2 extends MatrixTestCase {
+public class TestGetXMLStreamReaderWithPreserveNamespaceContext2 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement root = OMXMLBuilderFactory.createOMBuilder(
                         factory,
                         TestGetXMLStreamReaderWithPreserveNamespaceContext2.class.getResourceAsStream("AXIOM-485.xml"))

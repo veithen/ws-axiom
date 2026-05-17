@@ -34,7 +34,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * {@link OMNamespace} with a <code>null</code> prefix and no namespace declaration for the given
  * namespace URI is in scope, the method generates a prefix.
  */
-public class TestAddAttributeGeneratedPrefix extends MatrixTestCase {
+public class TestAddAttributeGeneratedPrefix implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -43,7 +43,7 @@ public class TestAddAttributeGeneratedPrefix extends MatrixTestCase {
     private boolean defaultNamespaceInScope;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace otherNS = factory.createOMNamespace("urn:ns2", "p");
         OMElement parent = factory.createOMElement("parent", otherNS);
         if (defaultNamespaceInScope) {

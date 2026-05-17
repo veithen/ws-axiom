@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * OMElement} with a name corresponding to a SOAP fault. In this case, the method is expected to
  * return <code>false</code>.
  */
-public class TestHasFaultFakeFault extends MatrixTestCase {
+public class TestHasFaultFakeFault implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPBody body = soapFactory.getDefaultEnvelope().getBody();
         soapFactory.createOMElement("Fault", soapFactory.getNamespace(), body);
         assertThat(body.hasFault()).isFalse();

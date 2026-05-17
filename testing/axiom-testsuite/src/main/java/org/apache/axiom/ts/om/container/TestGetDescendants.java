@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMSerializable;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetDescendants extends MatrixTestCase {
+public class TestGetDescendants implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -44,7 +44,7 @@ public class TestGetDescendants extends MatrixTestCase {
     private boolean includeSelf;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMContainer root = containerFactory.create(factory);
         OMElement child1 = factory.createOMElement("child", null, root);
         OMProcessingInstruction child2 = factory.createOMProcessingInstruction(root, "test", "data");

@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMFactory#createOMText(OMContainer, String)} can be used to create an orphaned
  * node by setting <code>parent</code> to <code>null</code>.
  */
-public class TestCreateOMTextWithNullParent extends MatrixTestCase {
+public class TestCreateOMTextWithNullParent implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMText text = factory.createOMText(null, "text");
         assertThat(text.getParent()).isNull();
     }

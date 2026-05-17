@@ -58,7 +58,7 @@ import org.xml.sax.ContentHandler;
  * a document against an XML schema (see <a
  * href="https://issues.apache.org/jira/browse/SYNAPSE-501">SYNAPSE-501</a>).
  */
-public class TestGetSAXSourceIdentityTransformOnFragment extends MatrixTestCase {
+public class TestGetSAXSourceIdentityTransformOnFragment implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -74,7 +74,7 @@ public class TestGetSAXSourceIdentityTransformOnFragment extends MatrixTestCase 
     }
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Transformer transformer = xsltImplementation.newTransformerFactory().newTransformer();
 
         OMElement element = OMXMLBuilderFactory.createOMBuilder(factory, getInput())

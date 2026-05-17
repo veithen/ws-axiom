@@ -34,7 +34,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * it is already a child of. In this case, the expected result is that the node is moved to the end
  * of the list of children.
  */
-public class TestAddChildWithSameParent extends MatrixTestCase {
+public class TestAddChildWithSameParent implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -43,7 +43,7 @@ public class TestAddChildWithSameParent extends MatrixTestCase {
     private boolean build;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = AXIOMUtil.stringToOM(factory, "<parent><a/><b/><c/></parent>");
         if (build) {
             parent.build();

@@ -31,7 +31,7 @@ import org.apache.axiom.testutils.blob.TextBlob;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.util.UIDGenerator;
 
-public class TestCreateOMTextFromBlobProvider extends MatrixTestCase {
+public class TestCreateOMTextFromBlobProvider implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -56,7 +56,7 @@ public class TestCreateOMTextFromBlobProvider extends MatrixTestCase {
     private boolean nullContentID;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         TestBlobProvider prov = new TestBlobProvider();
         String contentID = nullContentID ? null : UIDGenerator.generateContentId();
         OMText text = factory.createOMText(contentID, prov, true);

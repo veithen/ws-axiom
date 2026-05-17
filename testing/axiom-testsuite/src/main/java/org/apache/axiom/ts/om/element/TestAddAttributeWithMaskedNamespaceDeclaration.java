@@ -47,7 +47,7 @@ import org.apache.axiom.ts.dimension.AddAttributeStrategy;
  *
  * <p>Note that because of WSTX-202, Axiom will not be able to serialize the resulting XML.
  */
-public class TestAddAttributeWithMaskedNamespaceDeclaration extends MatrixTestCase {
+public class TestAddAttributeWithMaskedNamespaceDeclaration implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -55,7 +55,7 @@ public class TestAddAttributeWithMaskedNamespaceDeclaration extends MatrixTestCa
     private AddAttributeStrategy strategy;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace ns1 = factory.createOMNamespace("urn:ns1", "p");
         OMNamespace ns2 = factory.createOMNamespace("urn:ns2", "p");
         OMElement element1 = factory.createOMElement(new QName("a"));

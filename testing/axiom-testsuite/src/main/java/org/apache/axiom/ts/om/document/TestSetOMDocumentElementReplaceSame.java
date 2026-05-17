@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMDocument#setOMDocumentElement(OMElement)} if the argument is
  * already the document element.
  */
-public class TestSetOMDocumentElementReplaceSame extends MatrixTestCase {
+public class TestSetOMDocumentElementReplaceSame implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDocument document = factory.createOMDocument();
         OMElement root = factory.createOMElement("root", null, document);
         document.setOMDocumentElement(root);

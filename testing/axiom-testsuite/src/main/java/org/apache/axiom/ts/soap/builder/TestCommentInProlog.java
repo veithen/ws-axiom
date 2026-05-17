@@ -31,7 +31,7 @@ import org.apache.axiom.ts.soap.SOAPSampleSet;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
 /** Tests that the SOAP builder creates {@link OMComment} nodes for comments in the XML prolog. */
-public class TestCommentInProlog extends MatrixTestCase {
+public class TestCommentInProlog implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -39,7 +39,7 @@ public class TestCommentInProlog extends MatrixTestCase {
     private SOAPSpec spec;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPMessage message = SOAPSampleSet.COMMENT_IN_PROLOG
                 .getMessage(spec)
                 .getAdapter(SOAPSampleAdapter.class)

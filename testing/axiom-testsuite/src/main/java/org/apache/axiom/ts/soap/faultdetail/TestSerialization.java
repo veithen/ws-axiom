@@ -31,12 +31,12 @@ import org.apache.axiom.soap.SOAPFaultDetail;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 // Regression test for AXIOM-196
-public class TestSerialization extends MatrixTestCase {
+public class TestSerialization implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.createSOAPEnvelope();
         SOAPBody body = soapFactory.createSOAPBody(envelope);
         SOAPFault fault = soapFactory.createSOAPFault(body);

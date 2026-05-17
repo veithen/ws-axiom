@@ -28,12 +28,12 @@ import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetAllDeclaredNamespaces extends MatrixTestCase {
+public class TestGetAllDeclaredNamespaces implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(factory, "<e xmlns:p='urn:test' p:attr='test'/>");
         Iterator<OMNamespace> it = element.getAllDeclaredNamespaces();
         assertThat(it.hasNext()).isTrue();

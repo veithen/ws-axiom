@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests {@link OMContainer#removeChildren()} on an {@link OMElement}. */
-public class TestRemoveChildren extends MatrixTestCase {
+public class TestRemoveChildren implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -41,7 +41,7 @@ public class TestRemoveChildren extends MatrixTestCase {
     private boolean complete;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = OMXMLBuilderFactory.createOMBuilder(
                         factory, new StringReader("<root><a>A</a><b>B</b></root>"))
                 .getDocumentElement();

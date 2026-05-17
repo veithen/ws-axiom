@@ -43,12 +43,12 @@ import org.apache.axiom.soap.SOAPHeader;
 import org.apache.axiom.soap.SOAPHeaderBlock;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestBuilder extends MatrixTestCase {
+public class TestBuilder implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String soap11Message = "<?xml version='1.0' ?>"
                 + "<env:Envelope xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                 + "   <env:Header>\n"

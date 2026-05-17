@@ -37,12 +37,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * org.apache.axiom.om.OMXMLParserWrapper#getDocumentElement(boolean)} (with <code>discardDocument
  * </code> set to true) is added to an existing tree.
  */
-public class TestSerializeAndConsumeWithIncompleteDescendant extends MatrixTestCase {
+public class TestSerializeAndConsumeWithIncompleteDescendant implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement incompleteElement = OMXMLBuilderFactory.createOMBuilder(
                         factory, new StringReader("<elem>text</elem>"))
                 .getDocumentElement(true);

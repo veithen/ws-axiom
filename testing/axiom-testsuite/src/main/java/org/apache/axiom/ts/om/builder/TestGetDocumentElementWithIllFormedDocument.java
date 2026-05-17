@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMXMLParserWrapper#getDocumentElement()} throws an exception (instead of
  * returning <code>null</code>) if the input document has no document element.
  */
-public class TestGetDocumentElementWithIllFormedDocument extends MatrixTestCase {
+public class TestGetDocumentElementWithIllFormedDocument implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<!--comment1-->"));
         assertThatThrownBy(builder::getDocumentElement).isInstanceOf(OMException.class);
     }

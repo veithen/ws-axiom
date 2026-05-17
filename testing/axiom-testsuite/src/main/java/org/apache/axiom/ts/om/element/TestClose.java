@@ -29,12 +29,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.om.XMLSampleAdapter;
 import org.apache.axiom.ts.xml.XMLSample;
 
-public class TestClose extends MatrixTestCase {
+public class TestClose implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement rootElement =
                 XMLSample.SIMPLE.getAdapter(XMLSampleAdapter.class).getDocumentElement(metaFactory);
 

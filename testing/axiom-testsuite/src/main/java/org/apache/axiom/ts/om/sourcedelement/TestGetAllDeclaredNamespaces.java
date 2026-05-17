@@ -33,12 +33,12 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * Tests that {@link OMElement#getAllDeclaredNamespaces()} causes expansion of {@link
  * OMSourcedElement} instances.
  */
-public class TestGetAllDeclaredNamespaces extends MatrixTestCase {
+public class TestGetAllDeclaredNamespaces implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMSourcedElement element =
                 factory.createOMElement(new PullOMDataSource("<root xmlns:p='urn:ns1'/>"), "root", null);
         Iterator<OMNamespace> attributes = element.getAllDeclaredNamespaces();

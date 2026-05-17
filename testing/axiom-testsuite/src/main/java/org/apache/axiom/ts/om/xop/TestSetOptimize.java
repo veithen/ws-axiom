@@ -39,7 +39,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.util.StAXParserConfiguration;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestSetOptimize extends MatrixTestCase {
+public class TestSetOptimize implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -48,7 +48,7 @@ public class TestSetOptimize extends MatrixTestCase {
     private boolean optimize;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         InputStream in = XOP_SPEC_SAMPLE.getInputStream();
         try {
             OMDocument document = OMXMLBuilderFactory.createOMBuilder(

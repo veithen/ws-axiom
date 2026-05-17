@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * In this case the sourced element needs to be expanded to build any attributes present on the
  * element and to ensure that the information about the name of the element is complete.
  */
-public class TestRemoveChildrenUnexpanded extends MatrixTestCase {
+public class TestRemoveChildrenUnexpanded implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMSourcedElement element =
                 factory.createOMElement(new StringOMDataSource("<element attr='value'><a/></element>"));
         element.removeChildren();

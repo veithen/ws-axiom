@@ -30,7 +30,7 @@ import org.apache.axiom.om.OMNamedInformationItem;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public abstract class SetNamespaceTestCase extends MatrixTestCase {
+public abstract class SetNamespaceTestCase implements MatrixTestCase {
     /**
      * Common test parameters for {@link SetNamespaceTestCase} subclasses.
      *
@@ -86,7 +86,7 @@ public abstract class SetNamespaceTestCase extends MatrixTestCase {
     protected abstract void setNamespace(OMNamedInformationItem node, OMNamespace ns);
 
     @Override
-    protected final void runTest() throws Throwable {
+    public final void runTest() throws Throwable {
         OMElement element;
         OMNamedInformationItem node;
         if (context()) {

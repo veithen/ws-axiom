@@ -22,7 +22,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.HeaderBlockAttribute;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public abstract class BooleanAttributeTestCase extends MatrixTestCase {
+public abstract class BooleanAttributeTestCase implements MatrixTestCase {
     protected final SOAPSpec spec;
     protected final HeaderBlockAttribute attribute;
 

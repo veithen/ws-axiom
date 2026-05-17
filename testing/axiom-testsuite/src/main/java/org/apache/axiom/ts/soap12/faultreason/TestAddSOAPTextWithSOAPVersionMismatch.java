@@ -27,7 +27,7 @@ import org.apache.axiom.soap.SOAPFaultReason;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.AltSOAPFactory;
 
-public class TestAddSOAPTextWithSOAPVersionMismatch extends MatrixTestCase {
+public class TestAddSOAPTextWithSOAPVersionMismatch implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
@@ -36,7 +36,7 @@ public class TestAddSOAPTextWithSOAPVersionMismatch extends MatrixTestCase {
     private SOAPFactory altSoapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFault soap12Fault = soapFactory.createSOAPFault();
         SOAPFaultReason soap12FaultReason = soapFactory.createSOAPFaultReason(soap12Fault);
         SOAPFault soap11Fault = altSoapFactory.createSOAPFault();

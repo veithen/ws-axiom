@@ -33,7 +33,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests {@link OMElement#getNamespaceContext(boolean)}. */
-public class TestGetNamespaceContext extends MatrixTestCase {
+public class TestGetNamespaceContext implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -42,7 +42,7 @@ public class TestGetNamespaceContext extends MatrixTestCase {
     private boolean detached;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         InputStream in = TestGetNamespaceContext.class.getResourceAsStream("namespacecontext.xml");
         OMElement root = OMXMLBuilderFactory.createOMBuilder(factory, in).getDocumentElement();
         OMElement inner = root.getFirstElement().getFirstElement();

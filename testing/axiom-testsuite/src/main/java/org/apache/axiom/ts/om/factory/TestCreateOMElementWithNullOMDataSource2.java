@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMFactory#createOMElement(OMDataSource, QName)} if the data source
  * is <code>null</code>.
  */
-public class TestCreateOMElementWithNullOMDataSource2 extends MatrixTestCase {
+public class TestCreateOMElementWithNullOMDataSource2 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         assertThatThrownBy(() -> factory.createOMElement(null, new QName("urn:test", "test", "p")))
                 .isInstanceOf(IllegalArgumentException.class);
     }

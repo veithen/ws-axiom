@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMContainer#getXMLStreamReaderWithoutCaching()} correctly generated events for
  * an element that has been partially built. This is a regression test for AXIOM-393.
  */
-public class TestGetXMLStreamReaderWithoutCachingPartiallyBuilt extends MatrixTestCase {
+public class TestGetXMLStreamReaderWithoutCachingPartiallyBuilt implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         // Note: the problem described in AXIOM-393 specifically occurred with descendants
         //       having the same name as the root element
         OMElement root = OMXMLBuilderFactory.createOMBuilder(

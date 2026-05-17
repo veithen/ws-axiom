@@ -29,12 +29,12 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestChildReDeclaringParentsDefaultNSWithPrefix extends MatrixTestCase {
+public class TestChildReDeclaringParentsDefaultNSWithPrefix implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement elem = factory.createOMElement(
                 "RequestSecurityToken", factory.createOMNamespace("http://schemas.xmlsoap.org/ws/2005/02/trust", ""));
         factory.createOMElement(new QName("TokenType"), elem).setText("test");

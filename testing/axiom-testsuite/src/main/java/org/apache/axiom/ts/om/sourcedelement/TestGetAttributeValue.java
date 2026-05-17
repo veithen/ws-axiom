@@ -32,12 +32,12 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * Tests that {@link OMElement#getAttributeValue(QName)} causes expansion of {@link
  * OMSourcedElement} instances.
  */
-public class TestGetAttributeValue extends MatrixTestCase {
+public class TestGetAttributeValue implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMSourcedElement element = factory.createOMElement(new PullOMDataSource("<root attr='value'/>"), "root", null);
         assertThat(element.getAttributeValue(new QName("attr"))).isEqualTo("value");
     }

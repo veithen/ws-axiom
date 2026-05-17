@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 /**
  * Tests the behavior of {@link OMElement#declareNamespace(String, String)} with an empty prefix.
  */
-public class TestDeclareNamespaceWithEmptyPrefix extends MatrixTestCase {
+public class TestDeclareNamespaceWithEmptyPrefix implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("test"));
         OMNamespace ns = element.declareNamespace("urn:ns", "");
         assertThat(ns.getNamespaceURI()).isEqualTo("urn:ns");

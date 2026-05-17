@@ -22,7 +22,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.xml.XMLSample;
 
 /** Base class for test cases that are executed against the files from the conformance test set. */
-public abstract class ConformanceTestCase extends MatrixTestCase {
+public abstract class ConformanceTestCase implements MatrixTestCase {
     protected final XMLSample file;
 
     public ConformanceTestCase(XMLSample file) {

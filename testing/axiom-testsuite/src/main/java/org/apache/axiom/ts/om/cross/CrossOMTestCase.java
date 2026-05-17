@@ -23,7 +23,7 @@ import com.google.inject.name.Named;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public abstract class CrossOMTestCase extends MatrixTestCase {
+public abstract class CrossOMTestCase implements MatrixTestCase {
     @Inject
     @Named("metaFactory")
     protected OMMetaFactory metaFactory;

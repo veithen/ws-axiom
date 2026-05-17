@@ -35,12 +35,12 @@ import org.apache.axiom.testutils.blob.RandomBlob;
 import org.apache.axiom.testutils.io.IOTestUtils;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetTextAsStreamWithNonDestructiveOMDataSource extends MatrixTestCase {
+public class TestGetTextAsStreamWithNonDestructiveOMDataSource implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Blob blob = new RandomBlob(445566, 32, 128, 20000000);
         QName qname = new QName("a");
         Charset cs = StandardCharsets.US_ASCII;

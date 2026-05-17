@@ -33,7 +33,7 @@ import org.apache.axiom.ts.jaxp.xslt.XSLTImplementation;
 import org.apache.axiom.ts.xml.XMLSample;
 import org.xml.sax.InputSource;
 
-public class StreamSourceToOMResultTestCase extends MatrixTestCase {
+public class StreamSourceToOMResultTestCase implements MatrixTestCase {
     @Inject
     @Named("axiomImplementation")
     private String axiomImplementation;
@@ -43,7 +43,7 @@ public class StreamSourceToOMResultTestCase extends MatrixTestCase {
 
     @Override
     @SuppressWarnings({"deprecation"})
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMMetaFactory omMetaFactory = OMAbstractFactory.getMetaFactory(axiomImplementation);
         StreamSource source = new StreamSource(file.getUrl().toString());
         OMResult result = new OMResult(omMetaFactory.getOMFactory());

@@ -36,7 +36,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * implemented using {@link OMXMLBuilderFactory#createStAXSOAPModelBuilder(XMLStreamReader)} because
  * the methods taking a stream as input will generally reject DTDs at a much lower level.
  */
-public class TestDTD extends MatrixTestCase {
+public class TestDTD implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -44,7 +44,7 @@ public class TestDTD extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String message = "<!DOCTYPE test []>" + soapFactory.getDefaultEnvelope();
         XMLStreamReader parser = StAXUtils.createXMLStreamReader(new StringReader(message));
         assertThatThrownBy(() -> {

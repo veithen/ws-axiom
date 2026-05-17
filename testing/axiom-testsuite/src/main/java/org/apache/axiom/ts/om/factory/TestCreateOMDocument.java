@@ -26,12 +26,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestCreateOMDocument extends MatrixTestCase {
+public class TestCreateOMDocument implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDocument document = factory.createOMDocument();
         assertThat(document).isNotNull();
         assertThat(document.getFirstOMChild()).isNull();

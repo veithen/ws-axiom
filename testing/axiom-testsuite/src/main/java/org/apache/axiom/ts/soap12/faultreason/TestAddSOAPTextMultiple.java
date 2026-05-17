@@ -27,12 +27,12 @@ import org.apache.axiom.soap.SOAPFaultReason;
 import org.apache.axiom.soap.SOAPFaultText;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestAddSOAPTextMultiple extends MatrixTestCase {
+public class TestAddSOAPTextMultiple implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFaultReason reason = soapFactory.createSOAPFaultReason();
         SOAPFaultText text1 = soapFactory.createSOAPFaultText();
         text1.setLang("en");

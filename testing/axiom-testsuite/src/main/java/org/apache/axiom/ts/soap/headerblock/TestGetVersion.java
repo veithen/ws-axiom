@@ -27,7 +27,7 @@ import org.apache.axiom.soap.SOAPVersion;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public class TestGetVersion extends MatrixTestCase {
+public class TestGetVersion implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -35,7 +35,7 @@ public class TestGetVersion extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPHeaderBlock h =
                 soapFactory.createSOAPHeaderBlock("myHeader", soapFactory.createOMNamespace("urn:test", "p"));
         assertThat(h.getVersion()).isSameAs(spec.getAdapter(SOAPVersion.class));

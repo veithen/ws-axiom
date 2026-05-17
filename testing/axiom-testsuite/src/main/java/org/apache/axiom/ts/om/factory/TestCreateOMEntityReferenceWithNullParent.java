@@ -25,12 +25,12 @@ import org.apache.axiom.om.OMEntityReference;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestCreateOMEntityReferenceWithNullParent extends MatrixTestCase {
+public class TestCreateOMEntityReferenceWithNullParent implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMEntityReference entref = factory.createOMEntityReference(null, "testref");
         assertThat(entref.getParent()).isNull();
         assertThat(entref.getName()).isEqualTo("testref");

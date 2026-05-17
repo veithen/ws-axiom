@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMElement#getTextAsQName()} for an unprefixed QName and no default
  * namespace in scope.
  */
-public class TestGetTextAsQNameNoNamespace extends MatrixTestCase {
+public class TestGetTextAsQNameNoNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement omElement = factory.createOMElement("TestElement", null);
         omElement.setText("value");
         assertThat(omElement.getTextAsQName()).isEqualTo(new QName("value"));

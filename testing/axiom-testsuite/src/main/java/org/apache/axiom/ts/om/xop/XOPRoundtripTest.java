@@ -33,12 +33,12 @@ import org.apache.axiom.om.XOPEncoded;
 import org.apache.axiom.testutils.blob.TestBlob;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class XOPRoundtripTest extends MatrixTestCase {
+public class XOPRoundtripTest implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Blob blob = new TestBlob('x', Runtime.getRuntime().maxMemory());
         OMElement element1 = factory.createOMElement(new QName("test"));
         element1.addChild(factory.createOMText(blob, true));

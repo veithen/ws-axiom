@@ -35,7 +35,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
  * invoked on a {@link SOAPMessage} created by a builder. Note that this is non trivial because the
  * factory is auto-detected based on the namespace URI of the SOAP envelope.
  */
-public class TestGetOMFactoryWithParser extends MatrixTestCase {
+public class TestGetOMFactoryWithParser implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -46,7 +46,7 @@ public class TestGetOMFactoryWithParser extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPMessage message = SOAPSampleSet.WSA
                 .getMessage(spec)
                 .getAdapter(SOAPSampleAdapter.class)

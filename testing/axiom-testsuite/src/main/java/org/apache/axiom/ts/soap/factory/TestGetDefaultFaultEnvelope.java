@@ -27,7 +27,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
 /** Tests the behavior of {@link org.apache.axiom.soap.SOAPFactory#getDefaultFaultEnvelope()}. */
-public class TestGetDefaultFaultEnvelope extends MatrixTestCase {
+public class TestGetDefaultFaultEnvelope implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -35,7 +35,7 @@ public class TestGetDefaultFaultEnvelope extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultFaultEnvelope();
 
         assertThat(envelope.getBody().getFault()).isNotNull();

@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that the object model can still be accessed after using {@link
  * OMContainer#getXMLStreamReader()}.
  */
-public class TestGetXMLStreamReaderWithCaching extends MatrixTestCase {
+public class TestGetXMLStreamReaderWithCaching implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(
                 factory, TestGetChildElementsConsumed.class.getResourceAsStream("purchase-order.xml"));
 

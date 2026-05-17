@@ -28,12 +28,12 @@ import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link OMText#getNamespace()} for a prefixed QName. */
-public class TestGetNamespace extends MatrixTestCase {
+public class TestGetNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("element", null);
         element.declareNamespace("urn:ns", "p");
         OMText text = factory.createOMText(element, "p:value");

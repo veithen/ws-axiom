@@ -28,12 +28,12 @@ import org.apache.axiom.soap.SOAPFault;
 import org.apache.axiom.soap.SOAPFaultCode;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetValueAsQName extends MatrixTestCase {
+public class TestGetValueAsQName implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope env = soapFactory.getDefaultEnvelope();
         SOAPFault fault = soapFactory.createSOAPFault(env.getBody());
         SOAPFaultCode code = soapFactory.createSOAPFaultCode(fault);

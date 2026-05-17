@@ -30,12 +30,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.ds.StringOMDataSource;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestSerializeModifiedOMSEWithNonDestructiveDataSource extends MatrixTestCase {
+public class TestSerializeModifiedOMSEWithNonDestructiveDataSource implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDataSourceExt ds = new StringOMDataSource("<element><child/></element>");
         assertThat(ds.isDestructiveWrite()).isFalse();
 

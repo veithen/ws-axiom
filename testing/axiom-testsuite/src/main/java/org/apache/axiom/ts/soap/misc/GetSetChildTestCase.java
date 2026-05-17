@@ -26,7 +26,7 @@ import org.apache.axiom.ts.soap.SOAPElementType;
 import org.apache.axiom.ts.soap.SOAPElementTypeAdapter;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public abstract class GetSetChildTestCase extends MatrixTestCase {
+public abstract class GetSetChildTestCase implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
@@ -41,7 +41,7 @@ public abstract class GetSetChildTestCase extends MatrixTestCase {
     }
 
     @Override
-    protected final void runTest() throws Throwable {
+    public final void runTest() throws Throwable {
         runTest(
                 type.getAdapter(SOAPElementTypeAdapter.class).create(soapFactory),
                 childType.getAdapter(SOAPElementTypeAdapter.class));

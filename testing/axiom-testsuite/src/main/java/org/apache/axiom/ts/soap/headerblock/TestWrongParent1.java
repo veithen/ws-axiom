@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMContainer#addChild(OMNode)} throws an exception if an attempt is made to add
  * a {@link SOAPHeaderBlock} to a SOAP element other than {@link SOAPHeader}.
  */
-public class TestWrongParent1 extends MatrixTestCase {
+public class TestWrongParent1 implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPBody parent = soapFactory.createSOAPBody();
         SOAPHeaderBlock hb =
                 soapFactory.createSOAPHeaderBlock("MyHeader", soapFactory.createOMNamespace("urn:test", "p"));

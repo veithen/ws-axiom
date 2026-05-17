@@ -29,12 +29,12 @@ import org.apache.axiom.testutils.io.InstrumentedInputStream;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.xml.XMLSample;
 
-public class TestBuild extends MatrixTestCase {
+public class TestBuild implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         InstrumentedInputStream in = new InstrumentedInputStream(XMLSample.LARGE.getInputStream());
         OMDocument doc = OMXMLBuilderFactory.createOMBuilder(factory, in).getDocument();
         assertThat(doc.isComplete()).isFalse();

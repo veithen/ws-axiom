@@ -25,12 +25,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMProcessingInstruction;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestCreateOMProcessingInstructionWithoutParent extends MatrixTestCase {
+public class TestCreateOMProcessingInstructionWithoutParent implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMProcessingInstruction pi = factory.createOMProcessingInstruction(null, "mypi", "data");
         assertThat(pi.getParent()).isNull();
         assertThat(pi.getTarget()).isEqualTo("mypi");

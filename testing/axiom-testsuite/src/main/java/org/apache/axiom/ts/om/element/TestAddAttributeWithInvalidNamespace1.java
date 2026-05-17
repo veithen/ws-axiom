@@ -36,12 +36,12 @@ import org.apache.axiom.ts.om.factory.TestCreateOMAttributeWithInvalidNamespace1
  *
  * @see TestCreateOMAttributeWithInvalidNamespace1
  */
-public class TestAddAttributeWithInvalidNamespace1 extends MatrixTestCase {
+public class TestAddAttributeWithInvalidNamespace1 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("test"));
         OMNamespace ns = factory.createOMNamespace("", "p");
         assertThatThrownBy(() -> element.addAttribute("attr", "value", ns))

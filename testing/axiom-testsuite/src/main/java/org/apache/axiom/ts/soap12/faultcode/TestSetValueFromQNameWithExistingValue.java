@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link SOAPFaultClassifier#setValue(QName)} when invoked on a SOAP 1.2
  * {@link SOAPFaultCode} that already has a {@link SOAPFaultValue} child.
  */
-public class TestSetValueFromQNameWithExistingValue extends MatrixTestCase {
+public class TestSetValueFromQNameWithExistingValue implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFaultCode code =
                 soapFactory.getDefaultFaultEnvelope().getBody().getFault().getCode();
         SOAPFaultValue value = code.getValue();

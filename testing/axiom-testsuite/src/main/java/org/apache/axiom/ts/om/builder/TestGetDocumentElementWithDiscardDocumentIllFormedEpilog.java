@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * discardDocument</code> set to <code>true</code> and a document that has an epilog that is not
  * well formed. This situation should be detected.
  */
-public class TestGetDocumentElementWithDiscardDocumentIllFormedEpilog extends MatrixTestCase {
+public class TestGetDocumentElementWithDiscardDocumentIllFormedEpilog implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMXMLParserWrapper builder =
                 OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<root/> there shouldn't be text here!"));
         OMElement element = builder.getDocumentElement(true);

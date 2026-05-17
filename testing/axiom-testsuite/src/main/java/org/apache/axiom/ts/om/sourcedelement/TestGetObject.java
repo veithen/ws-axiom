@@ -32,12 +32,12 @@ import org.apache.axiom.om.ds.WrappedTextNodeOMDataSource;
 import org.apache.axiom.om.ds.WrappedTextNodeOMDataSourceFromBlob;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetObject extends MatrixTestCase {
+public class TestGetObject implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Blob blob = Blobs.createBlob("test".getBytes(StandardCharsets.UTF_8));
         OMSourcedElement element = factory.createOMElement(
                 new WrappedTextNodeOMDataSourceFromBlob(new QName("wrapper"), blob, StandardCharsets.UTF_8));

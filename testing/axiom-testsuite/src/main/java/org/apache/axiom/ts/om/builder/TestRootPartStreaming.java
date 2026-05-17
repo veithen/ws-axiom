@@ -39,12 +39,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * entirely into memory) unless an attachment part is accessed. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-403">AXIOM-403</a>.
  */
-public class TestRootPartStreaming extends MatrixTestCase {
+public class TestRootPartStreaming implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
 
         // Programmatically create the message
         OMElement orgRoot = factory.createOMElement("root", null);

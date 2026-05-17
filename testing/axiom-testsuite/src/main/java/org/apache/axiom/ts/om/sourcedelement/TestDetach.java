@@ -34,7 +34,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.dimension.ExpansionStrategy;
 import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 
-public class TestDetach extends MatrixTestCase {
+public class TestDetach implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -42,7 +42,7 @@ public class TestDetach extends MatrixTestCase {
     private ExpansionStrategy expansionStrategy;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String xml1 = "<root><a/><b/></root>";
         String xml2 = "<child><c/><d/></child>";
         OMElement parent = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader(xml1))

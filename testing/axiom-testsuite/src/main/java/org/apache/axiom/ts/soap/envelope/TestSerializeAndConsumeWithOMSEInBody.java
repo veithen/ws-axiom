@@ -38,12 +38,12 @@ import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Regression test for WSCOMMONS-226. */
-public class TestSerializeAndConsumeWithOMSEInBody extends MatrixTestCase {
+public class TestSerializeAndConsumeWithOMSEInBody implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.createSOAPEnvelope();
         SOAPBody body = soapFactory.createSOAPBody();
         envelope.addChild(body);

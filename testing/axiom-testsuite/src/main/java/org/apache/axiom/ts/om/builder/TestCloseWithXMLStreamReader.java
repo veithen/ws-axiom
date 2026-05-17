@@ -31,12 +31,12 @@ import org.apache.axiom.om.util.StAXUtils;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.xml.XMLSample;
 
-public class TestCloseWithXMLStreamReader extends MatrixTestCase {
+public class TestCloseWithXMLStreamReader implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         InputStream in = XMLSample.SIMPLE.getInputStream();
         try {
             XMLStreamReader reader = StAXUtils.createXMLStreamReader(in);

@@ -33,7 +33,7 @@ import org.apache.axiom.ts.dimension.AddAttributeStrategy;
  * Tests that adding an attribute doesn't create an additional namespace declaration if a
  * corresponding declaration already exists on the element.
  */
-public class TestAddAttributeWithExistingNamespaceDeclarationOnSameElement extends MatrixTestCase {
+public class TestAddAttributeWithExistingNamespaceDeclarationOnSameElement implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -41,7 +41,7 @@ public class TestAddAttributeWithExistingNamespaceDeclarationOnSameElement exten
     private AddAttributeStrategy strategy;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("test"));
         OMNamespace ns = factory.createOMNamespace("urn:ns", "p");
         element.declareNamespace(ns);

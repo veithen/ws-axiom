@@ -37,12 +37,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMXMLBuilderFactory#createOMBuilder(StAXParserConfiguration,
  * InputStream)} with {@link StAXParserConfiguration#STANDALONE}.
  */
-public class TestStandaloneConfiguration extends MatrixTestCase {
+public class TestStandaloneConfiguration implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         InputStream is = TestStandaloneConfiguration.class.getResourceAsStream("web_w_dtd2.xml");
         OMXMLParserWrapper builder =
                 OMXMLBuilderFactory.createOMBuilder(factory, StAXParserConfiguration.STANDALONE, is);

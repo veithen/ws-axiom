@@ -29,12 +29,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMNamespace#equals(String, String)} for an {@link OMNamespace}
  * instance with non null prefix.
  */
-public class TestEquals extends MatrixTestCase {
+public class TestEquals implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace ns = factory.createOMNamespace("http://www.w3.org/XML/1998/namespace", "xml");
         assertThat(ns.equals("http://www.w3.org/XML/1998/namespace", "xml")).isTrue();
         // The implementation must not assume that namespace URI or prefixes are interned

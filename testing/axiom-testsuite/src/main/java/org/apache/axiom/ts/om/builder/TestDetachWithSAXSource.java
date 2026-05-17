@@ -28,12 +28,12 @@ import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.xml.sax.InputSource;
 
-public class TestDetachWithSAXSource extends MatrixTestCase {
+public class TestDetachWithSAXSource implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         DummyXMLReader xmlReader = new DummyXMLReader();
         OMXMLParserWrapper builder =
                 OMXMLBuilderFactory.createOMBuilder(factory, new SAXSource(xmlReader, new InputSource()), false);

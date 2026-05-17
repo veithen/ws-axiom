@@ -29,12 +29,12 @@ import org.apache.axiom.soap.SOAPHeader;
 import org.apache.axiom.soap.SOAPHeaderBlock;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetHeaderBlocksWithNSURI extends MatrixTestCase {
+public class TestGetHeaderBlocksWithNSURI implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope soapEnvelope = soapFactory.createSOAPEnvelope();
         SOAPHeader soapHeader = soapFactory.createSOAPHeader(soapEnvelope);
         OMNamespace namespace = soapFactory.createOMNamespace("http://www.example.org", "test");

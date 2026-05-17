@@ -30,12 +30,12 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link OMContainer#getChildrenWithNamespaceURI(String)}. */
-public class TestGetChildrenWithNamespaceURI extends MatrixTestCase {
+public class TestGetChildrenWithNamespaceURI implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = OMXMLBuilderFactory.createOMBuilder(
                         factory,
                         new StringReader("<root><a xmlns='urn:ns1'/><b xmlns='urn:ns2'/><c xmlns='urn:ns1'/></root>"))

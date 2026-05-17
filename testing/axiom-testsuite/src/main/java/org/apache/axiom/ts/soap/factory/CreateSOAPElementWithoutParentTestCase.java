@@ -30,7 +30,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPElementType;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public abstract class CreateSOAPElementWithoutParentTestCase extends MatrixTestCase {
+public abstract class CreateSOAPElementWithoutParentTestCase implements MatrixTestCase {
     protected final SOAPSpec spec;
     protected final SOAPElementType type;
 
@@ -40,7 +40,7 @@ public abstract class CreateSOAPElementWithoutParentTestCase extends MatrixTestC
     }
 
     @Override
-    protected final void runTest() throws Throwable {
+    public final void runTest() throws Throwable {
         QName expectedName = type.getQName(spec);
         if (expectedName == null) {
             assertThatThrownBy(() -> createSOAPElement()).isInstanceOf(UnsupportedOperationException.class);

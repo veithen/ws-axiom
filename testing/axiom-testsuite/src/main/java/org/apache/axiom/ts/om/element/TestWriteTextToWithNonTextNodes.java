@@ -27,12 +27,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestWriteTextToWithNonTextNodes extends MatrixTestCase {
+public class TestWriteTextToWithNonTextNodes implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(factory, "<a>A<b>B</b>C</a>");
         StringWriter out = new StringWriter();
         element.writeTextTo(out, true);

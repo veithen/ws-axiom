@@ -22,7 +22,7 @@ import org.apache.axiom.blob.WritableBlob;
 import org.apache.axiom.blob.WritableBlobFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public abstract class WritableBlobTestCase extends MatrixTestCase {
+public abstract class WritableBlobTestCase implements MatrixTestCase {
     private final WritableBlobFactory<?> factory;
     private final State initialState;
 
@@ -32,7 +32,7 @@ public abstract class WritableBlobTestCase extends MatrixTestCase {
     }
 
     @Override
-    protected final void runTest() throws Throwable {
+    public final void runTest() throws Throwable {
         WritableBlob blob = factory.createBlob();
         try {
             CleanupCallback cleanupCallback = initialState.transition(blob);

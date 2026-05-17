@@ -30,7 +30,7 @@ import org.apache.axiom.soap.SOAPHeaderBlock;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.jspecify.annotations.Nullable;
 
-public class TestClone extends MatrixTestCase {
+public class TestClone implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
@@ -47,7 +47,7 @@ public class TestClone extends MatrixTestCase {
     }
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPHeader header = soapFactory.createSOAPHeader();
         OMNamespace ns = soapFactory.createOMNamespace("urn:test", "p");
         SOAPHeaderBlock unprocessedHeaderBlock = header.addHeaderBlock("unprocessed", ns);

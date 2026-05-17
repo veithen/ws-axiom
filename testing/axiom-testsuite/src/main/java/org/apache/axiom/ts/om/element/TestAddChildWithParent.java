@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * correctly if the child to be added already has a parent.
  */
 // TODO: update Javadoc of OMContainer
-public class TestAddChildWithParent extends MatrixTestCase {
+public class TestAddChildWithParent implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element1 = factory.createOMElement("test1", null);
         OMElement element2 = factory.createOMElement("test2", null);
         OMText text = factory.createOMText("test");

@@ -29,7 +29,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMContainer#getBuilder()} returns {@code null} on a programmatically created
  * node.
  */
-public class TestGetBuilderNull extends MatrixTestCase {
+public class TestGetBuilderNull implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -37,7 +37,7 @@ public class TestGetBuilderNull extends MatrixTestCase {
     private OMContainerFactory containerFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMContainer container = containerFactory.create(factory);
         assertThat(container.getBuilder()).isNull();
     }

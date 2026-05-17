@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests that {@link OMElement#cloneOMElement()} performs namespace repairing. */
 // TODO: this is actually undocumented; in addition, it should probably made configurable
-public class TestCloneOMElementNamespaceRepairing extends MatrixTestCase {
+public class TestCloneOMElementNamespaceRepairing implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
 
         // Create a root element on which we declare the namespaces
         OMElement root = factory.createOMElement("root", null);

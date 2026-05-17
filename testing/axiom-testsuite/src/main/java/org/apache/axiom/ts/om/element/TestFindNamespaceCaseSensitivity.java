@@ -26,12 +26,12 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestFindNamespaceCaseSensitivity extends MatrixTestCase {
+public class TestFindNamespaceCaseSensitivity implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String NSURI = "http://testns";
         String NSURI_UPPER = "HTTP://TESTNS";
 

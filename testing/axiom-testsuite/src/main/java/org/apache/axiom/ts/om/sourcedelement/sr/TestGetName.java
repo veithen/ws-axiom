@@ -35,12 +35,12 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * the {@link XMLStreamConstants#START_ELEMENT} event corresponding to an {@link OMSourcedElement},
  * even if the prefix is not known in advance.
  */
-public class TestGetName extends MatrixTestCase {
+public class TestGetName implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement root = factory.createOMElement("root", null);
         OMSourcedElement el = factory.createOMElement(
                 new PullOMDataSource("<p:el xmlns:p='urn:ns'>content</p:el>"),

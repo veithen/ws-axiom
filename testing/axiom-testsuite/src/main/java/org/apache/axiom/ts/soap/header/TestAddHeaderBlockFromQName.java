@@ -29,12 +29,12 @@ import org.apache.axiom.soap.SOAPHeaderBlock;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link SOAPHeader#addHeaderBlock(QName)}. */
-public class TestAddHeaderBlockFromQName extends MatrixTestCase {
+public class TestAddHeaderBlockFromQName implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope env = soapFactory.getDefaultEnvelope();
         SOAPHeader header = env.getOrCreateHeader();
         SOAPHeaderBlock headerBlock = header.addHeaderBlock(new QName("urn:test", "test", "p"));

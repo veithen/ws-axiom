@@ -28,7 +28,7 @@ import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public class TestGetBody extends MatrixTestCase {
+public class TestGetBody implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -36,7 +36,7 @@ public class TestGetBody extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultEnvelope();
         SOAPBody body = envelope.getBody();
         assertThat(body.getLocalName()).isEqualTo(SOAPConstants.BODY_LOCAL_NAME);

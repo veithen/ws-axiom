@@ -33,7 +33,7 @@ import org.apache.axiom.soap.SOAPMessage;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests {@link OMDocument#getCharsetEncoding()} on a {@link SOAPMessage} created by a builder. */
-public class TestGetCharsetEncodingWithParser extends MatrixTestCase {
+public class TestGetCharsetEncodingWithParser implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -41,7 +41,7 @@ public class TestGetCharsetEncodingWithParser extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String encoding = "iso-8859-15";
         SOAPEnvelope orgEnvelope = soapFactory.getDefaultEnvelope();
         soapFactory

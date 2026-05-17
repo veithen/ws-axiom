@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMElement#setText(QName)}, in particular that it adds a namespace
  * declaration if necessary.
  */
-public class TestSetTextQName extends MatrixTestCase {
+public class TestSetTextQName implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("TestElement", null);
         QName qname = new QName("urn:ns1", "test", "ns");
         element.setText(qname);

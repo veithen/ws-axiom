@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link OMNode#detach()}. */
-public class TestDetach extends MatrixTestCase {
+public class TestDetach implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -45,7 +45,7 @@ public class TestDetach extends MatrixTestCase {
     private boolean build;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMContainer root;
         if (document) {
             root = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<!--a--><b/><!--c-->"))

@@ -27,12 +27,12 @@ import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.commons.lang3.StringUtils;
 
-public class TestDeclareDefaultNamespace1 extends MatrixTestCase {
+public class TestDeclareDefaultNamespace1 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         /**
          * <RootElement xmlns="http://one.org"> <ns2:ChildElementOne
          * xmlns:ns2="http://ws.apache.org/axis2" xmlns="http://two.org"> <ChildElementTwo

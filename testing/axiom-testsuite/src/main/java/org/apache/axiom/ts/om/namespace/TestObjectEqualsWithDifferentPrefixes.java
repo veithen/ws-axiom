@@ -29,12 +29,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link Object#equals(Object)} for {@link OMNamespace} instances with
  * different prefixes.
  */
-public class TestObjectEqualsWithDifferentPrefixes extends MatrixTestCase {
+public class TestObjectEqualsWithDifferentPrefixes implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace ns1 = factory.createOMNamespace("urn:ns", "ns1");
         OMNamespace ns2 = factory.createOMNamespace("urn:ns", "ns2");
         assertThat(ns1.equals(ns2)).isFalse();

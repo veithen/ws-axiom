@@ -39,12 +39,12 @@ import org.w3c.dom.Text;
  * this is in contrast to DOM where an {@link Attr} node is a parent node (containing {@link Text}
  * and {@link EntityReference} nodes).
  */
-public class TestCreateOMAttributeInterfaces extends MatrixTestCase {
+public class TestCreateOMAttributeInterfaces implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace ns = factory.createOMNamespace("urn:test", "p");
         OMAttribute attr = factory.createOMAttribute("attr", ns, "value");
         assertThat(attr).isNotInstanceOf(OMSerializable.class);

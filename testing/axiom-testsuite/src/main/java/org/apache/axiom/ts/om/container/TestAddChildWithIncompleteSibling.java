@@ -37,7 +37,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * <p>This is a regression test for an issue in older Axiom versions (where the {@link
  * OMContainer#build()}) method would fail on {@link OMDocument} instances.
  */
-public class TestAddChildWithIncompleteSibling extends MatrixTestCase {
+public class TestAddChildWithIncompleteSibling implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -45,7 +45,7 @@ public class TestAddChildWithIncompleteSibling extends MatrixTestCase {
     private OMContainerFactory containerFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMContainer container = containerFactory.create(factory);
         container.addChild(OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<a>test</a>"))
                 .getDocumentElement(true));

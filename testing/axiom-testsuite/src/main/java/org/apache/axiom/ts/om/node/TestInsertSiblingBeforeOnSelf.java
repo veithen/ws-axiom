@@ -27,12 +27,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestInsertSiblingBeforeOnSelf extends MatrixTestCase {
+public class TestInsertSiblingBeforeOnSelf implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = factory.createOMElement("test", null);
         OMText text = factory.createOMText("test");
         parent.addChild(text);

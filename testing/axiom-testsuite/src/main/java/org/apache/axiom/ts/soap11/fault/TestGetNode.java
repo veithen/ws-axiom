@@ -29,12 +29,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link SOAPFault#getNode()} returns <code>null</code> (instead of throwing an {@link
  * UnsupportedOperationException}) for SOAP 1.1 faults.
  */
-public class TestGetNode extends MatrixTestCase {
+public class TestGetNode implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFault soapFault = soapFactory.createSOAPFault();
         assertThat(soapFault.getNode()).isNull();
     }

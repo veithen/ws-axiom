@@ -28,12 +28,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestDeclareNamespace1 extends MatrixTestCase {
+public class TestDeclareNamespace1 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("test"));
         OMNamespace ns = element.declareNamespace("urn:ns1", "ns1");
         assertThat(ns.getNamespaceURI()).isEqualTo("urn:ns1");

@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * if the specified namespace is invalid, i.e. if the {@link OMNamespace} object specifies a
  * non-empty namespace but no prefix.
  */
-public class TestCreateOMAttributeWithInvalidNamespace2 extends MatrixTestCase {
+public class TestCreateOMAttributeWithInvalidNamespace2 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace ns = factory.createOMNamespace("urn:test", "");
         assertThatThrownBy(() -> factory.createOMAttribute("attr", ns, "value"))
                 .isInstanceOf(IllegalArgumentException.class)

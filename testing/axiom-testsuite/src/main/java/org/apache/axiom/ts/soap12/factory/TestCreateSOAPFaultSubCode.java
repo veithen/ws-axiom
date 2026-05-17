@@ -36,12 +36,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests {@link SOAPFactory#createSOAPFaultSubCode(SOAPFaultCode)} when used with a {@link
  * SOAPFaultCode} that has already a {@link SOAPFaultValue} child.
  */
-public class TestCreateSOAPFaultSubCode extends MatrixTestCase {
+public class TestCreateSOAPFaultSubCode implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultFaultEnvelope();
         SOAPFault fault = envelope.getBody().getFault();
         SOAPFaultCode code = fault.getCode();

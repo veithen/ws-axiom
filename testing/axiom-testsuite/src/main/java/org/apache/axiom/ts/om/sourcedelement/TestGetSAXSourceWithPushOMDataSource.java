@@ -38,7 +38,7 @@ import org.apache.axiom.ts.om.sourcedelement.push.PushOMDataSourceScenario;
  * Tests that the {@link SAXSource} returned by {@link OMContainer#getSAXSource(boolean)} correctly
  * serializes an {@link OMSourcedElement} backed by an {@link AbstractPushOMDataSource}.
  */
-public class TestGetSAXSourceWithPushOMDataSource extends MatrixTestCase {
+public class TestGetSAXSourceWithPushOMDataSource implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -50,7 +50,7 @@ public class TestGetSAXSourceWithPushOMDataSource extends MatrixTestCase {
     private boolean serializeParent;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMSourcedElement sourcedElement = factory.createOMElement(new AbstractPushOMDataSource() {
             @Override
             public void serialize(XMLStreamWriter writer) throws XMLStreamException {

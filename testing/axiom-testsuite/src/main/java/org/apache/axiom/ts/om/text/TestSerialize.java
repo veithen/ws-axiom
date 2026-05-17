@@ -31,7 +31,7 @@ import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestSerialize extends MatrixTestCase {
+public class TestSerialize implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -40,7 +40,7 @@ public class TestSerialize extends MatrixTestCase {
     private int type;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMText text = factory.createOMText("test", type);
         XMLStreamWriter writer = mock(XMLStreamWriter.class);
         text.serialize(writer);

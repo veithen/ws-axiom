@@ -25,7 +25,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Base class for the test cases that validate the behavior of the various <code>createOMElement
  * </code> methods in {@link OMFactory}.
  */
-public abstract class CreateOMElementTestCase extends MatrixTestCase {
+public abstract class CreateOMElementTestCase implements MatrixTestCase {
     protected final CreateOMElementVariant variant;
     protected final CreateOMElementParentSupplier parentSupplier;
 

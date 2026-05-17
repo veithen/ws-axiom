@@ -35,7 +35,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Unfortunately, XSS4J is no longer available for download, but it can still be found in WebSphere
  * (see the <code>com.ibm.ws.wssecurity.xss4j.domutil.Digest</code> class).
  */
-public abstract class DigestTestCase extends MatrixTestCase {
+public abstract class DigestTestCase implements MatrixTestCase {
     private final String algorithm;
     private final String expectedDigest;
 
@@ -45,7 +45,7 @@ public abstract class DigestTestCase extends MatrixTestCase {
     }
 
     @Override
-    protected final void runTest() throws Throwable {
+    public final void runTest() throws Throwable {
         OMInformationItem node = createInformationItem();
         DigestGenerator digestGenerator = new DigestGenerator();
         byte[] digest;

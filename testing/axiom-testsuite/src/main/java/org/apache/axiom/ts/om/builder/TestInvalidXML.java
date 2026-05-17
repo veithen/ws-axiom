@@ -30,12 +30,12 @@ import org.apache.axiom.om.util.StAXUtils;
 import org.apache.axiom.testutils.InvocationCounter;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestInvalidXML extends MatrixTestCase {
+public class TestInvalidXML implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         XMLStreamReader originalReader =
                 StAXUtils.createXMLStreamReader(TestInvalidXML.class.getResourceAsStream("invalid_xml.xml"));
         InvocationCounter invocationCounter = new InvocationCounter();

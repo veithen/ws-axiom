@@ -34,7 +34,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.dimension.BuilderFactory;
 import org.xml.sax.InputSource;
 
-public class TestGetElementTextFromParser extends MatrixTestCase {
+public class TestGetElementTextFromParser implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -54,7 +54,7 @@ public class TestGetElementTextFromParser extends MatrixTestCase {
     private int build;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         // Note: We test getElementText on a child element ("b") of the element from which we
         // request the XMLStreamReader ("a"). This is to make sure that the XMLStreamReader
         // implementation actually delegates to the underlying parser (which is not necessarily the

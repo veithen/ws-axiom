@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMAttribute#hasName(QName)} returns the correct value for an attribute (with
  * namespace) created by {@link OMFactory#createOMAttribute(String, OMNamespace, String)}.
  */
-public class TestHasNameWithNamespace extends MatrixTestCase {
+public class TestHasNameWithNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String localName = "attr";
         String uri = "urn:test";
         OMNamespace ns = factory.createOMNamespace(uri, "p");

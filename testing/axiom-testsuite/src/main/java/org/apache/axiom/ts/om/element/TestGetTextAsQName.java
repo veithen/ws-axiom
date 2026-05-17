@@ -27,12 +27,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link OMElement#getTextAsQName()} for a prefixed QName. */
-public class TestGetTextAsQName extends MatrixTestCase {
+public class TestGetTextAsQName implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = factory.createOMElement("parent", null);
         parent.declareNamespace("urn:ns", "p");
         OMElement child = factory.createOMElement("child", null, parent);

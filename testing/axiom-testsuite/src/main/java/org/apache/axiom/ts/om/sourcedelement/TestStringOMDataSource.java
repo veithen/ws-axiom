@@ -32,12 +32,12 @@ import org.apache.axiom.om.ds.StringOMDataSource;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests functionality of ByteArrayDataSource */
-public class TestStringOMDataSource extends MatrixTestCase {
+public class TestStringOMDataSource implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
 
         String localName = "myPayload";
         String payload1 = "<tns:myPayload xmlns:tns=\"urn://test\">Payload One</tns:myPayload>";

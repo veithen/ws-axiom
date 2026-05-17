@@ -25,7 +25,7 @@ import jakarta.xml.soap.SOAPFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public abstract class SAAJTestCase extends MatrixTestCase {
+public abstract class SAAJTestCase implements MatrixTestCase {
     @Inject
     protected SAAJImplementation saajImplementation;
 

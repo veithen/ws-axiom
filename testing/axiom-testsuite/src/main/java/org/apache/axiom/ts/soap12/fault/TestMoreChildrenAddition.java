@@ -26,12 +26,12 @@ import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFaultCode;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestMoreChildrenAddition extends MatrixTestCase {
+public class TestMoreChildrenAddition implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultFaultEnvelope();
 
         SOAPEnvelope soapEnvelope = soapFactory.getDefaultFaultEnvelope();

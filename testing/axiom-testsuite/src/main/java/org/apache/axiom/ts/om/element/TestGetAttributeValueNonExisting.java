@@ -30,12 +30,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMElement#getAttributeValue(QName)} if the element has no attribute
  * with the given QName.
  */
-public class TestGetAttributeValueNonExisting extends MatrixTestCase {
+public class TestGetAttributeValueNonExisting implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("test", null);
         element.addAttribute("attr", "value", null);
         assertThat(element.getAttributeValue(new QName("urn:ns", "attr2"))).isNull();

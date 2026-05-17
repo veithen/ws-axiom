@@ -39,7 +39,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
  * used as its own namespace prefix (e.g. {@code xmlns:role="..."} and {@code role:role="..."}
  * instead of reusing the SOAP envelope prefix).
  */
-public class TestSetAttributeNamespacePrefix extends MatrixTestCase {
+public class TestSetAttributeNamespacePrefix implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -50,7 +50,7 @@ public class TestSetAttributeNamespacePrefix extends MatrixTestCase {
     private HeaderBlockAttribute attribute;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPHeaderBlock headerBlock =
                 soapFactory.createSOAPHeaderBlock("block", soapFactory.createOMNamespace("urn:test", "p"));
 

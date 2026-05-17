@@ -35,7 +35,7 @@ import org.apache.commons.codec.binary.Base64;
  * Tests that {@link OMElement#getText()} returns the expected value (i.e. base64 encoded data) for
  * an element that has an {@link OMText} child constructed from a {@link Blob}.
  */
-public class TestGetTextBinary extends MatrixTestCase {
+public class TestGetTextBinary implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -44,7 +44,7 @@ public class TestGetTextBinary extends MatrixTestCase {
     private boolean compact;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Blob blob = new RandomBlob(99999, 1000);
         OMElement element = factory.createOMElement("elem", null);
         element.addChild(factory.createOMText(blob, false));

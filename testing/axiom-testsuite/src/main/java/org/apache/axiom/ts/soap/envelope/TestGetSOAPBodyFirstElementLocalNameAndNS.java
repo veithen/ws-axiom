@@ -28,7 +28,7 @@ import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetSOAPBodyFirstElementLocalNameAndNS extends MatrixTestCase {
+public class TestGetSOAPBodyFirstElementLocalNameAndNS implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
@@ -36,7 +36,7 @@ public class TestGetSOAPBodyFirstElementLocalNameAndNS extends MatrixTestCase {
     private QName qname;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultEnvelope();
         OMElement bodyElement =
                 soapFactory.createOMElement(qname.getLocalPart(), qname.getNamespaceURI(), qname.getPrefix());

@@ -36,7 +36,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * has already progressed past the start of the payload and the optimization described in <a
  * href="https://issues.apache.org/jira/browse/AXIOM-282">AXIOM-282</a> is no longer applicable.
  */
-public class TestGetFirstElementLocalNameWithParserNoLookahead extends MatrixTestCase {
+public class TestGetFirstElementLocalNameWithParserNoLookahead implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -44,7 +44,7 @@ public class TestGetFirstElementLocalNameWithParserNoLookahead extends MatrixTes
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope orgEnvelope = soapFactory.getDefaultEnvelope();
         OMElement payload = soapFactory.createOMElement(
                 "payload", soapFactory.createOMNamespace("urn:test", "p"), orgEnvelope.getBody());

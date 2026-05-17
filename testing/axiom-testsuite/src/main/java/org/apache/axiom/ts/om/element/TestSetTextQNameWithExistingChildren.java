@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMElement#setText(QName)} when invoked on an element that has
  * children.
  */
-public class TestSetTextQNameWithExistingChildren extends MatrixTestCase {
+public class TestSetTextQNameWithExistingChildren implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("TestElement", null);
 
         // Add some children of various types

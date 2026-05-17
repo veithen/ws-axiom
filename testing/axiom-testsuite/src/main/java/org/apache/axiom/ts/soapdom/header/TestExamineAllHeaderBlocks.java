@@ -37,7 +37,7 @@ import org.w3c.dom.Element;
  * fly and returned as {@link SOAPHeaderBlock} instances by {@link
  * SOAPHeader#examineAllHeaderBlocks()}.
  */
-public class TestExamineAllHeaderBlocks extends MatrixTestCase {
+public class TestExamineAllHeaderBlocks implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -45,7 +45,7 @@ public class TestExamineAllHeaderBlocks extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPHeader header = soapFactory.createSOAPHeader();
 
         // Add header blocks using DOM

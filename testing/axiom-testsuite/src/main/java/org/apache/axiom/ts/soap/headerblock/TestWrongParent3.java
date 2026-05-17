@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMNode#insertSiblingBefore(OMNode)} throws an exception if an attempt is made
  * to add a {@link SOAPHeaderBlock} as a child of a SOAP element other than {@link SOAPHeader}.
  */
-public class TestWrongParent3 extends MatrixTestCase {
+public class TestWrongParent3 implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFaultDetail parent = soapFactory.createSOAPFaultDetail();
         OMElement child1 = soapFactory.createOMElement("child1", null, parent);
         SOAPHeaderBlock hb =

@@ -26,12 +26,12 @@ import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPHeader;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetOrCreateHeader extends MatrixTestCase {
+public class TestGetOrCreateHeader implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.getDefaultEnvelope();
         SOAPHeader header = (SOAPHeader) envelope.getFirstOMChild();
         assertThat(envelope.getOrCreateHeader()).isSameAs(header);

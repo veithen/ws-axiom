@@ -38,7 +38,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-public class TestCreateSOAPModelBuilderFromSAXSource extends MatrixTestCase {
+public class TestCreateSOAPModelBuilderFromSAXSource implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -46,7 +46,7 @@ public class TestCreateSOAPModelBuilderFromSAXSource extends MatrixTestCase {
     private SOAPSpec spec;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SAXParserFactory parserFactory = SAXImplementation.XERCES.newSAXParserFactory();
         parserFactory.setNamespaceAware(true);
         XMLReader reader = parserFactory.newSAXParser().getXMLReader();

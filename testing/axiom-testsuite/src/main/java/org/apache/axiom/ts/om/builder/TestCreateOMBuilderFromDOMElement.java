@@ -37,12 +37,12 @@ import org.xml.sax.InputSource;
  * builder from an {@link Element} and that the resulting Axiom tree corresponds to a the subtree
  * defined by that element.
  */
-public class TestCreateOMBuilderFromDOMElement extends MatrixTestCase {
+public class TestCreateOMBuilderFromDOMElement implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Document document =
                 DOMImplementation.XERCES.parse(new InputSource(new StringReader("<a><b><c/></b><b2/></a>")));
         Element domB = (Element) document.getElementsByTagNameNS(null, "b").item(0);

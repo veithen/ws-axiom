@@ -29,12 +29,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 /**
  * Tests that the default attribute type for programmatically created attributes is {@code CDATA}.
  */
-public class TestGetAttributeTypeDefault extends MatrixTestCase {
+public class TestGetAttributeTypeDefault implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMNamespace ns = factory.createOMNamespace("http://www.me.com", "axiom");
         OMAttribute at = factory.createOMAttribute("id", ns, "value");
         assertThat(at.getAttributeType()).isEqualTo("CDATA");

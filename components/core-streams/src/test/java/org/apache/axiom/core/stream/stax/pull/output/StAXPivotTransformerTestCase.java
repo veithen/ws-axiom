@@ -32,7 +32,7 @@ import org.apache.axiom.ts.jaxp.xslt.XSLTImplementation;
 import org.apache.axiom.ts.xml.XMLSample;
 import org.w3c.dom.Document;
 
-public class StAXPivotTransformerTestCase extends MatrixTestCase {
+public class StAXPivotTransformerTestCase implements MatrixTestCase {
     @Inject
     private XSLTImplementation xsltImplementation;
 
@@ -40,7 +40,7 @@ public class StAXPivotTransformerTestCase extends MatrixTestCase {
     private XMLSample sample;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         factory.setExpandEntityReferences(false);

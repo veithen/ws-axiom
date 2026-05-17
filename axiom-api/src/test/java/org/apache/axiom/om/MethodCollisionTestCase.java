@@ -50,7 +50,7 @@ public class MethodCollisionTestCase extends TestCase {
     }
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         Set<MethodSignature> signatures = getMethodSignatures(omInterface);
         signatures.retainAll(getMethodSignatures(domInterface));
         if (exceptions != null) {

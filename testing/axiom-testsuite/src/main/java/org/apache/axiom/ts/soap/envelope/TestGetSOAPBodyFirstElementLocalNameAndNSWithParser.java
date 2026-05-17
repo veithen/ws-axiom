@@ -38,7 +38,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * In this case, the Axiom implementation may choose to use a special optimization to get the name
  * of the element without actually instantiating the corresponding {@link OMElement}.
  */
-public class TestGetSOAPBodyFirstElementLocalNameAndNSWithParser extends MatrixTestCase {
+public class TestGetSOAPBodyFirstElementLocalNameAndNSWithParser implements MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 
@@ -49,7 +49,7 @@ public class TestGetSOAPBodyFirstElementLocalNameAndNSWithParser extends MatrixT
     private QName qname;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         // Prepare the message. Note that we do this programmatically to make sure that the message
         // doesn't contain any unwanted whitespace.
         SOAPEnvelope orgEnvelope = soapFactory.createDefaultSOAPMessage().getSOAPEnvelope();

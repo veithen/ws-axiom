@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * this case the method must not generate a prefix (because it is not possible to bind a prefix to
  * the empty namespace name).
  */
-public class TestSetTextQNameWithoutNamespace extends MatrixTestCase {
+public class TestSetTextQNameWithoutNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("test", null);
         QName qname = new QName("test");
         element.setText(qname);

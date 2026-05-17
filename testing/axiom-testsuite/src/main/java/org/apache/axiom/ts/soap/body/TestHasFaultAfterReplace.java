@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Axiom attempted to cache the result of {@link SOAPBody#hasFault()}, but this cached value was not
  * updated correctly in all situations. This is a regression test for this issue.
  */
-public class TestHasFaultAfterReplace extends MatrixTestCase {
+public class TestHasFaultAfterReplace implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPBody body = soapFactory.getDefaultFaultEnvelope().getBody();
         assertThat(body.hasFault()).isTrue();
         body.getFault().detach();

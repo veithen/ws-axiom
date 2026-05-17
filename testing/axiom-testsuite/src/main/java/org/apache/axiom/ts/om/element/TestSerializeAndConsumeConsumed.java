@@ -39,12 +39,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  */
 // TODO: in this scenario we should trigger a NodeUnavailableException as well; fix this with
 // AXIOM-288
-public class TestSerializeAndConsumeConsumed extends MatrixTestCase {
+public class TestSerializeAndConsumeConsumed implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(
                 factory, TestGetChildElementsConsumed.class.getResourceAsStream("purchase-order.xml"));
 

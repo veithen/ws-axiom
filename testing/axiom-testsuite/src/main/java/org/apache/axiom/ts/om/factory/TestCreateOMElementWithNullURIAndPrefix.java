@@ -24,12 +24,12 @@ import com.google.inject.Inject;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestCreateOMElementWithNullURIAndPrefix extends MatrixTestCase {
+public class TestCreateOMElementWithNullURIAndPrefix implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() {
+    public void runTest() {
         assertThatThrownBy(() -> factory.createOMElement("test", (String) null, (String) null))
                 .isInstanceOf(IllegalArgumentException.class);
     }

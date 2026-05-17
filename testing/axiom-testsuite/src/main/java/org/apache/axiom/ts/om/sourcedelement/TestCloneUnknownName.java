@@ -38,12 +38,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * case, the call to {@link OMInformationItem#clone(OMCloneOptions)} should not cause expansion of
  * the original {@link OMSourcedElement}.
  */
-public class TestCloneUnknownName extends MatrixTestCase {
+public class TestCloneUnknownName implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDataSource ds = new StringOMDataSource("<p:element xmlns:p='urn:ns'>test</p:element>");
         OMSourcedElement element = factory.createOMElement(ds);
         OMCloneOptions options = new OMCloneOptions();

@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Test that calling {@link OMElement#addAttribute(OMAttribute)} with an attribute that is already
  * owned by another element will clone the attribute.
  */
-public class TestAddAttributeAlreadyOwnedByOtherElement extends MatrixTestCase {
+public class TestAddAttributeAlreadyOwnedByOtherElement implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element1 = factory.createOMElement(new QName("test"));
         OMElement element2 = factory.createOMElement(new QName("test"));
         OMAttribute att1 = element1.addAttribute("test", "test", null);

@@ -26,12 +26,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link OMElement#getTextAsQName()} if the element is empty. */
-public class TestGetTextAsQNameEmpty extends MatrixTestCase {
+public class TestGetTextAsQNameEmpty implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("test", null);
         assertThat(element.getTextAsQName()).isNull();
     }

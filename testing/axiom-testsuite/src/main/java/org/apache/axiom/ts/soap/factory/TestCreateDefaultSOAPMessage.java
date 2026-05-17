@@ -34,7 +34,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
  * Checks the content of the SOAP envelope returned by {@link
  * SOAPFactory#createDefaultSOAPMessage()}.
  */
-public class TestCreateDefaultSOAPMessage extends MatrixTestCase {
+public class TestCreateDefaultSOAPMessage implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -42,7 +42,7 @@ public class TestCreateDefaultSOAPMessage extends MatrixTestCase {
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPMessage message = soapFactory.createDefaultSOAPMessage();
         SOAPEnvelope env = message.getSOAPEnvelope();
         assertThat(env).isNotNull();

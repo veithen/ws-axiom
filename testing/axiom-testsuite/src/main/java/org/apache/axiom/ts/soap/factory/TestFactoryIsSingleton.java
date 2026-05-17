@@ -31,7 +31,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
  * this unit test checks that subsequent calls to {@link OMMetaFactory#getSOAP11Factory()} and
  * {@link OMMetaFactory#getSOAP12Factory()} return the same instances.
  */
-public class TestFactoryIsSingleton extends MatrixTestCase {
+public class TestFactoryIsSingleton implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -39,7 +39,7 @@ public class TestFactoryIsSingleton extends MatrixTestCase {
     private OMMetaFactory metaFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         FactorySelector factorySelector = spec.getAdapter(FactorySelector.class);
         assertThat(factorySelector.getFactory(metaFactory)).isSameAs(factorySelector.getFactory(metaFactory));
     }

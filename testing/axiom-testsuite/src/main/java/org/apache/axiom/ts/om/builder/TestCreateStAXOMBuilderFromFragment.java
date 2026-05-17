@@ -37,12 +37,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * if the supplied {@link XMLStreamReader} is positioned on a {@link
  * XMLStreamConstants#START_ELEMENT} event.
  */
-public class TestCreateStAXOMBuilderFromFragment extends MatrixTestCase {
+public class TestCreateStAXOMBuilderFromFragment implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         XMLStreamReader reader = StAXUtils.createXMLStreamReader(new StringReader("<a><b>text</b></a>"));
         // Position the reader on the event for <b>
         while (reader.getEventType() != XMLStreamReader.START_ELEMENT

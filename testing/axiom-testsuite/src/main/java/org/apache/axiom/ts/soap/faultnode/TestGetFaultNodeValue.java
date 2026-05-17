@@ -25,12 +25,12 @@ import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFaultNode;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestGetFaultNodeValue extends MatrixTestCase {
+public class TestGetFaultNodeValue implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFaultNode node = soapFactory.createSOAPFaultNode();
         assertThat(node.getFaultNodeValue()).isEqualTo("");
         node.setText("http://my.node");

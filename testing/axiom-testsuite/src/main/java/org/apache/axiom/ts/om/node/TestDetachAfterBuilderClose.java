@@ -26,12 +26,12 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestDetachAfterBuilderClose extends MatrixTestCase {
+public class TestDetachAfterBuilderClose implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(factory, new StringReader("<a><b/></a>"));
         OMElement element = builder.getDocumentElement();
         element.build();

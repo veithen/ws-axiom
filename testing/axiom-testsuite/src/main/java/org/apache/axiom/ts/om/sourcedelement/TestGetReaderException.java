@@ -35,12 +35,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * exception. In this case, the code must complete properly (and not end in an infinite loop) and
  * propagate the original exception (wrapped in an {@link OMException}).
  */
-public class TestGetReaderException extends MatrixTestCase {
+public class TestGetReaderException implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMSourcedElement element = factory.createOMElement(new AbstractPullOMDataSource() {
             @Override
             public XMLStreamReader getReader() throws XMLStreamException {

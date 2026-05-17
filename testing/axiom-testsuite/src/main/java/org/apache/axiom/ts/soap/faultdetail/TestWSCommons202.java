@@ -26,12 +26,12 @@ import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFaultDetail;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestWSCommons202 extends MatrixTestCase {
+public class TestWSCommons202 implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFaultDetail soapFaultDetail = soapFactory.createSOAPFaultDetail();
         soapFaultDetail.setText("a");
 

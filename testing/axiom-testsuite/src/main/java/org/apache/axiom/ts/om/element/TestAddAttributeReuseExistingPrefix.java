@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * {@link OMNamespace} with a <code>null</code> prefix and a namespace declaration for the given
  * namespace URI is in scope, the method reuses the existing prefix instead of generating one.
  */
-public class TestAddAttributeReuseExistingPrefix extends MatrixTestCase {
+public class TestAddAttributeReuseExistingPrefix implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = factory.createOMElement("parent", null);
         OMElement element = factory.createOMElement("element", null, parent);
         parent.declareNamespace("urn:test", "p");

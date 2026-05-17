@@ -32,12 +32,12 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * Tests that declaring a namespace on an {@link OMSourcedElement} overrides a corresponding
  * namespace declaration that may be produced during expansion.
  */
-public class TestDeclareNamespace extends MatrixTestCase {
+public class TestDeclareNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMSourcedElement element =
                 factory.createOMElement(new PullOMDataSource("<root xmlns:p='urn:ns1'><child/></root>"), "root", null);
         // Declare a namespace before expansion

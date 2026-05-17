@@ -28,12 +28,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Tests the behavior of {@link OMElement#removeAttribute(OMAttribute)}. */
-public class TestRemoveAttribute extends MatrixTestCase {
+public class TestRemoveAttribute implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("test", null);
         OMAttribute attr1 = element.addAttribute("attr1", "value1", null);
         OMAttribute attr2 = element.addAttribute("attr2", "value2", null);

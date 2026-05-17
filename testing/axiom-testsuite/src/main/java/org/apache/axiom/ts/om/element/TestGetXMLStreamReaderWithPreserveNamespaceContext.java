@@ -38,7 +38,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * OMXMLStreamReaderConfiguration)} in conjunction with {@link
  * OMXMLStreamReaderConfiguration#isPreserveNamespaceContext()}.
  */
-public class TestGetXMLStreamReaderWithPreserveNamespaceContext extends MatrixTestCase {
+public class TestGetXMLStreamReaderWithPreserveNamespaceContext implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -51,7 +51,7 @@ public class TestGetXMLStreamReaderWithPreserveNamespaceContext extends MatrixTe
     private boolean cache;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         InputStream in = TestGetXMLStreamReaderWithPreserveNamespaceContext.class.getResourceAsStream("AXIOM-114.xml");
         OMElement root = OMXMLBuilderFactory.createOMBuilder(factory, in).getDocumentElement();
         root.declareNamespace("http://example.org", "p");

@@ -34,12 +34,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that an attempt to use {@link OMContainer#addChild(OMNode)} to add an {@link OMElement} to
  * an {@link OMDocument} that already has a document element results in an exception.
  */
-public class TestAddChildWithExistingDocumentElement extends MatrixTestCase {
+public class TestAddChildWithExistingDocumentElement implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMDocument document = factory.createOMDocument();
         document.addChild(factory.createOMElement(new QName("root1")));
         assertThatThrownBy(() -> document.addChild(factory.createOMElement(new QName("root2"))))

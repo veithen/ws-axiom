@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that the iterator returned by {@link OMElement#getAllDeclaredNamespaces()} respects the
  * {@link Iterator} contract with respect to throwing {@link NoSuchElementException}.
  */
-public class TestGetAllDeclaredNamespacesNoSuchElementException extends MatrixTestCase {
+public class TestGetAllDeclaredNamespacesNoSuchElementException implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = AXIOMUtil.stringToOM(factory, "<e xmlns:p='urn:test' p:attr='test'/>");
         Iterator<OMNamespace> it = element.getAllDeclaredNamespaces();
         it.next();

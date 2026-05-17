@@ -36,7 +36,7 @@ import org.apache.axiom.om.util.StAXParserConfiguration;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.soap.MTOMSample;
 
-public class TestSerialize extends MatrixTestCase {
+public class TestSerialize implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -45,7 +45,7 @@ public class TestSerialize extends MatrixTestCase {
     private boolean base64;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         MTOMSample testMessage = MTOMSample.SAMPLE1;
 
         // Read in message: SOAPPart and 2 image attachments

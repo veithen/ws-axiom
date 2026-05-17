@@ -27,12 +27,12 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestAddChild2 extends MatrixTestCase {
+public class TestAddChild2 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String localName = "TestLocalName";
         String childLocalName = "TestChildLocalName";
         String namespace = "http://ws.apache.org/axis2/ns";

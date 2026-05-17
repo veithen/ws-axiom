@@ -31,7 +31,7 @@ import org.apache.axiom.ts.StreamTypeAdapter;
 import org.apache.axiom.ts.xml.StreamType;
 import org.apache.axiom.ts.xml.XMLSample;
 
-public class TestDetachWithStream extends MatrixTestCase {
+public class TestDetachWithStream implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -43,7 +43,7 @@ public class TestDetachWithStream extends MatrixTestCase {
     private boolean useStreamSource;
 
     @Override
-    protected final void runTest() throws Throwable {
+    public final void runTest() throws Throwable {
         InstrumentedStream stream = streamType.instrumentStream(streamType.getStream(XMLSample.LARGE));
         OMXMLParserWrapper builder;
         if (useStreamSource) {

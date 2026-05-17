@@ -36,12 +36,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * <p>This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-400">AXIOM-400</a>.
  */
-public class TestGetDefaultNamespace2 extends MatrixTestCase {
+public class TestGetDefaultNamespace2 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = factory.createOMElement("parent", "urn:test", "");
         OMElement child = factory.createOMElement("child", null, parent);
         OMNamespace ns = child.getDefaultNamespace();

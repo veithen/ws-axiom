@@ -29,7 +29,7 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.dimension.ExpansionStrategy;
 import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 
-public class TestDiscard extends MatrixTestCase {
+public class TestDiscard implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
@@ -37,7 +37,7 @@ public class TestDiscard extends MatrixTestCase {
     private ExpansionStrategy expansionStrategy;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement parent = factory.createOMElement("parent", null);
         OMElement child1 = factory.createOMElement("child1", null, parent);
         PullOMDataSource ds = new PullOMDataSource("<root><a/><b/></root>");

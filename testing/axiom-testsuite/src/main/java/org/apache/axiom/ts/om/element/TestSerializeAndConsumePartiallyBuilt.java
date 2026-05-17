@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMElement#serializeAndConsume(java.io.Writer)} correctly serializes an object
  * model tree that has been partially built. This is a regression test for AXIOM-151.
  */
-public class TestSerializeAndConsumePartiallyBuilt extends MatrixTestCase {
+public class TestSerializeAndConsumePartiallyBuilt implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         String xml =
                 "<root><child><grandchild1>text</grandchild1></child><child><grandchild2>text</grandchild2></child></root>";
 

@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * namespace declaration that binds a prefix to an empty namespace URI. This is forbidden by both
  * XML 1.0 and XML 1.1.
  */
-public class TestDeclareNamespaceInvalid2 extends MatrixTestCase {
+public class TestDeclareNamespaceInvalid2 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("test"));
         OMNamespace ns = factory.createOMNamespace("", "ns");
         assertThatThrownBy(() -> element.declareNamespace(ns)).isInstanceOf(IllegalArgumentException.class);

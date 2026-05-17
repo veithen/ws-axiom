@@ -29,12 +29,12 @@ import org.apache.axiom.soap.SOAPFault;
 import org.apache.axiom.soap.SOAPFaultDetail;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
-public class TestSetException extends MatrixTestCase {
+public class TestSetException implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFault fault = soapFactory.createSOAPFault();
         Exception exception = new Exception("Test exception message");
         fault.setException(exception);

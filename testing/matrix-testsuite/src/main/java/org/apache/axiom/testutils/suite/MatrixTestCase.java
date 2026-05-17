@@ -19,26 +19,26 @@
 package org.apache.axiom.testutils.suite;
 
 /**
- * Base class for matrix test cases. Provides the three-phase lifecycle ({@link #setUp()} &rarr;
+ * Interface for matrix test cases. Defines the three-phase lifecycle ({@link #setUp()} &rarr;
  * {@link #runTest()} &rarr; {@link #tearDown()}) used by {@link MatrixTest}.
  *
  * <p>This replaces the use of {@code junit.framework.TestCase} as the base type required by {@link
- * MatrixTest}. Test classes should extend this class (directly or through a domain-specific
- * subclass), declare their Guice-injected dependencies with {@code @Inject}, and implement {@link
- * #runTest()}.
+ * MatrixTest}. Test classes should implement this interface (directly or through a domain-specific
+ * abstract base class), declare their Guice-injected dependencies with {@code @Inject}, and
+ * implement {@link #runTest()}.
  */
-public abstract class MatrixTestCase {
+public interface MatrixTestCase {
     /**
      * Sets up the test. Called before {@link #runTest()}. The default implementation does nothing.
      */
-    protected void setUp() throws Exception {}
+    default void setUp() throws Exception {}
 
-    /** Runs the test logic. Subclasses must implement this method. */
-    protected abstract void runTest() throws Throwable;
+    /** Runs the test logic. Implementing classes must provide this method. */
+    void runTest() throws Throwable;
 
     /**
      * Tears down the test. Called after {@link #runTest()}, even if it throws. The default
      * implementation does nothing.
      */
-    protected void tearDown() throws Exception {}
+    default void tearDown() throws Exception {}
 }

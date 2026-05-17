@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link SOAPHeader#addHeaderBlock(String, OMNamespace)} when passing a
  * <code>null</code> value for the {@link OMNamespace} parameter.
  */
-public class TestAddHeaderBlockWithoutNamespace1 extends MatrixTestCase {
+public class TestAddHeaderBlockWithoutNamespace1 implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.createSOAPEnvelope();
         SOAPHeader header = soapFactory.createSOAPHeader(envelope);
         assertThatThrownBy(() -> header.addHeaderBlock("test", null)).isInstanceOf(OMException.class);

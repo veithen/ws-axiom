@@ -32,12 +32,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMElement#declareNamespace(OMNamespace)} generates a new prefix if the prefix
  * specified in the {@link OMNamespace} object is <code>null</code>.
  */
-public class TestDeclareNamespaceWithGeneratedPrefix1 extends MatrixTestCase {
+public class TestDeclareNamespaceWithGeneratedPrefix1 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("test"));
         OMNamespace ns = element.declareNamespace(factory.createOMNamespace("urn:ns", null));
         assertThat(ns.getNamespaceURI()).isEqualTo("urn:ns");

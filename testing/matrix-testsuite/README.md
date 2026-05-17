@@ -172,13 +172,13 @@ OSGi's `FrameworkUtil.createFilter()`). Built via `MatrixTestFilters.builder()`.
 
 ## Writing a test case
 
-Test cases extend `MatrixTestCase` (or a domain-specific subclass) and override
-`runTest()`. Dependencies are declared with `@Inject` — either on fields or via
+Test cases implement `MatrixTestCase` (directly or through a domain-specific abstract base class)
+and implement `runTest()`. Dependencies are declared with `@Inject` — either on fields or via
 constructor. The test case does **not** receive labels through its constructor and
 does **not** call `addLabel()`.
 
 ```java
-public abstract class MyTestCase extends MatrixTestCase {
+public abstract class MyTestCase implements MatrixTestCase {
     @Inject protected SomeImplementation impl;
     @Inject protected SomeDimension dimension;
 
@@ -189,7 +189,7 @@ public abstract class MyTestCase extends MatrixTestCase {
 ```java
 public class TestSomeBehavior extends MyTestCase {
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         // test logic using inherited injected fields
     }
 }

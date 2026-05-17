@@ -26,7 +26,7 @@ import com.google.inject.name.Named;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.ts.xml.XMLSample;
 
-public class CompareTestCase extends MatrixTestCase {
+public class CompareTestCase implements MatrixTestCase {
     @Inject
     @Named("sample")
     private XMLSample sample;
@@ -44,7 +44,7 @@ public class CompareTestCase extends MatrixTestCase {
     private boolean expandEntityReferences;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         assertAbout(xml())
                 .that(left.toXMLObject(sample))
                 .ignoringWhitespaceInPrologAndEpilog()

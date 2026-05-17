@@ -29,12 +29,12 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.commons.io.IOUtils;
 
-public class TestGetTextAsStreamWithSingleTextNode extends MatrixTestCase {
+public class TestGetTextAsStreamWithSingleTextNode implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("a"));
         factory.createOMText(element, "test");
         Reader in = element.getTextAsStream(true);

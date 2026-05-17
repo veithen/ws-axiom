@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests that {@link OMNamedInformationItem#getNamespaceURI()} returns the namespace URI when
  * invoked on an {@link OMElement} that has a namespace.
  */
-public class TestGetNamespaceURIWithNamespace extends MatrixTestCase {
+public class TestGetNamespaceURIWithNamespace implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement(new QName("urn:ns", "test", "p"));
         assertThat(element.getNamespaceURI()).isEqualTo("urn:ns");
     }

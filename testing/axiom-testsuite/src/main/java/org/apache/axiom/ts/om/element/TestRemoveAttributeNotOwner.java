@@ -31,12 +31,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * Tests the behavior of {@link OMElement#removeAttribute(OMAttribute)} if the given attribute is
  * not owned by the element.
  */
-public class TestRemoveAttributeNotOwner extends MatrixTestCase {
+public class TestRemoveAttributeNotOwner implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element1 = factory.createOMElement("test", null);
         element1.addAttribute("attr", "value", null);
         OMElement element2 = factory.createOMElement("test", null);

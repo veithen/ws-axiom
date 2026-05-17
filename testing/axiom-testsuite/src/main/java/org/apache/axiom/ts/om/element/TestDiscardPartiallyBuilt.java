@@ -36,12 +36,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * precisely in a situation where the builder is building a descendant that is not an immediate
  * child of the element.
  */
-public class TestDiscardPartiallyBuilt extends MatrixTestCase {
+public class TestDiscardPartiallyBuilt implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement root = OMXMLBuilderFactory.createOMBuilder(
                         factory, new StringReader("<root><element><a><b>text</b></a><c/></element><sibling/></root>"))
                 .getDocumentElement();

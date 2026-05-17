@@ -47,7 +47,7 @@ import org.w3c.dom.Node;
  *
  * <p>Regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-392">AXIOM-392</a>.
  */
-public class TestChildOrder extends MatrixTestCase {
+public class TestChildOrder implements MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 
@@ -61,7 +61,7 @@ public class TestChildOrder extends MatrixTestCase {
     private SerializationStrategy serializationStrategy;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPFault fault = soapFactory.createSOAPFault();
         // Add the elements in the specified order.
         for (int i = 0; i < inputOrder.length; i++) {

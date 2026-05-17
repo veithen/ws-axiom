@@ -33,12 +33,12 @@ import org.apache.axiom.testutils.suite.MatrixTestCase;
  * empty namespace URI on an element that has no namespace. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-376">AXIOM-376</a>.
  */
-public class TestDeclareDefaultNamespaceConflict1 extends MatrixTestCase {
+public class TestDeclareDefaultNamespaceConflict1 implements MatrixTestCase {
     @Inject
     private OMFactory factory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         OMElement element = factory.createOMElement("test", null);
         assertThatThrownBy(() -> element.declareDefaultNamespace("urn:test")).isInstanceOf(OMException.class);
     }

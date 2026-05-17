@@ -31,12 +31,12 @@ import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.testutils.suite.MatrixTestCase;
 
 /** Regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-474">AXIOM-474</a>. */
-public class TestSerializeAsChild extends MatrixTestCase {
+public class TestSerializeAsChild implements MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 
     @Override
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         SOAPEnvelope envelope = soapFactory.createDefaultSOAPMessage().getSOAPEnvelope();
         soapFactory.createOMElement("echo", soapFactory.createOMNamespace("urn:test", "p"), envelope.getBody());
         OMElement log = soapFactory.createOMElement("log", null);
