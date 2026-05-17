@@ -19,11 +19,8 @@
 package org.apache.axiom.ts;
 
 import junit.framework.TestCase;
-import org.apache.axiom.om.util.StAXParserConfiguration;
 
 public abstract class AxiomTestCase extends TestCase {
-    public static final StAXParserConfiguration TEST_PARSER_CONFIGURATION = TestParserConfiguration.INSTANCE;
-
     public AxiomTestCase() {
         setName(getClass().getName());
     }
