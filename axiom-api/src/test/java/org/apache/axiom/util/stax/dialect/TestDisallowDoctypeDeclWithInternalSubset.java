@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.util.stax.dialect;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.StringReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -48,8 +50,7 @@ public class TestDisallowDoctypeDeclWithInternalSubset extends DialectTestCase {
         } catch (RuntimeException ex) {
             gotException = true;
         }
-        assertTrue("Expected exception", gotException);
-        assertFalse(
-                "The parser failed to throw an exception before reaching the document element", reachedDocumentElement);
+        assertThat(gotException).isTrue();
+        assertThat(reachedDocumentElement).isFalse();
     }
 }
