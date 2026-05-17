@@ -20,10 +20,10 @@ package org.apache.axiom.ts.om.xpath;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMMetaFactory;
 
-public class TestAXIOMXPath extends TestCase {
+public class TestAXIOMXPath extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

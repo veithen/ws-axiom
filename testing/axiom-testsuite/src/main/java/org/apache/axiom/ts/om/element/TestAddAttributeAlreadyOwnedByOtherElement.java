@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -31,7 +31,7 @@ import org.apache.axiom.om.OMFactory;
  * Test that calling {@link OMElement#addAttribute(OMAttribute)} with an attribute that is already
  * owned by another element will clone the attribute.
  */
-public class TestAddAttributeAlreadyOwnedByOtherElement extends TestCase {
+public class TestAddAttributeAlreadyOwnedByOtherElement extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

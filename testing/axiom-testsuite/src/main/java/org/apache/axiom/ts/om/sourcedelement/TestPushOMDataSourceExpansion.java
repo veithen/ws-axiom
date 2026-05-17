@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.Map;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
@@ -35,7 +35,7 @@ import org.apache.axiom.ts.om.sourcedelement.push.PushOMDataSourceScenario;
 /**
  * Tests the expansion of an {@link OMSourcedElement} backed by an {@link AbstractPushOMDataSource}.
  */
-public class TestPushOMDataSourceExpansion extends TestCase {
+public class TestPushOMDataSourceExpansion extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

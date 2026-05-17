@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 
@@ -31,7 +31,7 @@ import org.apache.axiom.om.OMFactory;
  * this case the method must not generate a prefix (because it is not possible to bind a prefix to
  * the empty namespace name).
  */
-public class TestSetTextQNameWithoutNamespace extends TestCase {
+public class TestSetTextQNameWithoutNamespace extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 import java.io.StringWriter;
 import java.io.Writer;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
@@ -35,7 +35,7 @@ import org.apache.axiom.testutils.io.InstrumentedWriter;
  * single {@link OMText} child. The test case also checks that the method doesn't call {@link
  * Writer#close()}.
  */
-public class TestWriteTextTo extends TestCase {
+public class TestWriteTextTo extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

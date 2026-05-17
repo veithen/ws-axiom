@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.factory;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
 
 /**
@@ -29,7 +29,7 @@ import org.apache.axiom.om.OMFactory;
  * this unit test checks that subsequent calls to {@link OMMetaFactory#getOMFactory()} return the
  * same instance.
  */
-public class TestFactoryIsSingleton extends TestCase {
+public class TestFactoryIsSingleton extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

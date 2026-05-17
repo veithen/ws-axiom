@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -34,7 +34,7 @@ import org.apache.axiom.om.OMXMLParserWrapper;
  * Tests that the object model can still be accessed after using {@link
  * OMContainer#getXMLStreamReader()}.
  */
-public class TestGetXMLStreamReaderWithCaching extends TestCase {
+public class TestGetXMLStreamReaderWithCaching extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

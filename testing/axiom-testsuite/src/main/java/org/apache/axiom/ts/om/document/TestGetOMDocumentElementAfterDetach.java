@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.document;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMNode;
  * document element has been removed using {@link OMNode#detach()}. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-361">AXIOM-361</a>.
  */
-public class TestGetOMDocumentElementAfterDetach extends TestCase {
+public class TestGetOMDocumentElementAfterDetach extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

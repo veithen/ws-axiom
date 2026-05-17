@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.util.AXIOMUtil;
  * Test {@link OMElement#getAllAttributes()} on a parsed document. Also check that the iterator
  * doesn't attempt to return namespace declarations.
  */
-public class TestGetAllAttributes2 extends TestCase {
+public class TestGetAllAttributes2 extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

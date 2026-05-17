@@ -21,7 +21,7 @@ package org.apache.axiom.ts.soap.body;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.soap.SOAPBody;
 import org.apache.axiom.soap.SOAPFactory;
@@ -31,7 +31,7 @@ import org.apache.axiom.soap.SOAPFactory;
  * OMElement} with a name corresponding to a SOAP fault. In this case, the method is expected to
  * return <code>false</code>.
  */
-public class TestHasFaultFakeFault extends TestCase {
+public class TestHasFaultFakeFault extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

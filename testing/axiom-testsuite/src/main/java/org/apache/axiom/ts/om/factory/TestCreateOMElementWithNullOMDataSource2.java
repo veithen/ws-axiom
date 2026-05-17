@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMFactory;
 
@@ -30,7 +30,7 @@ import org.apache.axiom.om.OMFactory;
  * Tests the behavior of {@link OMFactory#createOMElement(OMDataSource, QName)} if the data source
  * is <code>null</code>.
  */
-public class TestCreateOMElementWithNullOMDataSource2 extends TestCase {
+public class TestCreateOMElementWithNullOMDataSource2 extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

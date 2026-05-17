@@ -23,14 +23,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.Iterator;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.soap.SOAPConstants;
 import org.apache.axiom.ts.soap.SOAPElementType;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public abstract class CreateSOAPElementWithoutParentTestCase extends TestCase {
+public abstract class CreateSOAPElementWithoutParentTestCase extends MatrixTestCase {
     protected final SOAPSpec spec;
     protected final SOAPElementType type;
 

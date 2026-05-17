@@ -19,7 +19,7 @@
 package org.apache.axiom.ts.om.element;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
@@ -28,7 +28,7 @@ import org.apache.axiom.ts.soap.SOAPSampleSet;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
 /** Test the discard method */
-public class TestDiscardIncomplete extends TestCase {
+public class TestDiscardIncomplete extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.io.StringReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -33,7 +33,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
  * correctly after an incomplete child is added to a programmatically created document. This is a
  * regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-315">AXIOM-315</a>.
  */
-public class TestIsCompleteAfterAddingIncompleteChild extends TestCase {
+public class TestIsCompleteAfterAddingIncompleteChild extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

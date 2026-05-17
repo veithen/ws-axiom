@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.element;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.apache.axiom.om.OMFactory;
@@ -34,7 +34,7 @@ import org.apache.axiom.om.OMNamespace;
  * unprefixed element that belongs to a different namespace. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-376">AXIOM-376</a>.
  */
-public class TestDeclareDefaultNamespaceConflict2 extends TestCase {
+public class TestDeclareDefaultNamespaceConflict2 extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

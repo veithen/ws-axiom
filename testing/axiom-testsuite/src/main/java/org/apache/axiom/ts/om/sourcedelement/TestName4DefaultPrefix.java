@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.io.StringWriter;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -34,7 +34,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * Serialize and consume Tests that the namespace and localName are not affected by the
  * serializeAndConsume
  */
-public class TestName4DefaultPrefix extends TestCase {
+public class TestName4DefaultPrefix extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

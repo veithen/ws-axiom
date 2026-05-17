@@ -20,10 +20,10 @@ package org.apache.axiom.ts.om.cross;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMMetaFactory;
 
-public abstract class CrossOMTestCase extends TestCase {
+public abstract class CrossOMTestCase extends MatrixTestCase {
     @Inject
     @Named("metaFactory")
     protected OMMetaFactory metaFactory;

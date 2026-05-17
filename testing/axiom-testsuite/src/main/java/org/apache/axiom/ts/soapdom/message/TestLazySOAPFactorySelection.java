@@ -19,7 +19,7 @@
 package org.apache.axiom.ts.soapdom.message;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.soap.SOAPMessage;
@@ -27,7 +27,7 @@ import org.apache.axiom.ts.soap.SOAPSampleSet;
 import org.apache.axiom.ts.soap.SOAPSpec;
 import org.w3c.dom.Document;
 
-public class TestLazySOAPFactorySelection extends TestCase {
+public class TestLazySOAPFactorySelection extends MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 

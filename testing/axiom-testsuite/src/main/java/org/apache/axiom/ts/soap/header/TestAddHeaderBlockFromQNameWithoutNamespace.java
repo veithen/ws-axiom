@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMException;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
@@ -32,7 +32,7 @@ import org.apache.axiom.soap.SOAPHeader;
  * Tests the behavior of {@link SOAPHeader#addHeaderBlock(QName)} when passing a {@link QName} with
  * no namespace.
  */
-public class TestAddHeaderBlockFromQNameWithoutNamespace extends TestCase {
+public class TestAddHeaderBlockFromQNameWithoutNamespace extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

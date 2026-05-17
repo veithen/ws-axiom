@@ -21,7 +21,7 @@ package org.apache.axiom.ts.soap.fault;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.soap.SOAPBody;
@@ -34,7 +34,7 @@ import org.apache.axiom.soap.SOAPProcessingException;
  * Tests that {@link OMNode#insertSiblingBefore(OMNode)} throws an exception if an attempt is made
  * to add a {@link SOAPFault} as a child of a SOAP element other than {@link SOAPBody}.
  */
-public class TestWrongParent3 extends TestCase {
+public class TestWrongParent3 extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

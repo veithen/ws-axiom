@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 import java.io.StringReader;
 import java.util.Iterator;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -37,7 +37,7 @@ import org.apache.axiom.om.util.StAXUtils;
  * required. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-408">AXIOM-408</a>.
  */
-public class TestCreateStAXOMBuilderNamespaceRepairing2 extends TestCase {
+public class TestCreateStAXOMBuilderNamespaceRepairing2 extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

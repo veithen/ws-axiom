@@ -23,13 +23,13 @@ import static org.assertj.core.api.Assertions.fail;
 
 import com.google.inject.Inject;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.util.AXIOMUtil;
 
-public class TestGetNamespacesInScope extends TestCase {
+public class TestGetNamespacesInScope extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

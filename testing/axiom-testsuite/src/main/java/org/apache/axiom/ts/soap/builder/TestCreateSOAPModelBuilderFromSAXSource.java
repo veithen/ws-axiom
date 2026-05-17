@@ -26,7 +26,7 @@ import com.google.inject.Inject;
 import java.io.InputStream;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.sax.SAXSource;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
@@ -38,7 +38,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-public class TestCreateSOAPModelBuilderFromSAXSource extends TestCase {
+public class TestCreateSOAPModelBuilderFromSAXSource extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

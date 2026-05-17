@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 import java.io.StringReader;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -38,7 +38,7 @@ import org.apache.axiom.soap.SOAPFactory;
  * In this case, the Axiom implementation may choose to use a special optimization to get the name
  * of the element without actually instantiating the corresponding {@link OMElement}.
  */
-public class TestGetSOAPBodyFirstElementLocalNameAndNSWithParser extends TestCase {
+public class TestGetSOAPBodyFirstElementLocalNameAndNSWithParser extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

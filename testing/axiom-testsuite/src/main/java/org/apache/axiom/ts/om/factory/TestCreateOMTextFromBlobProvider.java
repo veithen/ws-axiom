@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import java.nio.charset.StandardCharsets;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.ext.stax.BlobProvider;
 import org.apache.axiom.om.OMFactory;
@@ -31,7 +31,7 @@ import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.blob.TextBlob;
 import org.apache.axiom.util.UIDGenerator;
 
-public class TestCreateOMTextFromBlobProvider extends TestCase {
+public class TestCreateOMTextFromBlobProvider extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

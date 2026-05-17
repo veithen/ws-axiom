@@ -18,14 +18,14 @@
  */
 package org.apache.axiom.ts.om.factory;
 
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
 
 /**
  * Base class for the test cases that validate the behavior of the various <code>createOMElement
  * </code> methods in {@link OMFactory}.
  */
-public abstract class CreateOMElementTestCase extends TestCase {
+public abstract class CreateOMElementTestCase extends MatrixTestCase {
     protected final CreateOMElementVariant variant;
     protected final CreateOMElementParentSupplier parentSupplier;
 

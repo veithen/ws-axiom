@@ -19,7 +19,7 @@
 package org.apache.axiom.ts.om.text;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
@@ -33,7 +33,7 @@ import org.apache.commons.io.output.NullOutputStream;
  *
  * <p>Regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-236">AXIOM-236</a>.
  */
-public class TestBase64StreamingWithSerialize extends TestCase {
+public class TestBase64StreamingWithSerialize extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

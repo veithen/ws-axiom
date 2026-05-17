@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.io.StringReader;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -34,7 +34,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
  * Test that {@link Iterator#remove()} behaves correctly on the iterator returned by {@link
  * OMContainer#getDescendants(boolean)} when used to remove an element with child nodes.
  */
-public class TestGetDescendantsRemoveSubtree extends TestCase {
+public class TestGetDescendantsRemoveSubtree extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.element;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.util.AXIOMUtil;
@@ -31,7 +31,7 @@ import org.apache.axiom.om.util.AXIOMUtil;
  * matching namespace declaration is masked by another namespace declaration, i.e. if the
  * corresponding prefix is redeclared.
  */
-public class TestFindNamespaceByNamespaceURIMasked extends TestCase {
+public class TestFindNamespaceByNamespaceURIMasked extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.io.StringReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMComment;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMNode;
@@ -34,7 +34,7 @@ import org.apache.axiom.soap.SOAPFactory;
  * Tests that the SOAP builder creates {@link OMComment} nodes for comments appearing after the
  * document element.
  */
-public class TestCommentInEpilog extends TestCase {
+public class TestCommentInEpilog extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

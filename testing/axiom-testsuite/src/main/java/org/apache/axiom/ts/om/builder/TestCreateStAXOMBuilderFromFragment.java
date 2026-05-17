@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 import java.io.StringReader;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNode;
@@ -37,7 +37,7 @@ import org.apache.axiom.om.util.StAXUtils;
  * if the supplied {@link XMLStreamReader} is positioned on a {@link
  * XMLStreamConstants#START_ELEMENT} event.
  */
-public class TestCreateStAXOMBuilderFromFragment extends TestCase {
+public class TestCreateStAXOMBuilderFromFragment extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

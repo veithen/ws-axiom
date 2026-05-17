@@ -21,7 +21,7 @@ package org.apache.axiom.ts.soap.body;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPBody;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
@@ -29,7 +29,7 @@ import org.apache.axiom.soap.SOAPFactory;
 /**
  * Tests that {@link SOAPBody#getFirstElementNS()} returns <code>null</code> if the body is empty.
  */
-public class TestGetFirstElementNSEmptyBody extends TestCase {
+public class TestGetFirstElementNSEmptyBody extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

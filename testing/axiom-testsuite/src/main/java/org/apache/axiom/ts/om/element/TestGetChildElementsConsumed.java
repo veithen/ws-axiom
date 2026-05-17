@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.NodeUnavailableException;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
@@ -36,7 +36,7 @@ import org.apache.axiom.om.OMXMLParserWrapper;
  * OMElement#getChildElements()} results in the expected exception if the part of the document has
  * already been consumed by {@link OMContainer#getXMLStreamReaderWithoutCaching()}.
  */
-public class TestGetChildElementsConsumed extends TestCase {
+public class TestGetChildElementsConsumed extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

@@ -27,13 +27,13 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import javax.xml.namespace.NamespaceContext;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 
 /** Tests {@link OMElement#getNamespaceContext(boolean)}. */
-public class TestGetNamespaceContext extends TestCase {
+public class TestGetNamespaceContext extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

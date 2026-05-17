@@ -21,13 +21,13 @@ package org.apache.axiom.ts.soap.envelope;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPHeader;
 
 // Make sure order of header/body creation doesn't matter
-public class TestBodyHeaderOrder extends TestCase {
+public class TestBodyHeaderOrder extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

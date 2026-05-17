@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.factory;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
@@ -30,7 +30,7 @@ import org.apache.axiom.om.OMText;
  * Tests that {@link OMFactory#createOMText(OMContainer, String)} can be used to create an orphaned
  * node by setting <code>parent</code> to <code>null</code>.
  */
-public class TestCreateOMTextWithNullParent extends TestCase {
+public class TestCreateOMTextWithNullParent extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

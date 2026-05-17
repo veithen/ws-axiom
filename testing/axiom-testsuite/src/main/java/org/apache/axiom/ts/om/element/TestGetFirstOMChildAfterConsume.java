@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import com.google.inject.Inject;
 import java.io.StringReader;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.NodeUnavailableException;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
@@ -35,7 +35,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
  * NodeUnavailableException} if the element has been consumed using {@link
  * OMContainer#getXMLStreamReaderWithoutCaching()}.
  */
-public class TestGetFirstOMChildAfterConsume extends TestCase {
+public class TestGetFirstOMChildAfterConsume extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

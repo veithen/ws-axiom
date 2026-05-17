@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.mime.MultipartBody;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMNode;
@@ -34,7 +34,7 @@ import org.apache.axiom.testutils.io.IOTestUtils;
 import org.apache.axiom.testutils.io.InstrumentedInputStream;
 import org.apache.axiom.ts.soap.MTOMSample;
 
-public class TestBuilderDetach extends TestCase {
+public class TestBuilderDetach extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

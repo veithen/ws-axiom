@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.io.InputStream;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDocType;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
@@ -37,7 +37,7 @@ import org.apache.axiom.om.util.StAXParserConfiguration;
  * Tests the behavior of {@link OMXMLBuilderFactory#createOMBuilder(StAXParserConfiguration,
  * InputStream)} with {@link StAXParserConfiguration#STANDALONE}.
  */
-public class TestStandaloneConfiguration extends TestCase {
+public class TestStandaloneConfiguration extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

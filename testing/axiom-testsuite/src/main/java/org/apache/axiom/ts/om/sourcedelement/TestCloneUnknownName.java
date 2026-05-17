@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.sourcedelement;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMCloneOptions;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMElement;
@@ -38,7 +38,7 @@ import org.apache.axiom.om.ds.StringOMDataSource;
  * case, the call to {@link OMInformationItem#clone(OMCloneOptions)} should not cause expansion of
  * the original {@link OMSourcedElement}.
  */
-public class TestCloneUnknownName extends TestCase {
+public class TestCloneUnknownName extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

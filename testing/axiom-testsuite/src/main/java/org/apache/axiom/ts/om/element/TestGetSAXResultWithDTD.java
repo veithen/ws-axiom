@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.transform.sax.SAXResult;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -36,7 +36,7 @@ import org.xml.sax.helpers.AttributesImpl;
  * event sent to the {@link LexicalHandler} linked to the {@link SAXResult} object returned by
  * {@link OMContainer#getSAXResult()} is silently ignored.
  */
-public class TestGetSAXResultWithDTD extends TestCase {
+public class TestGetSAXResultWithDTD extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

@@ -21,7 +21,7 @@ package org.apache.axiom.ts.soap.body;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.soap.SOAPBody;
 import org.apache.axiom.soap.SOAPFactory;
@@ -33,7 +33,7 @@ import org.apache.axiom.soap.SOAPFault;
  * Axiom attempted to cache the result of {@link SOAPBody#hasFault()}, but this cached value was not
  * updated correctly in all situations. This is a regression test for this issue.
  */
-public class TestHasFaultAfterReplace extends TestCase {
+public class TestHasFaultAfterReplace extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

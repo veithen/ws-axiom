@@ -25,11 +25,11 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import com.google.inject.Inject;
 import javax.xml.stream.XMLStreamWriter;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMProcessingInstruction;
 
-public class TestSerialize extends TestCase {
+public class TestSerialize extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

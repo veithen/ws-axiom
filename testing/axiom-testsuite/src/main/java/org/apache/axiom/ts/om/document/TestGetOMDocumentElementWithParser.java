@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.io.StringReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
  * Tests the result of {@link OMDocument#getOMDocumentElement()} for an {@link OMDocument}
  * constructed from a stream.
  */
-public class TestGetOMDocumentElementWithParser extends TestCase {
+public class TestGetOMDocumentElementWithParser extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

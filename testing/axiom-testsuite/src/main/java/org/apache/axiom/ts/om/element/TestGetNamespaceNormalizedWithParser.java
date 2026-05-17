@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.io.StringReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamedInformationItem;
@@ -34,7 +34,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
  * has an explicit namespace declaration for the default namespace, i.e. {@code xmlns=""}. This is a
  * regression test for <a href="https://issues.apache.org/jira/browse/AXIOM-398">AXIOM-398</a>.
  */
-public class TestGetNamespaceNormalizedWithParser extends TestCase {
+public class TestGetNamespaceNormalizedWithParser extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

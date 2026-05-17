@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
 import java.io.StringReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.apache.axiom.om.OMFactory;
@@ -34,7 +34,7 @@ import org.apache.axiom.om.OMXMLParserWrapper;
  * discardDocument</code> set to <code>true</code> and a document that has an epilog that is not
  * well formed. This situation should be detected.
  */
-public class TestGetDocumentElementWithDiscardDocumentIllFormedEpilog extends TestCase {
+public class TestGetDocumentElementWithDiscardDocumentIllFormedEpilog extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

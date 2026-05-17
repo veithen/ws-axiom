@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -34,7 +34,7 @@ import org.apache.axiom.om.OMNamespace;
  * {@link OMNamespace} with a <code>null</code> prefix and no namespace declaration for the given
  * namespace URI is in scope, the method generates a prefix.
  */
-public class TestAddAttributeGeneratedPrefix extends TestCase {
+public class TestAddAttributeGeneratedPrefix extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

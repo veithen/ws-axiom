@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.nio.charset.StandardCharsets;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
@@ -34,7 +34,7 @@ import org.apache.commons.codec.binary.Base64;
  * node backed by a {@link Blob}. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-442">AXIOM-442</a>.
  */
-public class TestGetTextCharactersFromDataHandler extends TestCase {
+public class TestGetTextCharactersFromDataHandler extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

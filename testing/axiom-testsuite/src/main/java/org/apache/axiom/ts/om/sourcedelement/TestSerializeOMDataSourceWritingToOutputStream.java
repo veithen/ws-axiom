@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -42,7 +42,7 @@ import org.apache.axiom.ts.dimension.serialization.SerializeToOutputStream;
  * Tests serialization with an {@link OMDataSource} that uses {@link
  * MTOMXMLStreamWriter#getOutputStream()}.
  */
-public class TestSerializeOMDataSourceWritingToOutputStream extends TestCase {
+public class TestSerializeOMDataSourceWritingToOutputStream extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

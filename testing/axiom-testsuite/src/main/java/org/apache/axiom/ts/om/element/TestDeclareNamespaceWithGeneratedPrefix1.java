@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMNamespace;
  * Tests that {@link OMElement#declareNamespace(OMNamespace)} generates a new prefix if the prefix
  * specified in the {@link OMNamespace} object is <code>null</code>.
  */
-public class TestDeclareNamespaceWithGeneratedPrefix1 extends TestCase {
+public class TestDeclareNamespaceWithGeneratedPrefix1 extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

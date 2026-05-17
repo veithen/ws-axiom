@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.text;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
@@ -30,7 +30,7 @@ import org.apache.axiom.om.OMText;
  * Tests the behavior of {@link OMText#getNamespace()} for an unprefixed QName and no default
  * namespace in scope.
  */
-public class TestGetNamespaceNoNamespace extends TestCase {
+public class TestGetNamespaceNoNamespace extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

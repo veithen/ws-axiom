@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.node;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMException;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNode;
@@ -30,7 +30,7 @@ import org.apache.axiom.om.OMText;
 /**
  * Tests that {@link OMNode#insertSiblingBefore(OMNode)} fails if the node doesn't have a parent.
  */
-public class TestInsertSiblingAfterOnOrphan extends TestCase {
+public class TestInsertSiblingAfterOnOrphan extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

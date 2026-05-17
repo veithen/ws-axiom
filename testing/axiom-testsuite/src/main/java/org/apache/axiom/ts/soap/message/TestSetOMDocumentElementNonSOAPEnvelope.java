@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
@@ -35,7 +35,7 @@ import org.apache.axiom.soap.SOAPMessage;
  * to set an {@link OMElement} that is not a {@link SOAPEnvelope} as the root element of a {@link
  * SOAPMessage}. In this case, an exception should be thrown.
  */
-public class TestSetOMDocumentElementNonSOAPEnvelope extends TestCase {
+public class TestSetOMDocumentElementNonSOAPEnvelope extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -33,7 +33,7 @@ import org.apache.axiom.ts.dimension.AddAttributeStrategy;
  * Tests that adding an attribute doesn't create an additional namespace declaration if a
  * corresponding declaration already exists on the element.
  */
-public class TestAddAttributeWithExistingNamespaceDeclarationOnSameElement extends TestCase {
+public class TestAddAttributeWithExistingNamespaceDeclarationOnSameElement extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

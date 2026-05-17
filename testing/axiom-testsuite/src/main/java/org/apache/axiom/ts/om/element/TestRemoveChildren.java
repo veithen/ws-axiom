@@ -25,14 +25,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import java.io.StringReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 
 /** Tests {@link OMContainer#removeChildren()} on an {@link OMElement}. */
-public class TestRemoveChildren extends TestCase {
+public class TestRemoveChildren extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

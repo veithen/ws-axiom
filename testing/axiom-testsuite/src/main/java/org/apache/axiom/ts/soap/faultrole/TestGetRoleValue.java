@@ -21,11 +21,11 @@ package org.apache.axiom.ts.soap.faultrole;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFaultRole;
 
-public class TestGetRoleValue extends TestCase {
+public class TestGetRoleValue extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

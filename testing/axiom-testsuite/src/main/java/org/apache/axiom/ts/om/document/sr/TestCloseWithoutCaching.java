@@ -27,7 +27,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMFactory;
@@ -40,7 +40,7 @@ import org.apache.axiom.testutils.io.InstrumentedInputStream;
  * a builder. In that case, closing the reader is expected to close the builder without parsing the
  * rest of the document.
  */
-public class TestCloseWithoutCaching extends TestCase {
+public class TestCloseWithoutCaching extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

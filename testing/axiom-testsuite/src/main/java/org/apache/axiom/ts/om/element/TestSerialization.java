@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -46,7 +46,7 @@ import org.apache.axiom.om.OMNamespace;
  *   <li>qualified using the default namespace (<code>children=D</code>)
  * </ul>
  */
-public class TestSerialization extends TestCase {
+public class TestSerialization extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

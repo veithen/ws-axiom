@@ -23,12 +23,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 
-public class TestUndeclarePrefix extends TestCase {
+public class TestUndeclarePrefix extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

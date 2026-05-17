@@ -25,7 +25,7 @@ import com.google.inject.name.Named;
 import java.io.StringReader;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -38,7 +38,7 @@ import org.apache.axiom.util.stax.XMLStreamReaderUtils;
  * Tests {@link XMLStreamReaderUtils#getBlobFromElement(XMLStreamReader)} on an {@link
  * XMLStreamReader} returned by {@link OMElement#getXMLStreamReader(boolean)}.
  */
-public class TestGetBlobFromElement extends TestCase {
+public class TestGetBlobFromElement extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

@@ -21,10 +21,10 @@ package org.apache.axiom.ts.soap.envelope;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPFactory;
 
-public class TestGetBodyOnEmptyEnvelope extends TestCase {
+public class TestGetBodyOnEmptyEnvelope extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

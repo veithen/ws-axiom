@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.io.StringReader;
 import java.io.StringWriter;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
  * Tests that {@link OMElement#serializeAndConsume(java.io.Writer)} correctly serializes an object
  * model tree that has been partially built. This is a regression test for AXIOM-151.
  */
-public class TestSerializeAndConsumePartiallyBuilt extends TestCase {
+public class TestSerializeAndConsumePartiallyBuilt extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

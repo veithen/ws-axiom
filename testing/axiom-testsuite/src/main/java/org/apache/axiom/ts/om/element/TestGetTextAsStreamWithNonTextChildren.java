@@ -22,13 +22,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.io.Reader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.commons.io.IOUtils;
 
-public class TestGetTextAsStreamWithNonTextChildren extends TestCase {
+public class TestGetTextAsStreamWithNonTextChildren extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

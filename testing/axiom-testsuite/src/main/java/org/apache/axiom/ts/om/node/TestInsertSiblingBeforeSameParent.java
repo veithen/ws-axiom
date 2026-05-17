@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNode;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMText;
  * Tests the behavior of {@link OMNode#insertSiblingBefore(OMNode)} if the node is already a
  * sibling.
  */
-public class TestInsertSiblingBeforeSameParent extends TestCase {
+public class TestInsertSiblingBeforeSameParent extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

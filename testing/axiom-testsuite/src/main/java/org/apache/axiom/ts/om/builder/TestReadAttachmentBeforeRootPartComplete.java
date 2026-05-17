@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.io.OutputStream;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.blob.Blobs;
 import org.apache.axiom.blob.MemoryBlob;
@@ -52,7 +52,7 @@ import org.apache.axiom.testutils.io.IOTestUtils;
  *       checks that this feature is working as expected.
  * </ul>
  */
-public class TestReadAttachmentBeforeRootPartComplete extends TestCase {
+public class TestReadAttachmentBeforeRootPartComplete extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

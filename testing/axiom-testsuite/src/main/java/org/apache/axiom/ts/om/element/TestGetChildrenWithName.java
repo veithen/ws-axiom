@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNode;
@@ -31,7 +31,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.ts.xml.XMLSample;
 
 /** Test the element iterator */
-public class TestGetChildrenWithName extends TestCase {
+public class TestGetChildrenWithName extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

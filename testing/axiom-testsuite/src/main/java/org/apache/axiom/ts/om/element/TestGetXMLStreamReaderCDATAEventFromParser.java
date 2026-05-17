@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.util.StAXParserConfiguration;
 import org.apache.axiom.om.util.StAXUtils;
 
 // Regression test for AXIOM-144 and AXIOM-146
-public class TestGetXMLStreamReaderCDATAEventFromParser extends TestCase {
+public class TestGetXMLStreamReaderCDATAEventFromParser extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

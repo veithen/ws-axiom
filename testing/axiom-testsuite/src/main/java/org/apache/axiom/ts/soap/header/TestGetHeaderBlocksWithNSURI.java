@@ -22,14 +22,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.util.ArrayList;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPHeader;
 import org.apache.axiom.soap.SOAPHeaderBlock;
 
-public class TestGetHeaderBlocksWithNSURI extends TestCase {
+public class TestGetHeaderBlocksWithNSURI extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

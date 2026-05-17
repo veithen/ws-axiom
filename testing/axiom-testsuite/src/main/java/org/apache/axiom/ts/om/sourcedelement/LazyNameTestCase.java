@@ -20,11 +20,11 @@ package org.apache.axiom.ts.om.sourcedelement;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
 
-public abstract class LazyNameTestCase extends TestCase {
+public abstract class LazyNameTestCase extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

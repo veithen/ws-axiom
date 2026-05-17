@@ -22,7 +22,7 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import java.util.Iterator;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -35,7 +35,7 @@ import org.apache.axiom.util.stax.debug.XMLStreamReaderValidator;
  * events when called on an {@link OMElement} that is not the root element and that may be partially
  * built.
  */
-public class TestGetXMLStreamReaderOnNonRootElementPartiallyBuilt extends TestCase {
+public class TestGetXMLStreamReaderOnNonRootElementPartiallyBuilt extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

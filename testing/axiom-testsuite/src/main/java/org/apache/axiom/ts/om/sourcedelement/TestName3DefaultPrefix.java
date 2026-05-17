@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.io.StringWriter;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -33,7 +33,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * serialization Document: testDocument (which uses the default namespace) Type of Serialization:
  * Serialize and cache Tests attempt to rename namespace and localpart, which is not allowed
  */
-public class TestName3DefaultPrefix extends TestCase {
+public class TestName3DefaultPrefix extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

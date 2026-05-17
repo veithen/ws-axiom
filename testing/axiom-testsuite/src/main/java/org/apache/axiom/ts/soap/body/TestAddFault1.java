@@ -21,12 +21,12 @@ package org.apache.axiom.ts.soap.body;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPBody;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 
-public class TestAddFault1 extends TestCase {
+public class TestAddFault1 extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

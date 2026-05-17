@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.io.StringReader;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
@@ -33,7 +33,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
  * checks that the method doesn't build the returned element. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-333">AXIOM-333</a>.
  */
-public class TestGetFirstChildWithNameOnIncompleteElement extends TestCase {
+public class TestGetFirstChildWithNameOnIncompleteElement extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -33,7 +33,7 @@ import org.apache.axiom.om.util.AXIOMUtil;
  * Tests that the iterator returned by {@link OMElement#getAllDeclaredNamespaces()} respects the
  * {@link Iterator} contract with respect to throwing {@link NoSuchElementException}.
  */
-public class TestGetAllDeclaredNamespacesNoSuchElementException extends TestCase {
+public class TestGetAllDeclaredNamespacesNoSuchElementException extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.element;
 import static org.apache.axiom.truth.AxiomTruth.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMNamespace;
  * {@link OMNamespace} with a <code>null</code> prefix and a namespace declaration for the given
  * namespace URI is in scope, the method reuses the existing prefix instead of generating one.
  */
-public class TestAddAttributeReuseExistingPrefix extends TestCase {
+public class TestAddAttributeReuseExistingPrefix extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

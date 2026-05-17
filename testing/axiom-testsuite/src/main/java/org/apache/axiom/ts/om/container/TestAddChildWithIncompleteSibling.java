@@ -23,7 +23,7 @@ import static org.apache.axiom.truth.AxiomTruth.assertThat;
 
 import com.google.inject.Inject;
 import java.io.StringReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMFactory;
@@ -37,7 +37,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
  * <p>This is a regression test for an issue in older Axiom versions (where the {@link
  * OMContainer#build()}) method would fail on {@link OMDocument} instances.
  */
-public class TestAddChildWithIncompleteSibling extends TestCase {
+public class TestAddChildWithIncompleteSibling extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

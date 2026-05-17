@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMCloneOptions;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMInformationItem;
@@ -38,7 +38,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
  * that is incomplete. In particular, the test checks that {@link OMInformationItem#getOMFactory()}
  * returns the correct factory (which is determined lazily) on the clone.
  */
-public class TestCloneIncomplete extends TestCase {
+public class TestCloneIncomplete extends MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 

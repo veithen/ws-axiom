@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 import java.io.StringReader;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMException;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
@@ -35,7 +35,7 @@ import org.apache.axiom.om.util.StAXUtils;
  * exception if the supplied {@link XMLStreamReader} is not positioned on a {@link
  * XMLStreamConstants#START_DOCUMENT} or {@link XMLStreamConstants#END_DOCUMENT} event.
  */
-public class TestCreateStAXOMBuilderIncorrectState extends TestCase {
+public class TestCreateStAXOMBuilderIncorrectState extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

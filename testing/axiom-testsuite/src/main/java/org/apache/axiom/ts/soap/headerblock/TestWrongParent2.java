@@ -21,7 +21,7 @@ package org.apache.axiom.ts.soap.headerblock;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.soap.SOAPFactory;
@@ -34,7 +34,7 @@ import org.apache.axiom.soap.SOAPProcessingException;
  * Tests that {@link OMNode#insertSiblingAfter(OMNode)} throws an exception if an attempt is made to
  * add a {@link SOAPHeaderBlock} as a child of a SOAP element other than {@link SOAPHeader}.
  */
-public class TestWrongParent2 extends TestCase {
+public class TestWrongParent2 extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

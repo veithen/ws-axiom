@@ -23,7 +23,7 @@ import com.google.inject.name.Named;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.mime.MultipartBody;
 import org.apache.axiom.mime.PartBlob;
@@ -44,7 +44,7 @@ import org.apache.axiom.testutils.io.IOTestUtils;
  * OMOutputFormat)} is used to serialize the message. This feature is important because it allows
  * projects such as Synapse to forward MTOM messages very efficiently.
  */
-public class TestMTOMForwardStreaming extends TestCase {
+public class TestMTOMForwardStreaming extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

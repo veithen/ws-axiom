@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.factory;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMMetaFactory;
 
@@ -29,7 +29,7 @@ import org.apache.axiom.om.OMMetaFactory;
  * Tests that {@link OMFactory#getMetaFactory()} returns the reference of the {@link OMMetaFactory}
  * from which the reference to the {@link OMFactory} was obtained.
  */
-public class TestGetMetaFactory extends TestCase {
+public class TestGetMetaFactory extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

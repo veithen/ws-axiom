@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.sourcedelement;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
@@ -33,7 +33,7 @@ import org.apache.axiom.om.ds.StringOMDataSource;
  * OMXMLParserWrapper#getDocumentElement()} throw {@link UnsupportedOperationException} when invoked
  * on the builder associated with an {@link OMSourcedElement}.
  */
-public class TestGetDocumentFromBuilder extends TestCase {
+public class TestGetDocumentFromBuilder extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

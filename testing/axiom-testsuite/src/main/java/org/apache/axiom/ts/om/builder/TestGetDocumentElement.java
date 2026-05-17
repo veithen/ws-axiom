@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import java.io.StringReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMComment;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMMetaFactory;
@@ -38,7 +38,7 @@ import org.xml.sax.InputSource;
  * Tests the behavior of {@link OMXMLParserWrapper#getDocumentElement()} and {@link
  * OMXMLParserWrapper#getDocumentElement(boolean)}.
  */
-public class TestGetDocumentElement extends TestCase {
+public class TestGetDocumentElement extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

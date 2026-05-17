@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 import java.io.StringReader;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -36,7 +36,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
  * the information returned for that node was incorrect because the builder switched too early to
  * pull through mode.
  */
-public class TestGetXMLStreamReaderWithoutCachingPartiallyBuiltModified extends TestCase {
+public class TestGetXMLStreamReaderWithoutCachingPartiallyBuiltModified extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

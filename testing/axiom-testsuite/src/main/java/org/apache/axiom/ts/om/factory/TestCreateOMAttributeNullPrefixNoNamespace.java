@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.factory;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMNamespace;
  * not allowed to bind a prefix to the empty namespace URI and an unprefixed attribute has no
  * namespace, this should give the same result as specifying an empty prefix.
  */
-public class TestCreateOMAttributeNullPrefixNoNamespace extends TestCase {
+public class TestCreateOMAttributeNullPrefixNoNamespace extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

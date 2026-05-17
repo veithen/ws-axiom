@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 
@@ -30,7 +30,7 @@ import org.apache.axiom.om.OMFactory;
  * Tests the behavior of {@link OMElement#getTextAsQName()} for an unprefixed QName and no default
  * namespace in scope.
  */
-public class TestGetTextAsQNameNoNamespace extends TestCase {
+public class TestGetTextAsQNameNoNamespace extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

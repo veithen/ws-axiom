@@ -19,13 +19,13 @@
 package org.apache.axiom.ts.om.document;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 
-public abstract class XMLDeclarationSerializationTestCase extends TestCase {
+public abstract class XMLDeclarationSerializationTestCase extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

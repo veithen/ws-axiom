@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.soap.SOAPConstants;
 import org.apache.axiom.soap.SOAPEnvelope;
@@ -30,7 +30,7 @@ import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
 /** Tests the behavior of {@link SOAPFactory#createSOAPEnvelope(OMNamespace)}. */
-public class TestCreateSOAPEnvelopeWithCustomPrefix extends TestCase {
+public class TestCreateSOAPEnvelopeWithCustomPrefix extends MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 

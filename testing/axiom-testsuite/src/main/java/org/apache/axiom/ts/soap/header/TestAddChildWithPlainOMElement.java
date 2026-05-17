@@ -22,13 +22,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPHeader;
 import org.apache.axiom.soap.SOAPHeaderBlock;
 
 /** Regression test for AXIOM-512. */
-public class TestAddChildWithPlainOMElement extends TestCase {
+public class TestAddChildWithPlainOMElement extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

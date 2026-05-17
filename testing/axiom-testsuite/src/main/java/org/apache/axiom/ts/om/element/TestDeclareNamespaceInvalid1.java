@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 
@@ -31,7 +31,7 @@ import org.apache.axiom.om.OMFactory;
  * namespace declaration that binds a prefix to an empty namespace URI. This is forbidden by both
  * XML 1.0 and XML 1.1.
  */
-public class TestDeclareNamespaceInvalid1 extends TestCase {
+public class TestDeclareNamespaceInvalid1 extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

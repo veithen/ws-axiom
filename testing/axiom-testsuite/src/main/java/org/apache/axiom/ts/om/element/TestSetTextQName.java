@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMNamespace;
  * Tests the behavior of {@link OMElement#setText(QName)}, in particular that it adds a namespace
  * declaration if necessary.
  */
-public class TestSetTextQName extends TestCase {
+public class TestSetTextQName extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

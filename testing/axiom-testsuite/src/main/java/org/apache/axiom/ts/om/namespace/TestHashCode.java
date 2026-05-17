@@ -21,12 +21,12 @@ package org.apache.axiom.ts.om.namespace;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 
 /** Tests that the {@link OMNamespace} overrides {@link Object#hashCode()}. */
-public class TestHashCode extends TestCase {
+public class TestHashCode extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

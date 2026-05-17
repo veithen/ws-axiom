@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -33,7 +33,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * Tests that {@link OMElement#getAttribute(QName)} causes expansion of {@link OMSourcedElement}
  * instances.
  */
-public class TestGetAttribute extends TestCase {
+public class TestGetAttribute extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

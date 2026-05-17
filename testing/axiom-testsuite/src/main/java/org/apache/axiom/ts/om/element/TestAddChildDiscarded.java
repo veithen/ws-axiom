@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
 import java.io.StringReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.NodeUnavailableException;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
@@ -34,7 +34,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
  * Tests the behavior of {@link OMContainer#addChild(OMNode)} if the parent has been discarded. In
  * this case the method is expected to throw a {@link NodeUnavailableException}.
  */
-public class TestAddChildDiscarded extends TestCase {
+public class TestAddChildDiscarded extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

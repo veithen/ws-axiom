@@ -21,7 +21,7 @@ package org.apache.axiom.ts.om.factory;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMFactory;
@@ -39,7 +39,7 @@ import org.w3c.dom.Text;
  * this is in contrast to DOM where an {@link Attr} node is a parent node (containing {@link Text}
  * and {@link EntityReference} nodes).
  */
-public class TestCreateOMAttributeInterfaces extends TestCase {
+public class TestCreateOMAttributeInterfaces extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

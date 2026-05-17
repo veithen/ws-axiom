@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
@@ -31,7 +31,7 @@ import org.apache.axiom.om.OMNamespace;
  * Tests that {@link OMAttribute#getQName()} returns the correct value for an attribute (with
  * namespace) created by {@link OMFactory#createOMAttribute(String, OMNamespace, String)}.
  */
-public class TestGetQNameWithNamespace extends TestCase {
+public class TestGetQNameWithNamespace extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

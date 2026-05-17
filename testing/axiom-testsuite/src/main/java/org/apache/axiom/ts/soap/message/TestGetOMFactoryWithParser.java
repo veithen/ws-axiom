@@ -21,7 +21,7 @@ package org.apache.axiom.ts.soap.message;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMInformationItem;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.soap.SOAPFactory;
@@ -35,7 +35,7 @@ import org.apache.axiom.ts.soap.SOAPSpec;
  * invoked on a {@link SOAPMessage} created by a builder. Note that this is non trivial because the
  * factory is auto-detected based on the namespace URI of the SOAP envelope.
  */
-public class TestGetOMFactoryWithParser extends TestCase {
+public class TestGetOMFactoryWithParser extends MatrixTestCase {
     @Inject
     private SOAPSpec spec;
 

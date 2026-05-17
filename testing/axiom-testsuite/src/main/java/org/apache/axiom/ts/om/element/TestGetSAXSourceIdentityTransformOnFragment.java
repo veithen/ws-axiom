@@ -25,7 +25,7 @@ import com.google.inject.name.Named;
 import java.io.InputStream;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.sax.SAXSource;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
@@ -58,7 +58,7 @@ import org.xml.sax.ContentHandler;
  * a document against an XML schema (see <a
  * href="https://issues.apache.org/jira/browse/SYNAPSE-501">SYNAPSE-501</a>).
  */
-public class TestGetSAXSourceIdentityTransformOnFragment extends TestCase {
+public class TestGetSAXSourceIdentityTransformOnFragment extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

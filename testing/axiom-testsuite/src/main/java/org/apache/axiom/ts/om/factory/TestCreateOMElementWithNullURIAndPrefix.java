@@ -21,10 +21,10 @@ package org.apache.axiom.ts.om.factory;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMFactory;
 
-public class TestCreateOMElementWithNullURIAndPrefix extends TestCase {
+public class TestCreateOMElementWithNullURIAndPrefix extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

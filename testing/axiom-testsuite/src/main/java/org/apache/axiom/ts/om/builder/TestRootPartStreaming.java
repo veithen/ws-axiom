@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.mime.MultipartBody;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -39,7 +39,7 @@ import org.apache.axiom.testutils.io.InstrumentedInputStream;
  * entirely into memory) unless an attachment part is accessed. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-403">AXIOM-403</a>.
  */
-public class TestRootPartStreaming extends TestCase {
+public class TestRootPartStreaming extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

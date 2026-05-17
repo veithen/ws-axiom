@@ -25,7 +25,7 @@ import com.google.inject.name.Named;
 import java.io.InputStream;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blob;
 import org.apache.axiom.mime.MultipartBody;
 import org.apache.axiom.om.OMElement;
@@ -34,7 +34,7 @@ import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.XOPEncoded;
 import org.apache.axiom.ts.soap.MTOMSample;
 
-public class TestGetXMLStreamReaderMTOMEncoded extends TestCase {
+public class TestGetXMLStreamReaderMTOMEncoded extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

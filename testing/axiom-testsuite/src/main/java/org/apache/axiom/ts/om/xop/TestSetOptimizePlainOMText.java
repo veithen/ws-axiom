@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 import java.io.OutputStream;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMOutputFormat;
@@ -37,7 +37,7 @@ import org.apache.xerces.impl.dv.util.Base64;
  * encoded data. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-519">AXIOM-519</a>.
  */
-public class TestSetOptimizePlainOMText extends TestCase {
+public class TestSetOptimizePlainOMText extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

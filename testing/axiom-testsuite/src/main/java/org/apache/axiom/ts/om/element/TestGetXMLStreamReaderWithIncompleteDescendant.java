@@ -25,7 +25,7 @@ import com.google.inject.name.Named;
 import java.io.StringReader;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -41,7 +41,7 @@ import org.apache.axiom.om.OMXMLParserWrapper;
  * <p>This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-431">AXIOM-431</a>.
  */
-public class TestGetXMLStreamReaderWithIncompleteDescendant extends TestCase {
+public class TestGetXMLStreamReaderWithIncompleteDescendant extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

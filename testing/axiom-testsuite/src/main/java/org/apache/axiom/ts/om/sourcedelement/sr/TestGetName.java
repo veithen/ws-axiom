@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
@@ -35,7 +35,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * the {@link XMLStreamConstants#START_ELEMENT} event corresponding to an {@link OMSourcedElement},
  * even if the prefix is not known in advance.
  */
-public class TestGetName extends TestCase {
+public class TestGetName extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

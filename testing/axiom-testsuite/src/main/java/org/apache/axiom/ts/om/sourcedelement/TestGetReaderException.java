@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import com.google.inject.Inject;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMException;
 import org.apache.axiom.om.OMFactory;
@@ -35,7 +35,7 @@ import org.apache.axiom.om.ds.AbstractPullOMDataSource;
  * exception. In this case, the code must complete properly (and not end in an infinite loop) and
  * propagate the original exception (wrapped in an {@link OMException}).
  */
-public class TestGetReaderException extends TestCase {
+public class TestGetReaderException extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

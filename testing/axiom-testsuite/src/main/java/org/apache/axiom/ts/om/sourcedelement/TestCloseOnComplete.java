@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import javax.xml.stream.XMLStreamReader;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNode;
@@ -34,7 +34,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * XMLStreamReader} returned by {@link OMDataSource#getReader()} when the element is completely
  * built.
  */
-public class TestCloseOnComplete extends TestCase {
+public class TestCloseOnComplete extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

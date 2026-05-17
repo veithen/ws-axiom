@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import java.util.Iterator;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMComment;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
@@ -33,7 +33,7 @@ import org.apache.axiom.om.OMNode;
  * Tests the behavior of {@link OMDocument#setOMDocumentElement(OMElement)} if there is no existing
  * document element.
  */
-public class TestSetOMDocumentElementNew extends TestCase {
+public class TestSetOMDocumentElementNew extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

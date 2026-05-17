@@ -30,7 +30,7 @@ import jakarta.mail.internet.MimeMultipart;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.Blobs;
 import org.apache.axiom.blob.MemoryBlob;
 import org.apache.axiom.mime.ContentType;
@@ -48,7 +48,7 @@ import org.apache.axiom.util.UIDGenerator;
  * produces an error if the SOAP version used in the root part doesn't match the Content-Type of the
  * message.
  */
-public class TestCreateSOAPModelBuilderMTOMContentTypeMismatch extends TestCase {
+public class TestCreateSOAPModelBuilderMTOMContentTypeMismatch extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

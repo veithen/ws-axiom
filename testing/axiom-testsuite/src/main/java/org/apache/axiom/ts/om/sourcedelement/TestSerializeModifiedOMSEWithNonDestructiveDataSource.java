@@ -24,13 +24,13 @@ import com.google.inject.Inject;
 import java.io.ByteArrayOutputStream;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMDataSourceExt;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.ds.StringOMDataSource;
 
-public class TestSerializeModifiedOMSEWithNonDestructiveDataSource extends TestCase {
+public class TestSerializeModifiedOMSEWithNonDestructiveDataSource extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 

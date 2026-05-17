@@ -23,7 +23,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static org.apache.axiom.truth.xml.XMLTruth.xml;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.blob.MemoryBlob;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMMetaFactory;
@@ -39,7 +39,7 @@ import org.apache.axiom.ts.soap.SOAPSample;
 import org.apache.axiom.ts.soap.SOAPSampleAdapter;
 import org.xml.sax.InputSource;
 
-public class TestRegisterCustomBuilderForPayload extends TestCase {
+public class TestRegisterCustomBuilderForPayload extends MatrixTestCase {
     @Inject
     private OMMetaFactory metaFactory;
 

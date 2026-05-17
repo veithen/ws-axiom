@@ -21,7 +21,7 @@ package org.apache.axiom.ts.soap11.fault;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFault;
 
@@ -29,7 +29,7 @@ import org.apache.axiom.soap.SOAPFault;
  * Tests that {@link SOAPFault#getNode()} returns <code>null</code> (instead of throwing an {@link
  * UnsupportedOperationException}) for SOAP 1.1 faults.
  */
-public class TestGetNode extends TestCase {
+public class TestGetNode extends MatrixTestCase {
     @Inject
     private SOAPFactory soapFactory;
 

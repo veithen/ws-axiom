@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import java.util.Iterator;
 import javax.xml.namespace.QName;
-import junit.framework.TestCase;
+import org.apache.axiom.testutils.suite.MatrixTestCase;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -32,7 +32,7 @@ import org.apache.axiom.om.OMFactory;
  * Test that calling {@link OMElement#addAttribute(OMAttribute)} with an attribute that is already
  * owned by the element is a no-op.
  */
-public class TestAddAttributeAlreadyOwnedByElement extends TestCase {
+public class TestAddAttributeAlreadyOwnedByElement extends MatrixTestCase {
     @Inject
     private OMFactory factory;
 
