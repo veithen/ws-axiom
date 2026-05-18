@@ -30,7 +30,7 @@ import org.apache.axiom.om.OMContainer;
 import org.apache.axiom.om.OMDataSource;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
+import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.dimension.ElementContext;
 import org.apache.axiom.ts.dimension.ExpansionStrategy;
 import org.apache.axiom.ts.dimension.serialization.SerializationStrategy;
@@ -39,7 +39,7 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 import org.xml.sax.InputSource;
 
 /** Tests various ways to serialize an {@link OMSourcedElement}. */
-public class TestSerialize implements MatrixTestCase {
+public class TestSerialize implements Executable {
     @Inject
     private OMFactory factory;
 
@@ -78,7 +78,7 @@ public class TestSerialize implements MatrixTestCase {
     private int count;
 
     @Override
-    public void runTest() throws Throwable {
+    public void execute() throws Throwable {
         OMSourcedElement element = TestDocument.DOCUMENT1.createOMSourcedElement(factory, push, destructive);
         OMDataSource ds = element.getDataSource();
         OMContainer parent = elementContext.wrap(element);

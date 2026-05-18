@@ -18,11 +18,11 @@
  */
 package org.apache.axiom.ts.soap.headerblock;
 
-import org.apache.axiom.testutils.suite.MatrixTestCase;
+import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.HeaderBlockAttribute;
 import org.apache.axiom.ts.soap.SOAPSpec;
 
-public abstract class BooleanAttributeTestCase implements MatrixTestCase {
+public abstract class BooleanAttributeTestCase implements Executable {
     protected final SOAPSpec spec;
     protected final HeaderBlockAttribute attribute;
 

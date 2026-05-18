@@ -20,7 +20,7 @@ package org.apache.axiom.testutils.suite;
 
 /**
  * Receives label registrations. This interface decouples {@link Dimension} from {@link
- * MatrixTestCase} so that dimensions can be reused with other test tree structures.
+ * org.junit.jupiter.api.function.Executable} so that dimensions can be reused with other test tree structures.
  */
 public interface LabelTarget {
     void addLabel(String name, String value);

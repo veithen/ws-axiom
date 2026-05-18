@@ -33,7 +33,7 @@ public class ValidationTest extends TestCase {
     }
 
     @Override
-    protected void runTest() throws Throwable {
+    protected void execute() throws Throwable {
         message.getSOAPSpec().getSchema().newValidator().validate(new StreamSource(message.getInputStream()));
     }
 

@@ -26,7 +26,7 @@ import javax.xml.namespace.QName;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
+import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.om.factory.TestCreateOMAttributeWithInvalidNamespace1;
 
 /**
@@ -36,12 +36,12 @@ import org.apache.axiom.ts.om.factory.TestCreateOMAttributeWithInvalidNamespace1
  *
  * @see TestCreateOMAttributeWithInvalidNamespace1
  */
-public class TestAddAttributeWithInvalidNamespace1 implements MatrixTestCase {
+public class TestAddAttributeWithInvalidNamespace1 implements Executable {
     @Inject
     private OMFactory factory;
 
     @Override
-    public void runTest() throws Throwable {
+    public void execute() throws Throwable {
         OMElement element = factory.createOMElement(new QName("test"));
         OMNamespace ns = factory.createOMNamespace("", "p");
         assertThatThrownBy(() -> element.addAttribute("attr", "value", ns))

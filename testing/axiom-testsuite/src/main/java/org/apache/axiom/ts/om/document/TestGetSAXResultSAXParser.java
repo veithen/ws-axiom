@@ -28,7 +28,7 @@ import java.io.ByteArrayOutputStream;
 import javax.xml.parsers.SAXParserFactory;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMFactory;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
+import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.jaxp.sax.SAXImplementation;
 import org.apache.axiom.ts.xml.XMLSample;
 import org.xml.sax.ContentHandler;
@@ -36,7 +36,7 @@ import org.xml.sax.DTDHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-public class TestGetSAXResultSAXParser implements MatrixTestCase {
+public class TestGetSAXResultSAXParser implements Executable {
     @Inject
     private OMFactory factory;
 
@@ -47,7 +47,7 @@ public class TestGetSAXResultSAXParser implements MatrixTestCase {
     private XMLSample file;
 
     @Override
-    public void runTest() throws Throwable {
+    public void execute() throws Throwable {
         SAXParserFactory saxFactory = saxImplementation.newSAXParserFactory();
         saxFactory.setNamespaceAware(true);
         XMLReader reader = saxFactory.newSAXParser().getXMLReader();

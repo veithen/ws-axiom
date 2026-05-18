@@ -27,7 +27,7 @@ import javax.xml.stream.XMLStreamReader;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
+import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
 
 /**
@@ -35,12 +35,12 @@ import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
  * the {@link XMLStreamConstants#START_ELEMENT} event corresponding to an {@link OMSourcedElement},
  * even if the prefix is not known in advance.
  */
-public class TestGetName implements MatrixTestCase {
+public class TestGetName implements Executable {
     @Inject
     private OMFactory factory;
 
     @Override
-    public void runTest() throws Throwable {
+    public void execute() throws Throwable {
         OMElement root = factory.createOMElement("root", null);
         OMSourcedElement el = factory.createOMElement(
                 new PullOMDataSource("<p:el xmlns:p='urn:ns'>content</p:el>"),

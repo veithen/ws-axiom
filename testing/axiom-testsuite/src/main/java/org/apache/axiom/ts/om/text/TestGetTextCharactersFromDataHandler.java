@@ -26,7 +26,7 @@ import org.apache.axiom.blob.Blob;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.blob.TextBlob;
-import org.apache.axiom.testutils.suite.MatrixTestCase;
+import org.junit.jupiter.api.function.Executable;
 import org.apache.commons.codec.binary.Base64;
 
 /**
@@ -34,12 +34,12 @@ import org.apache.commons.codec.binary.Base64;
  * node backed by a {@link Blob}. This is a regression test for <a
  * href="https://issues.apache.org/jira/browse/AXIOM-442">AXIOM-442</a>.
  */
-public class TestGetTextCharactersFromDataHandler implements MatrixTestCase {
+public class TestGetTextCharactersFromDataHandler implements Executable {
     @Inject
     private OMFactory factory;
 
     @Override
-    public void runTest() throws Throwable {
+    public void execute() throws Throwable {
         Blob blob = new TextBlob("test content", StandardCharsets.UTF_8);
         OMText text = factory.createOMText(blob, true);
         char[] chars = text.getTextCharacters();
