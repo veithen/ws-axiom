@@ -27,7 +27,7 @@ import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.function.Executable;
 
 /**
- * A leaf node that instantiates an {@link Executable} subclass via Guice and executes it.
+ * A leaf node that instantiates an {@link Executable} implementation via Guice and executes it.
  *
  * <p>The test class must have an injectable constructor (either a no-arg constructor or one
  * annotated with {@code @Inject}). Field injection is also supported. The injector received from
