@@ -24,8 +24,8 @@ import com.google.inject.Inject;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
+import org.junit.jupiter.api.function.Executable;
 
 /** Make sure that the incomplete setting of an OMSE is not propogated to the root */
 public class TestComplete implements Executable {

@@ -25,8 +25,8 @@ import java.io.StringWriter;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests the OMSourcedElement localName, namespace and prefix settings before and after

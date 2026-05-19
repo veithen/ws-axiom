@@ -24,9 +24,9 @@ import com.google.inject.Inject;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPHeaderBlock;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.HeaderBlockAttribute;
 import org.apache.axiom.ts.soap.SOAPSpec;
+import org.junit.jupiter.api.function.Executable;
 
 /** Tests that {@link SOAPHeaderBlock#setRole(String)} adds a namespace declaration if necessary. */
 public class TestSetRoleWithoutExistingNamespaceDecl implements Executable {

@@ -28,8 +28,8 @@ import org.apache.axiom.ext.stax.BlobProvider;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.blob.TextBlob;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.util.UIDGenerator;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestCreateOMTextFromBlobProvider implements Executable {
     @Inject

@@ -28,8 +28,8 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.util.StAXParserConfiguration;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.xml.XOPSample;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestCreateOMBuilderXOP implements Executable {
     @Inject

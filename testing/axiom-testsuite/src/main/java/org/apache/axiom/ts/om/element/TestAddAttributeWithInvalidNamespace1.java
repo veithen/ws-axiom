@@ -26,8 +26,8 @@ import javax.xml.namespace.QName;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.om.factory.TestCreateOMAttributeWithInvalidNamespace1;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests that {@link OMElement#addAttribute(String, String, OMNamespace)} throws an exception if the

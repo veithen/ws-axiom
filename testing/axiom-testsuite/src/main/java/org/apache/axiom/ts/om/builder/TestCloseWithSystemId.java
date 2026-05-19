@@ -28,8 +28,8 @@ import org.apache.axiom.net.protocol.registry.URLRegistry;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.xml.XMLSample;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestCloseWithSystemId implements Executable {
     @Inject

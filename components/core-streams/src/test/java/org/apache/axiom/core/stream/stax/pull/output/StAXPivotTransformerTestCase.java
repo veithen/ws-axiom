@@ -27,9 +27,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.stax.StAXSource;
 import javax.xml.transform.stream.StreamResult;
 import org.apache.axiom.core.stream.dom.input.DOMInput;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.jaxp.xslt.XSLTImplementation;
 import org.apache.axiom.ts.xml.XMLSample;
+import org.junit.jupiter.api.function.Executable;
 import org.w3c.dom.Document;
 
 public class StAXPivotTransformerTestCase implements Executable {

@@ -31,8 +31,8 @@ import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFault;
 import org.apache.axiom.soap.SOAPFaultReason;
 import org.apache.axiom.soap.SOAPModelBuilder;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.TestParserConfiguration;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestGetTextWithCDATA implements Executable {
     @Inject

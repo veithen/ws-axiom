@@ -25,8 +25,8 @@ import java.io.Reader;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.util.AXIOMUtil;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.commons.io.IOUtils;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestGetTextAsStreamWithNonTextChildren implements Executable {
     @Inject

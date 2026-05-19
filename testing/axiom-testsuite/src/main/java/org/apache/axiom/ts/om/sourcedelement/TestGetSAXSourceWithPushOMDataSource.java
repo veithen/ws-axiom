@@ -31,8 +31,8 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.ds.AbstractPushOMDataSource;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.om.sourcedelement.push.PushOMDataSourceScenario;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests that the {@link SAXSource} returned by {@link OMContainer#getSAXSource(boolean)} correctly

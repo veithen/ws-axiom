@@ -31,8 +31,8 @@ import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPModelBuilder;
 import org.apache.axiom.testutils.io.IOTestUtils;
 import org.apache.axiom.testutils.io.InstrumentedInputStream;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.MTOMSample;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestBuilderDetach implements Executable {
     @Inject

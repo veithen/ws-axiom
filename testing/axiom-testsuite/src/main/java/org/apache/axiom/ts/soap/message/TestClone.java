@@ -29,8 +29,8 @@ import org.apache.axiom.om.OMInformationItem;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPMessage;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.SOAPSpec;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests that the clone of a {@link SOAPMessage} created by {@link

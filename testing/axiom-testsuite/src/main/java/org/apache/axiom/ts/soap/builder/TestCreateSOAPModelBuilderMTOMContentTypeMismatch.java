@@ -37,11 +37,11 @@ import org.apache.axiom.mime.MultipartBody;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.soap.SOAPProcessingException;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.SOAPSample;
 import org.apache.axiom.ts.soap.SOAPSampleSet;
 import org.apache.axiom.ts.soap.SOAPSpec;
 import org.apache.axiom.util.UIDGenerator;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests that {@link OMXMLBuilderFactory#createSOAPModelBuilder(OMMetaFactory, MultipartBody)}

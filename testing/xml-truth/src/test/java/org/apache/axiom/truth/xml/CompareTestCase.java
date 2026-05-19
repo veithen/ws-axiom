@@ -23,8 +23,8 @@ import static org.apache.axiom.truth.xml.XMLTruth.xml;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.xml.XMLSample;
+import org.junit.jupiter.api.function.Executable;
 
 public class CompareTestCase implements Executable {
     @Inject

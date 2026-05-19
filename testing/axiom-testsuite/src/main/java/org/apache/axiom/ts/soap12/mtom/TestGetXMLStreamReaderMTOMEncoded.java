@@ -31,8 +31,8 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.XOPEncoded;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.MTOMSample;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestGetXMLStreamReaderMTOMEncoded implements Executable {
     @Inject

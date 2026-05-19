@@ -24,8 +24,8 @@ import com.google.inject.Inject;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPFault;
 import org.apache.axiom.soap.SOAPFaultReason;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.AltSOAPFactory;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestAddSOAPTextWithSOAPVersionMismatch implements Executable {
     @Inject

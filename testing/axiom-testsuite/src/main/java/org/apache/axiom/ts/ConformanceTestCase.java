@@ -18,8 +18,8 @@
  */
 package org.apache.axiom.ts;
 
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.xml.XMLSample;
+import org.junit.jupiter.api.function.Executable;
 
 /** Base class for test cases that are executed against the files from the conformance test set. */
 public abstract class ConformanceTestCase implements Executable {

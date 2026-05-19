@@ -29,8 +29,8 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.om.ds.AbstractPushOMDataSource;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.om.sourcedelement.push.PushOMDataSourceScenario;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests the expansion of an {@link OMSourcedElement} backed by an {@link AbstractPushOMDataSource}.

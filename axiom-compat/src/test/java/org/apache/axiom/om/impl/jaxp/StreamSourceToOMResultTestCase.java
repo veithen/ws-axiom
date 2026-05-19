@@ -28,9 +28,9 @@ import java.io.ByteArrayOutputStream;
 import javax.xml.transform.stream.StreamSource;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMMetaFactory;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.jaxp.xslt.XSLTImplementation;
 import org.apache.axiom.ts.xml.XMLSample;
+import org.junit.jupiter.api.function.Executable;
 import org.xml.sax.InputSource;
 
 public class StreamSourceToOMResultTestCase implements Executable {

@@ -28,8 +28,8 @@ import org.apache.axiom.om.OMText;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.blob.RandomBlob;
 import org.apache.axiom.testutils.io.IOTestUtils;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.commons.codec.binary.Base64;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests that {@link OMElement#getText()} returns the expected value (i.e. base64 encoded data) for

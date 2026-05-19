@@ -22,9 +22,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.inject.Inject;
 import org.apache.axiom.om.OMMetaFactory;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.FactorySelector;
 import org.apache.axiom.ts.soap.SOAPSpec;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests that the SOAP factories returned by {@link OMMetaFactory} are singletons. More precisely

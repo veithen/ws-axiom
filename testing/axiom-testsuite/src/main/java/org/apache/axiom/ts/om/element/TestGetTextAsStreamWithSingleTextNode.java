@@ -26,8 +26,8 @@ import java.io.StringReader;
 import javax.xml.namespace.QName;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.commons.io.IOUtils;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestGetTextAsStreamWithSingleTextNode implements Executable {
     @Inject

@@ -28,9 +28,9 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMOutputFormat;
 import org.apache.axiom.om.OMText;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.commons.io.output.WriterOutputStream;
 import org.apache.xerces.impl.dv.util.Base64;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests {@link OMText#setOptimize(boolean)} on a plain {@link OMText} node with valid base64

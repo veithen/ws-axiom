@@ -23,8 +23,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.inject.Inject;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.om.sourcedelement.util.PullOMDataSource;
+import org.junit.jupiter.api.function.Executable;
 
 @SuppressWarnings("deprecation")
 public class TestSetDataSourceOnAlreadyExpandedElement implements Executable {

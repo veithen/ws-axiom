@@ -24,8 +24,8 @@ import com.google.inject.Inject;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestDeclareDefaultNamespace2 implements Executable {
     @Inject

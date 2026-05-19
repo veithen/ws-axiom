@@ -26,9 +26,9 @@ import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.dimension.AddAttributeStrategy;
 import org.apache.axiom.ts.dimension.NoNamespaceStrategy;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests that adding an attribute doesn't add any namespace declarations if the attribute has no

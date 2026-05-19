@@ -34,9 +34,9 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMSourcedElement;
 import org.apache.axiom.om.ds.AbstractPushOMDataSource;
 import org.apache.axiom.om.impl.MTOMXMLStreamWriter;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.dimension.serialization.SerializationStrategy;
 import org.apache.axiom.ts.dimension.serialization.SerializeToOutputStream;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests serialization with an {@link OMDataSource} that uses {@link

@@ -27,8 +27,8 @@ import javax.xml.stream.XMLStreamReader;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.dimension.BuilderFactory;
+import org.junit.jupiter.api.function.Executable;
 import org.xml.sax.InputSource;
 
 public class TestCommentEvent implements Executable {

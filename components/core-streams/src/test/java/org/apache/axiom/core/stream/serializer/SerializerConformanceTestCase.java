@@ -27,8 +27,8 @@ import java.io.StringWriter;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.apache.axiom.core.stream.XmlReader;
 import org.apache.axiom.core.stream.dom.input.DOMInput;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.xml.XMLSample;
+import org.junit.jupiter.api.function.Executable;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 

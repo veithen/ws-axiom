@@ -31,8 +31,8 @@ import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.testutils.blob.RandomBlob;
 import org.apache.axiom.testutils.io.IOTestUtils;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.util.stax.XMLStreamReaderUtils;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests {@link XMLStreamReaderUtils#getBlobFromElement(XMLStreamReader)} on an {@link

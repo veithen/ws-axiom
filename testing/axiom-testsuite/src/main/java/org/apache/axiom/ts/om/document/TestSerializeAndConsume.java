@@ -26,8 +26,8 @@ import org.apache.axiom.om.NodeUnavailableException;
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.commons.io.output.NullOutputStream;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Tests the behavior of {@link

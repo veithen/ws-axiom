@@ -23,8 +23,8 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.testutils.blob.TestBlob;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.commons.io.output.NullOutputStream;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * Test that when an {@link OMText} node is written to an XMLStreamWriter without MTOM support, the

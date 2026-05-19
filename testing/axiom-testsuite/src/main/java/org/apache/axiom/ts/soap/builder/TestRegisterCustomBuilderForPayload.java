@@ -34,9 +34,9 @@ import org.apache.axiom.om.ds.custombuilder.CustomBuilderSupport;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFault;
 import org.apache.axiom.soap.SOAPModelBuilder;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.SOAPSample;
 import org.apache.axiom.ts.soap.SOAPSampleAdapter;
+import org.junit.jupiter.api.function.Executable;
 import org.xml.sax.InputSource;
 
 public class TestRegisterCustomBuilderForPayload implements Executable {

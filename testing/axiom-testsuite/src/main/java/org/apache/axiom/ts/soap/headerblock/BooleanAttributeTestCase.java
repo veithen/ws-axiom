@@ -18,9 +18,9 @@
  */
 package org.apache.axiom.ts.soap.headerblock;
 
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.HeaderBlockAttribute;
 import org.apache.axiom.ts.soap.SOAPSpec;
+import org.junit.jupiter.api.function.Executable;
 
 public abstract class BooleanAttributeTestCase implements Executable {
     protected final SOAPSpec spec;

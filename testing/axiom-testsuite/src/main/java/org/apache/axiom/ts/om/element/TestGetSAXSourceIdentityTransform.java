@@ -29,8 +29,8 @@ import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMXMLBuilderFactory;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.jaxp.xslt.XSLTImplementation;
+import org.junit.jupiter.api.function.Executable;
 
 public class TestGetSAXSourceIdentityTransform implements Executable {
     @Inject

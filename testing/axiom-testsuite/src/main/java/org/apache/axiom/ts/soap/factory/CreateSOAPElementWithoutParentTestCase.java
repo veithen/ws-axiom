@@ -26,9 +26,9 @@ import javax.xml.namespace.QName;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.soap.SOAPConstants;
-import org.junit.jupiter.api.function.Executable;
 import org.apache.axiom.ts.soap.SOAPElementType;
 import org.apache.axiom.ts.soap.SOAPSpec;
+import org.junit.jupiter.api.function.Executable;
 
 public abstract class CreateSOAPElementWithoutParentTestCase implements Executable {
     protected final SOAPSpec spec;
