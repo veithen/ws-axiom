@@ -139,10 +139,21 @@ the predefined `LabelBinding.DIMENSION` constant.
 
 ### `MatrixTest`
 
-Leaf node. Instantiates a `MatrixTestCase` subclass via Guice and executes it
-through the full `setUp()` → `runTest()` → `tearDown()` lifecycle (with
-`tearDown()` called in a `finally` block). The test is skipped if matched by the
-exclusion filters.
+Leaf node. Accepts a test class and produces JUnit 5 dynamic tests from it. Two
+styles are supported:
+
+- **Single-method style:** The test class implements `Executable`. The node
+  produces a single `DynamicTest` named after the class. Once the instance is
+  created via Guice, `execute()` is invoked.
+- **Multi-method style (JUnit 5 style):** The test class is a plain class with
+  one or more methods annotated with `@Test`. The node produces a
+  `DynamicContainer` named after the class, with one child `DynamicTest` per
+  annotated method. A fresh Guice-injected instance is created for each method
+  invocation. Methods are sorted alphabetically for reproducibility.
+
+In both cases the test class must have an injectable constructor (no-arg or
+`@Inject`-annotated) and may use field injection. The test (or container) is
+skipped if matched by the exclusion filters.
 
 ### `InjectorNode`
 
@@ -172,27 +183,57 @@ OSGi's `FrameworkUtil.createFilter()`). Built via `MatrixTestFilters.builder()`.
 
 ## Writing a test case
 
-Test cases implement `MatrixTestCase` (directly or through a domain-specific abstract base class)
-and implement `runTest()`. Dependencies are declared with `@Inject` — either on fields or via
-constructor. The test case does **not** receive labels through its constructor and
-does **not** call `addLabel()`.
+### Single-method style
+
+The test class implements `Executable` (directly or through a domain-specific abstract base class).
+Dependencies are declared with `@Inject` — either on fields or via constructor.
 
 ```java
-public abstract class MyTestCase implements MatrixTestCase {
-    @Inject protected SomeImplementation impl;
-    @Inject protected SomeDimension dimension;
+public class TestSomeBehavior implements Executable {
+    @Inject private SomeImplementation impl;
+    @Inject private SomeDimension dimension;
 
-    // convenience methods using impl and dimension ...
+    @Override
+    public void execute() throws Throwable {
+        // test logic using injected fields
+    }
 }
 ```
 
+Register it as a leaf node:
+
 ```java
-public class TestSomeBehavior extends MyTestCase {
-    @Override
-    public void runTest() throws Throwable {
-        // test logic using inherited injected fields
+new MatrixTest(TestSomeBehavior.class)
+```
+
+### Multi-method style
+
+When several related tests share the same injected dependencies, they can be grouped into a single
+class with multiple `@Test`-annotated methods. Each method becomes a separate `DynamicTest` inside
+a `DynamicContainer` named after the class. A fresh Guice-injected instance is created for each
+method, so methods are fully independent.
+
+```java
+public class SomeBehaviorTests {
+    @Inject private SomeImplementation impl;
+    @Inject private SomeDimension dimension;
+
+    @Test
+    public void behaviorA() throws Throwable {
+        // test logic
+    }
+
+    @Test
+    public void behaviorB() throws Throwable {
+        // test logic
     }
 }
+```
+
+Register the whole class as a single leaf node:
+
+```java
+new MatrixTest(SomeBehaviorTests.class)
 ```
 
 ## Defining a test suite
