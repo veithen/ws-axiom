@@ -28,14 +28,19 @@ Do **not** consolidate when:
 - The tests are wrapped in a `FanOutNode` — they rely on dimension-specific injected values
   and the fan-out supplies separate display names / labels per test case.
 
-## How MatrixTest handles multi-method classes
+## How MatrixTestContainer handles multi-method classes
 
-`MatrixTest` detects at runtime whether the supplied class implements `Executable`:
+`MatrixTestContainer` is a dedicated leaf node for multi-method test classes. It:
 
-- **`Executable` class → single `DynamicTest`** named after the class.
-- **Plain class with `@Test` methods → `DynamicContainer`** named after the class, containing
-  one `DynamicTest` per method. Methods are sorted alphabetically; a fresh Guice-injected
-  instance is created for each method invocation.
+- Scans the class for methods annotated with `@org.apache.axiom.testutils.suite.Test`.
+- Sorts them alphabetically for reproducibility.
+- Produces a `DynamicContainer` named after the class, with one `DynamicTest` per method.
+- Creates a fresh Guice-injected instance for each method invocation.
+
+**Important:** use `@org.apache.axiom.testutils.suite.Test`, **not** JUnit 5's
+`@org.junit.jupiter.api.Test`. The custom annotation has no JUnit meta-annotations, so
+Surefire and the Jupiter engine will not discover and run the class directly as a standalone
+JUnit test.
 
 ## Step-by-step consolidation process
 
@@ -66,6 +71,8 @@ Create a new class in the same package. Follow this naming convention:
 Structure of the new class:
 
 ```java
+import org.apache.axiom.testutils.suite.Test;
+
 /** Tests for {@link SomeType}. */
 public class SomeTypeTests {
     // Declare only the fields that were @Inject-ed in the old classes
@@ -92,7 +99,7 @@ Method naming conventions:
 ### 4. Update the test suite registration
 
 In the suite factory class (e.g., `DOMTestSuite`), replace the N individual `MatrixTest`
-entries with a single entry:
+entries with a single `MatrixTestContainer` entry:
 
 ```java
 // Before
@@ -102,7 +109,7 @@ new MatrixTest(org.example.documentfragment.TestLookupNamespaceURI.class),
 new MatrixTest(org.example.documentfragment.TestLookupPrefix.class),
 
 // After
-new MatrixTest(org.example.documentfragment.DocumentFragmentTests.class),
+new MatrixTestContainer(org.example.documentfragment.DocumentFragmentTests.class),
 ```
 
 ### 5. Delete the old files

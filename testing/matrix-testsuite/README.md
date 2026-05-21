@@ -139,21 +139,22 @@ the predefined `LabelBinding.DIMENSION` constant.
 
 ### `MatrixTest`
 
-Leaf node. Accepts a test class and produces JUnit 5 dynamic tests from it. Two
-styles are supported:
+Leaf node. Instantiates a `MatrixTestCase` subclass via Guice and executes it
+through the full `setUp()` → `runTest()` → `tearDown()` lifecycle (with
+`tearDown()` called in a `finally` block). The test is skipped if matched by the
+exclusion filters.
 
-- **Single-method style:** The test class implements `Executable`. The node
-  produces a single `DynamicTest` named after the class. Once the instance is
-  created via Guice, `execute()` is invoked.
-- **Multi-method style (JUnit 5 style):** The test class is a plain class with
-  one or more methods annotated with `@Test`. The node produces a
-  `DynamicContainer` named after the class, with one child `DynamicTest` per
-  annotated method. A fresh Guice-injected instance is created for each method
-  invocation. Methods are sorted alphabetically for reproducibility.
+### `MatrixTestContainer`
 
-In both cases the test class must have an injectable constructor (no-arg or
-`@Inject`-annotated) and may use field injection. The test (or container) is
-skipped if matched by the exclusion filters.
+Leaf node for classes that contain multiple test methods annotated with
+{@link Test @Test}. Produces a `DynamicContainer` named after the class,
+containing one child `DynamicTest` per annotated method. Methods are sorted
+alphabetically for reproducibility. A fresh Guice-injected instance of the test
+class is created for each method invocation.
+
+The container (and all its children) is skipped if matched by the exclusion
+filters. The test class must have an injectable constructor (no-arg or
+`@Inject`-annotated) and may use field injection.
 
 ### `InjectorNode`
 
@@ -213,6 +214,9 @@ class with multiple `@Test`-annotated methods. Each method becomes a separate `D
 a `DynamicContainer` named after the class. A fresh Guice-injected instance is created for each
 method, so methods are fully independent.
 
+Note: use `@org.apache.axiom.testutils.suite.Test`, **not** JUnit 5's `@Test`, to prevent Surefire
+or other runners from discovering the class as a standalone JUnit test.
+
 ```java
 public class SomeBehaviorTests {
     @Inject private SomeImplementation impl;
@@ -230,10 +234,10 @@ public class SomeBehaviorTests {
 }
 ```
 
-Register the whole class as a single leaf node:
+Register the whole class as a single leaf node using `MatrixTestContainer`:
 
 ```java
-new MatrixTest(SomeBehaviorTests.class)
+new MatrixTestContainer(SomeBehaviorTests.class)
 ```
 
 ## Defining a test suite
