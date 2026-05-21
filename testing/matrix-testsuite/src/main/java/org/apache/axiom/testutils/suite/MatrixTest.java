@@ -89,7 +89,7 @@ public class MatrixTest extends MatrixTestNode {
                                 try {
                                     method.invoke(testInstance);
                                 } catch (InvocationTargetException e) {
-                                    throw e.getCause();
+                                    throw e.getCause() != null ? e.getCause() : e;
                                 }
                             }))));
         }
