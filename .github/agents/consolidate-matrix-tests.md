@@ -3,30 +3,24 @@
 ## Purpose
 
 This skill describes how to consolidate multiple single-method matrix test classes (each
-implementing `Executable`) into a single multi-method class annotated with JUnit 5 `@Test`
-methods. Use this when several closely-related test classes in the same package share the
-same injected dependencies and logically belong together (e.g., they all test the same DOM
-node type or API surface).
+implementing `Executable`) into a single multi-method class annotated with
+`@org.apache.axiom.testutils.suite.Test` methods. Use this when several closely-related test
+classes in the same package share the same injected dependencies and logically belong together
+(e.g., they all test the same DOM node type or API surface).
 
 ## When to consolidate
 
-Consolidation is a good fit when:
+Consolidation is a good fit when the classes being consolidated are all wrapped in `MatrixTest`
+nodes under the same parent node. This (in general, but not always) means they inject the same
+set of fields. Additional signs that consolidation is a good fit:
 
 - Multiple `Executable` test classes live in the same package.
-- All of them inject the exact same set of fields (e.g., only `DocumentBuilderFactory`).
 - Their names follow a pattern like `TestFooBar`, `TestFooBaz`, `TestFooQux` — all prefixed
   with the same noun, indicating they test the same feature area.
-- None of them has parameters driven by a `FanOutNode` (i.e., they appear as plain
-  `new MatrixTest(TestFoo.class)` leaf nodes with no surrounding fan-out).
 
 Do **not** consolidate when:
 
 - The tests have different injected dependencies (consolidation would add unnecessary fields).
-- One or more of the test classes is used in a `MatrixTestFilters` exclusion in any consumer.
-  After consolidation, filters can only exclude the whole class (all methods), not individual
-  methods. Check all `MatrixTestFilters.builder()` usages in the repo before proceeding.
-- The tests are wrapped in a `FanOutNode` — they rely on dimension-specific injected values
-  and the fan-out supplies separate display names / labels per test case.
 
 ## How MatrixTestContainer handles multi-method classes
 
@@ -34,13 +28,22 @@ Do **not** consolidate when:
 
 - Scans the class for methods annotated with `@org.apache.axiom.testutils.suite.Test`.
 - Sorts them alphabetically for reproducibility.
-- Produces a `DynamicContainer` named after the class, with one `DynamicTest` per method.
+- Evaluates exclusion filters **per method**: a label `"test"` set to the method name is added
+  to the inherited label map before testing. Methods that match the exclusion predicate are
+  omitted; if all are excluded the node produces nothing.
+- Produces a `DynamicContainer` named after the class, with one `DynamicTest` per remaining method.
 - Creates a fresh Guice-injected instance for each method invocation.
 
 **Important:** use `@org.apache.axiom.testutils.suite.Test`, **not** JUnit 5's
 `@org.junit.jupiter.api.Test`. The custom annotation has no JUnit meta-annotations, so
 Surefire and the Jupiter engine will not discover and run the class directly as a standalone
 JUnit test.
+
+Individual methods can be excluded using the `"test"` label, for example:
+
+```java
+filters.add(SomeBehaviorTests.class, "(test=methodToSkip)")
+```
 
 ## Step-by-step consolidation process
 

@@ -147,14 +147,16 @@ exclusion filters.
 ### `MatrixTestContainer`
 
 Leaf node for classes that contain multiple test methods annotated with
-{@link Test @Test}. Produces a `DynamicContainer` named after the class,
+`@Test`. Produces a `DynamicContainer` named after the class,
 containing one child `DynamicTest` per annotated method. Methods are sorted
 alphabetically for reproducibility. A fresh Guice-injected instance of the test
 class is created for each method invocation.
 
-The container (and all its children) is skipped if matched by the exclusion
-filters. The test class must have an injectable constructor (no-arg or
-`@Inject`-annotated) and may use field injection.
+Each method is evaluated against the exclusion filters independently: a label
+`"test"` set to the method name is added to the inherited label map before
+testing. Methods that match the exclusion predicate are omitted; if all are
+excluded the node produces nothing. The test class must have an injectable
+constructor (no-arg or `@Inject`-annotated) and may use field injection.
 
 ### `InjectorNode`
 

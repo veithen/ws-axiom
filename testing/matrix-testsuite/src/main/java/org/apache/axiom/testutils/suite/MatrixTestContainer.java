@@ -23,6 +23,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiPredicate;
@@ -46,7 +47,10 @@ import org.junit.jupiter.api.DynamicTest;
  * for reproducibility. A fresh Guice-injected instance of the test class is created for each
  * method invocation.
  *
- * <p>The container (and all its children) is skipped if matched by the exclusion filters.
+ * <p>Each method is evaluated against the exclusion filters independently: a label {@code "test"}
+ * set to the method name is added to the inherited label map before testing. Methods that match
+ * the exclusion predicate are omitted from the container. If all methods are excluded the node
+ * produces an empty stream.
  */
 public class MatrixTestContainer extends MatrixTestNode {
     private final Class<?> testClass;
@@ -60,13 +64,18 @@ public class MatrixTestContainer extends MatrixTestNode {
             Injector injector,
             Map<String, String> inheritedLabels,
             BiPredicate<Class<?>, Map<String, String>> excludes) {
-        if (excludes.test(testClass, inheritedLabels)) {
-            return Stream.empty();
-        }
         List<Method> testMethods = Arrays.stream(testClass.getMethods())
                 .filter(m -> m.isAnnotationPresent(Test.class))
                 .sorted(Comparator.comparing(Method::getName))
+                .filter(m -> {
+                    Map<String, String> methodLabels = new HashMap<>(inheritedLabels);
+                    methodLabels.put("test", m.getName());
+                    return !excludes.test(testClass, methodLabels);
+                })
                 .collect(Collectors.toList());
+        if (testMethods.isEmpty()) {
+            return Stream.empty();
+        }
         return Stream.of(DynamicContainer.dynamicContainer(
                 testClass.getSimpleName(),
                 testMethods.stream()
