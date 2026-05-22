@@ -10,17 +10,11 @@ classes in the same package share the same injected dependencies and logically b
 
 ## When to consolidate
 
-Consolidation is a good fit when the classes being consolidated are all wrapped in `MatrixTest`
-nodes under the same parent node. This (in general, but not always) means they inject the same
-set of fields. Additional signs that consolidation is a good fit:
+Consolidation requires that:
 
 - Multiple `Executable` test classes live in the same package.
-- Their names follow a pattern like `TestFooBar`, `TestFooBaz`, `TestFooQux` — all prefixed
-  with the same noun, indicating they test the same feature area.
-
-Do **not** consolidate when:
-
-- The tests have different injected dependencies (consolidation would add unnecessary fields).
+- All the classes being consolidated are wrapped in `MatrixTest` nodes under the same parent
+  node. This (in general, but not always) means they inject the same set of fields.
 
 ## How MatrixTestContainer handles multi-method classes
 
@@ -49,19 +43,22 @@ filters.add(SomeBehaviorTests.class, "(test=methodToSkip)")
 
 ### 1. Identify the target group
 
-Find all `Executable` test classes in a package that share the same injected fields and have
-no cross-cutting filter entries. Example: a `documentfragment` package containing
-`TestCloneNodeDeep`, `TestCloneNodeShallow`, `TestLookupNamespaceURI`, `TestLookupPrefix`.
+Find all `Executable` test classes in a package that share the same parent node in the test
+tree. Example: a `documentfragment` package containing `TestCloneNodeDeep`,
+`TestCloneNodeShallow`, `TestLookupNamespaceURI`, `TestLookupPrefix`.
 
-### 2. Verify no filters reference the old classes
+### 2. Migrate any existing filters
 
 Search across the entire codebase for `MatrixTestFilters` usages that reference any of the
-target classes. If any consumer excludes one of the old classes individually, you must either:
-- Keep that class as a standalone `Executable` test (don't consolidate it), or
-- Migrate the filter to the new class name (accepting that the whole class is excluded).
+target classes. If any consumer excludes one of the old classes individually, migrate the filter
+to use the new consolidated class plus the `"test"` label for the corresponding method:
 
-```bash
-grep -rn "TestCloneNodeDeep\|TestLookupPrefix" --include="*.java" .
+```java
+// Before (old class-level exclusion)
+filters.add(TestCloneNodeDeep.class)
+
+// After (new per-method exclusion on the consolidated class)
+filters.add(DocumentFragmentTests.class, "(test=cloneNodeDeep)")
 ```
 
 ### 3. Create the consolidated test class
