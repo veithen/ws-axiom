@@ -26,11 +26,11 @@ import org.junit.jupiter.api.function.Executable;
 
 public abstract class SAAJTestCase implements Executable {
     @Inject
+    protected SOAPSpec spec;
+
+    @Inject
     protected MessageFactory messageFactory;
 
     @Inject
     protected SOAPFactory soapFactory;
-
-    @Inject
-    protected SOAPSpec spec;
 }
