@@ -42,4 +42,4 @@ jobs:
                   cache: maven
 
             - name: Download dependencies
-              run: ./mvnw -B -e -Papache-release -Dgpg.skip=true verify
+              run: ./mvnw dependency:go-offline -B
