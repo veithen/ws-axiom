@@ -18,28 +18,33 @@
  */
 package org.apache.axiom.dom.impl.mixin;
 
+import org.apache.axiom.core.CoreModelException;
 import org.apache.axiom.dom.DOMConfigurationImpl;
+import org.apache.axiom.dom.DOMExceptionUtil;
 import org.apache.axiom.dom.DOMNSAwareElement;
-import org.apache.axiom.om.OMNamespace;
+import org.apache.axiom.dom.DOMSemantics;
 import org.apache.axiom.weaver.annotation.Mixin;
 
 @Mixin
 public abstract class DOMNSAwareElementMixin implements DOMNSAwareElement {
     @Override
     public final void normalize(DOMConfigurationImpl config) {
-        // TODO: this should not rely on the Axiom API
         if (config.isEnabled(DOMConfigurationImpl.NAMESPACES)) {
-            OMNamespace namespace = getNamespace();
-            if (namespace == null) {
-                if (getDefaultNamespace() != null) {
-                    declareDefaultNamespace("");
+            try {
+                String namespaceURI = coreGetNamespaceURI();
+                if (namespaceURI.isEmpty()) {
+                    if (!coreLookupNamespaceURI("", DOMSemantics.INSTANCE).isEmpty()) {
+                        coreSetAttribute(DOMSemantics.NAMESPACE_DECLARATION_MATCHER, null, "", null, "");
+                    }
+                } else {
+                    String prefix = coreGetPrefix();
+                    String foundURI = coreLookupNamespaceURI(prefix, DOMSemantics.INSTANCE);
+                    if (foundURI == null || !foundURI.equals(namespaceURI)) {
+                        coreSetAttribute(DOMSemantics.NAMESPACE_DECLARATION_MATCHER, null, prefix, null, namespaceURI);
+                    }
                 }
-            } else {
-                OMNamespace namespaceForPrefix = findNamespaceURI(namespace.getPrefix());
-                if (namespaceForPrefix == null
-                        || !namespaceForPrefix.getNamespaceURI().equals(namespace.getNamespaceURI())) {
-                    declareNamespace(namespace);
-                }
+            } catch (CoreModelException ex) {
+                throw DOMExceptionUtil.toUncheckedException(ex);
             }
         }
     }
