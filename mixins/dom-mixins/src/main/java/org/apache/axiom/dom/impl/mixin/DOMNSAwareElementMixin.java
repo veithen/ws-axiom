@@ -47,12 +47,7 @@ public abstract class DOMNSAwareElementMixin implements DOMNSAwareElement {
                             if (a instanceof CoreNamespaceDeclaration decl
                                     && decl.coreGetDeclaredPrefix().isEmpty()) {
                                 if (!decl.coreGetCharacterData().toString().isEmpty()) {
-                                    coreSetAttribute(
-                                            DOMSemantics.NAMESPACE_DECLARATION_MATCHER,
-                                            null,
-                                            "",
-                                            null,
-                                            "");
+                                    coreSetAttribute(DOMSemantics.NAMESPACE_DECLARATION_MATCHER, null, "", null, "");
                                 }
                                 break outer;
                             }
@@ -63,22 +58,14 @@ public abstract class DOMNSAwareElementMixin implements DOMNSAwareElement {
                     // Check only this element's own explicit namespace declarations.
                     String prefix = coreGetPrefix();
                     boolean declared = false;
-                    for (CoreAttribute a = coreGetFirstAttribute();
-                            a != null;
-                            a = a.coreGetNextAttribute()) {
-                        if (a instanceof CoreNamespaceDeclaration decl
-                                && prefix.equals(decl.coreGetDeclaredPrefix())) {
+                    for (CoreAttribute a = coreGetFirstAttribute(); a != null; a = a.coreGetNextAttribute()) {
+                        if (a instanceof CoreNamespaceDeclaration decl && prefix.equals(decl.coreGetDeclaredPrefix())) {
                             declared = decl.coreGetCharacterData().toString().equals(namespaceURI);
                             break;
                         }
                     }
                     if (!declared) {
-                        coreSetAttribute(
-                                DOMSemantics.NAMESPACE_DECLARATION_MATCHER,
-                                null,
-                                prefix,
-                                null,
-                                namespaceURI);
+                        coreSetAttribute(DOMSemantics.NAMESPACE_DECLARATION_MATCHER, null, prefix, null, namespaceURI);
                     }
                 }
             } catch (CoreModelException ex) {
