@@ -33,12 +33,13 @@ public abstract class DOMNSAwareElementMixin implements DOMNSAwareElement {
             try {
                 String namespaceURI = coreGetNamespaceURI();
                 if (namespaceURI.isEmpty()) {
-                    if (!coreLookupNamespaceURI("", DOMSemantics.INSTANCE).isEmpty()) {
+                    if (!coreLookupNamespaceURI("", DOMSemantics.STRICT_INSTANCE)
+                            .isEmpty()) {
                         coreSetAttribute(DOMSemantics.NAMESPACE_DECLARATION_MATCHER, null, "", null, "");
                     }
                 } else {
                     String prefix = coreGetPrefix();
-                    String foundURI = coreLookupNamespaceURI(prefix, DOMSemantics.INSTANCE);
+                    String foundURI = coreLookupNamespaceURI(prefix, DOMSemantics.STRICT_INSTANCE);
                     if (foundURI == null || !foundURI.equals(namespaceURI)) {
                         coreSetAttribute(DOMSemantics.NAMESPACE_DECLARATION_MATCHER, null, prefix, null, namespaceURI);
                     }

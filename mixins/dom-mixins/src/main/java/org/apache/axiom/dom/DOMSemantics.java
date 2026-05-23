@@ -37,9 +37,20 @@ public final class DOMSemantics implements Semantics {
     private static final Set<NodeType> parentNodeTypes = EnumSet.of(
             NodeType.DOCUMENT, NodeType.NS_AWARE_ELEMENT, NodeType.NS_UNAWARE_ELEMENT, NodeType.DOCUMENT_FRAGMENT);
 
-    public static final DOMSemantics INSTANCE = new DOMSemantics();
+    public static final DOMSemantics INSTANCE = new DOMSemantics(false);
 
-    private DOMSemantics() {}
+    /**
+     * A variant of {@link #INSTANCE} that uses strict namespace lookup, i.e. only explicit
+     * namespace declaration attributes are considered (not the implicit prefix/namespace of the
+     * element itself). Used by namespace normalization.
+     */
+    public static final DOMSemantics STRICT_INSTANCE = new DOMSemantics(true);
+
+    private final boolean strictNamespaceLookup;
+
+    private DOMSemantics(boolean strictNamespaceLookup) {
+        this.strictNamespaceLookup = strictNamespaceLookup;
+    }
 
     @Override
     public DetachPolicy getDetachPolicy() {
@@ -48,7 +59,7 @@ public final class DOMSemantics implements Semantics {
 
     @Override
     public boolean isUseStrictNamespaceLookup() {
-        return false;
+        return strictNamespaceLookup;
     }
 
     @Override
