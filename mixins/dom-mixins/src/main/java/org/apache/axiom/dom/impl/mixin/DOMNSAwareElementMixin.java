@@ -39,7 +39,8 @@ public abstract class DOMNSAwareElementMixin implements DOMNSAwareElement {
                 for (CoreAttribute a = coreGetFirstAttribute(); a != null; a = a.coreGetNextAttribute()) {
                     if (a instanceof CoreNamespaceDeclaration decl) {
                         nsContext.setPrefix(
-                                decl.coreGetDeclaredPrefix(), decl.coreGetCharacterData().toString());
+                                decl.coreGetDeclaredPrefix(),
+                                decl.coreGetCharacterData().toString());
                     }
                 }
                 String namespaceURI = coreGetNamespaceURI();
@@ -53,8 +54,7 @@ public abstract class DOMNSAwareElementMixin implements DOMNSAwareElement {
                 } else {
                     String prefix = coreGetPrefix();
                     if (!namespaceURI.equals(nsContext.getNamespaceURI(prefix))) {
-                        coreSetAttribute(
-                                DOMSemantics.NAMESPACE_DECLARATION_MATCHER, null, prefix, null, namespaceURI);
+                        coreSetAttribute(DOMSemantics.NAMESPACE_DECLARATION_MATCHER, null, prefix, null, namespaceURI);
                         nsContext.setPrefix(prefix, namespaceURI);
                     }
                 }
