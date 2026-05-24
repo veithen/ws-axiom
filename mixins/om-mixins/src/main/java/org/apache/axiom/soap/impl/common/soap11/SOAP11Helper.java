@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.axiom.soap.impl.intf.soap11;
+package org.apache.axiom.soap.impl.common.soap11;
 
 import org.apache.axiom.om.OMMetaFactory;
 import org.apache.axiom.om.impl.intf.factory.AxiomNodeFactory;
