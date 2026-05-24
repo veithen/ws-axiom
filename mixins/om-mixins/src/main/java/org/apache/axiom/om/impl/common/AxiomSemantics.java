@@ -67,7 +67,7 @@ public final class AxiomSemantics implements Semantics {
         public CoreNode createTargetNode(OMCloneOptions options, CoreNode node, NodeFactory factory) {
             if (options != null && options.isPreserveModel()) {
                 try {
-                    return (CoreNode) node.getClass().getDeclaredConstructor().newInstance();
+                    return (CoreNode) node.getClass().getConstructor().newInstance();
                 } catch (ReflectiveOperationException ex) {
                     throw new NodeFactoryException("Failed to clone node", ex);
                 }
