@@ -18,14 +18,8 @@
  */
 package org.apache.axiom.soap.impl.mixin;
 
-import org.apache.axiom.core.CoreNode;
 import org.apache.axiom.soap.impl.intf.soap12.AxiomSOAP12FaultSubCode;
 import org.apache.axiom.weaver.annotation.Mixin;
 
 @Mixin
-public abstract class AxiomSOAP12FaultSubCodeMixin implements AxiomSOAP12FaultSubCode {
-    @Override
-    public final Class<? extends CoreNode> coreGetNodeClass() {
-        return AxiomSOAP12FaultSubCode.class;
-    }
-}
+public abstract class AxiomSOAP12FaultSubCodeMixin implements AxiomSOAP12FaultSubCode {}
