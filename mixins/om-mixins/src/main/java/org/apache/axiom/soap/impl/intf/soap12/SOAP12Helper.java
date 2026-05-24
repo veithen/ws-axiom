@@ -23,9 +23,9 @@ import org.apache.axiom.om.impl.intf.factory.AxiomNodeFactory;
 import org.apache.axiom.soap.SOAP12Constants;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPVersion;
-import org.apache.axiom.soap.impl.intf.SOAPHelper;
+import org.apache.axiom.soap.impl.common.SOAPHelperImpl;
 
-public final class SOAP12Helper extends SOAPHelper {
+public final class SOAP12Helper extends SOAPHelperImpl {
     public static final SOAP12Helper INSTANCE = new SOAP12Helper();
 
     private SOAP12Helper() {
