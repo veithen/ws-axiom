@@ -35,6 +35,7 @@
     <modules>
         <module>axiom-impl</module>
         <module>axiom-dom</module>
+        <module>dom-impl</module>
     </modules>
 
     <build>
