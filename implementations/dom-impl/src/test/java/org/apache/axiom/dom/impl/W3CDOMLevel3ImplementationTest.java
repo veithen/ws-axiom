@@ -201,6 +201,12 @@ public class W3CDOMLevel3ImplementationTest {
                         .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level3/core/wellformed02)")
                         .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level3/core/wellformed03)")
                         .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level3/core/wellformed04)")
+                        // SAX parser does not expose input/XML encoding or standalone declaration
+                        .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level3/core/documentgetinputencoding01)")
+                        .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level3/core/documentgetinputencoding03)")
+                        .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level3/core/documentgetxmlencoding01)")
+                        .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level3/core/documentgetxmlencoding03)")
+                        .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level3/core/documentgetxmlstandalone04)")
                         .build());
     }
 }

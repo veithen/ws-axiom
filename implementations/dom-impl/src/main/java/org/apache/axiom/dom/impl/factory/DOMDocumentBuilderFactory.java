@@ -50,7 +50,7 @@ public final class DOMDocumentBuilderFactory extends DocumentBuilderFactory {
 
     @Override
     public void setAttribute(String name, Object value) throws IllegalArgumentException {
-        throw new IllegalArgumentException("Attribute not recognized: " + name);
+        // Silently ignore unknown attributes
     }
 
     @Override

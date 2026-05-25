@@ -63,7 +63,9 @@ public enum NodeType {
 
     static {
         // TODO: add missing node types here (once we have tests that exercise the code)
+        CDATA_SECTION.allowedChildTypes = EnumSet.of(CHARACTER_DATA);
         COMMENT.allowedChildTypes = EnumSet.of(CHARACTER_DATA);
+        ENTITY_REFERENCE.allowedChildTypes = EnumSet.allOf(NodeType.class);
         DOCUMENT.allowedChildTypes = EnumSet.of(
                 CHARACTER_DATA,
                 COMMENT,

@@ -31,13 +31,167 @@ import org.apache.axiom.core.stream.sax.input.SAXInput;
 import org.apache.axiom.dom.DOMNodeFactory;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
+import org.xml.sax.ContentHandler;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXNotRecognizedException;
+import org.xml.sax.SAXNotSupportedException;
 import org.xml.sax.XMLReader;
+import org.xml.sax.ext.LexicalHandler;
+import org.xml.sax.helpers.XMLFilterImpl;
 
 final class DOMDocumentBuilder extends DocumentBuilder {
+    /**
+     * SAX filter that coalesces adjacent {@code characters()} calls into a single call, and
+     * correctly sequences lexical events (CDATA sections, comments) with buffered character data.
+     *
+     * <p>The SAX specification allows parsers to split text content across multiple {@code
+     * characters()} calls, but DOM requires text nodes to contain the full content. Without
+     * coalescing, adjacent SAX character events would produce multiple DOM text nodes for what
+     * should be a single node.
+     *
+     * <p>This filter also intercepts the {@code lexical-handler} SAX property so that CDATA/comment
+     * events are delivered <em>after</em> any pending buffered characters have been flushed,
+     * preserving the correct order of events to the downstream handler.
+     */
+    private static final class CoalescingXMLFilter extends XMLFilterImpl implements LexicalHandler {
+        private static final String LEXICAL_HANDLER_PROPERTY = "http://xml.org/sax/properties/lexical-handler";
+
+        private final StringBuilder buf = new StringBuilder();
+        private LexicalHandler downstreamLexicalHandler;
+
+        CoalescingXMLFilter(XMLReader parent) {
+            super(parent);
+        }
+
+        @Override
+        public void setProperty(String name, Object value) throws SAXNotRecognizedException, SAXNotSupportedException {
+            if (LEXICAL_HANDLER_PROPERTY.equals(name)) {
+                downstreamLexicalHandler = (LexicalHandler) value;
+                // Register ourselves as the lexical handler on the underlying parser so
+                // that we can flush buffered characters before forwarding lexical events.
+                try {
+                    getParent().setProperty(name, this);
+                } catch (SAXException ex) {
+                    // Ignore if the underlying parser doesn't support lexical handler
+                }
+            } else {
+                super.setProperty(name, value);
+            }
+        }
+
+        private void flushCharacters() throws SAXException {
+            if (buf.length() > 0) {
+                ContentHandler handler = getContentHandler();
+                if (handler != null) {
+                    char[] chars = buf.toString().toCharArray();
+                    handler.characters(chars, 0, chars.length);
+                }
+                buf.setLength(0);
+            }
+        }
+
+        @Override
+        public void characters(char[] ch, int start, int length) throws SAXException {
+            buf.append(ch, start, length);
+        }
+
+        @Override
+        public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
+            flushCharacters();
+            super.ignorableWhitespace(ch, start, length);
+        }
+
+        @Override
+        public void startElement(String uri, String localName, String qName, org.xml.sax.Attributes atts)
+                throws SAXException {
+            flushCharacters();
+            super.startElement(uri, localName, qName, atts);
+        }
+
+        @Override
+        public void endElement(String uri, String localName, String qName) throws SAXException {
+            flushCharacters();
+            super.endElement(uri, localName, qName);
+        }
+
+        @Override
+        public void processingInstruction(String target, String data) throws SAXException {
+            flushCharacters();
+            super.processingInstruction(target, data);
+        }
+
+        @Override
+        public void startDocument() throws SAXException {
+            buf.setLength(0);
+            super.startDocument();
+        }
+
+        @Override
+        public void endDocument() throws SAXException {
+            flushCharacters();
+            super.endDocument();
+        }
+
+        // LexicalHandler implementation: flush buffered characters before forwarding
+
+        @Override
+        public void startDTD(String name, String publicId, String systemId) throws SAXException {
+            if (downstreamLexicalHandler != null) {
+                downstreamLexicalHandler.startDTD(name, publicId, systemId);
+            }
+        }
+
+        @Override
+        public void endDTD() throws SAXException {
+            if (downstreamLexicalHandler != null) {
+                downstreamLexicalHandler.endDTD();
+            }
+        }
+
+        @Override
+        public void startEntity(String name) throws SAXException {
+            flushCharacters();
+            if (downstreamLexicalHandler != null) {
+                downstreamLexicalHandler.startEntity(name);
+            }
+        }
+
+        @Override
+        public void endEntity(String name) throws SAXException {
+            flushCharacters();
+            if (downstreamLexicalHandler != null) {
+                downstreamLexicalHandler.endEntity(name);
+            }
+        }
+
+        @Override
+        public void startCDATA() throws SAXException {
+            flushCharacters();
+            if (downstreamLexicalHandler != null) {
+                downstreamLexicalHandler.startCDATA();
+            }
+        }
+
+        @Override
+        public void endCDATA() throws SAXException {
+            flushCharacters();
+            if (downstreamLexicalHandler != null) {
+                downstreamLexicalHandler.endCDATA();
+            }
+        }
+
+        @Override
+        public void comment(char[] ch, int start, int length) throws SAXException {
+            flushCharacters();
+            if (downstreamLexicalHandler != null) {
+                downstreamLexicalHandler.comment(ch, start, length);
+            }
+        }
+    }
+
     private final DOMNodeFactory nodeFactory;
 
     DOMDocumentBuilder(DOMNodeFactory nodeFactory) {
@@ -84,8 +238,9 @@ final class DOMDocumentBuilder extends DocumentBuilder {
         } catch (ParserConfigurationException ex) {
             throw new SAXException(ex);
         }
-        SAXSource saxSource = new SAXSource(xmlReader, is);
-        BuilderImpl builder = new BuilderImpl(new SAXInput(saxSource, false), nodeFactory, PlainXMLModel.INSTANCE, null);
+        SAXSource saxSource = new SAXSource(new CoalescingXMLFilter(xmlReader), is);
+        BuilderImpl builder =
+                new BuilderImpl(new SAXInput(saxSource, false), nodeFactory, PlainXMLModel.INSTANCE, null);
         try {
             return (Document) builder.getDocument();
         } catch (DeferredParsingException ex) {

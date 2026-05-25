@@ -56,6 +56,11 @@ public class W3CDOMLevel1ImplementationTest {
                         .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level1/core/hc_attrgetvalue2)")
                         .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level1/core/hc_attrinsertbefore7)")
                         .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level1/core/hc_attrnormalize)")
+                        // Default attributes from DTD are reported as specified=true by SAX parsers
+                        .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level1/core/attrnotspecifiedvalue)")
+                        // Comments in external DTD appear in the document tree via SAX LexicalHandler
+                        .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level1/core/hc_commentgetcomment)")
+                        .add("(id=http://www.w3.org/2001/DOM-Test-Suite/level1/core/hc_nodecommentnodevalue)")
                         .build());
     }
 }

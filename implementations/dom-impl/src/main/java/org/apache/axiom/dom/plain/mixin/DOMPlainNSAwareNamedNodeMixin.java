@@ -18,8 +18,8 @@
  */
 package org.apache.axiom.dom.plain.mixin;
 
-import org.apache.axiom.core.CoreNamedNode;
 import org.apache.axiom.core.CoreNSAwareNamedNode;
+import org.apache.axiom.core.CoreNamedNode;
 import org.apache.axiom.weaver.annotation.Mixin;
 
 @Mixin
