@@ -40,6 +40,10 @@ public interface CharacterData {
      * return {@code this}; otherwise they must return a {@link String} capturing the current
      * content.
      *
+     * <p>The return type is {@link Object} because the value is either a {@link String} or a
+     * {@link CharacterData}, consistent with the {@code data} parameter of {@link
+     * XmlHandler#processCharacterData}.
+     *
      * <p>Callers must invoke this method before storing a {@link CharacterData} value beyond the
      * duration of a {@link XmlHandler#processCharacterData} invocation.
      *
