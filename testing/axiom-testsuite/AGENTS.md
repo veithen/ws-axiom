@@ -30,7 +30,3 @@
 ```
 
 Do not consider a change to `axiom-testsuite` complete until this command passes without failures.
-
-## Code formatting
-
-See the [root AGENTS.md](../../AGENTS.md) for instructions on running `spotless:apply` after modifying Java files.
