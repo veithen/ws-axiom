@@ -33,4 +33,20 @@ public interface CharacterData {
     void writeTo(CharacterDataSink sink) throws IOException;
 
     void appendTo(StringBuilder buffer);
+
+    /**
+     * Returns a {@link String} or a {@link CharacterData} instance whose value is guaranteed to
+     * remain valid indefinitely. If this instance is already permanently valid, implementations may
+     * return {@code this}; otherwise they must return a {@link String} capturing the current
+     * content.
+     *
+     * <p>Callers must invoke this method before storing a {@link CharacterData} value beyond the
+     * duration of a {@link XmlHandler#processCharacterData} invocation.
+     *
+     * @return a permanently valid {@link String} or {@link CharacterData} representation of this
+     *     instance
+     */
+    default Object retain() {
+        return toString();
+    }
 }
