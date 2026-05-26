@@ -37,8 +37,7 @@ public interface CharacterData {
     /**
      * Returns a {@link String} or a {@link CharacterData} instance that remains valid beyond the
      * current {@link XmlHandler#processCharacterData} invocation. If this instance is already valid
-     * beyond that scope, implementations may return {@code this}; otherwise they must return a
-     * {@link String} capturing the current content.
+     * beyond that scope, implementations may return {@code this}.
      *
      * <p>The return type is {@link Object} because the value is either a {@link String} or a
      * {@link CharacterData}, consistent with the {@code data} parameter of {@link
