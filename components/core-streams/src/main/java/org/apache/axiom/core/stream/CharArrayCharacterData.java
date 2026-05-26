@@ -16,21 +16,29 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.axiom.core.stream.sax.input;
+package org.apache.axiom.core.stream;
 
 import java.io.IOException;
-import org.apache.axiom.core.stream.CharacterData;
-import org.apache.axiom.core.stream.CharacterDataSink;
 
 /**
  * A reusable {@link CharacterData} implementation backed by a {@code char[]} slice. Instances are
- * only valid for the duration of the {@link org.apache.axiom.core.stream.XmlHandler#processCharacterData}
- * invocation in which they are passed.
+ * only valid for the duration of the {@link XmlHandler#processCharacterData} invocation in which
+ * they are passed.
  */
-final class CharArrayCharacterData implements CharacterData {
-    char[] ch;
-    int start;
-    int length;
+public final class CharArrayCharacterData implements CharacterData {
+    private char[] ch;
+    private int start;
+    private int length;
+
+    /**
+     * Updates the backing char array slice. Must be called before each {@link
+     * XmlHandler#processCharacterData} invocation.
+     */
+    public void set(char[] ch, int start, int length) {
+        this.ch = ch;
+        this.start = start;
+        this.length = length;
+    }
 
     @Override
     public String toString() {

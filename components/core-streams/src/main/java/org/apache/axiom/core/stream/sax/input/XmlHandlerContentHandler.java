@@ -21,6 +21,7 @@ package org.apache.axiom.core.stream.sax.input;
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.axiom.core.stream.CharArrayCharacterData;
 import org.apache.axiom.core.stream.StreamException;
 import org.apache.axiom.core.stream.XmlHandler;
 import org.apache.axiom.core.stream.serializer.Serializer;
@@ -314,9 +315,7 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
     public void characters(char[] ch, int start, int length) throws SAXException {
         if (!inEntityReference) {
             try {
-                charData.ch = ch;
-                charData.start = start;
-                charData.length = length;
+                charData.set(ch, start, length);
                 handler.processCharacterData(charData, false);
             } catch (StreamException ex) {
                 throw toSAXException(ex);
@@ -328,9 +327,7 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
     public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
         if (!inEntityReference) {
             try {
-                charData.ch = ch;
-                charData.start = start;
-                charData.length = length;
+                charData.set(ch, start, length);
                 handler.processCharacterData(charData, true);
             } catch (StreamException ex) {
                 throw toSAXException(ex);
@@ -356,9 +353,7 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
         if (!inEntityReference) {
             try {
                 handler.startComment();
-                charData.ch = ch;
-                charData.start = start;
-                charData.length = length;
+                charData.set(ch, start, length);
                 handler.processCharacterData(charData, false);
                 handler.endComment();
             } catch (StreamException ex) {
