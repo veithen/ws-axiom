@@ -40,6 +40,15 @@ public final class CharArrayCharacterData implements CharacterData {
         this.length = length;
     }
 
+    /**
+     * Invalidates this instance by clearing the backing array reference. Any subsequent attempt to
+     * use this instance will result in a {@link NullPointerException}, making it easier to detect
+     * bugs where an {@link XmlHandler} retains a reference beyond the allowed lifetime.
+     */
+    public void invalidate() {
+        this.ch = null;
+    }
+
     @Override
     public String toString() {
         return new String(ch, start, length);

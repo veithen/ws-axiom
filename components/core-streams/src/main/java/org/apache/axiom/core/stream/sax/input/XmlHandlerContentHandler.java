@@ -106,6 +106,7 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
         } catch (StreamException ex) {
             throw toSAXException(ex);
         }
+        charData.invalidate();
     }
 
     @Override
