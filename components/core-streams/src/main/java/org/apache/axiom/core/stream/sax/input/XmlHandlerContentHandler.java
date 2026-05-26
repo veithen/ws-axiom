@@ -70,6 +70,8 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
     private boolean inEntityReference;
     private int entityReferenceDepth;
 
+    private final CharArrayCharacterData charData = new CharArrayCharacterData();
+
     public XmlHandlerContentHandler(XmlHandler handler, boolean expandEntityReferences) {
         this.handler = handler;
         this.expandEntityReferences = expandEntityReferences;
@@ -312,7 +314,10 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
     public void characters(char[] ch, int start, int length) throws SAXException {
         if (!inEntityReference) {
             try {
-                handler.processCharacterData(new String(ch, start, length), false);
+                charData.ch = ch;
+                charData.start = start;
+                charData.length = length;
+                handler.processCharacterData(charData, false);
             } catch (StreamException ex) {
                 throw toSAXException(ex);
             }
@@ -323,7 +328,10 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
     public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
         if (!inEntityReference) {
             try {
-                handler.processCharacterData(new String(ch, start, length), true);
+                charData.ch = ch;
+                charData.start = start;
+                charData.length = length;
+                handler.processCharacterData(charData, true);
             } catch (StreamException ex) {
                 throw toSAXException(ex);
             }
@@ -348,7 +356,10 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
         if (!inEntityReference) {
             try {
                 handler.startComment();
-                handler.processCharacterData(new String(ch, start, length), false);
+                charData.ch = ch;
+                charData.start = start;
+                charData.length = length;
+                handler.processCharacterData(charData, false);
                 handler.endComment();
             } catch (StreamException ex) {
                 throw toSAXException(ex);
