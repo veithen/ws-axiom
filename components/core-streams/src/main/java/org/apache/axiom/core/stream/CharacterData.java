@@ -50,7 +50,5 @@ public interface CharacterData {
      * @return a permanently valid {@link String} or {@link CharacterData} representation of this
      *     instance
      */
-    default Object retain() {
-        return toString();
-    }
+    Object retain();
 }
