@@ -47,6 +47,20 @@ public class CharacterDataAccumulator {
         }
     }
 
+    /**
+     * Get the accumulated content. Returns {@code null} if no data has been appended, the original
+     * object unchanged if only a single chunk was appended, or a {@link String} built from multiple
+     * chunks.
+     *
+     * @return the accumulated content, or {@code null} if empty
+     */
+    public Object get() {
+        if (content instanceof StringBuilder stringBuilder) {
+            return stringBuilder.toString();
+        }
+        return content;
+    }
+
     public boolean isEmpty() {
         return content == null;
     }
