@@ -19,7 +19,7 @@
 package org.apache.axiom.core.stream.qual;
 
 import static java.lang.annotation.ElementType.TYPE_USE;
-import static java.lang.annotation.RetentionPolicy.SOURCE;
+import static java.lang.annotation.RetentionPolicy.CLASS;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -39,7 +39,7 @@ import org.checkerframework.framework.qual.SubtypeOf;
  * on the {@code CharacterData} interface.
  */
 @Documented
-@Retention(SOURCE)
+@Retention(CLASS)
 @Target(TYPE_USE)
 @SubtypeOf(UnknownStringOrCharacterData.class)
 @QualifierForLiterals(LiteralKind.STRING)
