@@ -34,6 +34,7 @@ import org.apache.axiom.weaver.annotation.Mixin;
 
 @Mixin
 public abstract class AxiomTextMixin implements AxiomText {
+    @SuppressWarnings("subtyping")
     private TextContent getTextContent(boolean force) {
         try {
             Object content = coreGetCharacterData();

@@ -70,6 +70,7 @@ public final class NamespaceDeclarationMatcher implements AttributeMatcher {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void update(CoreAttribute attr, String prefix, String value) throws CoreModelException {
         attr.coreSetCharacterData(value, semantics);
     }

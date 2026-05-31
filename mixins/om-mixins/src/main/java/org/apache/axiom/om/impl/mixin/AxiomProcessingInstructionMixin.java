@@ -53,6 +53,7 @@ public abstract class AxiomProcessingInstructionMixin implements AxiomProcessing
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public final void setValue(String value) {
         try {
             coreSetCharacterData(value, AxiomSemantics.INSTANCE);

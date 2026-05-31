@@ -119,6 +119,7 @@ public abstract class CoreParentNodeMixin implements CoreParentNode {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public final Content internalGetContent(boolean create) {
         if (getState() == COMPACT) {
             Content content = new Content();
@@ -343,9 +344,10 @@ public abstract class CoreParentNodeMixin implements CoreParentNode {
     }
 
     @Override
-    public final @StringOrCharacterData Object internalGetCharacterData(ElementAction elementAction) throws CoreModelException {
+    @SuppressWarnings("subtyping")
+    public final @StringOrCharacterData Object internalGetCharacterData(ElementAction elementAction)
+            throws CoreModelException {
         if (getState() == COMPACT) {
-            @SuppressWarnings("SubtypeChecker")
             @StringOrCharacterData Object compactContent = content;
             return compactContent;
         } else {
@@ -374,7 +376,8 @@ public abstract class CoreParentNodeMixin implements CoreParentNode {
                     }
                 } else {
                     if (child instanceof CoreCharacterDataNode || child instanceof CoreCDATASection) {
-                        @StringOrCharacterData Object textValue = ((CoreCharacterDataContainer) child).coreGetCharacterData();
+                        @StringOrCharacterData
+                        Object textValue = ((CoreCharacterDataContainer) child).coreGetCharacterData();
                         if (textValue instanceof CharacterData || ((String) textValue).length() != 0) {
                             if (textContent == null) {
                                 // This is the first non empty text node. Just save the string.
@@ -414,7 +417,8 @@ public abstract class CoreParentNodeMixin implements CoreParentNode {
     }
 
     @Override
-    public final void coreSetCharacterData(@StringOrCharacterData Object data, Semantics semantics) throws CoreModelException {
+    public final void coreSetCharacterData(@StringOrCharacterData Object data, Semantics semantics)
+            throws CoreModelException {
         coreRemoveChildren(semantics);
         if (data != null && (data instanceof CharacterData || ((String) data).length() > 0)) {
             coreSetState(COMPACT);
@@ -441,6 +445,7 @@ public abstract class CoreParentNodeMixin implements CoreParentNode {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public final <T> void cloneChildrenIfNecessary(ClonePolicy<T> policy, T options, CoreNode clone)
             throws CoreModelException {
         CoreParentNode targetParent = (CoreParentNode) clone;

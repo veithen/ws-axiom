@@ -99,6 +99,7 @@ public class OMFactoryImpl implements OMFactory {
         return node;
     }
 
+    @SuppressWarnings("subtyping")
     private AxiomText createAxiomText(OMContainer parent, Object content, int type) {
         AxiomText node;
         switch (type) {
@@ -200,6 +201,7 @@ public class OMFactoryImpl implements OMFactory {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public final OMProcessingInstruction createOMProcessingInstruction(
             OMContainer parent, String piTarget, String piData) {
         AxiomProcessingInstruction node = nodeFactory.createProcessingInstruction();
@@ -226,6 +228,7 @@ public class OMFactoryImpl implements OMFactory {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public final OMComment createOMComment(OMContainer parent, String content) {
         AxiomComment node = nodeFactory.createComment();
         try {
@@ -332,6 +335,7 @@ public class OMFactoryImpl implements OMFactory {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public final OMAttribute createOMAttribute(String localName, OMNamespace ns, String value) {
         if (ns != null && ns.getPrefix() == null) {
             String namespaceURI = ns.getNamespaceURI();

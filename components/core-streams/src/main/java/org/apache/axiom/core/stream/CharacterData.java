@@ -19,7 +19,6 @@
 package org.apache.axiom.core.stream;
 
 import java.io.IOException;
-
 import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 
 // TODO: clean up this Javadoc
@@ -51,5 +50,6 @@ public interface CharacterData {
      * @return a {@link String} or {@link CharacterData} representation of this instance that
      *     remains valid beyond the current invocation
      */
-    @StringOrCharacterData Object retain();
+    @StringOrCharacterData
+    Object retain();
 }

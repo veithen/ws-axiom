@@ -66,6 +66,7 @@ public final class CharArrayCharacterData implements CharacterData {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public @StringOrCharacterData Object retain() {
         return new String(ch, start, length);
     }

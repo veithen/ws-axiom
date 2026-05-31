@@ -180,6 +180,7 @@ public class SerializerTest {
     }
 
     @Test
+    @SuppressWarnings("subtyping")
     public void testGTEscapedAfterSquareBrackets() throws Exception {
         String sequence = "xxx]]>yyy";
         for (int i = 1; i < sequence.length() - 1; i++) {

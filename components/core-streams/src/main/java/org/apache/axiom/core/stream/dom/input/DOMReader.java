@@ -62,6 +62,7 @@ final class DOMReader implements XmlReader {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public boolean proceed() throws StreamException {
         Node currentNode = this.currentNode;
         int state = this.state;

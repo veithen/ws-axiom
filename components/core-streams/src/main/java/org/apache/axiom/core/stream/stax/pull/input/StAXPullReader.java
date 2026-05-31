@@ -107,6 +107,7 @@ final class StAXPullReader implements XmlReader {
         return s == null ? "" : s;
     }
 
+    @SuppressWarnings("subtyping")
     private void processText(int textType) throws StreamException {
         if (textType == XMLStreamConstants.CHARACTERS) {
             CharacterData data = helper.getCharacterData();
@@ -162,6 +163,7 @@ final class StAXPullReader implements XmlReader {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public boolean proceed() throws StreamException {
         int token = parserNext();
 

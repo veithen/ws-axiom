@@ -39,6 +39,11 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
         </dependency>
@@ -54,4 +59,31 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths combine.children="append">
+                        <annotationProcessorPath>
+                            <groupId>org.checkerframework</groupId>
+                            <artifactId>checker</artifactId>
+                            <version>${checkerframework.version}</version>
+                        </annotationProcessorPath>
+                        <annotationProcessorPath>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>checker-qual</artifactId>
+                            <version>${project.version}</version>
+                        </annotationProcessorPath>
+                    </annotationProcessorPaths>
+                    <compilerArgs combine.children="append">
+                        <compilerArg>-processor</compilerArg>
+                        <compilerArg>org.checkerframework.common.subtyping.SubtypingChecker</compilerArg>
+                        <compilerArg>-Aquals=org.apache.axiom.core.stream.qual.StringOrCharacterData,org.apache.axiom.core.stream.qual.UnknownStringOrCharacterData</compilerArg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

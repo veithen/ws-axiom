@@ -58,6 +58,7 @@ public abstract class AxiomAttributeMixin implements AxiomAttribute {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public final void setAttributeValue(String value) {
         try {
             coreSetCharacterData(value, AxiomSemantics.INSTANCE);

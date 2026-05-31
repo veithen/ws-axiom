@@ -1081,8 +1081,6 @@
                         <compilerArg>-XDaddTypeAnnotationsToSymbol=true</compilerArg>
                         <compilerArg>--should-stop=ifError=FLOW</compilerArg>
                         <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/org/(jaxen|w3c)/.* -Xep:MissingOverride:ERROR -Xep:StatementSwitchToExpressionSwitch:ERROR -Xep:PatternMatchingInstanceof:ERROR</compilerArg>
-                        <compilerArg>-processor org.checkerframework.common.subtyping.SubtypingChecker</compilerArg>
-                        <compilerArg>-Aquals=org.apache.axiom.core.stream.qual.StringOrCharacterData</compilerArg>
                         <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</compilerArg>
                         <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</compilerArg>
                         <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</compilerArg>
@@ -1104,16 +1102,6 @@
                             <groupId>com.google.auto.service</groupId>
                             <artifactId>auto-service</artifactId>
                             <version>${auto-service.version}</version>
-                        </annotationProcessorPath>
-                        <annotationProcessorPath>
-                            <groupId>org.checkerframework</groupId>
-                            <artifactId>checker</artifactId>
-                            <version>${checkerframework.version}</version>
-                        </annotationProcessorPath>
-                        <annotationProcessorPath>
-                            <groupId>org.apache.ws.commons.axiom</groupId>
-                            <artifactId>checker-qual</artifactId>
-                            <version>${project.version}</version>
                         </annotationProcessorPath>
                     </annotationProcessorPaths>
                 </configuration>

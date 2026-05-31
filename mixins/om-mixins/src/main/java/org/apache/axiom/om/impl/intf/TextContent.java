@@ -201,6 +201,7 @@ public final class TextContent implements CloneableCharacterData {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public @StringOrCharacterData Object retain() {
         return this;
     }

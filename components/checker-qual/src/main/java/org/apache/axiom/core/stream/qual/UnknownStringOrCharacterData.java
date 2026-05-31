@@ -24,23 +24,19 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-import org.checkerframework.framework.qual.LiteralKind;
-import org.checkerframework.framework.qual.QualifierForLiterals;
+import org.checkerframework.framework.qual.DefaultQualifierInHierarchy;
 import org.checkerframework.framework.qual.SubtypeOf;
 
 /**
- * Qualifier annotation for the Checker Framework {@code SubtypingChecker}. A value annotated with
- * {@code @StringOrCharacterData} is a {@link String} or a {@code CharacterData} instance. This
- * annotation is used to enforce correct usage of APIs that accept either type as {@link Object}.
- *
- * <p>{@link QualifierForLiterals} ensures that string literals are automatically
- * {@code @StringOrCharacterData} without requiring an explicit annotation at each call site.
- * Expressions of type {@code CharacterData} are covered by {@code @DefaultQualifierForUse} placed
- * on the {@code CharacterData} interface.
+ * Top qualifier for the {@code @StringOrCharacterData} hierarchy. This annotation is the default
+ * for all unannotated types: it represents a value that is not known to be a {@link String} or
+ * {@code CharacterData} instance. It is placed at the top of the qualifier hierarchy so that the
+ * Checker Framework assigns it to every unannotated expression, and it is a supertype of
+ * {@link StringOrCharacterData}.
  */
 @Documented
 @Retention(SOURCE)
 @Target(TYPE_USE)
-@SubtypeOf(UnknownStringOrCharacterData.class)
-@QualifierForLiterals(LiteralKind.STRING)
-public @interface StringOrCharacterData {}
+@SubtypeOf({})
+@DefaultQualifierInHierarchy
+public @interface UnknownStringOrCharacterData {}

@@ -44,6 +44,7 @@ final class PushOMDataSourceXOPHandler extends AbstractXOPDecodingFilterHandler 
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     protected @StringOrCharacterData Object buildCharacterData(String contentID) throws StreamException {
         Blob blob = blobs.get(contentID);
         if (blob == null) {

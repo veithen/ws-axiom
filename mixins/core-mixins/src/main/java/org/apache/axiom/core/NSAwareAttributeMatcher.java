@@ -88,6 +88,7 @@ public final class NSAwareAttributeMatcher implements AttributeMatcher {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public CoreAttribute createAttribute(
             NodeFactory nodeFactory, String namespaceURI, String name, String prefix, String value)
             throws CoreModelException {
@@ -98,6 +99,7 @@ public final class NSAwareAttributeMatcher implements AttributeMatcher {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void update(CoreAttribute attr, String prefix, String value) throws CoreModelException {
         attr.coreSetCharacterData(value, semantics);
         if (updatePrefix && attr instanceof CoreNSAwareAttribute nsAwareAttr) {

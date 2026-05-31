@@ -118,5 +118,6 @@ public interface CoreParentNode extends CoreNode {
 
     Content internalGetContent(boolean create);
 
-    @StringOrCharacterData Object internalGetCharacterData(ElementAction elementAction) throws CoreModelException;
+    @StringOrCharacterData
+    Object internalGetCharacterData(ElementAction elementAction) throws CoreModelException;
 }

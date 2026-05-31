@@ -203,6 +203,7 @@ final class BuildableContext extends Context implements InputContext {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     void processAttribute(
             String namespaceURI, String localName, String prefix, String value, String type, boolean specified)
             throws StreamException {
@@ -223,6 +224,7 @@ final class BuildableContext extends Context implements InputContext {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     void processAttribute(String name, String value, String type, boolean specified) throws StreamException {
         if (passThroughHandler != null) {
             passThroughHandler.processAttribute(name, value, type, specified);

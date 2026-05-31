@@ -103,6 +103,7 @@ public final class TreeWalkerImpl implements XmlReader {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public boolean proceed() throws StreamException {
         if (incremental && !handler.drain()) {
             return false;

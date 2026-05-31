@@ -34,11 +34,13 @@ public final class BlobWriterImpl implements BlobWriter {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void writeBlob(Blob blob, String contentID, boolean optimize) throws IOException, XMLStreamException {
         writer.writeCharacterData(new TextContent(contentID, blob, optimize));
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void writeBlob(BlobProvider blobProvider, String contentID, boolean optimize)
             throws IOException, XMLStreamException {
         writer.writeCharacterData(new TextContent(contentID, blobProvider, optimize));

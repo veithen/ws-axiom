@@ -63,6 +63,7 @@ public abstract class AxiomNamespaceDeclarationMixin implements AxiomNamespaceDe
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public final void setDeclaredNamespace(OMNamespace declaredNamespace) {
         try {
             this.declaredNamespace = declaredNamespace;

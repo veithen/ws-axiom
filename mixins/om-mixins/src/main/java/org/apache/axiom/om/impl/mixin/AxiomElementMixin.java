@@ -238,6 +238,7 @@ public abstract class AxiomElementMixin implements AxiomElement {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public final void setText(String text) {
         try {
             coreSetCharacterData(text, AxiomSemantics.INSTANCE);

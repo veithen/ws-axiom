@@ -57,6 +57,7 @@ final class XOPDecodingFilterHandler extends AbstractXOPDecodingFilterHandler {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     protected @StringOrCharacterData Object buildCharacterData(String contentID) {
         return new TextContent(contentID, new BlobProviderImpl(attachmentAccessor, contentID), true);
     }

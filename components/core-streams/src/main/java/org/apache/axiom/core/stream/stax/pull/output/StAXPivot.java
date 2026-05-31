@@ -444,6 +444,7 @@ public final class StAXPivot implements InternalXMLStreamReader, XmlHandler {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void processEntityReference(String name, String replacementText) throws StreamException {
         switch (state) {
             case STATE_DEFAULT -> {

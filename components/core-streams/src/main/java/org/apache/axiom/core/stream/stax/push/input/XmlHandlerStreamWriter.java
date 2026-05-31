@@ -352,11 +352,13 @@ public final class XmlHandlerStreamWriter implements InternalXMLStreamWriter, Na
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void writeCharacters(char[] text, int start, int len) throws XMLStreamException {
         writeCharacterData(new String(text, start, len));
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void writeCharacters(String text) throws XMLStreamException {
         writeCharacterData(text);
     }
@@ -373,6 +375,7 @@ public final class XmlHandlerStreamWriter implements InternalXMLStreamWriter, Na
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void writeCData(String data) throws XMLStreamException {
         finishStartElement();
         try {
@@ -386,6 +389,7 @@ public final class XmlHandlerStreamWriter implements InternalXMLStreamWriter, Na
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void writeComment(String data) throws XMLStreamException {
         finishStartElement();
         try {
@@ -410,6 +414,7 @@ public final class XmlHandlerStreamWriter implements InternalXMLStreamWriter, Na
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void writeProcessingInstruction(String target, String data) throws XMLStreamException {
         finishStartElement();
         try {

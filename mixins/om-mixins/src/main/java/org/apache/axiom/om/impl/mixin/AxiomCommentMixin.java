@@ -44,6 +44,7 @@ public abstract class AxiomCommentMixin implements AxiomComment {
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public void setValue(String text) {
         try {
             coreSetCharacterData(text, AxiomSemantics.INSTANCE);

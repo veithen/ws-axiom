@@ -67,6 +67,7 @@ public abstract class CoreCharacterDataNodeMixin implements CoreCharacterDataNod
     }
 
     @Override
+    @SuppressWarnings("subtyping")
     public final <T> void init(ClonePolicy<T> policy, T options, CoreNode other) {
         CoreCharacterDataNode o = (CoreCharacterDataNode) other;
         Object otherData = o.coreGetCharacterData();

@@ -22,7 +22,8 @@ import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 
 public interface CoreCharacterDataNode extends CoreLeafNode, CoreCharacterDataContainer {
     @Override
-    @StringOrCharacterData Object coreGetCharacterData();
+    @StringOrCharacterData
+    Object coreGetCharacterData();
 
     void coreSetCharacterData(@StringOrCharacterData Object data);
 
