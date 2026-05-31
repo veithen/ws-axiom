@@ -34,9 +34,10 @@ import org.checkerframework.framework.qual.SubtypeOf;
  * annotation is used to enforce correct usage of APIs that accept either type as {@link Object}.
  *
  * <p>{@link QualifierForLiterals} ensures that string literals are automatically
- * {@code @StringOrCharacterData} without requiring an explicit annotation at each call site.
- * Expressions of type {@code CharacterData} are covered by {@code @DefaultQualifierForUse} placed
- * on the {@code CharacterData} interface.
+ * {@code @StringOrCharacterData} without requiring an explicit annotation at each call site. A stub
+ * file additionally declares {@code @DefaultQualifierForUse} on {@link String} to cover non-literal
+ * string expressions. Expressions of type {@code CharacterData} are covered by
+ * {@code @DefaultQualifierForUse} placed on the {@code CharacterData} interface.
  */
 @Documented
 @Retention(CLASS)

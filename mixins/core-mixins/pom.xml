@@ -81,6 +81,7 @@
                         <compilerArg>-processor</compilerArg>
                         <compilerArg>org.checkerframework.common.subtyping.SubtypingChecker</compilerArg>
                         <compilerArg>-Aquals=org.apache.axiom.core.stream.qual.StringOrCharacterData,org.apache.axiom.core.stream.qual.UnknownStringOrCharacterData</compilerArg>
+                        <compilerArg>-Astubs=classpath:org/apache/axiom/core/stream/qual/stubs.astub</compilerArg>
                     </compilerArgs>
                 </configuration>
             </plugin>

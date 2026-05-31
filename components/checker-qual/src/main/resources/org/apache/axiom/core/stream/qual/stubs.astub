@@ -1,0 +1,7 @@
+package java.lang;
+
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
+import org.checkerframework.framework.qual.DefaultQualifierForUse;
+
+@DefaultQualifierForUse(StringOrCharacterData.class)
+class String {}

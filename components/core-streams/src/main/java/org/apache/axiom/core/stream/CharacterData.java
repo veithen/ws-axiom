@@ -31,6 +31,7 @@ import org.checkerframework.framework.qual.DefaultQualifierForUse;
 @DefaultQualifierForUse(StringOrCharacterData.class)
 public interface CharacterData {
     @Override
+    @SuppressWarnings("override.receiver")
     String toString();
 
     void writeTo(CharacterDataSink sink) throws IOException;

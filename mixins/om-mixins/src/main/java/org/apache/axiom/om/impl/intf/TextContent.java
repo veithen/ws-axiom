@@ -160,6 +160,7 @@ public final class TextContent implements CloneableCharacterData {
     }
 
     @Override
+    @SuppressWarnings("return")
     public <T> CharacterData clone(ClonePolicy<T> policy, T options) {
         if (binary && options instanceof OMCloneOptions omCloneOptions && omCloneOptions.isFetchBlobs()) {
             // This will fetch the Blob from the BlobProvider if applicable.

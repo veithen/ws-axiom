@@ -24,6 +24,7 @@ import java.util.Map;
 import org.apache.axiom.core.stream.CharArrayCharacterData;
 import org.apache.axiom.core.stream.StreamException;
 import org.apache.axiom.core.stream.XmlHandler;
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 import org.apache.axiom.core.stream.serializer.Serializer;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
@@ -71,7 +72,8 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
     private boolean inEntityReference;
     private int entityReferenceDepth;
 
-    private final CharArrayCharacterData charData = new CharArrayCharacterData();
+    @SuppressWarnings("assignment")
+    private final @StringOrCharacterData CharArrayCharacterData charData = new CharArrayCharacterData();
 
     public XmlHandlerContentHandler(XmlHandler handler, boolean expandEntityReferences) {
         this.handler = handler;

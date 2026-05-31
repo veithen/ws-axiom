@@ -59,6 +59,7 @@ final class AxiomXMLStreamReaderHelper extends XMLStreamReaderHelper {
     }
 
     @Override
+    @SuppressWarnings("return")
     public CharacterData getCharacterData() throws StreamException {
         if (blobReader != null && blobReader.isBinary()) {
             if (blobReader.isDeferred()) {
