@@ -33,6 +33,7 @@ import org.apache.axiom.core.stream.CharacterData;
 import org.apache.axiom.core.stream.StreamException;
 import org.apache.axiom.core.stream.XmlHandler;
 import org.apache.axiom.core.stream.XmlReader;
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 import org.apache.axiom.core.stream.stax.StAXExceptionUtil;
 import org.apache.axiom.core.stream.util.CharacterDataAccumulator;
 import org.apache.axiom.util.xml.QNameCache;
@@ -193,7 +194,7 @@ public final class StAXPivot implements InternalXMLStreamReader, XmlHandler {
     private String rootName;
     private String publicId;
     private String systemId;
-    private Object characterData;
+    private @StringOrCharacterData Object characterData;
     private String text;
     // Entity reference name or processing instruction target
     private String name;
@@ -352,7 +353,7 @@ public final class StAXPivot implements InternalXMLStreamReader, XmlHandler {
     }
 
     @Override
-    public void processCharacterData(Object data, boolean ignorable) throws StreamException {
+    public void processCharacterData(@StringOrCharacterData Object data, boolean ignorable) throws StreamException {
         switch (state) {
             case STATE_DEFAULT -> {
                 eventType = ignorable ? SPACE : CHARACTERS;
@@ -997,7 +998,7 @@ public final class StAXPivot implements InternalXMLStreamReader, XmlHandler {
     }
 
     @Override
-    public Object getCharacterData() {
+    public @StringOrCharacterData Object getCharacterData() {
         return characterData;
     }
 }

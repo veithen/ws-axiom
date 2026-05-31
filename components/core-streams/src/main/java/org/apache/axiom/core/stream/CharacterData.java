@@ -20,6 +20,8 @@ package org.apache.axiom.core.stream;
 
 import java.io.IOException;
 
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
+
 // TODO: clean up this Javadoc
 /**
  * Represents character data stored by a {@link org.apache.axiom.core.CoreCharacterDataNode}
@@ -49,5 +51,5 @@ public interface CharacterData {
      * @return a {@link String} or {@link CharacterData} representation of this instance that
      *     remains valid beyond the current invocation
      */
-    Object retain();
+    @StringOrCharacterData Object retain();
 }

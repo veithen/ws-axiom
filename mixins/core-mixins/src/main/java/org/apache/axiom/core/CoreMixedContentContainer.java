@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.core;
 
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
+
 public interface CoreMixedContentContainer extends CoreParentNode, CoreCharacterDataSinkNode {
-    Object coreGetCharacterData(ElementAction elementAction) throws CoreModelException;
+    @StringOrCharacterData Object coreGetCharacterData(ElementAction elementAction) throws CoreModelException;
 }

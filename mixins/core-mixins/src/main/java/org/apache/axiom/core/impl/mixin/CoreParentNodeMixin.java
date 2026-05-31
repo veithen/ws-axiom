@@ -52,6 +52,7 @@ import org.apache.axiom.core.stream.CharacterData;
 import org.apache.axiom.core.stream.StreamException;
 import org.apache.axiom.core.stream.XmlHandler;
 import org.apache.axiom.core.stream.XmlReader;
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 import org.apache.axiom.weaver.annotation.Mixin;
 
 @Mixin
@@ -342,11 +343,13 @@ public abstract class CoreParentNodeMixin implements CoreParentNode {
     }
 
     @Override
-    public final Object internalGetCharacterData(ElementAction elementAction) throws CoreModelException {
+    public final @StringOrCharacterData Object internalGetCharacterData(ElementAction elementAction) throws CoreModelException {
         if (getState() == COMPACT) {
-            return content;
+            @SuppressWarnings("SubtypeChecker")
+            @StringOrCharacterData Object compactContent = content;
+            return compactContent;
         } else {
-            Object textContent = null;
+            @StringOrCharacterData Object textContent = null;
             StringBuilder buffer = null;
             int depth = 0;
             CoreChildNode child = coreGetFirstChild();
@@ -371,7 +374,7 @@ public abstract class CoreParentNodeMixin implements CoreParentNode {
                     }
                 } else {
                     if (child instanceof CoreCharacterDataNode || child instanceof CoreCDATASection) {
-                        Object textValue = ((CoreCharacterDataContainer) child).coreGetCharacterData();
+                        @StringOrCharacterData Object textValue = ((CoreCharacterDataContainer) child).coreGetCharacterData();
                         if (textValue instanceof CharacterData || ((String) textValue).length() != 0) {
                             if (textContent == null) {
                                 // This is the first non empty text node. Just save the string.
@@ -411,7 +414,7 @@ public abstract class CoreParentNodeMixin implements CoreParentNode {
     }
 
     @Override
-    public final void coreSetCharacterData(Object data, Semantics semantics) throws CoreModelException {
+    public final void coreSetCharacterData(@StringOrCharacterData Object data, Semantics semantics) throws CoreModelException {
         coreRemoveChildren(semantics);
         if (data != null && (data instanceof CharacterData || ((String) data).length() > 0)) {
             coreSetState(COMPACT);

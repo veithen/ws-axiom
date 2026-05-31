@@ -25,6 +25,7 @@ import org.apache.axiom.core.stream.CharacterData;
 import org.apache.axiom.core.stream.CharacterDataSink;
 import org.apache.axiom.core.stream.StreamException;
 import org.apache.axiom.core.stream.XmlHandler;
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 import org.apache.axiom.core.stream.util.CharacterDataAccumulator;
 import org.apache.axiom.util.base64.AbstractBase64EncodingOutputStream;
 import org.apache.axiom.util.base64.Base64EncodingWriterOutputStream;
@@ -204,7 +205,7 @@ public class ContentHandlerXmlHandler implements XmlHandler, CharacterDataSink {
     }
 
     @Override
-    public void processCharacterData(Object data, boolean ignorable) throws StreamException {
+    public void processCharacterData(@StringOrCharacterData Object data, boolean ignorable) throws StreamException {
         try {
             switch (characterDataMode) {
                 case PASS_THROUGH -> {

@@ -293,6 +293,7 @@
         <auto-service.version>1.1.1</auto-service.version>
         <asm.version>9.10.1</asm.version>
         <errorprone.version>2.49.0</errorprone.version>
+        <checkerframework.version>3.49.5</checkerframework.version>
         <mime4j.version>0.8.14</mime4j.version>
         <surefire.version>3.5.5</surefire.version>
         <jaxws-rt.version>4.0.4</jaxws-rt.version>
@@ -531,6 +532,16 @@
                 <groupId>com.google.auto.service</groupId>
                 <artifactId>auto-service-annotations</artifactId>
                 <version>${auto-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.checkerframework</groupId>
+                <artifactId>checker-qual</artifactId>
+                <version>${checkerframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.checkerframework</groupId>
+                <artifactId>checker</artifactId>
+                <version>${checkerframework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -1070,6 +1081,8 @@
                         <compilerArg>-XDaddTypeAnnotationsToSymbol=true</compilerArg>
                         <compilerArg>--should-stop=ifError=FLOW</compilerArg>
                         <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/org/(jaxen|w3c)/.* -Xep:MissingOverride:ERROR -Xep:StatementSwitchToExpressionSwitch:ERROR -Xep:PatternMatchingInstanceof:ERROR</compilerArg>
+                        <compilerArg>-processor org.checkerframework.common.subtyping.SubtypingChecker</compilerArg>
+                        <compilerArg>-Aquals=org.apache.axiom.core.stream.qual.StringOrCharacterData</compilerArg>
                         <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</compilerArg>
                         <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</compilerArg>
                         <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</compilerArg>
@@ -1091,6 +1104,16 @@
                             <groupId>com.google.auto.service</groupId>
                             <artifactId>auto-service</artifactId>
                             <version>${auto-service.version}</version>
+                        </annotationProcessorPath>
+                        <annotationProcessorPath>
+                            <groupId>org.checkerframework</groupId>
+                            <artifactId>checker</artifactId>
+                            <version>${checkerframework.version}</version>
+                        </annotationProcessorPath>
+                        <annotationProcessorPath>
+                            <groupId>org.apache.ws.commons.axiom</groupId>
+                            <artifactId>checker-qual</artifactId>
+                            <version>${project.version}</version>
                         </annotationProcessorPath>
                     </annotationProcessorPaths>
                 </configuration>

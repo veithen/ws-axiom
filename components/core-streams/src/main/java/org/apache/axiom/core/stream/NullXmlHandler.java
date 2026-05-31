@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.core.stream;
 
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
+
 public final class NullXmlHandler implements XmlHandler {
     public static final NullXmlHandler INSTANCE = new NullXmlHandler();
 
@@ -55,7 +57,7 @@ public final class NullXmlHandler implements XmlHandler {
     public void attributesCompleted() throws StreamException {}
 
     @Override
-    public void processCharacterData(Object data, boolean ignorable) throws StreamException {}
+    public void processCharacterData(@StringOrCharacterData Object data, boolean ignorable) throws StreamException {}
 
     @Override
     public void startProcessingInstruction(String target) throws StreamException {}

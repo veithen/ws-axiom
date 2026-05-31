@@ -19,6 +19,7 @@
 package org.apache.axiom.core.stream;
 
 import java.io.IOException;
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 
 /**
  * A reusable {@link CharacterData} implementation backed by a {@code char[]} slice. Instances are
@@ -65,7 +66,7 @@ public final class CharArrayCharacterData implements CharacterData {
     }
 
     @Override
-    public Object retain() {
+    public @StringOrCharacterData Object retain() {
         return new String(ch, start, length);
     }
 }

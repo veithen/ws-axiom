@@ -27,6 +27,7 @@ import org.apache.axiom.core.stream.CharacterData;
 import org.apache.axiom.core.stream.CharacterDataSink;
 import org.apache.axiom.core.stream.StreamException;
 import org.apache.axiom.core.stream.XmlHandler;
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 import org.apache.axiom.core.stream.serializer.writer.UnmappableCharacterHandler;
 import org.apache.axiom.core.stream.serializer.writer.WriterXmlWriter;
 import org.apache.axiom.core.stream.serializer.writer.XmlWriter;
@@ -479,7 +480,7 @@ public final class Serializer implements XmlHandler, CharacterDataSink {
     }
 
     @Override
-    public void processCharacterData(Object data, boolean ignorable) throws StreamException {
+    public void processCharacterData(@StringOrCharacterData Object data, boolean ignorable) throws StreamException {
         closeStartTag();
         if (data instanceof CharacterData characterData) {
             try {

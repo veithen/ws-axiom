@@ -20,6 +20,7 @@ package org.apache.axiom.om.impl.common;
 
 import org.apache.axiom.core.stream.StreamException;
 import org.apache.axiom.core.stream.XmlHandler;
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 import org.apache.axiom.core.stream.util.CharacterDataAccumulator;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMContainer;
@@ -119,7 +120,7 @@ public final class SAXResultContentHandler implements XmlHandler {
     public void attributesCompleted() {}
 
     @Override
-    public void processCharacterData(Object data, boolean ignorable) {
+    public void processCharacterData(@StringOrCharacterData Object data, boolean ignorable) {
         if (buffering) {
             buffer.append(data);
         } else {

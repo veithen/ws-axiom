@@ -19,11 +19,12 @@
 package org.apache.axiom.core.stream.util;
 
 import org.apache.axiom.core.stream.CharacterData;
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 
 public class CharacterDataAccumulator {
     private Object content;
 
-    public void append(Object data) {
+    public void append(@StringOrCharacterData Object data) {
         if (content == null) {
             content = data instanceof CharacterData cd ? cd.retain() : data;
         } else {

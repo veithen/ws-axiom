@@ -20,6 +20,8 @@ package org.apache.axiom.core.stream.stax.pull.output;
 
 import javax.xml.stream.XMLStreamReader;
 
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
+
 public interface InternalXMLStreamReader extends XMLStreamReader {
     String getRootName();
 
@@ -27,5 +29,5 @@ public interface InternalXMLStreamReader extends XMLStreamReader {
 
     String getSystemId();
 
-    Object getCharacterData();
+    @StringOrCharacterData Object getCharacterData();
 }

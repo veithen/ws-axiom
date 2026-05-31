@@ -25,6 +25,7 @@ import org.apache.axiom.core.ClonePolicy;
 import org.apache.axiom.core.CloneableCharacterData;
 import org.apache.axiom.core.stream.CharacterData;
 import org.apache.axiom.core.stream.CharacterDataSink;
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 import org.apache.axiom.ext.stax.BlobProvider;
 import org.apache.axiom.mime.PartBlob;
 import org.apache.axiom.om.OMCloneOptions;
@@ -200,7 +201,7 @@ public final class TextContent implements CloneableCharacterData {
     }
 
     @Override
-    public Object retain() {
+    public @StringOrCharacterData Object retain() {
         return this;
     }
 }

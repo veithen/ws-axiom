@@ -24,6 +24,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 import org.apache.axiom.core.stream.StreamException;
 import org.apache.axiom.core.stream.XmlHandler;
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
 import org.apache.axiom.core.stream.serializer.Serializer;
 import org.apache.axiom.core.stream.util.CharacterDataAccumulator;
 import org.apache.axiom.ext.stax.BlobProvider;
@@ -142,7 +143,7 @@ public class XMLStreamWriterHandler implements XmlHandler {
     }
 
     @Override
-    public void processCharacterData(Object data, boolean ignorable) throws StreamException {
+    public void processCharacterData(@StringOrCharacterData Object data, boolean ignorable) throws StreamException {
         if (buffering) {
             buffer.append(data);
             return;

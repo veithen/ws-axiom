@@ -18,6 +18,8 @@
  */
 package org.apache.axiom.core;
 
+import org.apache.axiom.core.stream.qual.StringOrCharacterData;
+
 public interface CoreCharacterDataSinkNode {
-    void coreSetCharacterData(Object data, Semantics semantics) throws CoreModelException;
+    void coreSetCharacterData(@StringOrCharacterData Object data, Semantics semantics) throws CoreModelException;
 }

@@ -32,6 +32,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>checker-qual</artifactId>
+            <version>${project.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
         </dependency>
