@@ -20,6 +20,7 @@ package org.apache.axiom.core.stream;
 
 import java.io.IOException;
 import org.apache.axiom.core.stream.qual.StringOrCharacterData;
+import org.checkerframework.framework.qual.DefaultQualifierForUse;
 
 // TODO: clean up this Javadoc
 /**
@@ -27,6 +28,7 @@ import org.apache.axiom.core.stream.qual.StringOrCharacterData;
  * instance. The content of a {@link CoreCharacterDataNode} is either a {@link String} object or an
  * instance of this interface.
  */
+@DefaultQualifierForUse(StringOrCharacterData.class)
 public interface CharacterData {
     @Override
     String toString();

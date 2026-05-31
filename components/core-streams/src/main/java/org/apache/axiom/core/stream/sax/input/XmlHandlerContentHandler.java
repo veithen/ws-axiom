@@ -313,7 +313,6 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
     }
 
     @Override
-    @SuppressWarnings("subtyping")
     public void characters(char[] ch, int start, int length) throws SAXException {
         if (!inEntityReference) {
             try {
@@ -326,7 +325,6 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
     }
 
     @Override
-    @SuppressWarnings("subtyping")
     public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
         if (!inEntityReference) {
             try {
@@ -353,7 +351,6 @@ public final class XmlHandlerContentHandler implements ContentHandler, LexicalHa
     }
 
     @Override
-    @SuppressWarnings("subtyping")
     public void comment(char[] ch, int start, int length) throws SAXException {
         if (!inEntityReference) {
             try {
