@@ -34,6 +34,7 @@
     <modules>
         <module>base64-utils</module>
         <module>blob</module>
+        <module>checker-annotations</module>
         <module>core-streams</module>
         <module>io</module>
         <module>namespace-utils</module>
