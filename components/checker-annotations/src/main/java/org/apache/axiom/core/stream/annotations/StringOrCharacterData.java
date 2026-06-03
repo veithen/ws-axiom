@@ -32,7 +32,7 @@ import org.checkerframework.framework.qual.SubtypeOf;
  * only {@link String}, {@link org.apache.axiom.core.stream.CharacterData}, or another {@code
  * @StringOrCharacterData Object} can be assigned to a position annotated with this qualifier.
  */
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.CLASS)
 @Target({ElementType.TYPE_USE})
 @SubtypeOf(UnknownCharacterDataType.class)
 public @interface StringOrCharacterData {}

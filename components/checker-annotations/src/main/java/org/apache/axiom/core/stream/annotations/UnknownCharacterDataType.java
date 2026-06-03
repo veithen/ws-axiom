@@ -29,7 +29,7 @@ import org.checkerframework.framework.qual.SubtypeOf;
  * The top type in the StringOrCharacterData type hierarchy. This is the default qualifier for
  * unannotated types and represents an unknown character data type.
  */
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.CLASS)
 @Target({ElementType.TYPE_USE})
 @SubtypeOf({})
 @DefaultQualifierInHierarchy
