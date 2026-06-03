@@ -18,6 +18,7 @@
  */
 package org.apache.axiom.checker;
 
+import com.sun.source.tree.BinaryTree;
 import java.lang.annotation.Annotation;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -64,7 +65,22 @@ public class StringOrCharacterDataAnnotatedTypeFactory extends BaseAnnotatedType
 
     @Override
     protected TreeAnnotator createTreeAnnotator() {
-        return new ListTreeAnnotator(super.createTreeAnnotator());
+        return new ListTreeAnnotator(super.createTreeAnnotator(), new StringOrCharacterDataTreeAnnotator(this));
+    }
+
+    private class StringOrCharacterDataTreeAnnotator extends TreeAnnotator {
+
+        StringOrCharacterDataTreeAnnotator(StringOrCharacterDataAnnotatedTypeFactory factory) {
+            super(factory);
+        }
+
+        @Override
+        public Void visitBinary(BinaryTree node, AnnotatedTypeMirror type) {
+            if (TypesUtils.isString(type.getUnderlyingType())) {
+                type.replaceAnnotation(STRING_OR_CHARACTER_DATA);
+            }
+            return null;
+        }
     }
 
     @Override
