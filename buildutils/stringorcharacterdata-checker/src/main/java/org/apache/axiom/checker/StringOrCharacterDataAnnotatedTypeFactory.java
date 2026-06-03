@@ -68,6 +68,13 @@ public class StringOrCharacterDataAnnotatedTypeFactory extends BaseAnnotatedType
         return new ListTreeAnnotator(super.createTreeAnnotator(), new StringOrCharacterDataTreeAnnotator(this));
     }
 
+    /**
+     * Runs after {@link org.checkerframework.framework.type.treeannotator.PropagationTreeAnnotator}
+     * and re-applies {@code @StringOrCharacterData} to binary expressions whose result type is
+     * {@link String}. This is necessary because {@code PropagationTreeAnnotator} computes the LUB
+     * of the operand qualifiers for binary {@code +}, so a string concatenation such as {@code
+     * "literal " + intValue} would otherwise produce {@code @UnknownCharacterDataType String}.
+     */
     private class StringOrCharacterDataTreeAnnotator extends TreeAnnotator {
 
         StringOrCharacterDataTreeAnnotator(StringOrCharacterDataAnnotatedTypeFactory factory) {
