@@ -1430,12 +1430,6 @@ $${type_declaration}</template></templates>]]></value>
         </profile>
         <profile>
             <id>checkerframework</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.checkerframework</groupId>
-                    <artifactId>checker-qual</artifactId>
-                </dependency>
-            </dependencies>
             <build>
                 <plugins>
                     <plugin>
