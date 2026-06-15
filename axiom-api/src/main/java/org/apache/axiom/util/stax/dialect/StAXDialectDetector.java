@@ -67,7 +67,7 @@ public class StAXDialectDetector {
      * points to the root folder of the archive.
      */
     private static final Map<URL, StAXDialect> dialectByUrl =
-            Collections.synchronizedMap(new HashMap<URL, StAXDialect>());
+            Collections.synchronizedMap(new HashMap<>());
 
     private StAXDialectDetector() {}
 
