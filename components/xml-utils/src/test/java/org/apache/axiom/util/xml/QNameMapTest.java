@@ -34,8 +34,7 @@ public class QNameMapTest {
 
     @Test
     public void testGetWithNullLocalPart() {
-        assertThatThrownBy(() -> new QNameMap<>().get("urn:test", null))
-                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new QNameMap<>().get("urn:test", null)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
