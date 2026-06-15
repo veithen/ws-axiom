@@ -56,9 +56,7 @@ public final class TextContent implements CloneableCharacterData {
     }
 
     public TextContent(
-            String contentID,
-            @Union(types = {Blob.class, BlobProvider.class}) Object blobObject,
-            boolean optimize) {
+            String contentID, @Union(types = {Blob.class, BlobProvider.class}) Object blobObject, boolean optimize) {
         this.value = null;
         this.contentID = contentID;
         this.blobObject = blobObject;
